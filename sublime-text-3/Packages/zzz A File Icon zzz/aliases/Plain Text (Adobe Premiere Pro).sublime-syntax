@@ -1,0 +1,11 @@
+%YAML 1.2
+---
+name: Plain Text (Adobe Premiere Pro)
+scope: text.plain.premiere
+hidden: true
+file_extensions:
+  - prel
+  - prproj
+  - psq
+contexts:
+  main: []

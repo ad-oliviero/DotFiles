@@ -1,0 +1,13 @@
+%YAML 1.2
+---
+name: Plain Text (Font)
+scope: text.plain.font
+hidden: true
+file_extensions:
+  - eot
+  - otf
+  - ttf
+  - woff
+  - woff2
+contexts:
+  main: []

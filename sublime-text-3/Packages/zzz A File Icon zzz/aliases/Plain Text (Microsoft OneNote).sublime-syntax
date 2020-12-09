@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Microsoft OneNote)
+scope: text.plain.onenote
+hidden: true
+file_extensions:
+  - one
+contexts:
+  main: []

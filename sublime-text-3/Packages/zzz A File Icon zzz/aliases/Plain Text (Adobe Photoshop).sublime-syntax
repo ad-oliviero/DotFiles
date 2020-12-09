@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+name: Plain Text (Adobe Photoshop)
+scope: text.plain.ps
+hidden: true
+file_extensions:
+  - psb
+  - psd
+contexts:
+  main: []

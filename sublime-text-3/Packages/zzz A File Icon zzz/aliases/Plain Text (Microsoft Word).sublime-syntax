@@ -1,0 +1,15 @@
+%YAML 1.2
+---
+name: Plain Text (Microsoft Word)
+scope: text.plain.word
+hidden: true
+file_extensions:
+  - doc
+  - docx
+  - docm
+  - docxml
+  - dotm
+  - dotx
+  - wri
+contexts:
+  main: []

@@ -1,0 +1,91 @@
+colors:
+  # Default colors
+  primary:
+    # background: "#1e2127"
+    background: "#06091E"
+    # background: "#2E3440"
+    foreground: "#646464"
+
+  # Normal colors
+  normal:
+    black: "#000000"
+    red: "#CD0000"
+    green: "#00CD00"
+    yellow: "#CDCD00"
+    blue: "#0000EE"
+    magenta: "#CD00CD"
+    cyan: "#00CDCD"
+    white: "#E5E5E5"
+
+# Bright colors
+bright:
+  black: "#7F7F7F"
+  red: "#FF0000"
+  green: "#00FF00"
+  yellow: "#FFFF00"
+  blue: "#5C5CFF"
+  magenta: "#FF00FF"
+  cyan: "#00FFFF"
+  white: "#FFFFFF"
+
+background_opacity: 0.99
+
+cursor: # Cursor style
+  #   - ▇ Block
+  #   - _ Underline
+  #   - | Beam
+  style: Beam
+
+font:
+  normal:
+    family: "Roboto Mono"
+    style: Regular
+  bold:
+    family: "Roboto Mono"
+    style: Bold
+  italic:
+    family: "Roboto Mono"
+    style: Italic
+  bold_italic:
+    family: "Roboto Mono"
+    style: Bold Italic
+
+  # Point size
+  size: 10.0
+
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+
+window:
+  padding:
+    x: 2
+    y: 2
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 10000
+
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  multiplier: 10
+
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: true
+
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+  save_to_clipboard: true
+
+live_config_reload: true
+
+key_bindings:
+  - { key: V, mods: Control|Alt, action: Paste }
+  - { key: C, mods: Control|Alt, action: Copy }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Plus, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }

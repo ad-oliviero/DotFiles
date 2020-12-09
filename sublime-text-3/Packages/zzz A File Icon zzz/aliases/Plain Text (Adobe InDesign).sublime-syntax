@@ -1,0 +1,14 @@
+%YAML 1.2
+---
+name: Plain Text (Adobe InDesign)
+scope: text.plain.indesign
+hidden: true
+file_extensions:
+  - indd
+  - indl
+  - indt
+  - indb
+  - inx
+  - idml
+contexts:
+  main: []

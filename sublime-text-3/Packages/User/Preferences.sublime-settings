@@ -1,0 +1,9 @@
+{
+	"color_scheme": "Packages/ayu/ayu-dark.sublime-color-scheme",
+	"font_size": 12,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"theme": "ayu-dark.sublime-theme"
+}

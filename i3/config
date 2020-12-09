@@ -1,0 +1,173 @@
+# ---INIT---
+set $mod Mod4
+font pango:ttf-roboto 9
+# Creating workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+# Keyboard and mouse
+exec_alway snumlockx on
+exec_always setxkbmap it
+exec_always xinput set-prop 9 299 -0.8
+exec_always xinput set-prop 9 302 0 1
+
+# Some daemons, startup programs and the compositor
+exec --no-startup-id nm-applet
+set $wallpaper ~/Immagini/tiger.png
+exec_always feh --bg-fill $wallpaper #exec_always wal -a 90 -i $wallpaper
+exec_always picom --experimental-backends --backend glx
+exec_always xrandr --output DisplayPort-1 --brightness 1
+exec_always xset s off
+exec_always xset -dpms
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id dunst
+exec_always sudo ./~/.config/scripts/anbox-bridge.sh start #anbox internet bridge
+exec_always v4l2-ctl -d /dev/video42 -c timeout=3000
+
+# Navigation&System bindings
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioStop exec playerctl stop
+
+bindsym $mod+Shift+k exec i3-msg exit
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
+bindsym $mod+x exec ~/.config/scripts/lock
+bindsym --release Print exec maim ~/Immagini/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+
+# Moving containers
+bindsym $mod+Shift+q kill
+floating_modifier $mod
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+#Layout
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+mode "resize" {
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# Gaps and borders
+for_window [class="^.*"] border pixel 0
+#border_radius 15
+gaps inner 10
+gaps outer 0
+    #smart_borders on
+    #set $mode_gaps Gaps: (o) outer, (i) inner
+    #set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+    #set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+    #bindsym $mod+Shift+g mode "$mode_gaps"
+    #mode "$mode_gaps" {
+    #        bindsym o      mode "$mode_gaps_outer"
+    #        bindsym i      mode "$mode_gaps_inner"
+    #        bindsym Return mode "default"
+    #        bindsym Escape mode "default"
+    #}
+    #mode "$mode_gaps_inner" {
+    #        bindsym plus  gaps inner current plus 5
+    #        bindsym minus gaps inner current minus 5
+    #        bindsym 0     gaps inner current set 0
+    #
+    #        bindsym Shift+plus  gaps inner all plus 5
+    #        bindsym Shift+minus gaps inner all minus 5
+    #        bindsym Shift+0     gaps inner all set 0
+    #
+    #        bindsym Return mode "default"
+    #        bindsym Escape mode "default"
+    #}
+    #mode "$mode_gaps_outer" {
+    #        bindsym plus  gaps outer current plus 5
+    #        bindsym minus gaps outer current minus 5
+    #        bindsym 0     gaps outer current set 0
+    #
+    #        bindsym Shift+plus  gaps outer all plus 5
+    #        bindsym Shift+minus gaps outer all minus 5
+    #        bindsym Shift+0     gaps outer all set 0
+    #
+    #        bindsym Return mode "default"
+    #        bindsym Escape mode "default"
+    #}
+
+# Colors
+set $bgcolor	#00897b00
+set $ibgcolor	#36363600
+set $textcolor	#ffffff00
+set $itextcolor	#96969600
+set $ubgcolor	#ff0000
+#			border		background	text		indicator
+client.focused		$bgcolor	$bgcolor	$textcolor	$bgcolor
+client.unfocused	$ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
+client.focused_inactive	$ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
+client.urgent		$ubgcolor	$ubgcolor	$textcolor	$ubgcolor
+
+# Extra things
+for_window [class="spotify"] exec blockify
+for_window [window_role="pop-up"] floating enable
+for_window [class="carbonic"] floating enable
+bindsym $mod+n exec pcmanfm
+exec_always xsetroot -cursor_name left_ptr
+
+# Disco Dati -- Personal second disk, you don't need it
+exec_always sudo mkdir /media/adri/Disco\ Dati
+exec_always sudo ntfs-3g /dev/sdb1 /media/adri/Disco\ Dati

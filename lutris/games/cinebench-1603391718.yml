@@ -1,0 +1,6 @@
+game:
+  arch: win64
+  exe: /home/adri/Games/cinebench/Cinebench.exe
+system: {}
+wine:
+  esync: true

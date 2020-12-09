@@ -1,0 +1,21 @@
+%YAML 1.2
+---
+name: Plain Text (Microsoft Access)
+scope: text.plain.access
+hidden: true
+file_extensions:
+  - adn
+  - accdb
+  - accdr
+  - accdt
+  - accda
+  - mdw
+  - accde
+  - mam
+  - maq
+  - mar
+  - mat
+  - maf
+  - laccdb
+contexts:
+  main: []

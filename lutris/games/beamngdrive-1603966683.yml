@@ -1,0 +1,8 @@
+game:
+  arch: win64
+  exe: /home/adri/Games/beamng-drive/BeamNG.drive.exe
+  prefix: ''
+system:
+  env:
+    DXVK_HUD: '0'
+wine: {}

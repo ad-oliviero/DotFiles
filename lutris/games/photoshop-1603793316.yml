@@ -1,0 +1,6 @@
+game:
+  arch: win64
+  exe: /media/adri/Disco Dati/Programmi/Adobe Photoshop 2020/Photoshop.exe
+system: {}
+wine:
+  esync: false

@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+name: Plain Text (Windows Shortcut)
+scope: text.plain.lnk
+hidden: true
+file_extensions:
+  - lnk
+contexts:
+  main: []
