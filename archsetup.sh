@@ -1,4 +1,4 @@
-sudo pacman -Syyu --noconfirm xf86-video-amdgpu xorg-server xorg-xinit zsh alacritty rofi pcmanfm dunst feh pulseaudio maim ttf-font-awesome ttf-roboto lightdm
+sudo pacman -Syyu --noconfirm xf86-video-amdgpu xorg-server xorg-xinit zsh alacritty rofi pcmanfm dunst feh pulseaudio maim ttf-font-awesome ttf-roboto lightdm polkit-gnome
 sudo systemctl enable lightdm
 cd /etc/X11/xorg.conf.d/
 echo 'Section "Device"' >> 20-amdgpu.conf

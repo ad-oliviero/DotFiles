@@ -15,11 +15,12 @@ set $ws10 "10"
 # Keyboard and mouse
 exec_alway snumlockx on
 exec_always setxkbmap it
-exec_always xinput set-prop 9 299 -0.8
-exec_always xinput set-prop 9 302 0 1
+exec_always xinput set-prop 9 293 -0.8
+exec_always xinput set-prop 9 296 0 1
 
 # Some daemons, startup programs and the compositor
 exec --no-startup-id nm-applet
+exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 set $wallpaper ~/Immagini/tiger.png
 exec_always feh --bg-fill $wallpaper #exec_always wal -a 90 -i $wallpaper
 exec_always picom --experimental-backends --backend glx
@@ -74,6 +75,8 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
 
 #Layout
 bindsym $mod+h split h
@@ -165,7 +168,8 @@ client.urgent		$ubgcolor	$ubgcolor	$textcolor	$ubgcolor
 for_window [class="spotify"] exec blockify
 for_window [window_role="pop-up"] floating enable
 for_window [class="carbonic"] floating enable
-bindsym $mod+n exec pcmanfm
+for_window [class="haguichi"] floating enable
+bindsym $mod+n exec thunar
 exec_always xsetroot -cursor_name left_ptr
 
 # Disco Dati -- Personal second disk, you don't need it
