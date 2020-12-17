@@ -6,7 +6,7 @@ My DotFiles
 
 ## Dependances:
 
-- WM: [i3-gaps-rounded](https://aur.archlinux.org/packages/i3-gaps-rounded-git/)
+- WM: [i3-gaps](https://aur.archlinux.org/packages/i3-gaps/)
 
 - Compositor: [Picom](https://wiki.archlinux.org/index.php/Picom)
 
