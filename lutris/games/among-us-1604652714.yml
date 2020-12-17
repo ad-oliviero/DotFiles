@@ -1,6 +1,0 @@
-game:
-  arch: win64
-  exe: /home/adri/Games/among-us/Among Us.exe
-system: {}
-wine:
-  esync: true

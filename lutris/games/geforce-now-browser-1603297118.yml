@@ -1,7 +1,0 @@
-game:
-  main_file: https://play.geforcenow.com/
-web:
-  open_links: true
-  user_agent: Mozilla/5.0 (X11; CrOS x86_64 13099.85.0) AppleWebKit/537.36 (KHTML,
-    like Gecko) Chrome/84.0.4147.110 Safari/537.36
-  window_size: 1280x720
