@@ -1,0 +1,28 @@
+#/bin/sh
+
+alias \
+    update="topgrade -y --no-retry" \
+    cache="yay -Yc --noconfirm && topgrade --cleanup --no-retry --yes && trash-empty" \
+    untar="tar -zxvf" \
+    cp="cp -iv" \
+    mv="mv -iv" \
+    rm="rm -v" \
+    md="mkdir -pv" \
+    yt="youtube-dl --add-metadata -i" \
+    myip="curl ipinfo.io/ip" \
+    pacman="sudo pacman" \
+    ysy="yay" \
+    yya="yay" \
+    ayy="yay" \
+    yys="yay" \
+    ya="yay" \
+    pacmna="pacman" \
+    pacma="pacman" \
+    pcman="pacman" \
+    pcaman="pacman" \
+    pc="cp" \
+    vm="mv" \
+    dc="cd" \
+    mr="rm" \
+
+

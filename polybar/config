@@ -58,7 +58,7 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = fixed:pixelsize=10;1
+font-0 = Roboto:style=regular:size=10.5:antialias=true;2
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = Font Awesome 5 Free:pixelsize=12;2
@@ -67,7 +67,7 @@ font-5 = Font Awesome 5 Free Brands:pixelsize=12;2
 
 modules-left = i3
 modules-center = date ;xwindow
-modules-right = spotify filesystem memory cpu left-internet wifi-download wifi-upload right-internet pulseaudio
+modules-right = filesystem memory cpu left-internet wifi-download wifi-upload right-internet pulseaudio
 
 separator = "  "
 

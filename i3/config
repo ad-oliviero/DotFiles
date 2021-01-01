@@ -15,14 +15,16 @@ set $ws10 "10"
 # Keyboard and mouse
 exec_alway snumlockx on
 exec_always setxkbmap it
-exec_always xinput set-prop 9 293 -0.8
-exec_always xinput set-prop 9 296 0 1
+exec_always xinput set-prop 9 309 -0.5
+exec_always xinput set-prop 9 312 0 1
+exec_always xinput set-prop 21 363 -0.5
+exec_always xinput set-prop 21 366 0 1
 
 # Some daemons, startup programs and the compositor
+exec_always --no-startup-id dconf reset -f /org/gnome/control-center/
 exec --no-startup-id nm-applet
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-set $wallpaper ~/Immagini/tiger.png
-exec_always feh --bg-fill $wallpaper #exec_always wal -a 90 -i $wallpaper
+exec_always feh --bg-fill ~/Pictures/cyberfennec.jpg
 exec_always picom --experimental-backends --backend glx
 exec_always xrandr --output DisplayPort-1 --brightness 1
 exec_always xset s off
@@ -46,15 +48,14 @@ bindsym XF86AudioStop exec playerctl stop
 bindsym $mod+Shift+k exec i3-msg exit
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty #i3-sensible-terminal
 bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
 bindsym $mod+x exec ~/.config/scripts/lock
-bindsym --release Print exec maim ~/Immagini/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym --release Print exec maim ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
 
 # Moving containers
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 floating_modifier $mod
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -169,9 +170,11 @@ for_window [class="spotify"] exec blockify
 for_window [window_role="pop-up"] floating enable
 for_window [class="carbonic"] floating enable
 for_window [class="haguichi"] floating enable
-bindsym $mod+n exec thunar
+for_window [class="gnome-calendar"] floating enable
+bindsym $mod+n exec pcmanfm
 exec_always xsetroot -cursor_name left_ptr
 
 # Disco Dati -- Personal second disk, you don't need it
-exec_always sudo mkdir /media/adri/Disco\ Dati
-exec_always sudo ntfs-3g /dev/sdb1 /media/adri/Disco\ Dati
+exec sudo mkdir /run/media/adri/22929ACA929AA239
+exec sudo ntfs-3g /dev/sdb2 /run/media/adri/22929ACA929AA239
+exec sudo chown -R adri:wheel /run/media/adri/22929ACA929AA239
