@@ -11,6 +11,7 @@ alias \
     yt="youtube-dl --add-metadata -i" \
     myip="curl ipinfo.io/ip" \
     pacman="sudo pacman" \
+    free="free -h" \
     ysy="yay" \
     yya="yay" \
     ayy="yay" \
