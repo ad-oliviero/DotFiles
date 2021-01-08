@@ -13,7 +13,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 # Keyboard and mouse
-exec_alway snumlockx on
+exec_always snumlockx on
 exec_always setxkbmap it
 exec_always xinput set-prop 9 309 -0.5
 exec_always xinput set-prop 9 312 0 1
@@ -173,8 +173,3 @@ for_window [class="haguichi"] floating enable
 for_window [class="gnome-calendar"] floating enable
 bindsym $mod+n exec pcmanfm
 exec_always xsetroot -cursor_name left_ptr
-
-# Disco Dati -- Personal second disk, you don't need it
-exec sudo mkdir /run/media/adri/22929ACA929AA239
-exec sudo ntfs-3g /dev/sdb2 /run/media/adri/22929ACA929AA239
-exec sudo chown -R adri:wheel /run/media/adri/22929ACA929AA239

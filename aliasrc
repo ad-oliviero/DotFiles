@@ -1,9 +1,11 @@
 #/bin/sh
 
 alias \
-    update="topgrade -y --no-retry" \
-    cache="yay -Yc --noconfirm && topgrade --cleanup --no-retry --yes && trash-empty" \
-    untar="tar -zxvf" \
+    update="topgrade --cleanup --no-retry --yes && trash-empty" \
+    remove="echo 'WARNING: FORCED UNINSTALLING' && yay -Rddns" \
+    si="pacman -Q | grep" \
+    ungz="tar -zxvf" \
+    unxz="tar -xf" \
     cp="cp -iv" \
     mv="mv -iv" \
     rm="rm -v" \

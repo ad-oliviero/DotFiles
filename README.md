@@ -1,12 +1,12 @@
 # DotFiles
 
-My DotFiles
+My DotFiles (the screenshot below is old, I should update it)
 
 ![dotfiles.png](https://github.com/TheDarkBug/DotFiles/blob/main/dotfiles.png)
 
 ## Dependances:
 
-- WM: [i3-gaps](https://aur.archlinux.org/packages/i3-gaps/)
+- WM: [xmonad](https://archlinux.org/packages/community/x86_64/xmonad/) + [xmonad-contrib](https://archlinux.org/packages/community/x86_64/xmonad-contrib/), or [i3-gaps](https://aur.archlinux.org/packages/i3-gaps/)
 
 - Compositor: [Picom](https://wiki.archlinux.org/index.php/Picom)
 
@@ -24,9 +24,9 @@ My DotFiles
 
 - File manager: [Thunar](https://wiki.archlinux.org/index.php/Thunar)
 
-- Background: [Feh](https://feh.finalrewind.org/)
+- Background manager: [Feh](https://feh.finalrewind.org/)
 
-- Fonts: [Roboto](https://fonts.google.com/specimen/Roboto), [Awesome 5](https://fontawesome.com/)
+- Fonts: [Roboto](https://fonts.google.com/specimen/Roboto), [JetBrains Mono](https://www.jetbrains.com/lp/mono/), [Awesome 5]([Font Awesome](https://fontawesome.com/))
 
 - Notifications: [Dunst](https://dunst-project.org/)
 
@@ -38,7 +38,7 @@ My DotFiles
 
 **<u>Make Backups</u>**
 
-After instaling dependances, copy all the folders (except for .oh-my-zsh) in ~/.config/
+After instaling dependances, copy all the folders (except for .oh-my-zsh and .xmonad) in ~/.config/
 
 ```shell
 git clone https://github.com/TheDarkBug/DotFiles.git && cd DotFiles
@@ -48,8 +48,8 @@ cp -rt ~/.config alacritty/ dunst/ i3/ picom/ polybar/ rofi/ scripts/
 Now copy .zshrc and in the home directory and pwbgld.png in ~/Pictures/
 
 ```shell
-cp .zshrc ~/
-cp pwbgld.png ~/Pictures/
+cp -t ~/ .zshrc .xmonad
+cp -t ~/Pictures/ *.png *.jpg
 ```
 
 To configure PowerLevel10k, run ```p10k configure``` in terminal and follow the instructions.

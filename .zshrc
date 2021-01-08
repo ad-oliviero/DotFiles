@@ -1,4 +1,4 @@
-neofetch | lolcat
+cfetch #| lolcat
 
 if [ -f ~/.config/aliasrc ]; then
     source ~/.config/aliasrc
@@ -15,9 +15,9 @@ export ZSH="/home/adri/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons # cursor theme path
 
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions command-not-found colored-man-pages emoji  gpg-agent pip python sudo systemd )
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions colored-man-pages emoji  gpg-agent pip python sudo systemd)
 
 source $ZSH/oh-my-zsh.sh
 
