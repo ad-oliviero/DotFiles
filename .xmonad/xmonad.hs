@@ -19,6 +19,8 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Spiral
+import XMonad.Layout.LayoutCombinators hiding ( (|||) )
 
 defaultTerminal = "alacritty"
 
@@ -26,13 +28,16 @@ borderWidth' = 2
 modMask'     = mod4Mask
 workspaces'  = ["1","2","3","4","5","6","7","8","9", "10"]
 
-normalBorderColor'  = "#2E3440"
-focusedBorderColor' = "#BF616A"
+normalBorderColor'  = "#5E81AC"
+focusedBorderColor' = "#D08770"
 
 keys' conf@XConfig {XMonad.modMask = modm} = M.fromList $
     [ ((modm,               xK_Return), spawn defaultTerminal                               )
-    , ((modm,               xK_n     ), spawn "pcmanfm"                                       )
+    , ((modm,                    xK_n), spawn "pcmanfm"                                     )
+    , ((modm .|. shiftMask,      xK_i), spawn "gthumb"                                      )
+    , ((modm,                    xK_x), spawn "~/.config/scripts/lock"                      )
     , ((modm,                    xK_d), spawn "rofi -show drun -show-icons -drun-icon-theme")
+    , ((modm .|. shiftMask,      xK_d), spawn "dmenu_run -l 10 -fn 'JetBrains Mono' -p run" )
     , ((modm,                    xK_e), spawn "rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh")
     , ((modm .|. shiftMask,      xK_e), io exitSuccess                                      )
     , ((0,                   xK_Print), spawn "maim ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png && notify-send Screenshot")
@@ -78,11 +83,15 @@ mouseBindings' XConfig {XMonad.modMask = modm} = M.fromList
                                        >> windows W.shiftMaster)
     ]
 
-layout' = mkToggle (NOBORDERS ?? FULL ?? EOT) $ tiledLayout ||| Mirror tiledLayout ||| noBorders Full               --smartBorders $ 
+layout' = mkToggle (NOBORDERS ?? FULL ?? EOT) $ --smartBorders $ 
+    tiledLayout
+    ||| (Tall 1 (3/100) (1/2) *//* Full)
+    ||| Mirror tiledLayout
+    ||| spiral (6/7)
 
 tiledLayout = outerGaps $ innerGaps $ Tall nmaster delta ratio
   where
-     gapsSize   = 5
+     gapsSize   = 0
      outerGaps  = gaps $ map (, gapsSize) [U, L, R, D]
      innerGaps  = spacing gapsSize
      nmaster    = 1
@@ -100,7 +109,13 @@ startupHook' = do
     spawn "numlockx on &"
     spawn "xinput set-prop 9 309 -0.5 &"
     spawn "xinput set-prop 9 312 1 0 &"
-    spawn "feh --bg-fill ~/Pictures/cyberfennec.jpg &"
+    spawn "xinput set-prop 21 363 -0.5 &"
+    spawn "xinput set-prop 21 366 0 1 &"
+    spawn "xinput set-prop 15 309 -0.5 &"
+    spawn "xinput set-prop 15 312 0 1 &"
+    spawn "xinput set-prop 18 284 1 0 &"
+    spawn "redshift -oP 4400K &"
+    spawn "feh --bg-fill ~/Pictures/waves-wallpaper-grayscale4k.png &"
     spawn "dconf reset -f /org/gnome/control-center/ &"
     spawn "~/.config/polybar/launch.sh &"
 

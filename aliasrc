@@ -1,17 +1,21 @@
-#/bin/sh
+#!/bin/sh
 
 alias \
-    update="topgrade --cleanup --no-retry --yes && trash-empty" \
-    remove="echo 'WARNING: FORCED UNINSTALLING' && yay -Rddns" \
+    update="topgrade --cleanup --no-retry --yes && trash-empty && nix-collect-garbage" \
+    remove="echo '\033[0;31m]WARNING: FORCED UNINSTALLING' && yay -Rddns" \
     si="pacman -Q | grep" \
     ungz="tar -zxvf" \
     unxz="tar -xf" \
     cp="cp -iv" \
     mv="mv -iv" \
     rm="rm -v" \
-    md="mkdir -pv" \
+    mkdir="mkdir -pv" \
+    md="mkdir" \
+    theme="~/.config/scripts/theme.sh" \
+    pipes="~/.config/scripts/pipes.sh" \
     yt="youtube-dl --add-metadata -i" \
-    myip="curl ipinfo.io/ip" \
+    yta="yt -x" \
+    myip="curl ipinfo.io/ip && printf '\n'" \
     pacman="sudo pacman" \
     free="free -h" \
     ysy="yay" \
@@ -27,5 +31,4 @@ alias \
     vm="mv" \
     dc="cd" \
     mr="rm" \
-
 

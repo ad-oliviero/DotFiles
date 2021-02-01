@@ -1,0 +1,10 @@
+max-visible=5
+sort=+time
+anchor=top-right
+font=Roboto
+background-color=#4C566A
+text-color=#D8DEE9
+border-size=3
+border-color=#2E3440
+border-radius=5
+default-timeout=60000
