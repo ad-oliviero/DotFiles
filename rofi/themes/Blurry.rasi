@@ -34,7 +34,8 @@ configuration {
 
 window {
     transparency:                   "real";
-    background-color:               @background;
+	fullscreen:						false;
+    background-color:               #282c34d0;//@background;
     text-color:                     @foreground;
     border-radius:                  10px;
     height:                         55%;

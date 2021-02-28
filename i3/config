@@ -15,8 +15,8 @@ set $ws10 "10"
 # Keyboard and mouse
 exec_always numlockx on
 exec_always setxkbmap it
-exec_always xinput set-prop 9 309 0
-exec_always xinput set-prop 9 312 0 1
+exec_always xinput set-prop 9 308 0
+exec_always xinput set-prop 9 311 0 1
 exec_always xinput set-prop 21 363 0
 exec_always xinput set-prop 21 366 0 1
 exec_always xsetroot -cursor_name left_ptr

@@ -1,34 +1,18 @@
 #!/bin/sh
 
 alias \
-    update="topgrade --cleanup --no-retry --yes && trash-empty && nix-collect-garbage" \
-    remove="echo '\033[0;31m]WARNING: FORCED UNINSTALLING' && yay -Rddns" \
-    si="pacman -Q | grep" \
-    ungz="tar -zxvf" \
-    unxz="tar -xf" \
-    cp="cp -iv" \
+    update="topgrade --cleanup --no-retry --yes" \
+    bandwidth="~/.config/scripts/bandwidth.sh" \
+	cache="~/.config/scripts/cache-clean.sh" \
+	cp="cp -iv" \
     mv="mv -iv" \
     rm="rm -v" \
     mkdir="mkdir -pv" \
     md="mkdir" \
-    theme="~/.config/scripts/theme.sh" \
     pipes="~/.config/scripts/pipes.sh" \
     yt="youtube-dl --add-metadata -i" \
     yta="yt -x" \
     myip="curl ipinfo.io/ip && printf '\n'" \
-    pacman="sudo pacman" \
-    free="free -h" \
-    ysy="yay" \
-    yya="yay" \
-    ayy="yay" \
-    yys="yay" \
-    ya="yay" \
-    pacmna="pacman" \
-    pacma="pacman" \
-    pcman="pacman" \
-    pcaman="pacman" \
-    pc="cp" \
-    vm="mv" \
-    dc="cd" \
-    mr="rm" \
-
+    ccat="highlight --out-format=ansi" \
+    starwars="telnet towel.blinkenlights.nl" \
+	simplettt="~/.config/scripts/simplettt.sh"

@@ -57,7 +57,7 @@
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "interval": 3,
-        "format-wifi": " {bandwidthUpOctets} |  {bandwidthUpOctets}",
+        "format-wifi": " {bandwidthDownBits} |  {bandwidthUpBits}",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠"
     },

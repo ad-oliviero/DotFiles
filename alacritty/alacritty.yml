@@ -1221,7 +1221,7 @@ schemes:
       cyan:    '0x00ffff'
       white:   '0xffffff'
 
-colors: *nord
+colors: *ayu_dark
 
 background_opacity: 1
 
@@ -1251,7 +1251,7 @@ cursor:
 
 scrolling:
   history: 10000
-  multiplier: 10
+  multiplier: 5
 
 selection:
   semantic_escape_chars: ',│`|:"'' ()[]{}<>'

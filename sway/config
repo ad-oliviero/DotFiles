@@ -30,10 +30,11 @@ exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-ag
 exec_always swaybg -i Pictures/waves-wallpaper-grayscale4k.png -m fill
 exec_always xset s on
 exec_always ~/.config/waybar/launch.sh
-exec_always --no-startup-id pkill -9 mako && mako
+exec_always --no-startup-id mako
 exec_always sudo ~/.config/scripts/anbox-bridge.sh start #anbox internet bridge
 exec_always v4l2-ctl -d /dev/video42 -c timeout=3000
 exec_always redshift -oP 4400K
+#exec_always pamusb-agent
 
 # Navigation&System bindings
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
@@ -53,7 +54,7 @@ bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
 bindsym $mod+Shift+d exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
 bindsym $mod+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
 bindsym $mod+l exec swaylock -C ~/.config/swaylock/config
-bindsym --release Print exec maim ~/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym --release Print exec swayshot && notify-send -t 2000 "Screenshot saved!"
 
 # Moving containers
 floating_modifier $mod
@@ -141,9 +142,6 @@ client.focused_inactive	$ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
 client.urgent		$ubgcolor	$ubgcolor	$textcolor	$ubgcolor
 
 # Extra things
-for_window [class="spotify"] exec blockify
 for_window [window_role="pop-up"] floating enable
-for_window [class="carbonic"] floating enable
-for_window [class="haguichi"] floating enable
-bindsym $mod+n exec pcmanfm
+bindsym $mod+n exec nautilus
 include @sysconfdir@/sway/config.d/*
