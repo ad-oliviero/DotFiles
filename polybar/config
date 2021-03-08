@@ -1,8 +1,8 @@
 [colors]
-background = #282c34
-background-alt = #99444
-foreground = #ECEFF4
-foreground-alt = #D8DEE9
+background = #0A0E14
+background-alt = #1F2430
+foreground = #B3B1AD
+foreground-alt = #CBCCC6
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
@@ -32,7 +32,7 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-color = ${colors.aurora_red}
+line-color = #FF3333
 line-size = 1
 
 padding-left = 2
@@ -42,7 +42,7 @@ module-margin-right = 0
 
 separator = " | "
 
-font-0 = Roboto:style=regular:size=10.5:antialias=true;1
+font-0 = ttf-opensans:style=regular:size=10.5:antialias=true;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;0
 font-3 = Font Awesome 5 Free:pixelsize=12;0

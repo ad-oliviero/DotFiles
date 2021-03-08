@@ -2,7 +2,6 @@ if command -v theme.sh > /dev/null; then
 	export THEME_HISTFILE=~/.theme_history
 	[ -e "$THEME_HISTFILE" ] && theme.sh "$(theme.sh -l|tail -n1)"
 fi
-litefetch | lolcat
 HISTSIZE= HISTFILESIZE= 
  
 export ZSH="$HOME/.oh-my-zsh"
@@ -15,3 +14,5 @@ source ~/.config/aliasrc
 source $ZSH/oh-my-zsh.sh
 source ~/.p10k.zsh
 source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+
+uwufetch -i #| lolcat

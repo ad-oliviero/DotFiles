@@ -1,7 +1,6 @@
 #!/bin/sh
 
 alias \
-    update="topgrade --cleanup --no-retry --yes" \
     bandwidth="~/.config/scripts/bandwidth.sh" \
 	cache="~/.config/scripts/cache-clean.sh" \
 	cp="cp -iv" \

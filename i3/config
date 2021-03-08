@@ -126,15 +126,15 @@ bindsym $mod+0 workspace number $ws10
 # Gaps and borders
 for_window [class="^.*"] border pixel 2
 #border_radius 15
-#gaps inner 10
+gaps inner 7
 #gaps outer 0
 
 # Colors
-set $bgcolor	#D08770
-set $ibgcolor	#5E81AC
-set $textcolor	#ECEFF4
-set $itextcolor	#D8DEE9
-set $ubgcolor	#2E3440
+set $bgcolor	#FF8F40
+set $ibgcolor	#0A0E14
+set $textcolor	#B3B1AD
+set $itextcolor	#4D556699
+set $ubgcolor	#F51818
 #			border		background	text		indicator
 client.focused		$bgcolor	$bgcolor	$textcolor	$bgcolor
 client.unfocused	$ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
@@ -142,8 +142,5 @@ client.focused_inactive	$ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
 client.urgent		$ubgcolor	$ubgcolor	$textcolor	$ubgcolor
 
 # Extra things
-for_window [class="spotify"] exec blockify
 for_window [window_role="pop-up"] floating enable
-for_window [class="carbonic"] floating enable
-for_window [class="haguichi"] floating enable
-bindsym $mod+n exec pcmanfm
+bindsym $mod+n exec nautilus
