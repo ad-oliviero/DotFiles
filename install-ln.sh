@@ -16,8 +16,7 @@ rm -rf \
 		~/.oh-my-zsh \
 		~/.vim* \
 		~/.xmonad \
-		~/.zshrc \
-		~/.zsh_history
+		~/.zshrc
 
 ln -s \
 		~/.config/DotFiles/alacritty \
@@ -40,6 +39,5 @@ ln -s \
 		~/.config/DotFiles/.vim* \
 		~/.config/DotFiles/.xmonad \
 		~/.config/DotFiles/.zshrc \
-		~/.config/DotFiles/.zsh_history \
 		~/
 

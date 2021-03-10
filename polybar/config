@@ -42,7 +42,7 @@ module-margin-right = 0
 
 separator = " | "
 
-font-0 = ttf-opensans:style=regular:size=10.5:antialias=true;1
+font-0 = OpenSans:style=regular:size=10.5:antialias=true;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;0
 font-3 = Font Awesome 5 Free:pixelsize=12;0

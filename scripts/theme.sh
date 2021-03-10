@@ -49,6 +49,27 @@ background: #090300
 foreground: #a5a2a2
 cursorColor: #a5a2a2
 
+abyss
+0: #040f18
+1: #48697e
+2: #10598b
+3: #1f6ca1
+4: #277bb1
+5: #4595bd
+6: #2592d3
+7: #a0cce2
+8: #708e9e
+9: #48697e
+10: #10598b
+11: #1f6ca1
+12: #277bb1
+13: #4595bd
+14: #2592d3
+15: #a0cce2
+background: #040f18
+foreground: #c0c7ca
+cursorColor: #10598b
+
 aci
 0: #363636
 1: #ff0883
@@ -154,6 +175,48 @@ background: #0f1610
 foreground: #637d75
 cursorColor: #637d75
 
+alucard
+0: #000000
+1: #ff5555
+2: #fa0074
+3: #7f0a1f
+4: #3282ff
+5: #1b3cff
+6: #0037fc
+7: #bbbbbb
+8: #545454
+9: #ff5454
+10: #50fa7b
+11: #f0fa8b
+12: #1200f8
+13: #ff78c5
+14: #8ae9fc
+15: #ffffff
+background: #222330
+foreground: #cef3ff
+cursorColor: #ffffff
+
+apprentice
+0: #252525
+1: #be7472
+2: #709772
+3: #989772
+4: #7199bc
+5: #727399
+6: #719899
+7: #7f7f7f
+8: #555555
+9: #ff9900
+10: #97bb98
+11: #fefdbc
+12: #9fbdde
+13: #989abc
+14: #6fbbbc
+15: #feffff
+background: #323232
+foreground: #c8c8c8
+cursorColor: #feffff
+
 argonaut
 0: #232323
 1: #ff000f
@@ -196,6 +259,27 @@ background: #1c1c1c
 foreground: #ddeedd
 cursorColor: #ddeedd
 
+atelier-sulphurpool
+0: #202745
+1: #c84821
+2: #ab9639
+3: #c08a2f
+4: #3d8ed0
+5: #6678cc
+6: #21a1c8
+7: #969cb3
+8: #6a7394
+9: #c76a28
+10: #283256
+11: #5e6686
+12: #898ea3
+13: #dee1f0
+14: #9c6279
+15: #f4f7ff
+background: #202745
+foreground: #969cb3
+cursorColor: #969cb3
+
 atom
 0: #000000
 1: #fd5ff1
@@ -217,6 +301,111 @@ background: #161719
 foreground: #c5c8c6
 cursorColor: #c5c8c6
 
+atom-one-light
+0: #000000
+1: #de3d35
+2: #3e953a
+3: #d2b67b
+4: #2f5af3
+5: #950095
+6: #3e953a
+7: #bbbbbb
+8: #000000
+9: #de3d35
+10: #3e953a
+11: #d2b67b
+12: #2f5af3
+13: #a00095
+14: #3e953a
+15: #ffffff
+background: #f8f8f8
+foreground: #2a2b33
+cursorColor: #bbbbbb
+
+ayu
+0: #000000
+1: #ff3333
+2: #b8cc52
+3: #e6c446
+4: #36a3d9
+5: #f07078
+6: #95e5cb
+7: #ffffff
+8: #323232
+9: #ff6565
+10: #e9fe83
+11: #fff778
+12: #68d4ff
+13: #ffa3aa
+14: #c7fffc
+15: #ffffff
+background: #0e1419
+foreground: #e5e1cf
+cursorColor: #f19618
+
+ayu-light
+0: #000000
+1: #ff3333
+2: #86b200
+3: #f19618
+4: #41a6d9
+5: #f07078
+6: #4cbe99
+7: #ffffff
+8: #323232
+9: #ff6565
+10: #b8e532
+11: #ffc849
+12: #73d7ff
+13: #ffa3aa
+14: #7ff0cb
+15: #ffffff
+background: #fafafa
+foreground: #5b6673
+cursorColor: #ff6900
+
+ayu-mirage-simple-cursor
+0: #191e2a
+1: #ed8274
+2: #a6cc70
+3: #fad07b
+4: #6dcbfa
+5: #cfbafa
+6: #90e1c6
+7: #c7c7c7
+8: #686868
+9: #f28779
+10: #bae67e
+11: #ffd580
+12: #73d0ff
+13: #d4bfff
+14: #95e6cb
+15: #ffffff
+background: #212733
+foreground: #d9d7ce
+cursorColor: #d9d7ce
+
+ayu-mirage
+0: #191e2a
+1: #ed8274
+2: #a6cc70
+3: #fad07b
+4: #6dcbfa
+5: #cfbafa
+6: #90e1c6
+7: #c7c7c7
+8: #686868
+9: #f28779
+10: #bae67e
+11: #ffd580
+12: #73d0ff
+13: #d4bfff
+14: #95e6cb
+15: #ffffff
+background: #212733
+foreground: #d9d7ce
+cursorColor: #ffcc66
+
 azu
 0: #000000
 1: #ac6d74
@@ -237,6 +426,27 @@ azu
 background: #09111a
 foreground: #d9e6f2
 cursorColor: #d9e6f2
+
+batman
+0: #1b1d1e
+1: #e6db43
+2: #c8be46
+3: #f3fd21
+4: #737074
+5: #737271
+6: #615f5e
+7: #c5c5be
+8: #505354
+9: #fff68d
+10: #fff27c
+11: #feed6c
+12: #909495
+13: #9a999d
+14: #a2a2a5
+15: #dadad5
+background: #1b1d1e
+foreground: #6e6e6e
+cursorColor: #fcee0b
 
 belafonte-day
 0: #20111b
@@ -322,6 +532,27 @@ background: #2a1f1d
 foreground: #e0dbb7
 cursorColor: #e0dbb7
 
+black-metal
+0: #000000
+1: #5f8787
+2: #dd9999
+3: #a06666
+4: #888888
+5: #999999
+6: #aaaaaa
+7: #c1c1c1
+8: #333333
+9: #5f8787
+10: #dd9999
+11: #a06666
+12: #888888
+13: #999999
+14: #aaaaaa
+15: #c1c1c1
+background: #000000
+foreground: #ffffff
+cursorColor: #ffffff
+
 blazer
 0: #000000
 1: #b87a7a
@@ -363,6 +594,27 @@ borland
 background: #0000a4
 foreground: #ffff4e
 cursorColor: #ffff4e
+
+bright-lights
+0: #191919
+1: #ff355b
+2: #b6e875
+3: #ffc150
+4: #75d3ff
+5: #b975e6
+6: #6cbeb5
+7: #c1c8d6
+8: #191919
+9: #ff355b
+10: #b6e875
+11: #ffc150
+12: #75d4ff
+13: #b975e6
+14: #6cbeb5
+15: #c1c8d6
+background: #191919
+foreground: #b2c8d6
+cursorColor: #f34a00
 
 broadcast
 0: #000000
@@ -448,6 +700,27 @@ background: #09111a
 foreground: #d9e6f2
 cursorColor: #d9e6f2
 
+challenger-deep
+0: #565575
+1: #ff8080
+2: #95ffa4
+3: #ffe9aa
+4: #91ddff
+5: #c991e1
+6: #aaffe4
+7: #cbe3e7
+8: #100e23
+9: #ff5458
+10: #62d196
+11: #ffb378
+12: #65b2ff
+13: #906cff
+14: #63f2f1
+15: #a6b3cc
+background: #1e1c31
+foreground: #cbe3e7
+cursorColor: #cbe3e7
+
 chalkboard
 0: #000000
 1: #c37372
@@ -471,24 +744,24 @@ cursorColor: #d9e6f2
 
 chalk
 0: #646464
-1: #F58E8E
-2: #A9D3AB
-3: #FED37E
-4: #7AABD4
-5: #D6ADD5
-6: #79D4D5
-7: #D4D4D4
+1: #f58e8e
+2: #a9d3ab
+3: #fed37e
+4: #7aabd4
+5: #d6add5
+6: #79d4d5
+7: #d4d4d4
 8: #646464
-9: #F58E8E
-10: #A9D3AB
-11: #FED37E
-12: #7AABD4
-13: #D6ADD5
-14: #79D4D5
-15: #D4D4D4
-background: #2D2D2D
-foreground: #D4D4D4
-cursorColor: #D4D4D4
+9: #f58e8e
+10: #a9d3ab
+11: #fed37e
+12: #7aabd4
+13: #d6add5
+14: #79d4d5
+15: #d4d4d4
+background: #2d2d2d
+foreground: #d4d4d4
+cursorColor: #d4d4d4
 
 ciapre
 0: #181818
@@ -512,22 +785,22 @@ foreground: #aea47a
 cursorColor: #aea47a
 
 clone-of-ubuntu
-0: #2E3436
-1: #CC0000
-2: #4E9A06
-3: #C4A000
-4: #3465A4
-5: #75507B
-6: #06989A
-7: #D3D7CF
+0: #2e3436
+1: #cc0000
+2: #4e9a06
+3: #c4a000
+4: #3465a4
+5: #75507b
+6: #06989a
+7: #d3d7cf
 8: #555753
-9: #EF2929
-10: #8AE234
-11: #FCE94F
-12: #729FCF
-13: #AD7FA8
-14: #34E2E2
-15: #EEEEEC
+9: #ef2929
+10: #8ae234
+11: #fce94f
+12: #729fcf
+13: #ad7fa8
+14: #34e2e2
+15: #eeeeec
 background: #300a24
 foreground: #ffffff
 cursorColor: #ffffff
@@ -594,6 +867,27 @@ cobalt-neon
 background: #142838
 foreground: #8ff586
 cursorColor: #8ff586
+
+corvine
+0: #3a3a3a
+1: #d78787
+2: #87af5f
+3: #d7d7af
+4: #87afd7
+5: #afafd7
+6: #87d7d7
+7: #c6c6c6
+8: #626262
+9: #ffafaf
+10: #afd787
+11: #d7d787
+12: #87d7ff
+13: #d7afd7
+14: #5fd7d7
+15: #eeeeee
+background: #262626
+foreground: #c6c6c6
+cursorColor: #c6c6c6
 
 crayon-pony-fish
 0: #2b1b1d
@@ -679,6 +973,27 @@ background: #333333
 foreground: #ffffff
 cursorColor: #ffffff
 
+desert-night
+0: #473f31
+1: #e56b55
+2: #99b05f
+3: #e18245
+4: #949fb4
+5: #d261a5
+6: #bfab36
+7: #87765d
+8: #473f31
+9: #e56b55
+10: #99b05f
+11: #e5a440
+12: #949fb4
+13: #d261a5
+14: #bfab36
+15: #87765d
+background: #24221c
+foreground: #d4b07b
+cursorColor: #d4b07b
+
 dimmed-monokai
 0: #3a3d43
 1: #be3f48
@@ -700,6 +1015,27 @@ background: #1f1f1f
 foreground: #b9bcba
 cursorColor: #b9bcba
 
+dot-gov
+0: #181818
+1: #bf081d
+2: #3d9751
+3: #f6bb33
+4: #16b1df
+5: #772fb0
+6: #8bd1ed
+7: #ffffff
+8: #181818
+9: #bf081d
+10: #3d9751
+11: #f6bb33
+12: #16b1df
+13: #772fb0
+14: #8bd1ed
+15: #ffffff
+background: #252b35
+foreground: #eaeaea
+cursorColor: #d9002f
+
 dracula
 0: #000000
 1: #ff5555
@@ -719,7 +1055,49 @@ dracula
 15: #e6e6e6
 background: #373949
 foreground: #f8f8f2
-cursorColor: #94A3A5
+cursorColor: #94a3a5
+
+dumbledore
+0: #2b283d
+1: #ae0000
+2: #3e7c54
+3: #f0c75e
+4: #415baf
+5: #9445ae
+6: #008aff
+7: #850000
+8: #413e53
+9: #d3a624
+10: #aaaaaa
+11: #716254
+12: #946a2c
+13: #b294ba
+14: #25de50
+15: #c9c9c9
+background: #422553
+foreground: #c4c8c5
+cursorColor: #c4c8c5
+
+duotone-dark
+0: #1f1c27
+1: #d8393d
+2: #2dcc72
+3: #d8b76e
+4: #ffc183
+5: #dd8d40
+6: #2388ff
+7: #b6a0ff
+8: #353146
+9: #d8393d
+10: #2dcc72
+11: #d8b76e
+12: #ffc183
+13: #dd8d40
+14: #2388ff
+15: #e9e4ff
+background: #1f1c27
+foreground: #b6a0ff
+cursorColor: #ff9738
 
 earthsong
 0: #121418
@@ -741,6 +1119,48 @@ earthsong
 background: #292520
 foreground: #e5c7a9
 cursorColor: #e5c7a9
+
+edge-dark
+0: #414550
+1: #ec7279
+2: #a0c980
+3: #deb974
+4: #6cb6eb
+5: #d38aea
+6: #5dbbc1
+7: #88909f
+8: #414550
+9: #ec7279
+10: #a0c980
+11: #deb974
+12: #6cb6eb
+13: #d38aea
+14: #5dbbc1
+15: #88909f
+background: #2c2e34
+foreground: #c5cdd9
+cursorColor: #c5cdd9
+
+edge-light
+0: #4b505b
+1: #d15b5b
+2: #608e32
+3: #be7e05
+4: #5079be
+5: #b05ccc
+6: #3a8b84
+7: #949ba5
+8: #4b505b
+9: #d15b5b
+10: #608e32
+11: #be7e05
+12: #5079be
+13: #b05ccc
+14: #3a8b84
+15: #949ba5
+background: #fafafa
+foreground: #4b505b
+cursorColor: #4b505b
 
 elemental
 0: #3c3c30
@@ -789,7 +1209,7 @@ elic
 1: #e1321a
 2: #6ab017
 3: #ffc005
-4: #729FCF
+4: #729fcf
 5: #ec0048
 6: #f2f2f2
 7: #2aa7e7
@@ -801,7 +1221,7 @@ elic
 13: #ff1d62
 14: #4bb8fd
 15: #a020f0
-background: #4A453E
+background: #4a453e
 foreground: #f2f2f2
 cursorColor: #f2f2f2
 
@@ -810,7 +1230,7 @@ elio
 1: #e1321a
 2: #6ab017
 3: #ffc005
-4: #729FCF
+4: #729fcf
 5: #ec0048
 6: #2aa7e7
 7: #f2f2f2
@@ -822,9 +1242,30 @@ elio
 13: #ff1d62
 14: #4bb8fd
 15: #a020f0
-background: #041A3B
+background: #041a3b
 foreground: #f2f2f2
 cursorColor: #f2f2f2
+
+e-n-c-o-m
+0: #000000
+1: #9f0000
+2: #008b00
+3: #ffcf00
+4: #0081ff
+5: #bc00ca
+6: #008b8b
+7: #bbbbbb
+8: #545454
+9: #ff0000
+10: #00ee00
+11: #ffff00
+12: #0000ff
+13: #ff00ff
+14: #00cdcd
+15: #ffffff
+background: #000000
+foreground: #00a595
+cursorColor: #bbbbbb
 
 espresso-libre
 0: #000000
@@ -867,6 +1308,69 @@ espresso
 background: #323232
 foreground: #ffffff
 cursorColor: #ffffff
+
+falcon
+0: #000004
+1: #ff3600
+2: #718e3f
+3: #ffc552
+4: #635196
+5: #ff761a
+6: #34bfa4
+7: #b4b4b9
+8: #020221
+9: #ff8e78
+10: #b1bf75
+11: #ffd392
+12: #99a4bc
+13: #ffb07b
+14: #8bccbf
+15: #f8f8ff
+background: #020221
+foreground: #b4b4b9
+cursorColor: #ffe8c0
+
+farin
+0: #444444
+1: #ff1155
+2: #11ff55
+3: #ffbb33
+4: #1155ff
+5: #ed53c9
+6: #00ffbb
+7: #cccccc
+8: #666666
+9: #ff4488
+10: #44ff88
+11: #ffdd66
+12: #4488ff
+13: #dd66ff
+14: #66ffdd
+15: #ffffff
+background: #1e1e1e
+foreground: #aaaaaa
+cursorColor: #aaaaaa
+
+fideloper
+0: #282f32
+1: #ca1d2c
+2: #edb7ab
+3: #b7aa9a
+4: #2e78c1
+5: #c0226e
+6: #309185
+7: #e9e2cd
+8: #092027
+9: #d35f5a
+10: #d35f5a
+11: #a86571
+12: #7c84c4
+13: #5b5db2
+14: #81908f
+15: #fcf4de
+background: #282f32
+foreground: #dad9df
+cursorColor: #d35f5a
 
 fishtank
 0: #03073c
@@ -925,32 +1429,74 @@ flat
 11: #f1c40f
 12: #3498db
 13: #9b59b6
-14: #2AA198
+14: #2aa198
 15: #ecf0f1
-background: #1F2D3A
+background: #1f2d3a
 foreground: #1abc9c
 cursorColor: #1abc9c
 
+floraverse
+0: #08002e
+1: #64002c
+2: #5d731a
+3: #cd751c
+4: #1d6da1
+5: #b7077e
+6: #42a38c
+7: #f3e0b8
+8: #331d4c
+9: #cf2062
+10: #b3ce58
+11: #fac357
+12: #40a4cf
+13: #f02aae
+14: #62caa8
+15: #fff5db
+background: #0e0c15
+foreground: #dbd0b9
+cursorColor: #bbbbbb
+
+forest-night
+0: #7f8f9f
+1: #fd8489
+2: #a9dd9d
+3: #f0aa8a
+4: #bdd0e5
+5: #daccf0
+6: #a9dd9d
+7: #ffebc3
+8: #7f8f9f
+9: #fd8489
+10: #a9dd9d
+11: #eed094
+12: #bdd0e5
+13: #daccf0
+14: #a9dd9d
+15: #ffebc3
+background: #3c4c55
+foreground: #ffebc3
+cursorColor: #ffebc3
+
 foxnightly
-0: #2A2A2E
-1: #B98EFF
-2: #FF7DE9
-3: #729FCF
-4: #66A05B
-5: #75507B
-6: #ACACAE
-7: #FFFFFF
-8: #A40000
-9: #BF4040
-10: #66A05B
-11: #FFB86C
-12: #729FCF
-13: #8F5902
-14: #C4A000
-15: #5C3566
-background: #2A2A2E
-foreground: #D7D7DB
-cursorColor: #D7D7DB
+0: #2a2a2e
+1: #b98eff
+2: #ff7de9
+3: #729fcf
+4: #66a05b
+5: #75507b
+6: #acacae
+7: #ffffff
+8: #a40000
+9: #bf4040
+10: #66a05b
+11: #ffb86c
+12: #729fcf
+13: #8f5902
+14: #c4a000
+15: #5c3566
+background: #2a2a2e
+foreground: #d7d7db
+cursorColor: #d7d7db
 
 freya
 0: #073642
@@ -1057,14 +1603,56 @@ background: #f4f4f4
 foreground: #3e3e3e
 cursorColor: #3e3e3e
 
+glacier
+0: #2e343c
+1: #bd0f2f
+2: #35a770
+3: #fb9435
+4: #1f5872
+5: #bd2523
+6: #778397
+7: #ffffff
+8: #404a55
+9: #bd0f2f
+10: #49e998
+11: #fddf6e
+12: #2a8bc1
+13: #ea4727
+14: #a0b6d3
+15: #ffffff
+background: #0c1115
+foreground: #ffffff
+cursorColor: #6c6c6c
+
+goa-base
+0: #880041
+1: #f78000
+2: #249000
+3: #f40000
+4: #000482
+5: #f43bff
+6: #3affff
+7: #000000
+8: #411a6d
+9: #f800e1
+10: #5743ff
+11: #ea00d7
+12: #b90003
+13: #9a5952
+14: #c8f9f3
+15: #f5f4fb
+background: #2f0033
+foreground: #f6ed00
+cursorColor: #1a6500
+
 gooey
 0: #000009
-1: #BB4F6C
-2: #72CCAE
-3: #C65E3D
-4: #58B6CA
-5: #6488C4
-6: #8D84C6
+1: #bb4f6c
+2: #72ccae
+3: #c65e3d
+4: #58b6ca
+5: #6488c4
+6: #8d84c6
 7: #858893
 8: #1f222d
 9: #ee829f
@@ -1074,51 +1662,51 @@ gooey
 13: #97bbf7
 14: #c0b7f9
 15: #ffffff
-background: #0D101B
-foreground: #EBEEF9
-cursorColor: #EBEEF9
+background: #0d101b
+foreground: #ebeef9
+cursorColor: #ebeef9
 
 google-dark
-0: #1D1F21
-1: #CC342B
+0: #1d1f21
+1: #cc342b
 2: #198844
-3: #FBA922
-4: #3971ED
-5: #A36AC7
-6: #3971ED
-7: #C5C8C6
+3: #fba922
+4: #3971ed
+5: #a36ac7
+6: #3971ed
+7: #c5c8c6
 8: #969896
-9: #CC342B
+9: #cc342b
 10: #198844
-11: #FBA922
-12: #3971ED
-13: #A36AC7
-14: #3971ED
-15: #FFFFFF
-background: #1D1F21
-foreground: #B4B7B4
-cursorColor: #B4B7B4
+11: #fba922
+12: #3971ed
+13: #a36ac7
+14: #3971ed
+15: #ffffff
+background: #1d1f21
+foreground: #b4b7b4
+cursorColor: #b4b7b4
 
 google-light
-0: #FFFFFF
-1: #CC342B
+0: #ffffff
+1: #cc342b
 2: #198844
-3: #FBA921
-4: #3870ED
-5: #A26AC7
-6: #3870ED
-7: #373B41
-8: #C5C8C6
-9: #CC342B
+3: #fba921
+4: #3870ed
+5: #a26ac7
+6: #3870ed
+7: #373b41
+8: #c5c8c6
+9: #cc342b
 10: #198844
-11: #FBA921
-12: #3870ED
-13: #A26AC7
-14: #3870ED
-15: #1D1F21
-background: #FFFFFF
-foreground: #373B41
-cursorColor: #373B41
+11: #fba921
+12: #3870ed
+13: #a26ac7
+14: #3870ed
+15: #1d1f21
+background: #ffffff
+foreground: #373b41
+cursorColor: #373b41
 
 grape
 0: #2d283f
@@ -1161,6 +1749,27 @@ grass
 background: #13773d
 foreground: #fff0a5
 cursorColor: #fff0a5
+
+gruvbit
+0: #1d2021
+1: #fabd2f
+2: #8ec07c
+3: #dc9656
+4: #83a598
+5: #fe8019
+6: #e9593d
+7: #504945
+8: #968772
+9: #fabd2f
+10: #8ec07c
+11: #dc9656
+12: #83a598
+13: #fe8019
+14: #e9593d
+15: #e9593d
+background: #1d1f21
+foreground: #ebdbb2
+cursorColor: #ebdbb2
 
 gruvbox-dark
 0: #282828
@@ -1248,45 +1857,45 @@ cursorColor: #a8a49d
 
 hemisu-dark
 0: #444444
-1: #FF0054
-2: #B1D630
-3: #9D895E
-4: #67BEE3
-5: #B576BC
-6: #569A9F
-7: #EDEDED
+1: #ff0054
+2: #b1d630
+3: #9d895e
+4: #67bee3
+5: #b576bc
+6: #569a9f
+7: #ededed
 8: #777777
-9: #D65E75
-10: #BAFFAA
-11: #ECE1C8
-12: #9FD3E5
-13: #DEB3DF
-14: #B6E0E5
-15: #FFFFFF
+9: #d65e75
+10: #baffaa
+11: #ece1c8
+12: #9fd3e5
+13: #deb3df
+14: #b6e0e5
+15: #ffffff
 background: #000000
-foreground: #FFFFFF
-cursorColor: #BAFFAA
+foreground: #ffffff
+cursorColor: #baffaa
 
 hemisu-light
 0: #777777
-1: #FF0055
+1: #ff0055
 2: #739100
-3: #503D15
+3: #503d15
 4: #538091
-5: #5B345E
+5: #5b345e
 6: #538091
 7: #999999
 8: #999999
-9: #D65E76
-10: #9CC700
+9: #d65e76
+10: #9cc700
 11: #947555
-12: #9DB3CD
-13: #A184A4
-14: #85B2AA
-15: #BABABA
-background: #EFEFEF
+12: #9db3cd
+13: #a184a4
+14: #85b2aa
+15: #bababa
+background: #efefef
 foreground: #444444
-cursorColor: #FF0054
+cursorColor: #ff0054
 
 highway
 0: #000000
@@ -1374,12 +1983,12 @@ cursorColor: #dbdbdb
 
 hybrid
 0: #282a2e
-1: #A54242
-2: #8C9440
+1: #a54242
+2: #8c9440
 3: #de935f
-4: #5F819D
-5: #85678F
-6: #5E8D87
+4: #5f819d
+5: #85678f
+6: #5e8d87
 7: #969896
 8: #373b41
 9: #cc6666
@@ -1395,24 +2004,24 @@ cursorColor: #94a3a5
 
 ibm3270
 0: #222222
-1: #F01818
-2: #24D830
-3: #F0D824
-4: #7890F0
-5: #F078D8
-6: #54E4E4
-7: #A5A5A5
+1: #f01818
+2: #24d830
+3: #f0d824
+4: #7890f0
+5: #f078d8
+6: #54e4e4
+7: #a5a5a5
 8: #888888
-9: #EF8383
-10: #7ED684
-11: #EFE28B
-12: #B3BFEF
-13: #EFB3E3
-14: #9CE2E2
-15: #FFFFFF
+9: #ef8383
+10: #7ed684
+11: #efe28b
+12: #b3bfef
+13: #efb3e3
+14: #9ce2e2
+15: #ffffff
 background: #000000
-foreground: #FDFDFD
-cursorColor: #FDFDFD
+foreground: #fdfdfd
+cursorColor: #fdfdfd
 
 ic-green-ppl
 0: #1f1f1f
@@ -1456,6 +2065,27 @@ background: #262626
 foreground: #ffcb83
 cursorColor: #ffcb83
 
+iceberg-light
+0: #dcdfe7
+1: #cc517a
+2: #668e3d
+3: #c57339
+4: #2d539e
+5: #7759b4
+6: #3f83a6
+7: #33374c
+8: #8389a3
+9: #cc3768
+10: #598030
+11: #b6662d
+12: #22478e
+13: #6845ad
+14: #327698
+15: #262a3f
+background: #e8e9ec
+foreground: #33374c
+cursorColor: #33374c
+
 idle-toes
 0: #323232
 1: #d25252
@@ -1483,7 +2113,7 @@ ir-black
 2: #a8ff60
 3: #ffffb6
 4: #69cbfe
-5: #ff73Fd
+5: #ff73fd
 6: #c6c5fe
 7: #eeeeee
 8: #7c7c7c
@@ -1496,7 +2126,7 @@ ir-black
 15: #ffffff
 background: #000000
 foreground: #eeeeee
-cursorColor: ffa560
+cursorColor: #ffa560
 
 jackie-brown
 0: #2c1d16
@@ -1560,6 +2190,27 @@ jellybeans
 background: #121212
 foreground: #dedede
 cursorColor: #dedede
+
+jet-brains-darcula
+0: #000000
+1: #fa5355
+2: #126e00
+3: #c2c300
+4: #4581eb
+5: #fa54ff
+6: #33c2c1
+7: #adadad
+8: #545454
+9: #fb7172
+10: #67ff4f
+11: #ffff00
+12: #6d9df1
+13: #fb82ff
+14: #60d3d1
+15: #eeeeee
+background: #202020
+foreground: #adadad
+cursorColor: #ffffff
 
 jup
 0: #000000
@@ -1689,24 +2340,24 @@ cursorColor: #afc2c2
 
 maia
 0: #232423
-1: #BA2922
-2: #7E807E
-3: #4C4F4D
-4: #16A085
-5: #43746A
-6: #00CCCC
-7: #E0E0E0
+1: #ba2922
+2: #7e807e
+3: #4c4f4d
+4: #16a085
+5: #43746a
+6: #00cccc
+7: #e0e0e0
 8: #282928
-9: #CC372C
-10: #8D8F8D
-11: #4E524F
-12: #13BF9D
-13: #487D72
-14: #00D1D1
-15: #E8E8E8
+9: #cc372c
+10: #8d8f8d
+11: #4e524f
+12: #13bf9d
+13: #487d72
+14: #00d1d1
+15: #e8e8e8
 background: #272827
 foreground: #fdf6e3
-cursorColor: #16A085
+cursorColor: #16a085
 
 man-page
 0: #000000
@@ -1752,24 +2403,45 @@ cursorColor: #23476a
 
 material
 0: #073641
-1: #EB606B
-2: #C3E88D
-3: #F7EB95
-4: #80CBC3
-5: #FF2490
-6: #AEDDFF
-7: #FFFFFF
-8: #002B36
-9: #EB606B
-10: #C3E88D
-11: #F7EB95
-12: #7DC6BF
-13: #6C71C3
-14: #34434D
-15: #FFFFFF
-background: #1E282C
-foreground: #C3C7D1
-cursorColor: #657B83
+1: #eb606b
+2: #c3e88d
+3: #f7eb95
+4: #80cbc3
+5: #ff2490
+6: #aeddff
+7: #ffffff
+8: #002b36
+9: #eb606b
+10: #c3e88d
+11: #f7eb95
+12: #7dc6bf
+13: #6c71c3
+14: #34434d
+15: #ffffff
+background: #1e282c
+foreground: #c3c7d1
+cursorColor: #657b83
+
+material-dark
+0: #212121
+1: #b7141e
+2: #457b23
+3: #f5971d
+4: #134eb2
+5: #550087
+6: #0e707c
+7: #eeeeee
+8: #424242
+9: #e83a3f
+10: #7aba39
+11: #fee92e
+12: #53a4f3
+13: #a94dbb
+14: #26bad1
+15: #d8d8d8
+background: #222221
+foreground: #e4e4e4
+cursorColor: #16aec9
 
 mathias
 0: #000000
@@ -1812,6 +2484,27 @@ medallion
 background: #1d1908
 foreground: #cac296
 cursorColor: #cac296
+
+miramare
+0: #e6d6ac
+1: #e68183
+2: #87af87
+3: #d9bb80
+4: #89beba
+5: #d3a0bc
+6: #87c095
+7: #444444
+8: #e6d6ac
+9: #e68183
+10: #87af87
+11: #d9bb80
+12: #89beba
+13: #d3a0bc
+14: #87c095
+15: #444444
+background: #2a2426
+foreground: #e6d6ac
+cursorColor: #d9bb80
 
 misterioso
 0: #000000
@@ -1857,24 +2550,24 @@ cursorColor: #d9e6f2
 
 molokai
 0: #1b1d1e
-1: #7325FA
-2: #23E298
-3: #60D4DF
-4: #D08010
-5: #FF0087
-6: #D0A843
-7: #BBBBBB
+1: #7325fa
+2: #23e298
+3: #60d4df
+4: #d08010
+5: #ff0087
+6: #d0a843
+7: #bbbbbb
 8: #555555
-9: #9D66F6
-10: #5FE0B1
-11: #6DF2FF
-12: #FFAF00
-13: #FF87AF
-14: #FFCE51
-15: #FFFFFF
+9: #9d66f6
+10: #5fe0b1
+11: #6df2ff
+12: #ffaf00
+13: #ff87af
+14: #ffce51
+15: #ffffff
 background: #1b1d1e
-foreground: #BBBBBB
-cursorColor: #BBBBBB
+foreground: #bbbbbb
+cursorColor: #bbbbbb
 
 mona-lisa
 0: #351b0e
@@ -1899,66 +2592,66 @@ cursorColor: #f7d66a
 
 mono-amber
 0: #402500
-1: #FF9400
-2: #FF9400
-3: #FF9400
-4: #FF9400
-5: #FF9400
-6: #FF9400
-7: #FF9400
-8: #FF9400
-9: #FF9400
-10: #FF9400
-11: #FF9400
-12: #FF9400
-13: #FF9400
-14: #FF9400
-15: #FF9400
-background: #2B1900
-foreground: #FF9400
-cursorColor: #FF9400
+1: #ff9400
+2: #ff9400
+3: #ff9400
+4: #ff9400
+5: #ff9400
+6: #ff9400
+7: #ff9400
+8: #ff9400
+9: #ff9400
+10: #ff9400
+11: #ff9400
+12: #ff9400
+13: #ff9400
+14: #ff9400
+15: #ff9400
+background: #2b1900
+foreground: #ff9400
+cursorColor: #ff9400
 
 mono-cyan
 0: #003340
-1: #00CCFF
-2: #00CCFF
-3: #00CCFF
-4: #00CCFF
-5: #00CCFF
-6: #00CCFF
-7: #00CCFF
-8: #00CCFF
-9: #00CCFF
-10: #00CCFF
-11: #00CCFF
-12: #00CCFF
-13: #00CCFF
-14: #00CCFF
-15: #00CCFF
-background: #00222B
-foreground: #00CCFF
-cursorColor: #00CCFF
+1: #00ccff
+2: #00ccff
+3: #00ccff
+4: #00ccff
+5: #00ccff
+6: #00ccff
+7: #00ccff
+8: #00ccff
+9: #00ccff
+10: #00ccff
+11: #00ccff
+12: #00ccff
+13: #00ccff
+14: #00ccff
+15: #00ccff
+background: #00222b
+foreground: #00ccff
+cursorColor: #00ccff
 
 mono-green
 0: #034000
-1: #0BFF00
-2: #0BFF00
-3: #0BFF00
-4: #0BFF00
-5: #0BFF00
-6: #0BFF00
-7: #0BFF00
-8: #0BFF00
-9: #0BFF00
-10: #0BFF00
-11: #0BFF00
-12: #0BFF00
-13: #0BFF00
-14: #0BFF00
-15: #0BFF00
-background: #022B00
-foreground: #0BFF00
-cursorColor: #0BFF00
+1: #0bff00
+2: #0bff00
+3: #0bff00
+4: #0bff00
+5: #0bff00
+6: #0bff00
+7: #0bff00
+8: #0bff00
+9: #0bff00
+10: #0bff00
+11: #0bff00
+12: #0bff00
+13: #0bff00
+14: #0bff00
+15: #0bff00
+background: #022b00
+foreground: #0bff00
+cursorColor: #0bff00
 
 monokai-dark
 0: #75715e
@@ -1967,7 +2660,7 @@ monokai-dark
 3: #f4bf75
 4: #66d9ef
 5: #ae81ff
-6: #2AA198
+6: #2aa198
 7: #f9f8f5
 8: #272822
 9: #f92672
@@ -1975,7 +2668,7 @@ monokai-dark
 11: #f4bf75
 12: #66d9ef
 13: #ae81ff
-14: #2AA198
+14: #2aa198
 15: #f8f8f2
 background: #272822
 foreground: #f8f8f2
@@ -2004,66 +2697,108 @@ cursorColor: #c4c5b5
 
 mono-red
 0: #401200
-1: #FF3600
-2: #FF3600
-3: #FF3600
-4: #FF3600
-5: #FF3600
-6: #FF3600
-7: #FF3600
-8: #FF3600
-9: #FF3600
-10: #FF3600
-11: #FF3600
-12: #FF3600
-13: #FF3600
-14: #FF3600
-15: #FF3600
-background: #2B0C00
-foreground: #FF3600
-cursorColor: #FF3600
+1: #ff3600
+2: #ff3600
+3: #ff3600
+4: #ff3600
+5: #ff3600
+6: #ff3600
+7: #ff3600
+8: #ff3600
+9: #ff3600
+10: #ff3600
+11: #ff3600
+12: #ff3600
+13: #ff3600
+14: #ff3600
+15: #ff3600
+background: #2b0c00
+foreground: #ff3600
+cursorColor: #ff3600
 
 mono-white
-0: #3B3B3B
-1: #FAFAFA
-2: #FAFAFA
-3: #FAFAFA
-4: #FAFAFA
-5: #FAFAFA
-6: #FAFAFA
-7: #FAFAFA
-8: #FAFAFA
-9: #FAFAFA
-10: #FAFAFA
-11: #FAFAFA
-12: #FAFAFA
-13: #FAFAFA
-14: #FAFAFA
-15: #FAFAFA
+0: #3b3b3b
+1: #fafafa
+2: #fafafa
+3: #fafafa
+4: #fafafa
+5: #fafafa
+6: #fafafa
+7: #fafafa
+8: #fafafa
+9: #fafafa
+10: #fafafa
+11: #fafafa
+12: #fafafa
+13: #fafafa
+14: #fafafa
+15: #fafafa
 background: #262626
-foreground: #FAFAFA
-cursorColor: #FAFAFA
+foreground: #fafafa
+cursorColor: #fafafa
 
 mono-yellow
 0: #403500
-1: #FFD300
-2: #FFD300
-3: #FFD300
-4: #FFD300
-5: #FFD300
-6: #FFD300
-7: #FFD300
-8: #FFD300
-9: #FFD300
-10: #FFD300
-11: #FFD300
-12: #FFD300
-13: #FFD300
-14: #FFD300
-15: #FFD300
-background: #2B2400
-foreground: #FFD300
-cursorColor: #FFD300
+1: #ffd300
+2: #ffd300
+3: #ffd300
+4: #ffd300
+5: #ffd300
+6: #ffd300
+7: #ffd300
+8: #ffd300
+9: #ffd300
+10: #ffd300
+11: #ffd300
+12: #ffd300
+13: #ffd300
+14: #ffd300
+15: #ffd300
+background: #2b2400
+foreground: #ffd300
+cursorColor: #ffd300
+
+mountaineer-grey
+0: #1d1f21
+1: #cc6666
+2: #b5bd68
+3: #f0c674
+4: #81a2be
+5: #b294bb
+6: #8abeb7
+7: #c5c8c6
+8: #969896
+9: #cc6666
+10: #b5bd68
+11: #f0c674
+12: #81a2be
+13: #b294bb
+14: #8abeb7
+15: #ffffff
+background: #232323
+foreground: #c0c0c0
+cursorColor: #b5bd68
+
+mountaineer
+0: #1d1f21
+1: #cc6666
+2: #b5bd68
+3: #f0c674
+4: #81a2be
+5: #b294bb
+6: #8abeb7
+7: #c5c8c6
+8: #969896
+9: #cc6666
+10: #b5bd68
+11: #f0c674
+12: #81a2be
+13: #b294bb
+14: #8abeb7
+15: #ffffff
+background: #050505
+foreground: #f0f0f0
+cursorColor: #b5bd68
 
 n0tch2k
 0: #383838
@@ -2088,24 +2823,24 @@ cursorColor: #a0a0a0
 
 neon-night
 0: #20242d
-1: #FF8E8E
-2: #7EFDD0
-3: #FCAD3F
-4: #69B4F9
-5: #DD92F6
-6: #8CE8ff
-7: #C9CCCD
+1: #ff8e8e
+2: #7efdd0
+3: #fcad3f
+4: #69b4f9
+5: #dd92f6
+6: #8ce8ff
+7: #c9cccd
 8: #20242d
-9: #FF8E8E
-10: #7EFDD0
-11: #FCAD3F
-12: #69B4F9
-13: #DD92F6
-14: #8CE8ff
-15: #C9CCCD
+9: #ff8e8e
+10: #7efdd0
+11: #fcad3f
+12: #69b4f9
+13: #dd92f6
+14: #8ce8ff
+15: #c9cccd
 background: #20242d
-foreground: #C7C8FF
-cursorColor: #C7C8FF
+foreground: #c7c8ff
+cursorColor: #c7c8ff
 
 neopolitan
 0: #000000
@@ -2148,6 +2883,27 @@ nep
 background: #758480
 foreground: #23476a
 cursorColor: #23476a
+
+nightfly
+0: #1d3b53
+1: #fc514e
+2: #a1cd5e
+3: #e7d37a
+4: #82aaff
+5: #c792ea
+6: #7fdbca
+7: #a1aab8
+8: #7c8f8f
+9: #ff5874
+10: #21c7a8
+11: #ecc48d
+12: #82aaff
+13: #ae81ff
+14: #7fdbca
+15: #d6deeb
+background: #011627
+foreground: #c3ccdc
+cursorColor: #82aaff
 
 neutron
 0: #23252b
@@ -2213,87 +2969,109 @@ foreground: #bbbbbb
 cursorColor: #bbbbbb
 
 nighty
-0: #373D48
-1: #9B3E46
-2: #095B32
+0: #373d48
+1: #9b3e46
+2: #095b32
 3: #808020
-4: #1D3E6F
+4: #1d3e6f
 5: #823065
-6: #3A7458
+6: #3a7458
 7: #828282
-8: #5C6370
-9: #D0555F
+8: #5c6370
+9: #d0555f
 10: #119955
-11: #DFE048
-12: #4674B8
-13: #ED86C9
-14: #70D2A4
-15: #DFDFDF
-background: #2F2F2F
-foreground: #DFDFDF
-cursorColor: #DFDFDF
+11: #dfe048
+12: #4674b8
+13: #ed86c9
+14: #70d2a4
+15: #dfdfdf
+background: #2f2f2f
+foreground: #dfdfdf
+cursorColor: #dfdfdf
 
 nord-light
 0: #353535
-1: #E64569
-2: #89D287
-3: #DAB752
-4: #439ECF
-5: #D961DC
-6: #64AAAF
-7: #B3B3B3
+1: #e64569
+2: #89d287
+3: #dab752
+4: #439ecf
+5: #d961dc
+6: #64aaaf
+7: #b3b3b3
 8: #535353
-9: #E4859A
-10: #A2CCA1
-11: #E1E387
-12: #6FBBE2
-13: #E586E7
-14: #96DCDA
-15: #DEDEDE
+9: #e4859a
+10: #a2cca1
+11: #e1e387
+12: #6fbbe2
+13: #e586e7
+14: #96dcda
+15: #dedede
 background: #ebeaf2
 foreground: #004f7c
 cursorColor: #004f7c
 
 nord
-0: #3B4252
-1: #BF616A
-2: #A3BE8C
-3: #EBCB8B
-4: #81A1C1
-5: #B48EAD
-6: #88C0D0
-7: #E5E9F0
-8: #4C566A
-9: #BF616A
-10: #A3BE8C
-11: #EBCB8B
-12: #81A1C1
-13: #B48EAD
-14: #8FBCBB
-15: #ECEFF4
-background: #2E3440
-foreground: #D8DEE9
-cursorColor: #D8DEE9
+0: #3b4252
+1: #bf616a
+2: #a3be8c
+3: #ebcb8b
+4: #81a1c1
+5: #b48ead
+6: #88c0d0
+7: #e5e9f0
+8: #4c566a
+9: #bf616a
+10: #a3be8c
+11: #ebcb8b
+12: #81a1c1
+13: #b48ead
+14: #8fbcbb
+15: #eceff4
+background: #2e3440
+foreground: #d8dee9
+cursorColor: #d8dee9
 
 nord-alt
-0: #2E3440
-1: #3B4252
-2: #434C5E
-3: #4C566A
-4: #D8DEE9
-5: #E5E9F0
-6: #ECEFF4
-7: #8FBCBB
-8: #BF616A
-9: #D08770
-10: #EBCB8B
-11: #A3BE8C
-12: #88C0D0
-13: #81A1C1
-14: #B48EAD
-15: #5E81AC
-background: #2E3440
-foreground: #8FBCBB
+0: #2e3440
+1: #3b4252
+2: #434c5e
+3: #4c566a
+4: #d8dee9
+5: #e5e9f0
+6: #eceff4
+7: #8fbcbb
+8: #bf616a
+9: #d08770
+10: #ebcb8b
+11: #a3be8c
+12: #88c0d0
+13: #81a1c1
+14: #b48ead
+15: #5e81ac
+background: #2e3440
+foreground: #8fbcbb
+cursorColor: #8fbcbb
+
+nova
+0: #8799a4
+1: #efc08d
+2: #a6cb91
+3: #d7d690
+4: #83afe4
+5: #d460da
+6: #7fc1b6
+7: #c4d3dc
+8: #c4d3dc
+9: #ef8358
+10: #a8ce93
+11: #e5e77f
+12: #69c8ff
+13: #d18ec2
+14: #00e59f
+15: #e6eef3
+background: #3c4c54
+foreground: #8798a3
+cursorColor: #7fc1c9
 
 novel
 0: #000000
@@ -2338,46 +3116,67 @@ foreground: #cdcdcd
 cursorColor: #cdcdcd
 
 ocean-dark
-0: #4F4F4F
-1: #AF4B57
-2: #AFD383
-3: #E5C079
-4: #7D90A4
-5: #A4799D
-6: #85A6A5
-7: #EEEDEE
-8: #7B7B7B
-9: #AF4B57
-10: #CEFFAB
-11: #FFFECC
-12: #B5DCFE
-13: #FB9BFE
-14: #DFDFFD
-15: #FEFFFE
-background: #1C1F27
-foreground: #979CAC
-cursorColor: #979CAC
+0: #4f4f4f
+1: #af4b57
+2: #afd383
+3: #e5c079
+4: #7d90a4
+5: #a4799d
+6: #85a6a5
+7: #eeedee
+8: #7b7b7b
+9: #af4b57
+10: #ceffab
+11: #fffecc
+12: #b5dcfe
+13: #fb9bfe
+14: #dfdffd
+15: #fefffe
+background: #1c1f27
+foreground: #979cac
+cursorColor: #979cac
 
 oceanic-next
-0: #121C21
-1: #E44754
-2: #89BD82
-3: #F7BD51
-4: #5486C0
-5: #B77EB8
-6: #50A5A4
-7: #FFFFFF
-8: #52606B
-9: #E44754
-10: #89BD82
-11: #F7BD51
-12: #5486C0
-13: #B77EB8
-14: #50A5A4
-15: #FFFFFF
+0: #121c21
+1: #e44754
+2: #89bd82
+3: #f7bd51
+4: #5486c0
+5: #b77eb8
+6: #50a5a4
+7: #ffffff
+8: #52606b
+9: #e44754
+10: #89bd82
+11: #f7bd51
+12: #5486c0
+13: #b77eb8
+14: #50a5a4
+15: #ffffff
 background: #121b21
 foreground: #b3b8c3
 cursorColor: #b3b8c3
+
+oceanic-material
+0: #000000
+1: #ee2a29
+2: #3fa33f
+3: #fee92e
+4: #1d80ef
+5: #8800a0
+6: #16aec9
+7: #a4a4a4
+8: #767676
+9: #dc5b60
+10: #70be71
+11: #fef063
+12: #53a4f3
+13: #a94dbb
+14: #42c6d9
+15: #fffefe
+background: #1c262b
+foreground: #c1c8d6
+cursorColor: #b2b8c3
 
 ocean
 0: #000000
@@ -2423,24 +3222,24 @@ cursorColor: #8a8dae
 
 one-dark
 0: #000000
-1: #E06C75
-2: #98C379
-3: #D19A66
-4: #61AFEF
-5: #C678DD
-6: #56B6C2
-7: #ABB2BF
-8: #5C6370
-9: #E06C75
-10: #98C379
-11: #D19A66
-12: #61AFEF
-13: #C678DD
-14: #56B6C2
-15: #FFFEFE
-background: #1E2127
-foreground: #5C6370
-cursorColor: #5C6370
+1: #e06c75
+2: #98c379
+3: #d19a66
+4: #61afef
+5: #c678dd
+6: #56b6c2
+7: #abb2bf
+8: #5c6370
+9: #e06c75
+10: #98c379
+11: #d19a66
+12: #61afef
+13: #c678dd
+14: #56b6c2
+15: #fffefe
+background: #1e2127
+foreground: #5c6370
+cursorColor: #5c6370
 
 one-half-black
 0: #282c34
@@ -2463,26 +3262,68 @@ background: #000000
 foreground: #dcdfe4
 cursorColor: #dcdfe4
 
+one-half-light
+0: #383a42
+1: #e45649
+2: #40a14f
+3: #c18401
+4: #0184bc
+5: #a626a4
+6: #0997b3
+7: #fafafa
+8: #383a42
+9: #e45649
+10: #40a14f
+11: #c18401
+12: #0184bc
+13: #a626a4
+14: #0997b3
+15: #fafafa
+background: #fafafa
+foreground: #383a42
+cursorColor: #383a42
+
 one-light
 0: #000000
-1: #DA3E39
-2: #41933E
+1: #da3e39
+2: #41933e
 3: #855504
-4: #315EEE
+4: #315eee
 5: #930092
-6: #0E6FAD
-7: #8E8F96
-8: #2A2B32
-9: #DA3E39
-10: #41933E
+6: #0e6fad
+7: #8e8f96
+8: #2a2b32
+9: #da3e39
+10: #41933e
 11: #855504
-12: #315EEE
+12: #315eee
 13: #930092
-14: #0E6FAD
-15: #FFFEFE
-background: #F8F8F8
-foreground: #2A2B32
-cursorColor: #2A2B32
+14: #0e6fad
+15: #fffefe
+background: #f8f8f8
+foreground: #2a2b32
+cursorColor: #2a2b32
+
+orbital
+0: #000000
+1: #5f5f5f
+2: #bcbcbc
+3: #d7af87
+4: #5f87d7
+5: #87afd7
+6: #0087d7
+7: #0000d7
+8: #262626
+9: #949494
+10: #ffd7af
+11: #af875f
+12: #5f87af
+13: #5fafff
+14: #005faf
+15: #0000d7
+background: #000000
+foreground: #e4e4e4
+cursorColor: #5fafff
 
 pali
 0: #0a0a0a
@@ -2492,58 +3333,79 @@ pali
 4: #8f74ab
 5: #ab748f
 6: #748fab
-7: #F2F2F2
-8: #5D5D5D
-9: #FF1D62
+7: #f2f2f2
+8: #5d5d5d
+9: #ff1d62
 10: #9cc3af
-11: #FFD00A
+11: #ffd00a
 12: #af9cc3
-13: #FF1D62
-14: #4BB8FD
-15: #A020F0
-background: #232E37
+13: #ff1d62
+14: #4bb8fd
+15: #a020f0
+background: #232e37
 foreground: #d9e6f2
 cursorColor: #d9e6f2
 
+palmtree
+0: #282A36
+1: #F37F97
+2: #5ADECD
+3: #F2A272
+4: #8897F4
+5: #C574DD
+6: #79E6F3
+7: #FDFDFD
+8: #666979
+9: #FF4971
+10: #18E3C8
+11: #FF8037
+12: #556FFF
+13: #B043D1
+14: #3FDCEE
+15: #BEBEC1
+background: #282A36
+foreground: #B043D1
+cursorColor: #3FDCEE 
+
 papercolor-dark
-0: #1C1C1C
-1: #AF005F
-2: #5FAF00
-3: #D7AF5F
-4: #5FAFD7
+0: #1c1c1c
+1: #af005f
+2: #5faf00
+3: #d7af5f
+4: #5fafd7
 5: #808080
-6: #D7875F
-7: #D0D0D0
+6: #d7875f
+7: #d0d0d0
 8: #585858
-9: #5FAF5F
-10: #AFD700
-11: #AF87D7
-12: #FFAF00
-13: #FF5FAF
-14: #00AFAF
-15: #5F8787
-background: #1C1C1C
-foreground: #D0D0D0
-cursorColor: #D0D0D0
+9: #5faf5f
+10: #afd700
+11: #af87d7
+12: #ffaf00
+13: #ff5faf
+14: #00afaf
+15: #5f8787
+background: #1c1c1c
+foreground: #d0d0d0
+cursorColor: #d0d0d0
 
 papercolor-light
-0: #EEEEEE
-1: #AF0000
+0: #eeeeee
+1: #af0000
 2: #008700
-3: #5F8700
-4: #0087AF
+3: #5f8700
+4: #0087af
 5: #878787
-6: #005F87
+6: #005f87
 7: #444444
-8: #BCBCBC
-9: #D70000
-10: #D70087
-11: #8700AF
-12: #D75F00
-13: #D75F00
-14: #005FAF
-15: #005F87
-background: #EEEEEE
+8: #bcbcbc
+9: #d70000
+10: #d70087
+11: #8700af
+12: #d75f00
+13: #d75f00
+14: #005faf
+15: #005f87
+background: #eeeeee
 foreground: #444444
 cursorColor: #444444
 
@@ -2633,24 +3495,45 @@ cursorColor: #424242
 
 peppermint
 0: #353535
-1: #E64569
-2: #89D287
-3: #DAB752
-4: #439ECF
-5: #D961DC
-6: #64AAAF
-7: #B3B3B3
+1: #e64569
+2: #89d287
+3: #dab752
+4: #439ecf
+5: #d961dc
+6: #64aaaf
+7: #b3b3b3
 8: #535353
-9: #E4859A
-10: #A2CCA1
-11: #E1E387
-12: #6FBBE2
-13: #E586E7
-14: #96DCDA
-15: #DEDEDE
+9: #e4859a
+10: #a2cca1
+11: #e1e387
+12: #6fbbe2
+13: #e586e7
+14: #96dcda
+15: #dedede
 background: #000000
-foreground: #C7C7C7
-cursorColor: #BBBBBB
+foreground: #c7c7c7
+cursorColor: #bbbbbb
+
+piatto-light
+0: #414141
+1: #b23670
+2: #66781d
+3: #cc6e33
+4: #3b5ea7
+5: #a353b2
+6: #66781d
+7: #ffffff
+8: #3e3e3e
+9: #da3365
+10: #829428
+11: #cc6e33
+12: #3b5ea7
+13: #a353b2
+14: #829428
+15: #f1f1f1
+background: #ffffff
+foreground: #414141
+cursorColor: #5e76c7
 
 pnevma
 0: #2f2e2d
@@ -2735,6 +3618,48 @@ red-sands
 background: #7a251e
 foreground: #d7c9a7
 cursorColor: #d7c9a7
+
+relaxed-afterglow
+0: #151515
+1: #bc5653
+2: #909d63
+3: #ebc17a
+4: #6a8799
+5: #b06698
+6: #c9dfff
+7: #d9d9d9
+8: #636363
+9: #bc5653
+10: #a0ac77
+11: #ebc17a
+12: #7eaac7
+13: #b06698
+14: #acbbd0
+15: #f7f7f7
+background: #353a44
+foreground: #d9d9d9
+cursorColor: #d9d9d9
+
+renault-style-light
+0: #000000
+1: #da4839
+2: #509f50
+3: #ffd249
+4: #46657d
+5: #cfcfff
+6: #87c1f1
+7: #ffffff
+8: #323232
+9: #ff7b6a
+10: #83d082
+11: #ffff7b
+12: #9fcef0
+13: #ffffff
+14: #a4d4f8
+15: #ffffff
+background: #3a3a3a
+foreground: #e9cb7b
+cursorColor: #7f7f7f
 
 rippedcasts
 0: #000000
@@ -2925,6 +3850,27 @@ background: #ffffff
 foreground: #474747
 cursorColor: #474747
 
+seoul256
+0: #4e4e4e
+1: #d68787
+2: #5f865f
+3: #d8af5f
+4: #85add4
+5: #d7afaf
+6: #87afaf
+7: #d0d0d0
+8: #626262
+9: #d75f87
+10: #87af87
+11: #ffd787
+12: #add4fb
+13: #ffafaf
+14: #87d7d7
+15: #e4e4e4
+background: #3a3a3a
+foreground: #d0d0d0
+cursorColor: #d0d0d0
+
 seti
 0: #323232
 1: #c22832
@@ -2988,6 +3934,27 @@ background: #2a201f
 foreground: #4882cd
 cursorColor: #4882cd
 
+sierra
+0: #0e0e04
+1: #515a45
+2: #68694f
+3: #7f7f60
+4: #989876
+5: #897c5b
+6: #a18e60
+7: #bb7774
+8: #a85e5d
+9: #475a2e
+10: #676938
+11: #7f7f41
+12: #98984e
+13: #897645
+14: #a17140
+15: #c9cbac
+background: #1c1a14
+foreground: #cacbb9
+cursorColor: #cacbb9
+
 slate
 0: #222222
 1: #e2a8bf
@@ -3011,45 +3978,66 @@ cursorColor: #35b1d2
 
 smyck
 0: #000000
-1: #C75646
-2: #8EB33B
-3: #D0B03C
-4: #72B3CC
-5: #C8A0D1
+1: #c75646
+2: #8eb33b
+3: #d0b03c
+4: #72b3cc
+5: #c8a0d1
 6: #218693
-7: #B0B0B0
-8: #5D5D5D
-9: #E09690
-10: #CDEE69
-11: #FFE377
-12: #9CD9F0
-13: #FBB1F9
-14: #77DFD8
-15: #F7F7F7
+7: #b0b0b0
+8: #5d5d5d
+9: #e09690
+10: #cdee69
+11: #ffe377
+12: #9cd9f0
+13: #fbb1f9
+14: #77dfd8
+15: #f7f7f7
 background: #242424
-foreground: #F7F7F7
-cursorColor: #F7F7F7
+foreground: #f7f7f7
+cursorColor: #f7f7f7
 
-snazzy
-0: #282A36
-1: #FF5C57
-2: #5AF78E
-3: #F3F99D
-4: #57C7FF
-5: #FF6AC1
-6: #9AEDFE
-7: #F1F1F0
-8: #686868
-9: $COLOR_02
-10: $COLOR_03
-11: $COLOR_04
-12: $COLOR_05
-13: $COLOR_06
-14: $COLOR_07
-15: #EFF0EB
-background: $COLOR_01
-foreground: $COLOR_16
-cursorColor: #97979B
+snow-dark
+0: #2c2d30
+1: #be868c
+2: #7f9d77
+3: #ab916d
+4: #759abd
+5: #a88cb3
+6: #5da19f
+7: #afb7c0
+8: #363a3e
+9: #be868c
+10: #7f9d77
+11: #ab916d
+12: #759abd
+13: #a88cb3
+14: #5da19f
+15: #cbd2d9
+background: #2c2d30
+foreground: #afb7c0
+cursorColor: #cbd2d9
+
+snow-light
+0: #fbffff
+1: #ae5865
+2: #4d7f43
+3: #906c33
+4: #2b7ab2
+5: #8f63a2
+6: #008483
+7: #535c65
+8: #6d7782
+9: #ae5865
+10: #4d7f43
+11: #906c33
+12: #2b7ab2
+13: #8f63a2
+14: #008483
+15: #434951
+background: #fbffff
+foreground: #535c65
+cursorColor: #434951
 
 soft-server
 0: #000000
@@ -3116,45 +4104,108 @@ cursorColor: #9cc2c3
 
 solarized-dark
 0: #073642
-1: #DC322F
+1: #dc322f
 2: #859900
-3: #CF9A6B
-4: #268BD2
-5: #D33682
-6: #2AA198
-7: #EEE8D5
-8: #657B83
-9: #D87979
-10: #88CF76
-11: #657B83
-12: #2699FF
-13: #D33682
-14: #43B8C3
-15: #FDF6E3
-background: #002B36
+3: #cf9a6b
+4: #268bd2
+5: #d33682
+6: #2aa198
+7: #eee8d5
+8: #657b83
+9: #d87979
+10: #88cf76
+11: #657b83
+12: #2699ff
+13: #d33682
+14: #43b8c3
+15: #fdf6e3
+background: #002b36
 foreground: #839496
 cursorColor: #839496
 
 solarized-light
-color-1: #073642
-0: #DC322F
+0: #dc322f
 1: #859900
-2: #B58900
-3: #268BD2
-4: #D33682
-5: #2AA198
-6: #EEE8D5
-7: #002B36
-8: #CB4B16
-9: #586E75
-10: #657B83
+2: #b58900
+3: #268bd2
+4: #d33682
+5: #2aa198
+6: #eee8d5
+7: #002b36
+8: #cb4b16
+9: #586e75
+10: #657b83
 11: #839496
-12: #6C71C4
-13: #93A1A1
-14: #FDF6E3
-background: #FDF6E3
-foreground: #657B83
-cursorColor: #657B83
+12: #6c71c4
+13: #93a1a1
+14: #fdf6e3
+15: #073642
+background: #fdf6e3
+foreground: #657b83
+cursorColor: #657b83
+
+source-code-x
+0: #4e596b
+1: #fb695d
+2: #74b391
+3: #fc8e3e
+4: #9586f4
+5: #fb5ea3
+6: #79c8b6
+7: #bfbfbf
+8: #91a0b1
+9: #fb695d
+10: #aef37c
+11: #fc8e3e
+12: #53a4fb
+13: #fb5ea3
+14: #83d2c0
+15: #91a0b1
+background: #1f1f24
+foreground: #000000
+cursorColor: #7f7f7f
+
+sourcerer
+0: #111111
+1: #aa4450
+2: #719611
+3: #ff9800
+4: #6688aa
+5: #8f6f8f
+6: #528b8b
+7: #d3d3d3
+8: #181818
+9: #ff6a6a
+10: #b1d631
+11: #87875f
+12: #90b0d1
+13: #8181a6
+14: #87ceeb
+15: #c1cdc1
+background: #222222
+foreground: #c2c2b0
+cursorColor: #c2c2b0
+
+sourcerer2
+0: #111111
+1: #aa4450
+2: #719611
+3: #ff9800
+4: #6688aa
+5: #8f6f8f
+6: #528b8b
+7: #d3d3d3
+8: #181818
+9: #ff6a6a
+10: #b1d631
+11: #87875f
+12: #90b0d1
+13: #8181a6
+14: #87ceeb
+15: #c1cdc1
+background: #222222
+foreground: #c2c2b0
+cursorColor: #c2c2b0
 
 spacedust
 0: #6e5346
@@ -3240,6 +4291,27 @@ background: #20242d
 foreground: #b3b8c3
 cursorColor: #b3b8c3
 
+spiderman
+0: #1b1d1e
+1: #e60712
+2: #e22828
+3: #e24655
+4: #2b3fff
+5: #2435db
+6: #3255ff
+7: #fffef6
+8: #505354
+9: #ff0325
+10: #ff3238
+11: #fe3935
+12: #1d4fff
+13: #737bff
+14: #6083ff
+15: #fefff9
+background: #1b1d1e
+foreground: #e2e2e2
+cursorColor: #2b3fff
+
 spring
 0: #000000
 1: #ff4d83
@@ -3283,25 +4355,46 @@ foreground: #1a1a1a
 cursorColor: #1a1a1a
 
 srcery
-0: #1C1B19
-1: #FF3128
-2: #519F50
-3: #FBB829
-4: #5573A3
-5: #E02C6D
-6: #0AAEB3
+0: #1c1b19
+1: #ff3128
+2: #519f50
+3: #fbb829
+4: #5573a3
+5: #e02c6d
+6: #0aaeb3
 7: #918175
-8: #2D2B28
-9: #F75341
-10: #98BC37
-11: #FED06E
-12: #8EB2F7
-13: #E35682
-14: #53FDE9
-15: #FCE8C3
+8: #2d2b28
+9: #f75341
+10: #98bc37
+11: #fed06e
+12: #8eb2f7
+13: #e35682
+14: #53fde9
+15: #fce8c3
 background: #282828
 foreground: #ebdbb2
 cursorColor: #ebdbb2
+
+substrata
+0: #2e313d
+1: #cf8164
+2: #76a065
+3: #ab924c
+4: #8296b0
+5: #a18daf
+6: #659ea2
+7: #b5b4c9
+8: #5b5f71
+9: #fe9f7c
+10: #92c47e
+11: #d2b45f
+12: #a0b9d8
+13: #c6aed7
+14: #7dc2c7
+15: #f0ecfe
+background: #191c25
+foreground: #b5b4c9
+cursorColor: #b5b4c9
 
 sundried
 0: #302b2a
@@ -3345,6 +4438,48 @@ background: #000000
 foreground: #ffffff
 cursorColor: #ffffff
 
+tango-dark
+0: #000000
+1: #cc0000
+2: #4e9a05
+3: #c4a000
+4: #3464a4
+5: #74507a
+6: #05989a
+7: #d3d7cf
+8: #545753
+9: #ef2828
+10: #8ae234
+11: #fce94e
+12: #719ecf
+13: #ad7ea7
+14: #34e2e2
+15: #ededec
+background: #000000
+foreground: #ffffff
+cursorColor: #ffffff
+
+tango-light
+0: #000000
+1: #cc0000
+2: #4e9a05
+3: #c4a000
+4: #3464a4
+5: #74507a
+6: #05989a
+7: #d3d7cf
+8: #545753
+9: #ef2828
+10: #8ae234
+11: #fce94e
+12: #719ecf
+13: #ad7ea7
+14: #34e2e2
+15: #ededec
+background: #ffffff
+foreground: #000000
+cursorColor: #000000
+
 teerb
 0: #1c1c1c
 1: #d68686
@@ -3365,6 +4500,342 @@ teerb
 background: #262626
 foreground: #d0d0d0
 cursorColor: #d0d0d0
+
+tempus-autumn
+0: #302420
+1: #f16c50
+2: #80a100
+3: #ac9440
+4: #7897c2
+5: #dd758e
+6: #52a485
+7: #a5918a
+8: #312e2a
+9: #e07a3d
+10: #43a770
+11: #ba9000
+12: #908ed4
+13: #c57bc4
+14: #2aa4ad
+15: #a9a2a6
+background: #302420
+foreground: #a9a2a6
+cursorColor: #a9a2a6
+
+tempus-classic
+0: #232323
+1: #d2813d
+2: #8c9e3d
+3: #b1942b
+4: #6e9cb0
+5: #b58d88
+6: #6da280
+7: #949d9f
+8: #312e30
+9: #d0913d
+10: #96a42d
+11: #a8a030
+12: #8e9cc0
+13: #d58888
+14: #7aa880
+15: #aeadaf
+background: #232323
+foreground: #aeadaf
+cursorColor: #aeadaf
+
+tempus-dawn
+0: #4a4b4e
+1: #a32a3a
+2: #206620
+3: #745300
+4: #4b529a
+5: #8d377e
+6: #086784
+7: #e2e4e1
+8: #686565
+9: #ae4e2a
+10: #1a7608
+11: #8d5b0a
+12: #5c5bb2
+13: #8e47a8
+14: #106e8c
+15: #eff0f2
+background: #eff0f2
+foreground: #4a4b4e
+cursorColor: #4a4b4e
+
+tempus-day
+0: #464340
+1: #c81000
+2: #107410
+3: #806000
+4: #385dc4
+5: #b63052
+6: #007070
+7: #eae9dd
+8: #68607d
+9: #b94000
+10: #4a7240
+11: #706a00
+12: #0d66c9
+13: #8055aa
+14: #337087
+15: #f8f2e5
+background: #f8f2e5
+foreground: #464340
+cursorColor: #464340
+
+tempus-dusk
+0: #1f252d
+1: #cb8d56
+2: #8ba089
+3: #a79c46
+4: #8c9abe
+5: #b190af
+6: #8e9aba
+7: #a29899
+8: #2c3150
+9: #d39d74
+10: #80b48f
+11: #bda75a
+12: #9ca5de
+13: #c69ac6
+14: #8caeb6
+15: #a2a8ba
+background: #1f252d
+foreground: #a2a8ba
+cursorColor: #a2a8ba
+
+tempus-fugit
+0: #4d595f
+1: #c61a14
+2: #357200
+3: #825e00
+4: #1666b0
+5: #a83884
+6: #007072
+7: #f2ebe9
+8: #7b6471
+9: #bd401a
+10: #447720
+11: #985d00
+12: #485ddf
+13: #a438c0
+14: #00786a
+15: #fff5f3
+background: #fff5f3
+foreground: #4d595f
+cursorColor: #4d595f
+
+tempus-future
+0: #090a18
+1: #ff778a
+2: #6ab539
+3: #bfa01a
+4: #4aaed3
+5: #e58a82
+6: #29b3bb
+7: #a59ebd
+8: #260e22
+9: #f78e2f
+10: #60ba80
+11: #de9b1d
+12: #8ba7ea
+13: #e08bd6
+14: #2cbab6
+15: #b4abac
+background: #090a18
+foreground: #b4abac
+cursorColor: #b4abac
+
+tempus-night
+0: #1a1a1a
+1: #fb7e8e
+2: #52ba40
+3: #b0a800
+4: #5aaaf2
+5: #ee80c0
+6: #1db5c3
+7: #c4bdaf
+8: #18143d
+9: #f69d6a
+10: #88c400
+11: #d7ae00
+12: #8cb4f0
+13: #de99f0
+14: #00ca9a
+15: #e0e0e0
+background: #1a1a1a
+foreground: #e0e0e0
+cursorColor: #e0e0e0
+
+tempus-past
+0: #53545b
+1: #c00c50
+2: #0a7040
+3: #a6403a
+4: #1763aa
+5: #b02874
+6: #096a83
+7: #ece6de
+8: #80565d
+9: #bd3636
+10: #407343
+11: #9d524a
+12: #5a5ebb
+13: #b225ab
+14: #07737a
+15: #f3f2f4
+background: #f3f2f4
+foreground: #53545b
+cursorColor: #53545b
+
+tempus-rift
+0: #162c22
+1: #c19904
+2: #34b534
+3: #7fad00
+4: #30aeb0
+5: #c8954c
+6: #5fad8f
+7: #ab9aa9
+8: #283431
+9: #d2a634
+10: #6ac134
+11: #82bd00
+12: #56bdad
+13: #cca0ba
+14: #10c480
+15: #bbbcbc
+background: #162c22
+foreground: #bbbcbc
+cursorColor: #bbbcbc
+
+tempus-spring
+0: #283a37
+1: #ff855a
+2: #5cbc4d
+3: #a6af1a
+4: #39b6ce
+5: #e69092
+6: #36bd84
+7: #96aca7
+8: #2a423d
+9: #e19900
+10: #6dbb0d
+11: #c5a443
+12: #70ade2
+13: #d091db
+14: #3cbaa6
+15: #b5b8b7
+background: #283a37
+foreground: #b5b8b7
+cursorColor: #b5b8b7
+
+tempus-summer
+0: #202c3d
+1: #f76f6e
+2: #4eac6d
+3: #af9a0a
+4: #609fda
+5: #cc84ad
+6: #3dab95
+7: #919ab9
+8: #352f49
+9: #eb7b4d
+10: #57ad47
+11: #bd951a
+12: #8196e8
+13: #c97ed7
+14: #2aa9b6
+15: #a0abae
+background: #202c3d
+foreground: #a0abae
+cursorColor: #a0abae
+
+tempus-tempest
+0: #282b2b
+1: #c6c80a
+2: #7ad67a
+3: #bfc94a
+4: #60d4cd
+5: #c0c4aa
+6: #8ad0b0
+7: #b0c8ca
+8: #303434
+9: #d1d933
+10: #99e299
+11: #bbde4f
+12: #74e4cd
+13: #d2d4aa
+14: #9bdfc4
+15: #b6e0ca
+background: #282b2b
+foreground: #b6e0ca
+cursorColor: #b6e0ca
+
+tempus-totus
+0: #4a484d
+1: #a80000
+2: #005f26
+3: #714900
+4: #1d3fcf
+5: #882a7a
+6: #185870
+7: #f3f1f3
+8: #5f4d4f
+9: #9b2230
+10: #4a5700
+11: #8b3800
+12: #2d48b0
+13: #7310cb
+14: #005589
+15: #ffffff
+background: #ffffff
+foreground: #4a484d
+cursorColor: #4a484d
+
+tempus-warp
+0: #001514
+1: #fa3333
+2: #139913
+3: #9e8100
+4: #557feb
+5: #d54cbf
+6: #009580
+7: #928080
+8: #241828
+9: #f0681a
+10: #3aa73a
+11: #ba8a00
+12: #8887f0
+13: #d85cf2
+14: #1da1af
+15: #a29fa0
+background: #001514
+foreground: #a29fa0
+cursorColor: #a29fa0
+
+tempus-winter
+0: #202427
+1: #eb6a58
+2: #49a61d
+3: #959721
+4: #798fd7
+5: #cd7b7e
+6: #4fa090
+7: #909294
+8: #292b35
+9: #db7824
+10: #00a854
+11: #ad8e4b
+12: #309dc1
+13: #c874c2
+14: #1ba2a0
+15: #8da3b8
+background: #202427
+foreground: #8da3b8
+cursorColor: #8da3b8
 
 terminal-basic
 0: #000000
@@ -3405,8 +4876,8 @@ terminix-dark
 14: #86c1b9
 15: #c5c8c6
 background: #091116
-foreground: #868A8C
-cursorColor: #868A8C
+foreground: #868a8c
+cursorColor: #868a8c
 
 thayer-bright
 0: #1b1d1e
@@ -3428,6 +4899,27 @@ thayer-bright
 background: #1b1d1e
 foreground: #f8f8f8
 cursorColor: #f8f8f8
+
+the-hulk
+0: #1b1d1e
+1: #259d1a
+2: #13ce2f
+3: #62e456
+4: #2424f4
+5: #641e73
+6: #378ca9
+7: #d8d8d0
+8: #505354
+9: #8dff2a
+10: #48ff76
+11: #3afe15
+12: #4f6a95
+13: #72579d
+14: #3f85a5
+15: #e5e5e0
+background: #1b1d1e
+foreground: #b4b4b4
+cursorColor: #15b61a
 
 tin
 0: #000000
@@ -3452,108 +4944,108 @@ cursorColor: #ffffff
 
 tomorrow-night-blue
 0: #000000
-1: #FF9DA3
-2: #D1F1A9
-3: #FFEEAD
-4: #BBDAFF
-5: #EBBBFF
-6: #99FFFF
-7: #FFFEFE
+1: #ff9da3
+2: #d1f1a9
+3: #ffeead
+4: #bbdaff
+5: #ebbbff
+6: #99ffff
+7: #fffefe
 8: #000000
-9: #FF9CA3
-10: #D0F0A8
-11: #FFEDAC
-12: #BADAFF
-13: #EBBAFF
-14: #99FFFF
-15: #FFFEFE
+9: #ff9ca3
+10: #d0f0a8
+11: #ffedac
+12: #badaff
+13: #ebbaff
+14: #99ffff
+15: #fffefe
 background: #002451
-foreground: #FFFEFE
-cursorColor: #FFFEFE
+foreground: #fffefe
+cursorColor: #fffefe
 
 tomorrow-night-bright
 0: #000000
-1: #D54E53
-2: #B9CA49
-3: #E7C547
-4: #79A6DA
-5: #C397D8
-6: #70C0B1
-7: #FFFEFE
+1: #d54e53
+2: #b9ca49
+3: #e7c547
+4: #79a6da
+5: #c397d8
+6: #70c0b1
+7: #fffefe
 8: #000000
-9: #D44D53
-10: #B9C949
-11: #E6C446
-12: #79A6DA
-13: #C396D7
-14: #70C0B1
-15: #FFFEFE
+9: #d44d53
+10: #b9c949
+11: #e6c446
+12: #79a6da
+13: #c396d7
+14: #70c0b1
+15: #fffefe
 background: #000000
-foreground: #E9E9E9
-cursorColor: #E9E9E9
+foreground: #e9e9e9
+cursorColor: #e9e9e9
 
 tomorrow-night-eighties
 0: #000000
-1: #F27779
-2: #99CC99
-3: #FFCC66
-4: #6699CC
-5: #CC99CC
-6: #66CCCC
-7: #FFFEFE
+1: #f27779
+2: #99cc99
+3: #ffcc66
+4: #6699cc
+5: #cc99cc
+6: #66cccc
+7: #fffefe
 8: #000000
-9: #F17779
-10: #99CC99
-11: #FFCC66
-12: #6699CC
-13: #CC99CC
-14: #66CCCC
-15: #FFFEFE
-background: #2C2C2C
-foreground: #CCCCCC
-cursorColor: #CCCCCC
+9: #f17779
+10: #99cc99
+11: #ffcc66
+12: #6699cc
+13: #cc99cc
+14: #66cccc
+15: #fffefe
+background: #2c2c2c
+foreground: #cccccc
+cursorColor: #cccccc
 
 tomorrow-night
 0: #000000
-1: #CC6666
-2: #B5BD68
-3: #F0C674
-4: #81A2BE
-5: #B293BB
-6: #8ABEB7
-7: #FFFEFE
+1: #cc6666
+2: #b5bd68
+3: #f0c674
+4: #81a2be
+5: #b293bb
+6: #8abeb7
+7: #fffefe
 8: #000000
-9: #CC6666
-10: #B5BD68
-11: #F0C574
-12: #80A1BD
-13: #B294BA
-14: #8ABDB6
-15: #FFFEFE
-background: #1D1F21
-foreground: #C5C8C6
-cursorColor: #C4C8C5
+9: #cc6666
+10: #b5bd68
+11: #f0c574
+12: #80a1bd
+13: #b294ba
+14: #8abdb6
+15: #fffefe
+background: #1d1f21
+foreground: #c5c8c6
+cursorColor: #c4c8c5
 
 tomorrow
 0: #000000
-1: #C82828
-2: #718C00
-3: #EAB700
-4: #4171AE
-5: #8959A8
-6: #3E999F
-7: #FFFEFE
+1: #c82828
+2: #718c00
+3: #eab700
+4: #4171ae
+5: #8959a8
+6: #3e999f
+7: #fffefe
 8: #000000
-9: #C82828
-10: #708B00
-11: #E9B600
-12: #4170AE
-13: #8958A7
-14: #3D999F
-15: #FFFEFE
-background: #FFFFFF
-foreground: #4D4D4C
-cursorColor: #4C4C4C
+9: #c82828
+10: #708b00
+11: #e9b600
+12: #4170ae
+13: #8958a7
+14: #3d999f
+15: #fffefe
+background: #ffffff
+foreground: #4d4d4c
+cursorColor: #4c4c4c
 
 toy-chest
 0: #2c3f58
@@ -3617,6 +5109,27 @@ twilight
 background: #141414
 foreground: #ffffd4
 cursorColor: #ffffd4
+
+two-firewatch
+0: #282c34
+1: #e06c75
+2: #98c379
+3: #e5c07b
+4: #61afef
+5: #c678dd
+6: #56b6c2
+7: #dcdfe4
+8: #282c34
+9: #e06c75
+10: #98c379
+11: #e5c07b
+12: #61afef
+13: #c678dd
+14: #56b6c2
+15: #dcdfe4
+background: #282c34
+foreground: #abb2bf
+cursorColor: #abb2bf
 
 ura
 0: #000000
@@ -3724,25 +5237,25 @@ foreground: #ffffff
 cursorColor: #ffffff
 
 vs-code-dark-plus
-0: #6A787A
-1: #E9653B
-2: #39E9A8
-3: #E5B684
-4: #44AAE6
-5: #E17599
-6: #3DD5E7
-7: #C3DDE1
+0: #6a787a
+1: #e9653b
+2: #39e9a8
+3: #e5b684
+4: #44aae6
+5: #e17599
+6: #3dd5e7
+7: #c3dde1
 8: #598489
-9: #E65029
-10: #00FF9A
-11: #E89440
-12: #009AFB
-13: #FF578F
-14: #5FFFFF
-15: #D9FBFF
-background: #1E1E1E
-foreground: #CCCCCC
-cursorColor: #CCCCCC
+9: #e65029
+10: #00ff9a
+11: #e89440
+12: #009afb
+13: #ff578f
+14: #5fffff
+15: #d9fbff
+background: #1e1e1e
+foreground: #cccccc
+cursorColor: #cccccc
 
 warm-neon
 0: #000000
@@ -4377,11 +5890,6 @@ apply() {
 				fgesc="\033]Pg%s\033\\"
 				colesc="\033]P%x%s\033\\"
 				curesc="\033]Pl%s\033\\"
-			} else if(term ~ /st-.*/) {
-				fgesc="\033]4;7;#%s\007"
-				bgesc="\033]4;0;#%s\007"
-				colesc="\033]4;%d;#%s\007"
-				curesc="\033]4;256;#%s\007"
 			} else {
 				#Terms that play nice :)
 
@@ -4410,10 +5918,8 @@ apply() {
 
 		END {
 			if(found) {
-				for(c in colors) {
-					if(!(term ~ /st-.*/ && (c == 0 || c == 7)))
-						printf colesc, c, substr(colors[c], 2) > "/dev/tty"
-				}
+				for(c in colors)
+					printf colesc, c, substr(colors[c], 2) > "/dev/tty"
 
 				printf fgesc, substr(fg, 2) > "/dev/tty"
 				printf bgesc, substr(bg, 2) > "/dev/tty"

@@ -1,6 +1,8 @@
 # DotFiles
 
-My .files (the screenshot was removed, in future i will restore it).
+My .files, here is a preview:
+
+![screenshot](https://github.com/TheDarkBug/DotFiles/dotfiles.png)
 
 ## Dependances:
 
@@ -14,6 +16,8 @@ My .files (the screenshot was removed, in future i will restore it).
 
 - Shell: [zsh](https://wiki.archlinux.org/index.php/zsh) + [oh my zsh](https://ohmyz.sh/)
 
+- Fetch tool: [uwufetch](https://github.com/TheDarkBug/uwufetch)
+
 - Zsh theme: [PowerLevel10k](https://github.com/romkatv/powerlevel10k)
 
 - Bar: [Polybar](https://wiki.archlinux.org/index.php/Polybar)/[Waybar](https://github.com/Alexays/Waybar)
@@ -24,7 +28,7 @@ My .files (the screenshot was removed, in future i will restore it).
 
 - Background manager: [Feh](https://feh.finalrewind.org/)
 
-- Fonts: [Roboto](https://fonts.google.com/specimen/Roboto), [JetBrains Mono](https://www.jetbrains.com/lp/mono/), [Awesome 5]([Font Awesome](https://fontawesome.com/))
+- Fonts: [Roboto](https://fonts.google.com/specimen/Roboto), [JetBrains Mono](https://www.jetbrains.com/lp/mono/), [Awesome 5]([Font Awesome](https://fontawesome.com/)), [OpenSans](https://fonts.google.com/specimen/Open+Sans)
 
 - Notifications: [Dunst](https://dunst-project.org/)/[Mako](https://github.com/emersion/mako)
 
@@ -49,6 +53,8 @@ Now copy the other files in the home directory and the wallpaper in ~/Pictures/
 cp -t ~/ .zshrc .xmonad .vim .vimrc
 cp -t ~/Pictures/ *.png *.jpg
 ```
+
+Or you can just run `install-ln.sh` to install with symlinks (not recommended, i made the script just for me).
 
 To configure PowerLevel10k, run ```p10k configure``` in terminal and follow the instructions.
 Finally you should change some lines in the config files, you need to swap my username (adri) with yours.

@@ -1,9 +1,9 @@
-if command -v theme.sh > /dev/null; then
-	export THEME_HISTFILE=~/.theme_history
-	[ -e "$THEME_HISTFILE" ] && theme.sh "$(theme.sh -l|tail -n1)"
-fi
+#if command -v theme.sh > /dev/null; then
+#	export THEME_HISTFILE=~/.theme_history
+#	[ -e "$THEME_HISTFILE" ] && theme.sh "$(theme.sh -l|tail -n1)"
+#fi
 HISTSIZE= HISTFILESIZE= 
- 
+ZSH_DISABLE_COMPFIX=true 
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
