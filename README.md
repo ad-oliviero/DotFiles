@@ -2,7 +2,7 @@
 
 My .files, here is a preview:
 
-![screenshot](https://github.com/TheDarkBug/DotFiles/dotfiles.png)
+![](https://raw.githubusercontent.com/TheDarkBug/DotFiles/main/dotfiles.png)
 
 ## Dependances:
 
