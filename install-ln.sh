@@ -12,8 +12,8 @@ rm -rf \
 		~/.config/scripts \
 		~/.config/sway \
 		~/.config/swaylock \
+		~/.config/waybar \
 		~/.config/zsh \
-		~/.oh-my-zsh \
 		~/.vim* \
 		~/.xmonad \
 		~/.zshrc
@@ -32,12 +32,12 @@ ln -s \
 		~/.config/DotFiles/scripts \
 		~/.config/DotFiles/sway \
 		~/.config/DotFiles/swaylock \
+		~/.config/DotFiles/waybar \
 		~/.config/DotFiles/zsh \
 		~/.config
 ln -s \
-		~/.config/DotFiles/.oh-my-zsh \
 		~/.config/DotFiles/.vim* \
 		~/.config/DotFiles/.xmonad \
-		~/.config/DotFiles/.zshrc \
+		~/.config/DotFiles/zsh/.zshrc \
 		~/
 

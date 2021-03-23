@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# commands
+alias \
+	ls="exa" \
+    ll="ls -lSh" \
+    l="ll" \
+    la="ll -a" \
+	cp="cp -iv" \
+    mv="mv -iv" \
+    rm="rm -v" \
+    mkdir="mkdir -pv" \
+    md="mkdir" \
+    yt="youtube-dl --add-metadata -i" \
+    yta="yt -x" \
+    ccat="highlight --out-format=ansi" \
+    starwars="telnet towel.blinkenlights.nl"
+
+# scripts
+alias \
+    bandwidth="~/.config/scripts/bandwidth.sh" \
+	cache="~/.config/scripts/cache-clean.sh" \
+    pipes="~/.config/scripts/pipes.sh" \
+    myip="curl ipinfo.io/ip && printf '\n'" \
+	simplettt="~/.config/scripts/simplettt.sh"
+

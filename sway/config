@@ -27,7 +27,7 @@ input * {
 # exec_always --no-startup-id dconf reset -f /org/gnome/control-center/
 exec --no-startup-id nm-applet
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always swaybg -i Pictures/waves-wallpaper-grayscale4k.png -m fill
+exec_always swaybg -i Pictures/nyarch-wall-dark.png -m fill
 exec_always xset s on
 exec_always ~/.config/waybar/launch.sh
 exec_always --no-startup-id mako
@@ -126,15 +126,14 @@ bindsym $mod+0 workspace number $ws10
 for_window [class="^.*"] border pixel 2
 default_border pixel 2
 #border_radius 15
-#gaps inner 10
-#gaps outer 0
+gaps inner 10
 
 # Colors
-set $bgcolor	#D08770
-set $ibgcolor	#5E81AC
-set $textcolor	#ECEFF4
-set $itextcolor	#D8DEE9
-set $ubgcolor	#2E3440
+set $bgcolor    #399ee6
+set $ibgcolor   #0A0E14
+set $textcolor  #B3B1AD
+set $itextcolor #4D556699
+set $ubgcolor   #F51818
 #			border		background	text		indicator
 client.focused		$bgcolor	$bgcolor	$textcolor	$bgcolor
 client.unfocused	$ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
