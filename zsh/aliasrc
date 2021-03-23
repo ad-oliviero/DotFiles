@@ -24,3 +24,5 @@ alias \
     myip="curl ipinfo.io/ip && printf '\n'" \
 	simplettt="~/.config/scripts/simplettt.sh"
 
+# only for kitty terminal
+alias ssh="kitty +kitten ssh"
