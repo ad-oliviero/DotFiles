@@ -1,6 +1,5 @@
 rm -rf \
 		~/.config/alacritty \
-		~/.config/aliasrc \
 		~/.config/dunst \
 		~/.config/htop \
 		~/.config/i3 \
@@ -16,11 +15,10 @@ rm -rf \
 		~/.config/zsh \
 		~/.vim* \
 		~/.xmonad \
-		~/.zshrc
+		~/.zshrc	&
 
 ln -s \
 		~/.config/DotFiles/alacritty \
-		~/.config/DotFiles/aliasrc \
 		~/.config/DotFiles/dunst \
 		~/.config/DotFiles/htop \
 		~/.config/DotFiles/i3 \
@@ -33,11 +31,10 @@ ln -s \
 		~/.config/DotFiles/sway \
 		~/.config/DotFiles/swaylock \
 		~/.config/DotFiles/waybar \
-		~/.config/DotFiles/zsh \
-		~/.config
+		~/.config/DotFiles/zsh
+
 ln -s \
 		~/.config/DotFiles/.vim* \
 		~/.config/DotFiles/.xmonad \
 		~/.config/DotFiles/zsh/.zshrc \
-		~/
-
+		~/	&
