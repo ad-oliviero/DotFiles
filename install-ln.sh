@@ -15,7 +15,7 @@ rm -rf \
 		~/.config/zsh \
 		~/.vim* \
 		~/.xmonad \
-		~/.zshrc	&
+		~/.zshrc
 
 ln -s \
 		~/.config/DotFiles/alacritty \
@@ -31,10 +31,11 @@ ln -s \
 		~/.config/DotFiles/sway \
 		~/.config/DotFiles/swaylock \
 		~/.config/DotFiles/waybar \
-		~/.config/DotFiles/zsh
+		~/.config/DotFiles/zsh \
+		~/.config
 
 ln -s \
 		~/.config/DotFiles/.vim* \
 		~/.config/DotFiles/.xmonad \
 		~/.config/DotFiles/zsh/.zshrc \
-		~/	&
+		~/
