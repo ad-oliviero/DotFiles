@@ -14,7 +14,7 @@ compinit && compaudit
 source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.p10k.zsh
 
 # loading sources
