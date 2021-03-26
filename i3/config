@@ -26,7 +26,7 @@ exec_always --no-startup-id fix_xcursor
 # exec_always --no-startup-id dconf reset -f /org/gnome/control-center/
 exec --no-startup-id nm-applet
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always feh --bg-fill ~/Pictures/cool-polygon-wallpaper-2.jpg #waves-wallpaper-grayscale4k.png #nyarch-wall-dark.png
+exec_always feh --bg-fill ~/Pictures/materialforest.jpg #mnts.jpg #cool-polygon-wallpaper-2.jpg #waves-wallpaper-grayscale4k.png
 exec_always picom --experimental-backends --backend glx
 exec_always xset s on
 exec_always xset -dpms

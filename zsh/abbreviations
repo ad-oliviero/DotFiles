@@ -1,4 +1,4 @@
-abbr yu="doas pacman -Syu --noconfirm && yay -Syu --noconfirm"
+abbr yu="doas pacman -Syu --noconfirm"
 abbr yi="yay -S --noconfirm"
 abbr ys="yay -Ss"
 abbr yr="yay -Rddns"

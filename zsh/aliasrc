@@ -2,6 +2,7 @@
 
 # commands
 alias \
+	grep="grep --color" \
 	ls="exa" \
     ll="ls -lSh" \
     l="ll" \

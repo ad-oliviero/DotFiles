@@ -28,6 +28,7 @@ ln -s \
 		~/.config/DotFiles/polybar \
 		~/.config/DotFiles/rofi \
 		~/.config/DotFiles/scripts \
+		~/.config/DotFiles/sxhkd \
 		~/.config/DotFiles/sway \
 		~/.config/DotFiles/swaylock \
 		~/.config/DotFiles/waybar \

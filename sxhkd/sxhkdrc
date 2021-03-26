@@ -1,0 +1,31 @@
+super + Return
+	kitty
+super + d
+	rofi -show drun -show-icons -drun-icon-theme
+super + shift + d
+	dmenu_run -l 10 -fn 'JetBrains Mono' -p run
+super + e
+	rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
+super + q
+	xdotool getwindowfocus windowkill
+super + l
+	~/.config/scripts/lock
+super + b
+	brave-beta
+
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +10%
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -10%
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+XF86AudioPlay
+	playerctl play-pause
+XF86AudioPause
+	playerctl play-pause
+XF86AudioNext
+	playerctl next
+XF86AudioPrev
+	playerctl previous
+XF86AudioStop
+	playerctl stop
