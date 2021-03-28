@@ -1,4 +1,5 @@
 rm -rf \
+		~/.config/DotFiles/.dwm/config.h \
 		~/.config/alacritty \
 		~/.config/dunst \
 		~/.config/htop \
@@ -18,6 +19,7 @@ rm -rf \
 		~/.vim* \
 		~/.zprofile \
 		~/.xmonad \
+		~/.xinitrc \
 		~/.zshrc
 
 ln -s \
