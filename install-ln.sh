@@ -9,11 +9,14 @@ rm -rf \
 		~/.config/polybar \
 		~/.config/rofi \
 		~/.config/scripts \
+		~/.config/sxhkd \
 		~/.config/sway \
 		~/.config/swaylock \
 		~/.config/waybar \
 		~/.config/zsh \
+		~/.dwm \
 		~/.vim* \
+		~/.zprofile \
 		~/.xmonad \
 		~/.zshrc
 
@@ -39,4 +42,6 @@ ln -s \
 		~/.config/DotFiles/.vim* \
 		~/.config/DotFiles/.xmonad \
 		~/.config/DotFiles/zsh/.zshrc \
+		~/.config/DotFiles/zsh/.zprofile \
+		~/.config/DotFiles/.dwm \
 		~/

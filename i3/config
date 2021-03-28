@@ -20,7 +20,7 @@ exec_always xinput set-prop 9 311 0 1
 exec_always xinput set-prop 21 363 0
 exec_always xinput set-prop 21 366 0 1
 exec_always xsetroot -cursor_name left_ptr
-exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id ~/.config/scripts/fix_xcursor
 
 # Some daemons, startup programs and the compositor
 # exec_always --no-startup-id dconf reset -f /org/gnome/control-center/

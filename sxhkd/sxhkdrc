@@ -13,6 +13,12 @@ super + l
 super + b
 	brave-beta
 
+# dwm only
+super + shift + k
+	pkill xinit
+super + shift + r
+	~/.dwm/recompile-install.sh
+
 XF86AudioRaiseVolume
 	pactl set-sink-volume @DEFAULT_SINK@ +10%
 XF86AudioLowerVolume
