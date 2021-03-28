@@ -41,7 +41,10 @@ ln -s \
 ln -s \
 		~/.config/DotFiles/.vim* \
 		~/.config/DotFiles/.xmonad \
+		~/.config/DotFiles/.xinitrc \
 		~/.config/DotFiles/zsh/.zshrc \
 		~/.config/DotFiles/zsh/.zprofile \
 		~/.config/DotFiles/.dwm \
 		~/
+
+ln -s ~/.config/DotFiles/dwmconfig.h ~/.dwm/config.h

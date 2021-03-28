@@ -43,7 +43,7 @@ My .files, here is a preview:
 After instaling dependances, copy all the folders (except for .oh-my-zsh, .xmonad and .vim) in ~/.config/
 
 ```shell
-git clone https://github.com/TheDarkBug/DotFiles.git && cd DotFiles
+git clone --recursive https://github.com/TheDarkBug/DotFiles.git
 cp -rt ~/.config alacritty  aliasrc  dunst  htop  i3rofi  scripts  sway  swaylock  waybar  zsh
 ```
 
