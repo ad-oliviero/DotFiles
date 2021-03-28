@@ -28,7 +28,7 @@ My .files, here is a preview:
 
 - Background manager: [Feh](https://feh.finalrewind.org/)
 
-- Fonts: [Roboto](https://fonts.google.com/specimen/Roboto), [JetBrains Mono](https://www.jetbrains.com/lp/mono/), [Awesome 5]([Font Awesome](https://fontawesome.com/)), [OpenSans](https://fonts.google.com/specimen/Open+Sans)
+- Fonts: [Roboto](https://fonts.google.com/specimen/Roboto), [JetBrains Mono](https://www.jetbrains.com/lp/mono/), [Awesome 5](https://fontawesome.com/), [OpenSans](https://fonts.google.com/specimen/Open+Sans)
 
 - Notifications: [Dunst](https://dunst-project.org/)/[Mako](https://github.com/emersion/mako)
 
