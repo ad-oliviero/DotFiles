@@ -4,3 +4,15 @@
 [submodule ".dwm"]
 	path = .dwm
 	url = https://git.suckless.org/dwm
+[submodule "zsh/themes/powerlevel10k"]
+	path = zsh/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "zsh/plugins/fast-syntax-highlighting"]
+	path = zsh/plugins/fast-syntax-highlighting
+	url = https://github.com/zdharma/fast-syntax-highlighting.git
+[submodule "zsh/plugins/zsh-abbr"]
+	path = zsh/plugins/zsh-abbr
+	url = https://github.com/olets/zsh-abbr.git
+[submodule "zsh/plugins/zsh-autosuggestions"]
+	path = zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
