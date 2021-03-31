@@ -1,7 +1,7 @@
 configuration {
-	font: "Noto Sans 10";
+	font: "OpenSans 10";
 	show-icons: true;
-	icon-theme: "Papirus";
+	icon-theme: "Adwaita";
 	drun-display-format: "{name}";
 	disable-history: false;
 	sidebar-mode: false;

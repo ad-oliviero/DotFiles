@@ -26,4 +26,5 @@ alias \
 	simplettt="~/.config/scripts/simplettt.sh"
 
 # only for kitty terminal
-alias ssh="kitty +kitten ssh"
+[ "$TERM" = "xterm-kitty" ] && pgrep -x kitty > /dev/null && alias ssh="kitty +kitten ssh"
+

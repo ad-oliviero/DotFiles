@@ -27,7 +27,7 @@ input * {
 # exec_always --no-startup-id dconf reset -f /org/gnome/control-center/
 exec --no-startup-id nm-applet
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always swaybg -i Pictures/nyarch-wall-dark.png -m fill
+exec_always swaybg -i Pictures/materialforest.jpg -m fill
 exec_always xset s on
 exec_always ~/.config/waybar/launch.sh
 exec_always --no-startup-id mako

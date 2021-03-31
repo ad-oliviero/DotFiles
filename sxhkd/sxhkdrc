@@ -1,9 +1,7 @@
 super + Return
 	kitty
-super + d
-	rofi -show drun -show-icons -drun-icon-theme
-super + shift + d
-	dmenu_run -l 10 -fn 'JetBrains Mono' -p run
+super {_,shift + }d
+	{rofi -show drun -show-icons -drun-icon-theme, dmenu_run -l 10 -fn 'JetBrains Mono' -p run}
 super + e
 	rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
 super + q
@@ -12,6 +10,10 @@ super + l
 	~/.config/scripts/lock
 super + b
 	brave-beta
+alt + Tab
+	rofi -show window
+super + alt + r	#reload sxhkd
+	pkill -USR1 -x sxhkd
 
 # dwm only
 super + shift + k

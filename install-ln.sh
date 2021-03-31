@@ -50,3 +50,4 @@ ln -s \
 		~/
 
 ln -s ~/.config/DotFiles/dwmconfig.h ~/.dwm/config.h
+ln -s ~/.config/DotFiles/recompiledwm.sh ~/.dwm/

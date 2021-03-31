@@ -7,12 +7,12 @@ if [ -z "$@" ]; then
     echo -en "Suspend\0icon\x1fsystem-suspend\n"
 else
     if [ "$1" = "Shutdown" ]; then
-        doas poweroff
+        sudo poweroff
     elif [ "$1" = "Reboot" ]; then
-        doas reboot
+        sudo reboot
     elif [ "$1" = "Suspend" ]; then
-        doas pm-suspend
+        sudo pm-suspend
     elif [ "$1" = "Hibernate" ]; then
-        doas pm-hibernate
+        sudo pm-hibernate
     fi
 fi

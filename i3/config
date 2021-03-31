@@ -48,7 +48,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
 
 bindsym $mod+Shift+k exec i3-msg exit
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c exec ~/.config/scripts/cache-clean.sh
 bindsym $mod+r restart
 bindsym $mod+Return exec kitty #i3-sensible-terminal
 bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
@@ -143,4 +143,4 @@ client.urgent		$ubgcolor	$ubgcolor	$textcolor	$ubgcolor
 
 # Extra things
 for_window [window_role="pop-up"] floating enable
-bindsym $mod+n exec nautilus
+bindsym $mod+n exec nemo

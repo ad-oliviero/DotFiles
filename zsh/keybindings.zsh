@@ -1,6 +1,7 @@
 # KeyBindings
 bindkey '^a' vi-beginning-of-line
-bindkey '^e' edit-command-line
+bindkey '^e' vi-end-of-line
+bindkey '^shift+e' edit-command-line
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
 bindkey '^[[1;5D' backward-word  
