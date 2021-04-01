@@ -19,6 +19,7 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
+	"sxhkd", NULL,
 	"numlockx on", NULL,
 	"setxkbmap it", NULL,
 	"xinput set-prop 9 308 0", NULL,
@@ -32,7 +33,6 @@ static const char *const autostart[] = {
 	"xset -dpms", NULL,
 	"dunst", NULL,
 	"redshift -oP 4400K", NULL,
-	"sxhkd", NULL,
 	NULL /* terminate */
 };
 
@@ -79,6 +79,7 @@ static const char *termcmd[]  = { "kitty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ MODKEY,                       XK_Return,      spawn,     {.v = termcmd } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	//{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },

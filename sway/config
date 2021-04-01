@@ -48,6 +48,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
 
 bindsym $mod+Shift+k exec swaymsg exit
+bindsym $mod+Shift+c exec ~/.config/scripts/cache-clean.sh
 bindsym $mod+r reload
 bindsym $mod+Return exec kitty
 bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme

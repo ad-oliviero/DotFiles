@@ -3,31 +3,21 @@
     border-radius: 7;
     font-family: FontAwesome, OpenSans;
     font-size: 14px;
-    /*font-weight: bold;*/
     min-height: 0;
 }
 
 window#waybar {
-    background-color: #0A0E14;
-    border-bottom: 0px solid rgba(100, 114, 125, 0.5);
-    color: #B3B1AD;
+    background-color: #00010A;
+    border-bottom: 0px;
+    color: #FAFAFA;
     transition-property: background-color;
     transition-duration: .5s;
-    border-radius: 5;
+    border-radius: 0;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
 
 window#waybar.termite {
     background-color: #3F3F3F;
@@ -44,33 +34,28 @@ window#waybar.chromium {
     color: #FAFAFA;
     /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -1px transparent;
-    border-radius: 5px;
+    border-radius: 7px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px #FAFAFA;
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
+    background-color: #304357;
     box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
-}
-
-#mode {
-    background-color: #64727D;
-    border-bottom: 0px solid #ffffff;
-    border-radius: 0px;
+    background-color: #FF3333;
 }
 
 #clock,
 #battery,
 #cpu,
+#disk,
 #memory,
 #temperature,
 #backlight,
@@ -83,12 +68,12 @@ window#waybar.chromium {
 #idle_inhibitor {
     padding: 0 10px;
     margin: 2px 3px;
-    color: #ffffff;
+    color: #FAFAFA;
 }
 
 #window,
 #workspaces {
-    margin: 0 4px;
+    margin: 0 5px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -102,17 +87,7 @@ window#waybar.chromium {
 }
 
 #clock {
-    background-color: #64727D;
-}
-
-#battery {
-    background-color: #2d3436;
-    color: #ffffff;
-}
-
-#battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
+    background-color: #304357;
 }
 
 @keyframes blink {
@@ -122,93 +97,49 @@ window#waybar.chromium {
     }
 }
 
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
 label:focus {
-    background-color: #000000;
+    background-color: #304357;
 }
 
 #cpu {
-    background-color: #7c818c ;
-    color: #FFFFFF;
+    background-color: #304357 ;
+}
+
+#disk {
+    background-color: #304357 ;
 }
 
 #memory {
-    background-color: #2d3436;
-    color: #FFFFFF;
-}
-
-#backlight {
-    background-color: #7c818c ;
-    color: #FFFFFF;
+    font-size: 12px;
+    background-color: #304357;
 }
 
 #network {
-    background-color: #7c818c  ;
-    color: #FFFFFF;
+    font-size: 12px;
+    background-color: #304357  ;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    background-color: #FF3333;
 }
 
 #pulseaudio {
-    background-color: #7c818c ;
-    color: #FFFFFF;
+    background-color: #304357 ;
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
-
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#temperature {
-    background-color: #7c818c ;
-    color: #FFFFFF;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
+    background-color: #141925;
+    color: #4D5566;
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: #304357;
 }
 
 #idle_inhibitor {
-    background-color: #2d3436;
+    background-color: #304357;
 }
 
 #idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
+    background-color: #E6B450;
 }
-
-#date {
-    color: #ffffff;
-    background-color: #26A65B;
-}
-
-
