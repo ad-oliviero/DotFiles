@@ -4,7 +4,7 @@
 	"height": 20,
 	"modules-left": ["sway/workspaces", "sway/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["idle_inhibitor", "network", "disk", "cpu", "memory", "pulseaudio"],
+	"modules-right": ["idle_inhibitor", "network", "disk", "cpu", "memory", "pulseaudio", "tray"],
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
@@ -24,6 +24,7 @@
 	"disk": {
 		"interval": 30,
 		"format": "{free}",
+		"on-click": "kitty sh -c 'duf && sleep 100'"
 	},
 	"memory": {
 		"interval": 5,

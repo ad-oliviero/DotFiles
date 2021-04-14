@@ -12,11 +12,15 @@ rm -rf \
 		~/.config/picom \
 		~/.config/polybar \
 		~/.config/rofi \
+		~/.config/redshift \
 		~/.config/scripts \
+		~/.config/spicetify \
 		~/.config/sxhkd \
 		~/.config/sway \
+		~/.config/swayshot.sh \
 		~/.config/swaylock \
 		~/.config/waybar \
+		~/.config/uwufetch \
 		~/.config/zsh \
 		~/.dwm \
 		~/.dwl \
@@ -36,11 +40,15 @@ ln -s \
 		~/.config/DotFiles/picom \
 		~/.config/DotFiles/polybar \
 		~/.config/DotFiles/rofi \
+		~/.config/DotFiles/redshift \
 		~/.config/DotFiles/scripts \
+		~/.config/DotFiles/spicetify \
 		~/.config/DotFiles/sxhkd \
 		~/.config/DotFiles/sway \
+		~/.config/DotFiles/swayshot.sh \
 		~/.config/DotFiles/swaylock \
 		~/.config/DotFiles/waybar \
+		~/.config/uwufetch \
 		~/.config/DotFiles/zsh \
 		~/.config
 

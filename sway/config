@@ -27,7 +27,7 @@ input * {
 # exec_always --no-startup-id dconf reset -f /org/gnome/control-center/
 exec --no-startup-id nm-applet
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always swaybg -i Pictures/materialforest.jpg -m fill
+exec_always swaybg -m fill -i Pictures/tivmidyb5sr61.png #materialforest.jpg
 exec_always xset s on
 exec_always ~/.config/waybar/launch.sh
 exec_always --no-startup-id mako
@@ -55,7 +55,7 @@ bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
 bindsym $mod+Shift+d exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
 bindsym $mod+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
 bindsym $mod+l exec swaylock -C ~/.config/swaylock/config
-bindsym --release Print exec swayshot && notify-send -t 2000 "Screenshot saved!"
+bindsym --release Print exec swayshot
 
 # Moving containers
 floating_modifier $mod
@@ -143,5 +143,5 @@ client.urgent		$ubgcolor	$ubgcolor	$textcolor	$ubgcolor
 
 # Extra things
 for_window [window_role="pop-up"] floating enable
-bindsym $mod+n exec nautilus
+bindsym $mod+n exec nemo
 include @sysconfdir@/sway/config.d/*

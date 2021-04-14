@@ -19,3 +19,6 @@
 [submodule ".dwl"]
 	path = .dwl
 	url = https://github.com/djpohly/dwl.git
+[submodule "spicetify/spicetify-themes"]
+	path = spicetify/spicetify-themes
+	url = https://github.com/morpheusthewhite/spicetify-themes.git
