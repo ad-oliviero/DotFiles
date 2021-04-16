@@ -48,7 +48,7 @@ ln -s \
 		~/.config/DotFiles/swayshot.sh \
 		~/.config/DotFiles/swaylock \
 		~/.config/DotFiles/waybar \
-		~/.config/uwufetch \
+		~/.config/DotFiles/uwufetch \
 		~/.config/DotFiles/zsh \
 		~/.config
 
