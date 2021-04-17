@@ -15,7 +15,8 @@ alias \
     yt="youtube-dl --add-metadata -i" \
     yta="yt -x" \
     ccat="highlight --out-format=ansi" \
-    starwars="telnet towel.blinkenlights.nl"
+    starwars="telnet towel.blinkenlights.nl" \
+	code="code-insiders"
 
 # scripts
 alias \
