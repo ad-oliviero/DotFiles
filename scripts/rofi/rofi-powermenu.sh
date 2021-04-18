@@ -13,6 +13,6 @@ else
     elif [ "$1" = "FReboot" ]; then
         sudo ~/.config/scripts/fast-reboot.sh
     elif [ "$1" = "Suspend" ]; then
-        sudo pm-suspend
+        swaylock -C ~/.config/swaylock/config & sudo pm-suspend
     fi
 fi
