@@ -1,7 +1,7 @@
 # KeyBindings
 bindkey '^a' vi-beginning-of-line
 bindkey '^e' vi-end-of-line
-bindkey -s '^o' "xplr\n"
+bindkey -s '^o' "clifm\n"
 bindkey '^v' edit-command-line
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word

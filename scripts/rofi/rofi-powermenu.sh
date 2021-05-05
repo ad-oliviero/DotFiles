@@ -7,12 +7,12 @@ if [ -z "$@" ]; then
     echo -en "Suspend\0icon\x1fsystem-suspend\n"
 else
     if [ "$1" = "Shutdown" ]; then
-        sudo poweroff
+        poweroff
     elif [ "$1" = "Reboot" ]; then
-        sudo reboot
+        reboot
     elif [ "$1" = "FReboot" ]; then
-        sudo ~/.config/scripts/fast-reboot.sh
+        ~/.config/scripts/fast-reboot.sh
     elif [ "$1" = "Suspend" ]; then
-        swaylock -C ~/.config/swaylock/config & sudo pm-suspend
+        swaylock -C ~/.config/swaylock/config & systemctl suspend
     fi
 fi

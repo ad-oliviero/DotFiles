@@ -24,16 +24,17 @@ input * {
     pointer_accel 0
 }
 # Some daemons, startup programs
+exec_always dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY # fix slow gtk apps loading
 # exec_always --no-startup-id dconf reset -f /org/gnome/control-center/
 exec --no-startup-id nm-applet
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always swaybg -m fill -i Pictures/tivmidyb5sr61.png #materialforest.jpg
+exec_always swaybg -m fill -i Immagini/tivmidyb5sr61.png #materialforest.jpg
 exec_always xset s on
 exec_always ~/.config/waybar/launch.sh
 exec_always --no-startup-id mako
-exec_always sudo ~/.config/scripts/anbox-bridge.sh start #anbox internet bridge
+#exec_always sudo ~/.config/scripts/anbox-bridge.sh start #anbox internet bridge
 exec_always v4l2-ctl -d /dev/video42 -c timeout=3000
-exec_always redshift -oP 4400K -m wayland
+exec_always pkill redshift; redshift -oP 4400K -m wayland
 #exec_always pamusb-agent
 
 # Navigation&System bindings
@@ -55,7 +56,7 @@ bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
 bindsym $mod+Shift+d exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
 bindsym $mod+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
 bindsym $mod+l exec swaylock -C ~/.config/swaylock/config
-bindsym --release Print exec swayshot
+bindsym --release Print exec gnome-screenshot
 
 # Moving containers
 floating_modifier $mod
@@ -143,5 +144,5 @@ client.urgent		$ubgcolor	$ubgcolor	$textcolor	$ubgcolor
 
 # Extra things
 for_window [window_role="pop-up"] floating enable
-bindsym $mod+n exec nemo
+bindsym $mod+n exec nautilus
 include @sysconfdir@/sway/config.d/*

@@ -22,4 +22,4 @@ source ~/.config/zsh/aliasrc
 source ~/.config/zsh/keybindings.zsh
 source ~/.config/zsh/utils.zsh
 
-uwufetch #| lolcat
+uwufetch -i #| lolcat

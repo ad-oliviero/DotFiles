@@ -1,0 +1,12 @@
+ascii=true
+user=true
+os=true
+kernel=true
+cpu=true
+gpu=false
+ram=true
+resolution=true
+shell=true
+pkgs=true
+uptime=true
+colors=true
