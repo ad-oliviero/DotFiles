@@ -5,7 +5,7 @@ bindkey -s '^o' "clifm\n"
 bindkey '^v' edit-command-line
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
-bindkey '^[[1;5D' backward-word  
+bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word  
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-history
