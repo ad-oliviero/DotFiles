@@ -8,8 +8,8 @@ set shiftwidth=4
 set smarttab
 set mouse=a
 set termguicolors
-let ayucolor="dark"
-colorscheme ayu
+"let ayucolor="dark"
+"colorscheme ayu
 highlight Search ctermfg=0
 
 " searching
