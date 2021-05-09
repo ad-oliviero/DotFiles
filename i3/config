@@ -21,8 +21,8 @@ exec_always xinput set-prop 9 309 0 1
 # touchpad
 exec_always xinput set-prop 10 320 1 # tap to click
 exec_always xinput set-prop 10 328 1 # natural scrolling
-exec_always xinput set-prop 11 338 1 # tap to click
-exec_always xinput set-prop 11 320 1 # natural scrolling
+exec_always xinput set-prop 11 335 1 # tap to click
+exec_always xinput set-prop 11 317 1 # natural scrolling
 exec_always xsetroot -cursor_name left_ptr
 exec_always --no-startup-id ~/.config/scripts/fix_xcursor
 
@@ -128,7 +128,7 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # Gaps and borders
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 #border_radius 10
 gaps inner 10
 #gaps outer 5

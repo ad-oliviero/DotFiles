@@ -1,6 +1,6 @@
 # ---INIT---
 set $mod Mod4
-font pango:ttf-roboto 9
+font pango:ttf-opensans 10
 # Creating workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -21,7 +21,9 @@ input * {
 }
 input * {
     accel_profile "flat"
-    pointer_accel 0
+	pointer_accel 0
+	click_method "button_areas"
+	natural_scroll "enabled"
 }
 # Some daemons, startup programs
 exec_always dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY # fix slow gtk apps loading
@@ -51,7 +53,7 @@ bindsym XF86AudioStop exec playerctl stop
 bindsym $mod+Shift+k exec swaymsg exit
 bindsym $mod+Shift+c exec ~/.config/scripts/cache-clean.sh
 bindsym $mod+r reload
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
 bindsym $mod+Shift+d exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
 bindsym $mod+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
