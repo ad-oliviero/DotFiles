@@ -1,6 +1,6 @@
 # ---INIT---
 set $mod Mod4
-font pango:ttf-opensans 9
+font pango:ttf-opensans 10
 # Creating workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -54,7 +54,7 @@ bindsym XF86AudioStop exec playerctl stop
 bindsym $mod+Shift+k exec i3-msg exit
 bindsym $mod+Shift+c exec ~/.config/scripts/cache-clean.sh
 bindsym $mod+r restart
-bindsym $mod+Return exec kitty #i3-sensible-terminal
+bindsym $mod+Return exec alacritty #i3-sensible-terminal
 bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
 bindsym $mod+Shift+d exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
 bindsym $mod+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
