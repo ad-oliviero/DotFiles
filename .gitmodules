@@ -10,9 +10,6 @@
 [submodule "zsh/plugins/zsh-autosuggestions"]
 	path = zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "spicetify/spicetify-themes"]
-	path = spicetify/spicetify-themes
-	url = https://github.com/morpheusthewhite/spicetify-themes.git
 [submodule "zsh/themes/spaceship-prompt"]
 	path = zsh/themes/spaceship-prompt
 	url = https://github.com/denysdovhan/spaceship-prompt.git
