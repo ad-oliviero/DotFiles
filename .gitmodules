@@ -1,9 +1,3 @@
-[submodule "dwm"]
-	path = dwm
-	url = https://git.suckless.org/dwm
-[submodule ".dwm"]
-	path = .dwm
-	url = https://git.suckless.org/dwm
 [submodule "zsh/themes/powerlevel10k"]
 	path = zsh/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
@@ -16,9 +10,6 @@
 [submodule "zsh/plugins/zsh-autosuggestions"]
 	path = zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule ".dwl"]
-	path = .dwl
-	url = https://github.com/djpohly/dwl.git
 [submodule "spicetify/spicetify-themes"]
 	path = spicetify/spicetify-themes
 	url = https://github.com/morpheusthewhite/spicetify-themes.git

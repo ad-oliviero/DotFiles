@@ -1,8 +1,4 @@
 rm -rf \
-		~/.config/DotFiles/.dwm/config.h \
-		~/.config/DotFiles/.dwm/recompiledwm.sh \
-		~/.config/DotFiles/.dwl/config.h \
-		~/.config/DotFiles/.dwl/recompiledwm.sh \
 		~/.config/alacritty \
 		~/.config/dunst \
 		~/.config/htop \
@@ -16,16 +12,12 @@ rm -rf \
 		~/.config/scripts \
 		~/.config/sxhkd \
 		~/.config/sway \
-		~/.config/swayshot.sh \
 		~/.config/swaylock \
 		~/.config/waybar \
 		~/.config/uwufetch \
 		~/.config/zsh \
-		~/.dwm \
-		~/.dwl \
 		~/.vim* \
 		~/.zprofile \
-		~/.xmonad \
 		~/.xinitrc \
 		~/.zshrc
 
@@ -43,7 +35,6 @@ ln -s \
 		~/.config/DotFiles/scripts \
 		~/.config/DotFiles/sxhkd \
 		~/.config/DotFiles/sway \
-		~/.config/DotFiles/swayshot.sh \
 		~/.config/DotFiles/swaylock \
 		~/.config/DotFiles/waybar \
 		~/.config/DotFiles/uwufetch \
@@ -52,15 +43,7 @@ ln -s \
 
 ln -s \
 		~/.config/DotFiles/.vim* \
-		~/.config/DotFiles/.xmonad \
 		~/.config/DotFiles/.xinitrc \
 		~/.config/DotFiles/zsh/.zshrc \
 		~/.config/DotFiles/zsh/.zprofile \
-		~/.config/DotFiles/.dwm \
-		~/.config/DotFiles/.dwl \
 		~/
-
-ln -s ~/.config/DotFiles/dwmconfig.h ~/.dwm/config.h
-ln -s ~/.config/DotFiles/recompiledwm.sh ~/.dwm/
-ln -s ~/.config/DotFiles/dwmconfig.h ~/.dwl/config.h
-ln -s ~/.config/DotFiles/recompiledwm.sh ~/.dwl/
