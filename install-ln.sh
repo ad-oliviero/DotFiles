@@ -14,7 +14,6 @@ rm -rf \
 		~/.config/rofi \
 		~/.config/redshift \
 		~/.config/scripts \
-		~/.config/spicetify \
 		~/.config/sxhkd \
 		~/.config/sway \
 		~/.config/swayshot.sh \
@@ -42,7 +41,6 @@ ln -s \
 		~/.config/DotFiles/rofi \
 		~/.config/DotFiles/redshift \
 		~/.config/DotFiles/scripts \
-		~/.config/DotFiles/spicetify \
 		~/.config/DotFiles/sxhkd \
 		~/.config/DotFiles/sway \
 		~/.config/DotFiles/swayshot.sh \
