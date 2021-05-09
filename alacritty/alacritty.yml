@@ -1,11 +1,10 @@
-schemes:
-  ayu_dark: &ayu_dark
+colors:
     primary:
       background: '0x0A0E14'
       foreground: '0xB3B1AD'
     normal:
-      black:   '0x01060E'
-      red:     '0xEA6C73'
+      black:   '0x0A0E14'
+      red:     '0xFF3333'
       green:   '0x91B362'
       yellow:  '0xF9AF4F'
       blue:    '0x53BDFA'
@@ -22,8 +21,6 @@ schemes:
       cyan:    '0x95E6CB'
       white:   '0xFFFFFF'
 
-colors: *ayu_dark
-
 background_opacity: 1
 
 font:
@@ -39,9 +36,9 @@ font:
     y: 0
   draw_bold_text_with_bright_colors: true
 
-font:
-  normal:
-    family: 'MesloLGS NF'
+#font:
+#  normal:
+#    family: 'MesloLGS NF'
 
 window:
   padding:
@@ -49,6 +46,7 @@ window:
     y: 2
 
 cursor:
+  cursor: '0xabb2bf'
   style: Beam
 
 scrolling:
