@@ -38,7 +38,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id dunst
 exec_always sudo ~/.config/scripts/anbox-bridge.sh start #anbox internet bridge
 exec_always v4l2-ctl -d /dev/video42 -c timeout=3000
-exec_always redshift -oP 4400K
+#exec_always redshift -oP 4400K
 
 # Navigation&System bindings
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%

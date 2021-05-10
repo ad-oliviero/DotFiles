@@ -1,5 +1,7 @@
 #!/bin/sh
 
+pkill rofi
+
 B='#00000000'  # blank
 C='#ffffff22'  # clear ish
 D='#ff00ffcc'  # default
