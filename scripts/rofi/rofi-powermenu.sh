@@ -13,6 +13,6 @@ else
     elif [ "$1" = "FReboot" ]; then
         ~/.config/scripts/fast-reboot.sh
     elif [ "$1" = "Suspend" ]; then
-        swaylock -C ~/.config/swaylock/config || i3lock & systemctl suspend
+        swaylock -C ~/.config/swaylock/config || ~/.config/scripts/lock & systemctl suspend
     fi
 fi

@@ -19,8 +19,8 @@ exec_always setxkbmap it
 exec_always xinput set-prop 9 306 0 
 exec_always xinput set-prop 9 309 0 1
 # touchpad
-exec_always xinput set-prop 10 320 1 # tap to click
-exec_always xinput set-prop 10 328 1 # natural scrolling
+exec_always xinput set-prop 10 317 1 # tap to click
+exec_always xinput set-prop 10 325 1 # natural scrolling
 exec_always xinput set-prop 11 335 1 # tap to click
 exec_always xinput set-prop 11 317 1 # natural scrolling
 exec_always xsetroot -cursor_name left_ptr

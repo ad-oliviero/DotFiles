@@ -6,7 +6,7 @@ bindkey '^v' edit-command-line
 bindkey '^[[1;5D' vi-backward-word
 bindkey '^[[1;5C' vi-forward-word
 bindkey '^[[A' up-line-or-beginning-search
-bindkey '^[[B' down-line-or-history
+bindkey '^[[B' down-line-or-search
 bindkey '^[[3~' delete-char
 
 # vi-style kill word
