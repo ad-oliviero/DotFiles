@@ -5,8 +5,8 @@ alias \
 	grep="grep --color" \
 	ls="exa" \
     ll="ls -lSh" \
-    l="ll" \
-    la="ll -a" \
+    l="ll -a" \
+    la="ls -a" \
 	cp="cp -iv" \
     mv="mv -iv" \
     rm="rm -v" \
@@ -16,6 +16,7 @@ alias \
     yta="yt -x" \
     ccat="highlight --out-format=ansi" \
     starwars="telnet towel.blinkenlights.nl" \
+	cram="echo 3 > /proc/sys/vm/drop_caches; free -h" \
 	code="code-insiders"
 
 # scripts

@@ -1,4 +1,4 @@
-lfcd () {
+lfcd() {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
