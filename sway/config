@@ -139,7 +139,7 @@ default_border pixel 2
 gaps inner 10
 
 # Colors
-set $bgcolor    #399ee6
+set $bgcolor    #FF9940
 set $ibgcolor   #0A0E14
 set $textcolor  #B3B1AD
 set $itextcolor #4D556699
