@@ -1,5 +1,6 @@
 rm -rf \
 		~/.config/alacritty \
+		~/.config/chrome-flags.conf \
 		~/.config/dunst \
 		~/.config/htop \
 		~/.config/i3 \
@@ -23,6 +24,7 @@ rm -rf \
 
 ln -s \
 		~/.config/DotFiles/alacritty \
+		~/.config/DotFiles/chrome-flags.conf \
 		~/.config/DotFiles/dunst \
 		~/.config/DotFiles/htop \
 		~/.config/DotFiles/i3 \

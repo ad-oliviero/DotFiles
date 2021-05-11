@@ -8,7 +8,7 @@
  */
 
 configuration {
-    font:                           "Roboto 10";
+    font:                           "OpenSans 10";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
     display-drun: 					"";
@@ -107,7 +107,7 @@ element {
 }
 
 element-icon {
-    size:                           65px;
+    size:                           64px;
     border:                         0px;
 }
 

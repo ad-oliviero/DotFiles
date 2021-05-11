@@ -1,4 +1,5 @@
 set number
+set clipboard=unnamedplus
 set relativenumber
 set autoindent
 syntax on

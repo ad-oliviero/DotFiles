@@ -4,7 +4,7 @@
 	"height": 20,
 	"modules-left": ["sway/workspaces", "sway/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["idle_inhibitor", "network", "disk", "cpu", "memory", "pulseaudio", "tray"],
+	"modules-right": ["idle_inhibitor", "network", "disk", "cpu", "battery", "memory", "pulseaudio", "tray"],
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
@@ -52,6 +52,16 @@
 		"on-click-right": "pavucontrol",
 		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 	},
+	"battery": {
+    	"interval": 2,
+    	"states": {
+        	"warning": 30,
+        	"critical": 15
+    	},
+    	"format": "{capacity}% {icon}",
+    	"format-icons": ["", "", "", "", ""],
+    	"max-length": 25
+	}
 	/*"clock": {
 		"interval": 1,
 		"format": "{:%d %B %H:%M:%S}"

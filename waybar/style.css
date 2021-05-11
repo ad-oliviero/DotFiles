@@ -105,6 +105,10 @@ label:focus {
     background-color: #304357 ;
 }
 
+#battery {
+    background-color: #304357;
+}
+
 #disk {
     background-color: #304357 ;
 }

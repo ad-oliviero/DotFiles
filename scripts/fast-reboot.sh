@@ -1,1 +1,1 @@
-sudo kexec -l /boot/vmlinuz-linux-zen --initrd=/boot/initramfs-linux-zen.img --reuse-cmdline && sudo kexec -e
+sudo kexec -l /boot/vmlinuz-linux-xanmod --initrd=/boot/initramfs-linux-xanmod.img --reuse-cmdline && sudo kexec -e
