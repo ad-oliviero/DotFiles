@@ -37,4 +37,4 @@ i3lock --nofork                 \
     \
     --indicator			\
     \
-    --image=/home/vineeth/Pictures/wallpaper_internet/batman.jpg
+    --image=/home/adri/Immagini/.wallpaper

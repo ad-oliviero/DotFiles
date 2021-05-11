@@ -30,8 +30,8 @@ input 1739:32552:MSFT0001:01_06CB:7F28_Touchpad {
 	tap enabled
 	natural_scroll enabled
 }
-output DP-2 pos 0 0 res 1920x1080 bg ~/Immagini/.wallpaper fill #ffffff
-output eDP1 pos 0 0 res 1920x1080 scale 1.5
+output DP-2 pos 0 0 res 1920x1080 bg ~/Immagini/.wallpaper fill #000000
+output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/.wallpaper fill #000000
 
 # Some daemons, startup programs
 exec_always dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY # fix slow gtk apps loading
@@ -59,7 +59,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
 
 bindsym $mod+Shift+k exec swaymsg exit
-bindsym $mod+Shift+c exec ~/.config/scripts/cache-clean.sh
+bindsym $mod+Shift+c exec gsudo zsh -c 'echo 3 > /proc/sys/vm/drop_caches' && free -h
 bindsym $mod+r reload
 bindsym $mod+Return exec alacritty
 #bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
