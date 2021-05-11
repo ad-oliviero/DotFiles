@@ -12,7 +12,7 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-# Keyboard and mouse
+# input and output
 input * {
     xkb_layout it
     xkb_options terminate:ctrl_alt_bksp
@@ -30,12 +30,15 @@ input 1739:32552:MSFT0001:01_06CB:7F28_Touchpad {
 	tap enabled
 	natural_scroll enabled
 }
+output DP-2 pos 0 0 res 1920x1080 bg ~/Immagini/.wallpaper fill #ffffff
+output eDP1 pos 0 0 res 1920x1080 scale 1.5
+
 # Some daemons, startup programs
 exec_always dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY # fix slow gtk apps loading
 # exec_always --no-startup-id dconf reset -f /org/gnome/control-center/
 exec --no-startup-id nm-applet
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always swaybg -m fill -i Immagini/tivmidyb5sr61.png #materialforest.jpg
+#exec_always swaybg -m fill -i Immagini/tivmidyb5sr61.png #materialforest.jpg
 exec_always xset s on
 exec_always ~/.config/waybar/launch.sh
 exec_always --no-startup-id mako
