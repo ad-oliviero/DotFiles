@@ -1,5 +1,5 @@
 #~/.config/scripts/start-dwm.sh
-#i3
+i3
 #gnome-session
 #xfce4-session
 #plasmashell
