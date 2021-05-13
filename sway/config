@@ -38,7 +38,6 @@ exec_always dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRES
 # exec_always --no-startup-id dconf reset -f /org/gnome/control-center/
 exec --no-startup-id nm-applet
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec_always swaybg -m fill -i Immagini/tivmidyb5sr61.png #materialforest.jpg
 exec_always xset s on
 exec_always ~/.config/waybar/launch.sh
 exec_always --no-startup-id mako
@@ -52,6 +51,10 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym $mod+F5 exec light -U 5
+bindsym $mod+F6 exec light -A 5
+#bindsym XF86MonBrightnessUp exec notify-send up
+#bindsym XF86MonBrightnessDown exec notify-send down
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
