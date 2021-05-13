@@ -13,11 +13,11 @@ zle -N edit-command-line
 autoload -Uz compinit
 compinit
 
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' menu yes select
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s%p
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
 # Plugins
 source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
