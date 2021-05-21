@@ -103,4 +103,4 @@ inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
 
 " custom commands
-command -nargs=0 W :w !doas tee %
+command -nargs=0 W :w !sudo tee %
