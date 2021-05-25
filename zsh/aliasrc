@@ -18,7 +18,6 @@ alias \
     ccat="highlight --out-format=ansi" \
     starwars="telnet towel.blinkenlights.nl" \
 	cram="sudo zsh -c 'echo 3 > /proc/sys/vm/drop_caches' && free -h" \
-	code="code-insiders"
 
 # scripts
 alias \
