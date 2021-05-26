@@ -59,7 +59,8 @@ bindsym $mod+Shift+k exec i3-msg exit
 bindsym $mod+Shift+c exec ~/.config/scripts/cache-clean.sh
 bindsym $mod+r restart
 bindsym $mod+Return exec alacritty #i3-sensible-terminal
-bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
+#bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
+bindsym $mod+d exec rofi
 bindsym $mod+Shift+d exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
 bindsym $mod+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
 bindsym $mod+l exec ~/.config/scripts/lock

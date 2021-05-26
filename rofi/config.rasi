@@ -1,15 +1,14 @@
 configuration {
-	font: "OpenSans 10";
+	font: "OpenSans 11";
 	show-icons: true;
-	icon-theme: "Adwaita";
+	icon-theme: "/usr/share/themes/Yaru-Blue";
 	drun-display-format: "{name}";
 	disable-history: false;
 	sidebar-mode: false;
 	hide-scrollbar: true;
 	fullscreen: false;
-	threads: 0;
+	threads: 1;
 	scroll-method: 0;
-	theme: "/usr/share/rofi/themes/Blurry.rasi";
+	theme: "~/.config/rofi/themes/Blurry.rasi";
 	display-drun: "";
 }
-@import "/usr/share/rofi/themes/Blurry.rasi"
