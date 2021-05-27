@@ -58,4 +58,6 @@ ln -s \
 		~/.config/DotFiles/zsh/.zprofile \
 		~/
 
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+
 echo 'Installed correctly!'
