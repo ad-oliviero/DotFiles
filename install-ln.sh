@@ -1,3 +1,9 @@
+echo -e '\033[1;33m WARNING: THIS IS GOING TO DELETE MOST OF YOUR CONFIG FILES.\033[1;37m'
+echo -e 'Are you sure that you want to continue? (y/n):\b'
+read choice
+[ $choice == "n" ] && echo 'Ok, you will install manually' && exit
+echo 'Installing...'
+
 rm -rf \
 		~/.config/alacritty \
 		~/.config/chrome-flags.conf \
@@ -15,6 +21,7 @@ rm -rf \
 		~/.config/sway \
 		~/.config/swaylock \
 		~/.config/waybar \
+		~/.config/nvim \
 		~/.config/uwufetch \
 		~/.config/zsh \
 		~/.vim* \
@@ -39,6 +46,7 @@ ln -s \
 		~/.config/DotFiles/sway \
 		~/.config/DotFiles/swaylock \
 		~/.config/DotFiles/waybar \
+		~/.config/DotFiles/nvim \
 		~/.config/DotFiles/uwufetch \
 		~/.config/DotFiles/zsh \
 		~/.config
@@ -49,3 +57,5 @@ ln -s \
 		~/.config/DotFiles/zsh/.zshrc \
 		~/.config/DotFiles/zsh/.zprofile \
 		~/
+
+echo 'Installed correctly!'

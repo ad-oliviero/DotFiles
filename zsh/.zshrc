@@ -4,6 +4,8 @@ export HISTSIZE=100000000
 export SAVEHIST=$HISTSIZE
 export TERM=xterm-256color
 export PATH=$PATH:~/.local/bin
+export VISUAL=nvim
+export EDITOR=nvim
 
 # edit comamnd line (vim mode)
 autoload -U edit-command-line
