@@ -31,7 +31,8 @@ input 1739:32552:MSFT0001:01_06CB:7F28_Touchpad {
 	natural_scroll enabled
 }
 output DP-2 pos 0 0 res 1920x1080 bg ~/Immagini/.wallpaper fill #000000
-output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/.wallpaper fill #000000
+#output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/.wallpaper fill #000000
+output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/.wallpaper fill #FAFAFA
 
 # Some daemons, startup programs
 exec_always dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY # fix slow gtk apps loading
