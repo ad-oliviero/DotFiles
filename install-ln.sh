@@ -21,6 +21,7 @@ rm -rf \
 		~/.config/sway \
 		~/.config/swaylock \
 		~/.config/waybar \
+		~/.config/wayfire.ini \
 		~/.config/nvim \
 		~/.config/uwufetch \
 		~/.config/zsh \
@@ -46,6 +47,7 @@ ln -s \
 		~/.config/DotFiles/sway \
 		~/.config/DotFiles/swaylock \
 		~/.config/DotFiles/waybar \
+		~/.config/DotFiles/wayfire.ini \
 		~/.config/DotFiles/nvim \
 		~/.config/DotFiles/uwufetch \
 		~/.config/DotFiles/zsh \
