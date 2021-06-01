@@ -4,6 +4,7 @@ export HISTSIZE=100000000
 export SAVEHIST=$HISTSIZE
 export TERM=xterm-256color
 export PATH=$PATH:~/.local/bin
+export PATH="/home/adri/fuchsia/.jiri_root/bin:$PATH"
 export VISUAL=vim
 export EDITOR=vim
 
