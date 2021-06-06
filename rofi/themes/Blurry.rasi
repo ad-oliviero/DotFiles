@@ -13,7 +13,7 @@ configuration {
 	icon-theme: 					"Papirus";
     display-drun: 					"";
     drun-display-format:            "{name}";
-    threads:                        0;
+    threads:                        4;
     scroll-method:                  0;
     disable-history:                false;
     fullscreen:                     false;

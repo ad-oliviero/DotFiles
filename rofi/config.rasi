@@ -7,7 +7,7 @@ configuration {
 	sidebar-mode: false;
 	hide-scrollbar: true;
 	fullscreen: false;
-	threads: 1;
+	threads: 4;
 	scroll-method: 0;
 	theme: "~/.config/rofi/themes/mac.rasi";
 	display-drun: "";
