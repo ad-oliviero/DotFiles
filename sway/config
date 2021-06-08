@@ -69,8 +69,9 @@ bindsym $mod+Shift+c exec gsudo zsh -c 'echo 3 > /proc/sys/vm/drop_caches' && fr
 bindsym $mod+r reload
 bindsym $mod+Return exec alacritty
 #bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
-bindsym $mod+d exec rofi -show drun
-bindsym $mod+Shift+d exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
+bindsym $mod+d exec env MOZ_ENABLE_WAYLAND=1 rofi -show drun
+bindsym $mod+b exec env MOZ_ENABLE_WAYLAND=1 firefox
+bindsym $mod+Shift+d env MOZ_ENABLE_WAYLAND=1 exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
 bindsym $mod+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
 bindsym $mod+l exec swaylock -C ~/.config/swaylock/config
 bindsym --release Print exec gnome-screenshot

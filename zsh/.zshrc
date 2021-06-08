@@ -8,6 +8,7 @@ export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 export VISUAL=vim
 export EDITOR=vim
+export PICO_SDK_PATH=/opt/pico-sdk
 
 # edit comamnd line (vim mode)
 autoload -U edit-command-line
