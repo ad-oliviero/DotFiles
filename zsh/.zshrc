@@ -3,7 +3,7 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=100000000
 export SAVEHIST=$HISTSIZE
 export TERM=xterm-256color
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin:/var/lib/snapd/snap/bin
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 export VISUAL=vim
@@ -48,6 +48,19 @@ source ~/.config/zsh/keybindings.zsh
 source ~/.config/zsh/utils.zsh
 
 # prompt
-PS1=$'%(?..%F{red}%?%F{white} )%(#.%F{red}.%F{white})%n in %F{green}%~ ${vcs_info_msg_0_}%F{yellow}\u1433 '
+function preexec() {
+	start=$(($(date +%s%0N)/1000000000))
+}
+
+function precmd() {
+	if [ $start ]; then
+		now=$(($(date +%s%0N)/1000000000))
+		elapsed=$(($now-$start))
+
+		export RPS1="%F{cyan}${elapsed}s %{$reset_color%}"
+		unset start
+	fi
+}
+PS1=$'%(?..%F{red}%?%F{white} )%(#.%F{red}.%F{cyan})%n in %F{green}%~ ${vcs_info_msg_0_}%F{yellow}\u1433 '
 
 uwufetch #|lolcat

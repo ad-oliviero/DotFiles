@@ -1,6 +1,7 @@
 ascii=true
 user=true
 os=true
+host=true
 kernel=true
 cpu=true
 gpu=false
