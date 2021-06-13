@@ -24,11 +24,21 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
+# git status for prompt
+autoload -Uz add-zsh-hook vcs_info
+setopt PROMPT_SUBST
+add-zsh-hook precmd vcs_info
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr ' '
+zstyle ':vcs_info:*' stagedstr ' '
+zstyle ':vcs_info:git:*' formats       '%F{white}on %F{yellow}%b%u%c'
+#zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
+
 # Plugins
 source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh-theme
+#source ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh-theme
 #source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 #source ~/.p10k.zsh
 
@@ -36,5 +46,8 @@ source ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh-theme
 source ~/.config/zsh/aliasrc
 source ~/.config/zsh/keybindings.zsh
 source ~/.config/zsh/utils.zsh
+
+# prompt
+PS1=$'%(?..%F{red}%?%F{white} )%(#.%F{red}.%F{white})%n in %F{green}%~ ${vcs_info_msg_0_}%F{yellow}\u1433 '
 
 uwufetch #|lolcat
