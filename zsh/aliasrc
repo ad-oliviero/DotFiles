@@ -3,7 +3,7 @@
 # commands
 alias \
 	grep="grep --color" \
-	ls="exa" \
+	ls="exa --group-directories-first" \
     ll="ls -lSh" \
     l="ll -a" \
     la="ls -a" \
