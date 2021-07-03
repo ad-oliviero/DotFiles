@@ -5,6 +5,7 @@ alias \
 	grep="grep --color" \
 	ls="exa --group-directories-first" \
     ll="ls -lSh" \
+	lls="clear; ls" \
     l="ll -a" \
     la="ls -a" \
 	cp="cp -iv" \
