@@ -14,7 +14,7 @@ set $ws9 "9"
 set $ws10 "10"
 # input and output
 input * {
-    xkb_layout it
+    #xkb_layout en
     xkb_options terminate:ctrl_alt_bksp
     xkb_model pc104
     xkb_numlock enabled

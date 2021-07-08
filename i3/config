@@ -14,7 +14,7 @@ set $ws9 "9"
 set $ws10 "10"
 # Keyboard and mouse
 exec_always numlockx on
-exec_always setxkbmap it
+#exec_always setxkbmap it
 # mouse
 exec_always xinput set-prop 9 306 0 
 exec_always xinput set-prop 9 309 0 1
