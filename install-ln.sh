@@ -7,6 +7,8 @@ echo 'Installing...'
 rm -rf \
 		~/.config/alacritty \
 		~/.config/chrome-flags.conf \
+		~/.config/brave-flags.conf \
+		~/.config/chromium-flags.conf \
 		~/.config/dunst \
 		~/.config/htop \
 		~/.config/i3 \
@@ -32,7 +34,6 @@ rm -rf \
 
 ln -s \
 		~/.config/DotFiles/alacritty \
-		~/.config/DotFiles/chrome-flags.conf \
 		~/.config/DotFiles/dunst \
 		~/.config/DotFiles/htop \
 		~/.config/DotFiles/i3 \
@@ -52,6 +53,10 @@ ln -s \
 		~/.config/DotFiles/uwufetch \
 		~/.config/DotFiles/zsh \
 		~/.config
+
+ln -s ~/.config/DotFiles/chrome-flags.conf ~/.config/
+ln -s ~/.config/DotFiles/chrome-flags.conf ~/.config/chromium-flags.conf
+ln -s ~/.config/DotFiles/chrome-flags.conf ~/.config/brave-flags.conf
 
 ln -s \
 		~/.config/DotFiles/.vim* \
