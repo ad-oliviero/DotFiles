@@ -46,6 +46,8 @@ exec_always --no-startup-id mako
 exec_always v4l2-ctl -d /dev/video42 -c timeout=3000
 exec_always pkill redshift; redshift -oP 4400K -m wayland
 #exec_always pamusb-agent
+exec_always --no-startup-id /usr/lib/pam_kwallet_init
+exec_always --no-startup-id ksmserver
 
 # Navigation&System bindings
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
@@ -70,7 +72,8 @@ bindsym $mod+r reload
 bindsym $mod+Return exec alacritty
 #bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
 bindsym $mod+d exec env MOZ_ENABLE_WAYLAND=1 rofi -show drun
-bindsym $mod+b exec env MOZ_ENABLE_WAYLAND=1 firefox
+#bindsym $mod+b exec env MOZ_ENABLE_WAYLAND=1 firefox
+bindsym $mod+b exec brave --enable-features=UseOzonePlatform --ozone-platform=wayland --password-store=kwallet5
 bindsym $mod+Shift+d env MOZ_ENABLE_WAYLAND=1 exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
 bindsym $mod+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
 bindsym $mod+l exec swaylock -C ~/.config/swaylock/config
