@@ -67,4 +67,6 @@ ln -s \
 
 ln -s ~/.vimrc ~/.config/nvim/init.vim
 
+ln -s ~/.config/alacritty/alacritty.yml.dark ~/.config/alacritty/alacritty.yml
+
 echo 'Installed correctly!'
