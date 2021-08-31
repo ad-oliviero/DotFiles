@@ -4,7 +4,7 @@
 	"height": 20,
 	"modules-left": ["sway/workspaces", "sway/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["idle_inhibitor", "network", "disk", "cpu", "battery", "memory", "pulseaudio", "tray"],
+	"modules-right": ["idle_inhibitor", "network", "disk", "cpu", "memory", "tray", "pulseaudio", "battery"],
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {

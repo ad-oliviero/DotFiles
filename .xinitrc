@@ -1,8 +1,15 @@
-#~/.config/scripts/start-dwm.sh
-i3
+#~/.config/scripts/start-dwm.s
+#i3
 #gnome-session
 #xfce4-session
-#plasmashell
+
+
+
+DESKTOP_SESSION=plasma
+startplasma-x11
+
+
+
 #openbox
 
 # fix slow gtk apps loading

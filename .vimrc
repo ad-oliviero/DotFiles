@@ -1,6 +1,5 @@
 " This vimrc is mostly taken from https://github.com/ayesumit/Android-Nvim
 
-
 call plug#begin("~/.vim/autoload/plug")
 
 Plug 'vim-scripts/chlordane.vim'
@@ -30,17 +29,18 @@ call plug#end()
 
 syntax enable
 
-set termguicolors
+" set termguicolors
 "colorscheme tokyonight
 "set background=dark
 
 "let ayucolor="light"
 "let ayucolor="mirage"
-"let ayucolor="dark"
+let ayucolor="dark"
 
 filetype on
 set number
-set cursorline
+set relativenumber
+"set cursorline
 set ruler
 set mouse=a
 set scrolloff=8
@@ -72,7 +72,7 @@ filetype indent on
 set smartindent
 set tabstop=4
 set expandtab
-set softtabstop=2
+set softtabstop=4
 set shiftwidth=2
 
 " Folds

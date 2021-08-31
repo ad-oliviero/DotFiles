@@ -14,7 +14,7 @@ set $ws9 "9"
 set $ws10 "10"
 # input and output
 input * {
-    #xkb_layout en
+    xkb_layout it
     xkb_options terminate:ctrl_alt_bksp
     xkb_model pc104
     xkb_numlock enabled
@@ -30,6 +30,7 @@ input 1739:32552:MSFT0001:01_06CB:7F28_Touchpad {
 	tap enabled
 	natural_scroll enabled
 }
+
 output DP-2 pos 0 0 res 1920x1080 bg ~/Immagini/.wallpaper fill #FAFAFA
 #output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/.wallpaper fill #000000
 output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/.wallpaper fill #FAFAFA
@@ -146,8 +147,8 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # Gaps and borders
-for_window [class="^.*"] border pixel 2
-default_border pixel 2
+for_window [class="^.*"] border pixel 0
+default_border pixel 0
 #border_radius 15
 gaps inner 10
 
