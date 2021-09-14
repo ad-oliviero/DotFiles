@@ -14,3 +14,4 @@ startplasma-x11
 
 # fix slow gtk apps loading
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+xset r rate 500 33
