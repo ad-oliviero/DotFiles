@@ -44,6 +44,9 @@ window:
   padding:
     x: 2
     y: 2
+dimensions:
+    columns: 100
+    lines: 24
 
 cursor:
   cursor: '0xabb2bf'
