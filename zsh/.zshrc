@@ -1,14 +1,33 @@
 # env variables
 export HISTFILE="$HOME/.zsh_history"
-export HISTSIZE=100000000
+export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
 export TERM=xterm-256color
 export PATH=$PATH:~/.local/bin:/var/lib/snapd/snap/bin:/usr/local/i386elfgcc/bin
-export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache
 export VISUAL=vim
 export EDITOR=vim
 export PICO_SDK_PATH=/opt/pico-sdk
+
+# colored man pages
+export LESS_TERMCAP_mb=$'\E[01;32m'
+export LESS_TERMCAP_md=$'\E[01;32m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;47;34m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;36m'
+export LESS=-R
+
+#setopt correct
+#setopt extendedglob
+#setopt nocaseglob
+setopt nocheckjobs
+#setopt numericglobsort
+setopt nobeep
+#setopt appendhistory
+setopt histignorealldups
+setopt autocd
+setopt inc_append_history
 
 # edit comamnd line (vim mode)
 autoload -U edit-command-line
@@ -19,10 +38,15 @@ autoload -Uz compinit
 compinit
 
 zstyle ':completion:*' menu yes select
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s%p
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completition:*' rehash true
+zstyle ':completition:*' accept-exact '*(N)'
+#zstyle ':completition:*' use-cache on
+#zstyle ':completition:*' cache-path ~/.cache/zsh_cache
+WORDCHARS=${WORDCHARS//\/[&.;]}
+#zstyle ':completion:*' format 'Completing %d'
+#zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s%p
 
 # git status for prompt
 #autoload -Uz add-zsh-hook vcs_info
@@ -38,6 +62,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
 fpath+=$HOME/.config/zsh/themes/pure
 #fpath+=$HOME/.config/zsh/themes/purer
 autoload -Uz promptinit
