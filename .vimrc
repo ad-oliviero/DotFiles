@@ -44,7 +44,6 @@ set relativenumber
 set ruler
 set mouse=a
 set scrolloff=8
-set nowrap
 set lazyredraw
 " Cmd
 set showmatch

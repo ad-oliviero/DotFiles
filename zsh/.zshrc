@@ -44,7 +44,6 @@ zstyle ':completition:*' rehash true
 zstyle ':completition:*' accept-exact '*(N)'
 #zstyle ':completition:*' use-cache on
 #zstyle ':completition:*' cache-path ~/.cache/zsh_cache
-WORDCHARS=${WORDCHARS//\/[&.;]}
 #zstyle ':completion:*' format 'Completing %d'
 #zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s%p
 
@@ -59,10 +58,9 @@ WORDCHARS=${WORDCHARS//\/[&.;]}
 #zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
 
 # Plugins
-source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source ~/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh
-source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
+source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fpath+=$HOME/.config/zsh/themes/pure
 #fpath+=$HOME/.config/zsh/themes/purer
 autoload -Uz promptinit
@@ -94,3 +92,5 @@ source ~/.config/zsh/utils.zsh
 #PS1=$'%(?..%F{red}%?%F{white} )%(#.%F{red}.%F{cyan})%n in %F{green}%~ ${vcs_info_msg_0_}%F{yellow}\u1433 '
 
 uwufetch #|lolcat
+
+source ~/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh # for some reasons this plugin does not work if it isn't loaded at the end
