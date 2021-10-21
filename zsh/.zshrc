@@ -7,7 +7,6 @@ export PATH=$PATH:~/.local/bin:/var/lib/snapd/snap/bin:/usr/local/i386elfgcc/bin
 export VISUAL=vim
 export EDITOR=vim
 export PICO_SDK_PATH=/opt/pico-sdk
-#export UWUFETCH_CONFIG_ENABLED=1
 
 # colored man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
@@ -71,27 +70,16 @@ prompt pure
 #source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 #source ~/.p10k.zsh
 
+# prompt vars
+#SPACESHIP_PROMPT_ADD_NEWLINE=false
+#SPACESHIP_PTOMPT_SEPARATE_LINE=false
+PURE_PROMPT_SYMBOL=➜
+
 # loading sources
 source ~/.config/zsh/aliasrc
 source ~/.config/zsh/keybindings.zsh
 source ~/.config/zsh/utils.zsh
 
-# prompt
-#function preexec() {
-#	start=$(($(date +%s%0N)/1000000000))
-#}
-#
-#function precmd() {
-#	if [ $start ]; then
-#		now=$(($(date +%s%0N)/1000000000))
-#		elapsed=$(($now-$start))
-#
-#		export RPS1="%F{cyan}${elapsed}s %{$reset_color%}"
-#		unset start
-#	fi
-#}
-#PS1=$'%(?..%F{red}%?%F{white} )%(#.%F{red}.%F{cyan})%n in %F{green}%~ ${vcs_info_msg_0_}%F{yellow}\u1433 '
+UWUFETCH_CACHE_ENABLED=1 uwufetch -d arch #|lolcat
 
-env UWUFETCH_CACHE_ENABLED=1 uwufetch #|lolcat
-
-source ~/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh # for some reasons this plugin does not work if it isn't loaded at the end
+source ~/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh # for some reason this plugin does not work if it isn't loaded at the end
