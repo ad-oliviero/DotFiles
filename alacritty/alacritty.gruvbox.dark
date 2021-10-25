@@ -48,7 +48,7 @@ window:
 
 cursor:
   cursor: '0xabb2bf'
-  style: Beam
+  style: underline
 
 scrolling:
   history: 10000

@@ -70,6 +70,11 @@ set shiftwidth=2        " How many columns of whitespace a “level of indentati
 " set expandtab           " Use spaces when tabbing
 set softtabstop=2       " Too long to explain, go on google and find it yourself
 set ruler
+set cul
+
+let &t_SI .= "\<Esc>[5 q"
+let &t_EI .= "\<Esc>[3 q"
+autocmd VimLeave * silent !echo -ne "\033]112\007"
 
 "let ayucolor="mirage"
 "colorscheme ayu

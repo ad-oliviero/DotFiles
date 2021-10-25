@@ -65,8 +65,8 @@ ln -s \
 		~/.config/DotFiles/zsh/.zprofile \
 		~/
 
-ln -s ~/.vimrc ~/.config/nvim/init.vim
+#ln -s ~/.vimrc ~/.config/nvim/init.vim
 
-ln -s ~/.config/alacritty/alacritty.yml.dark ~/.config/alacritty/alacritty.yml
+#ln -s ~/.config/alacritty/alacritty.yml.dark ~/.config/alacritty/alacritty.yml
 
 echo 'Installed correctly!'

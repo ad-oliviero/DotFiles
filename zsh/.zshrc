@@ -59,6 +59,7 @@ zstyle ':completition:*' accept-exact '*(N)'
 
 # Plugins
 source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
+source ~/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh >/dev/null
 source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fpath+=$HOME/.config/zsh/themes/pure
@@ -81,5 +82,3 @@ source ~/.config/zsh/keybindings.zsh
 source ~/.config/zsh/utils.zsh
 
 UWUFETCH_CACHE_ENABLED=1 uwufetch -d arch #|lolcat
-
-source ~/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh # for some reason this plugin does not work if it isn't loaded at the end
