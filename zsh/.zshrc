@@ -81,4 +81,4 @@ source ~/.config/zsh/aliasrc
 source ~/.config/zsh/keybindings.zsh
 source ~/.config/zsh/utils.zsh
 
-UWUFETCH_CACHE_ENABLED=1 uwufetch -d arch #|lolcat
+UWUFETCH_CACHE_ENABLED=1 uwufetch -d arch; UWUFETCH_CACHE_ENABLED=0

@@ -18,6 +18,7 @@ Plugin 'Badacadabra/vim-archery'
 Plugin 'morhetz/gruvbox'
 
 " Other plugins
+Plugin 'sbdchd/neoformat'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdtree'
@@ -75,6 +76,8 @@ set cul
 let &t_SI .= "\<Esc>[5 q"
 let &t_EI .= "\<Esc>[3 q"
 autocmd VimLeave * silent !echo -ne "\033]112\007"
+autocmd BufWritePre *.c Neoformat
+autocmd BufWritePre *.cpp Neoformat
 
 "let ayucolor="mirage"
 "colorscheme ayu
@@ -84,7 +87,6 @@ colorscheme gruvbox
 
 
 " Key mappings
-
 nmap        <C-B>       :buffers<CR>
 nmap        <C-J>       :term<CR>
 nmap        <F2>        :NERDTreeToggle<CR>
