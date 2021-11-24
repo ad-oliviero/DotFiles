@@ -25,7 +25,8 @@ Plugin 'preservim/nerdtree'
 Plugin 'preservim/tagbar'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'derekwyatt/vim-protodef'
-Plugin 'ycm-core/YouCompleteMe'
+" Plugin 'ycm-core/YouCompleteMe'
+Plugin 'tabnine/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
 
