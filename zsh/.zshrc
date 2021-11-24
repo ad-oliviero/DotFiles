@@ -7,6 +7,7 @@ export PATH=$PATH:~/.local/bin:/var/lib/snapd/snap/bin:/usr/local/i386elfgcc/bin
 export VISUAL=vim
 export EDITOR=vim
 export PICO_SDK_PATH=/opt/pico-sdk
+export LC_ALL=C
 
 # colored man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
