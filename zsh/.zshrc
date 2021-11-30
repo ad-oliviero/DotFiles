@@ -7,7 +7,7 @@ export PATH=$PATH:~/.local/bin:/var/lib/snapd/snap/bin:/usr/local/i386elfgcc/bin
 export VISUAL=vim
 export EDITOR=vim
 export PICO_SDK_PATH=/opt/pico-sdk
-export LC_ALL=C
+export LC_ALL="C"
 
 # colored man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
@@ -63,12 +63,12 @@ source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-
 source ~/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh >/dev/null
 source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-fpath+=$HOME/.config/zsh/themes/pure
+#fpath+=$HOME/.config/zsh/themes/pure
 #fpath+=$HOME/.config/zsh/themes/purer
-autoload -Uz promptinit
-promptinit
-prompt pure
-#source ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh-theme
+#autoload -Uz promptinit
+#promptinit
+#prompt pure
+source ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh-theme
 #source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 #source ~/.p10k.zsh
 
@@ -76,6 +76,8 @@ prompt pure
 #SPACESHIP_PROMPT_ADD_NEWLINE=false
 #SPACESHIP_PTOMPT_SEPARATE_LINE=false
 PURE_PROMPT_SYMBOL=➜
+
+PROMPT=%$(( ${#PROMPT} - 13 )){$PROMPT%} # this is to fix the strange characters at the end of the prompt
 
 # loading sources
 source ~/.config/zsh/aliasrc
