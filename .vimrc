@@ -19,6 +19,7 @@ Plugin 'morhetz/gruvbox'
 
 " Other plugins
 Plugin 'sbdchd/neoformat'
+Plugin 'rhsyd/vim-clang-format'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'preservim/nerdtree'
