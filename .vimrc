@@ -25,8 +25,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'preservim/tagbar'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'derekwyatt/vim-protodef'
-" Plugin 'ycm-core/YouCompleteMe'
-Plugin 'tabnine/YouCompleteMe'
+Plugin 'rhysd/vim-clang-format'
 call vundle#end()
 filetype plugin indent on
 
@@ -77,8 +76,8 @@ set cul
 let &t_SI .= "\<Esc>[5 q"
 let &t_EI .= "\<Esc>[3 q"
 autocmd VimLeave * silent !echo -ne "\033]112\007"
-autocmd BufWritePre *.c Neoformat
-autocmd BufWritePre *.cpp Neoformat
+autocmd BufWritePre *.c ClangFormat
+autocmd BufWritePre *.cpp ClangFormat
 
 "let ayucolor="mirage"
 "colorscheme ayu
