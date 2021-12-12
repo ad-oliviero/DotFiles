@@ -1,38 +1,23 @@
 [colors]
-background = #0A0E14
-background-alt = #1F2430
-foreground = #B3B1AD
-foreground-alt = #CBCCC6
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
-polar-night1 = #2E3440
-polar-night2 = #3B4252
-polar-night3 = #434C5E
-polar-night4 = #4C566A
-snow-storm1 = #D8DEE9
-snow-storm2 = #E5E9F0
-snow-storm3 = #ECEFF4
-frost1 = #8FBCBB
-frost2 = #88C0D0
-frost3 = #81A1C1
-frost4 = #5E81AC
-aurora_red = #BF616A
-aurora_amber = #D08770
-aurora_yellow = #EBCB8B
-aurora_green = #A3BE8C
-aurora_pink = #B48EAD
+background = #282828
+background-alt = #3c3836
+foreground = #ebdbb2
+foreground-alt = #fbf1c7
+primary = #928374
+secondary = #504945
+alert = #cc241d
+yellow = #d79921
 
 [bar/main]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 20
+height = 23
 fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-color = #FF3333
+line-color = ${colors.yellow}
 line-size = 1
 
 padding-left = 2
@@ -42,12 +27,12 @@ module-margin-right = 0
 
 separator = " | "
 
-font-0 = OpenSans:style=regular:size=10.5:antialias=true;1
+font-0 = JetBrains Mono:style=regular:size=11:antialias=true;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;0
-font-3 = Font Awesome 5 Free:pixelsize=12;0
-font-4 = Font Awesome 5 Free Solid:pixelsize=12;2
-font-5 = Font Awesome 5 Free Brands:pixelsize=12;2
+font-3 = Font Awesome 5 Free:pixelsize=11;0
+font-4 = Font Awesome 5 Free Solid:pixelsize=11;2
+font-5 = Font Awesome 5 Free Brands:pixelsize=11;2
 
 
 modules-left = i3
@@ -114,7 +99,7 @@ label = %percentage:2%%
 
 [module/date]
 type = internal/date
-date = %d %B %Y  %%{F#fff}%H %%{F#88C0D0}%M%%{F-} %%{F#fba922}%S%%{F-}
+date = %d %B %Y  %%{F#83a598}%H %%{F#458588}%M%%{F-} %%{F#d79921}%S%%{F-}
 date-alt = %%{F#999}%d-%m-%Y%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
 
 [module/memory]
@@ -159,7 +144,7 @@ ws-icon-7 = 8
 ws-icon-8 = 9
 ws-icon-9 = 10s
 
-label-dimmed-underline = ${colors.aurora_yellow.background}
+label-dimmed-underline = ${colors.yellow}
 
 ; Available tags:
 ;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
@@ -171,7 +156,7 @@ format = <label-state> <label-mode>
 ; Default: %mode%
 label-mode = %mode%
 label-mode-padding = 0
-label-mode-background = #e60053
+label-mode-background = ${colors.alert}
 
 ; Available tokens:
 ;   %name%

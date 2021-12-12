@@ -26,7 +26,6 @@ Plugin 'preservim/nerdtree'
 Plugin 'preservim/tagbar'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'derekwyatt/vim-protodef'
-Plugin 'rhysd/vim-clang-format'
 call vundle#end()
 filetype plugin indent on
 

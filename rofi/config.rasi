@@ -1,5 +1,5 @@
 configuration {
-	font: "OpenSans 11";
+	font: "JetBrains Mono 12";
 	show-icons: true;
 	icon-theme: "/usr/share/themes/Yaru-Blue";
 	drun-display-format: "{name}";
@@ -9,6 +9,6 @@ configuration {
 	fullscreen: false;
 	threads: 4;
 	scroll-method: 0;
-	theme: "~/.config/rofi/themes/mac.rasi";
-	display-drun: "";
+	display-drun: "";
 }
+@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"

@@ -1,6 +1,6 @@
 # ---INIT---
 set $mod Mod4
-font pango:ttf-opensans 10
+font pango:Jetbrains Mono 10
 # Creating workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -16,8 +16,8 @@ set $ws10 "10"
 exec_always numlockx on
 #exec_always setxkbmap it
 # mouse
-exec_always xinput set-prop 9 306 0 
-exec_always xinput set-prop 9 309 0 1
+exec_always xinput set-prop 12 304 -0.7
+exec_always xinput set-prop 12 306 0 1
 # touchpad
 exec_always xinput set-prop 10 317 1 # tap to click
 exec_always xinput set-prop 10 325 1 # natural scrolling
@@ -30,7 +30,7 @@ exec_always --no-startup-id ~/.config/scripts/fix_xcursor
 # exec_always --no-startup-id dconf reset -f /org/gnome/control-center/
 exec --no-startup-id nm-applet
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always feh --bg-fill ~/Immagini/.wallpaper
+exec_always feh --bg-fill ~/Downloads/WallpaperDog-17284371.jpg
 exec_always picom --experimental-backends --backend glx
 exec_always xset s on
 exec_always xset -dpms
