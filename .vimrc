@@ -93,6 +93,7 @@ nmap        <F2>        :NERDTreeToggle<CR>
 nmap        <F8>        :TagbarToggle<CR>
 nmap        <C-s>       :w<CR>
 nmap        <C-q>       :q!<CR>
+nmap				<C-x>				dd
 nmap        tp          :tabprev<CR>
 nmap        tn          :tabnext<CR>
 nmap        tc          :tabclose<CR>

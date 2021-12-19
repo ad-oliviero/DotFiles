@@ -5,13 +5,14 @@
 
 
 
-DESKTOP_SESSION=plasma
-startplasma-x11
+#DESKTOP_SESSION=plasma
+#startplasma-x11
 
-
+export PATH=$PATH:/usr/dt/bin
+export LANG=C
 
 #openbox
 
 # fix slow gtk apps loading
-dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
-xset r rate 500 33
+#dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+#xset r rate 500 33
