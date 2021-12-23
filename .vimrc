@@ -92,12 +92,14 @@ nmap        <C-J>       :term<CR>
 nmap        <F2>        :NERDTreeToggle<CR>
 nmap        <F8>        :TagbarToggle<CR>
 nmap        <C-s>       :w<CR>
-nmap        <C-q>       :q!<CR>
+nmap        <C-w>       :q<CR>
+nmap				<C-q>				:qa<CR>
 nmap				<C-x>				dd
-nmap        tp          :tabprev<CR>
-nmap        tn          :tabnext<CR>
-nmap        tc          :tabclose<CR>
-nmap        tt          :tabnew<CR>
+nmap				<C-a>				ggVG
+nmap				<C-c>				Vy
+nmap				<C-v>				P
+nmap        <C-i>       :tabnext<CR>
+nmap        <C-t>       :tabnew<CR>
 nmap        <F5>        :!make!<CR>
 
 " custom commands
