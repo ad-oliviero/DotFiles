@@ -69,3 +69,4 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 #ln -s ~/.config/alacritty/alacritty.yml.dark ~/.config/alacritty/alacritty.yml
 
 printf "Installed correctly!\n"
+# you should also ln -s ~/.config/DotFiles/ffvars.sh /etc/profile.d
