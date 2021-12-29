@@ -50,6 +50,13 @@ element {
   padding: 10px 0px 10px 0px;
 }
 
+element-text {
+  expand:                         true;
+  horizontal-align:               0.5;
+  vertical-align:                 0.5;
+  margin:                         5px 10px 0px 10px;
+}
+
 element-icon {
   size: 64px;
 }

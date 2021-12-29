@@ -34,8 +34,8 @@ line-size = 3
 border-size = 2
 border-color = #00000000
 
-padding-left = 2
-padding-right = 2
+padding-left = 1
+padding-right = 1
 module-margin-left = 0
 module-margin-right = 0
 
@@ -133,17 +133,27 @@ label-mounted =  %free%
 type = internal/bspwm
 pin-workspaces = true
 inline-mode = false
-enable-click = false
+enable-click = true
 ; enable-scroll = false
 reverse-scroll = true
-fuzzy-match = true
+fuzzy-match = false
 format = <label-state>
-label-mode = %mode%
-label-mode-padding = 1
-label-mode-background = ${colors.alert}
+
 label-focused = %name%
+label-focused-background = ${colors.background-alt}
 label-focused-underline	 = ${colors.yellow}
 label-focused-padding = 1
+
+label-occupied-padding-right = 1
+
+label-urgent = %name%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 1
+
 
 [module/pulseaudio]
 type = internal/pulseaudio
