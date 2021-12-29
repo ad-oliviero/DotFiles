@@ -35,6 +35,7 @@ mv -vt ~/config_backup \
 
 ln -vs \
 		~/.config/DotFiles/alacritty \
+		~/.config/DotFiles/bspwm \
 		~/.config/DotFiles/dunst \
 		~/.config/DotFiles/htop \
 		~/.config/DotFiles/i3 \

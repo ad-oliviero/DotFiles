@@ -1,0 +1,59 @@
+// https://gitlab.com/ihciM/dotfiles/-/tree/main
+
+* {
+  background-color: transparent;
+  color: #ebdbb2;
+  font: "JetBrains Mono 14";
+  padding: 0;
+  margin: 0;
+}
+
+window {
+  background-image: linear-gradient(0deg, #282828, #3c3836);
+  transparency: "real";
+  padding: 15;
+  width: 35%;
+}
+
+inputbar {
+  children: [prompt, entry];
+}
+
+prompt {
+  border-radius: 10;
+  padding: 10; 
+  border: 1;
+  border-color: #ebdbb2;
+  margin: 0 10 0 0;
+}
+
+entry {
+  border-radius: 10;
+  padding: 10; 
+  border: 1;
+  border-color: #ebdbb2;
+  margin: 0;
+}
+
+listview {
+  columns: 3;
+  margin: 10 0 0 0;
+  lines: 4;
+  layout: vertical;
+  dynamic: true;
+}
+
+element {
+  margin: 2 0;
+  border-radius: 10;
+  orientation: vertical;
+  padding: 10px 0px 10px 0px;
+}
+
+element-icon {
+  size: 64px;
+}
+
+element.selected {
+  background-color: #3c3836;
+}

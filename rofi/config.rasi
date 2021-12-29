@@ -1,7 +1,7 @@
 configuration {
 	font: "JetBrains Mono 12";
 	show-icons: true;
-	icon-theme: "/usr/share/themes/Yaru-Blue";
+	icon-theme: "~/.local/share/icons/Gruvbox-Material-Dark";
 	drun-display-format: "{name}";
 	disable-history: false;
 	sidebar-mode: false;
@@ -11,4 +11,4 @@ configuration {
 	scroll-method: 0;
 	display-drun: "";
 }
-@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
+@theme "frost"

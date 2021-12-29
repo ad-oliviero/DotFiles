@@ -1,24 +1,38 @@
 [colors]
+# gruvbox colors
 background = #282828
 background-alt = #3c3836
 foreground = #ebdbb2
-foreground-alt = #fbf1c7
+foreground-alt = #ebdbb2
 primary = #928374
 secondary = #504945
 alert = #cc241d
 yellow = #d79921
+green = #98971a
+blue = #458588
+aqua = #689d6a
+gray = #282828
+lightgray = #665c54
+lightred = #fb4934
 
 [bar/main]
 monitor = ${env:MONITOR:}
-width = 100%
-height = 23
+width = 98%
+offset-x = 1%
+offset-y = .6%
+override-redirect = true
+height = 27
 fixed-center = true
+radius = 10.0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-color = ${colors.yellow}
-line-size = 1
+line-size = 3
+
+border-size = 2
+border-color = #00000000
 
 padding-left = 2
 padding-right = 2
@@ -27,19 +41,15 @@ module-margin-right = 0
 
 separator = " | "
 
-font-0 = JetBrains Mono:style=regular:size=11:antialias=true;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;0
-font-3 = Font Awesome 5 Free:pixelsize=11;0
-font-4 = Font Awesome 5 Free Solid:pixelsize=11;2
-font-5 = Font Awesome 5 Free Brands:pixelsize=11;2
+font-0 = "JetBrains Mono:style=regular:size=11:antialias=true;3"
+font-1 = "Font Awesome 5 Free Solid:pixelsize=11;3"
+font-2 = "Iosevka Nerd Font:pixelsize=16;3"
 
-
-modules-left = i3
+modules-left = bspwm
 modules-center = date
-modules-right = filesystem cpu memory wifi-download wifi-upload temperature battery pulseaudio
+modules-right = filesystem memory cpu wifi-download wifi-upload battery pulseaudio
 
-wm-restack = i3
+wm-restack = bspwm
 
 tray-position = right 
 tray-scale = 1.0
@@ -49,13 +59,19 @@ tray-maxsize = 64
 
 tray-offset-y = 0
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+;scroll-up = bspc desktop -f prev.local
+;scroll-down = bspc desktop -f next.local
 
 overline-size = 10
 overline-color = ${self.background}
 underline-size = 2
 underline-color = ${self.background}
+
+cursor-click = pointer
 
 [module/battery]
 type = internal/battery
@@ -92,10 +108,9 @@ animation-discharging-framerate = 500
 
 [module/cpu]
 type = internal/cpu
-interval = 2
+interval = 1
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-label = %percentage:2%%
+label = %percentage%%
 
 [module/date]
 type = internal/date
@@ -107,19 +122,6 @@ type = internal/memory
 format-prefix = " "
 label = %gb_used%/%gb_free%
 
-bar-used-width = 30
-bar-used-foreground-0 = #aaff77
-bar-used-foreground-1 = #aaff77
-bar-used-foreground-2 = #fba922
-bar-used-foreground-3 = #ff5555
-bar-used-indicator = |
-bar-used-indicator-font = 6
-bar-used-indicator-foreground = #ff
-bar-used-fill = -
-bar-used-fill-font = 6
-bar-used-empty = -
-bar-used-empty-font = 6
-bar-used-empty-foreground = #444444
 
 [module/filesystem]
 type = internal/fs
@@ -127,141 +129,65 @@ interval = 25
 mount-0 = /
 label-mounted =  %free%
 
-[module/i3]
-type = internal/i3
-strip-wsnumbers = true
-index-sort = true
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+inline-mode = false
+enable-click = false
+; enable-scroll = false
+reverse-scroll = true
 fuzzy-match = true
-
-ws-icon-0 = 1
-ws-icon-1 = 2
-ws-icon-2 = 3
-ws-icon-3 = 4
-ws-icon-4 = 5
-ws-icon-5 = 6
-ws-icon-6 = 7
-ws-icon-7 = 8
-ws-icon-8 = 9
-ws-icon-9 = 10s
-
-label-dimmed-underline = ${colors.yellow}
-
-; Available tags:
-;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
-;   <label-mode> (default)
-format = <label-state> <label-mode>
-
-; Available tokens:
-;   %mode%
-; Default: %mode%
+format = <label-state>
 label-mode = %mode%
-label-mode-padding = 0
+label-mode-padding = 1
 label-mode-background = ${colors.alert}
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
-label-focused =  %index%
-label-focused-foreground = #ffffff
-label-focused-background = #3f3f3f
-label-focused-underline = #fba922
-label-focused-padding = 4
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
-label-unfocused = %index%
-label-unfocused-padding = 4
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
-label-visible = %index%
-label-visible-underline = #555555
-label-visible-padding = 4
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-;   %output%
-; Default: %icon%  %name%
-label-urgent = %index%
-label-urgent-foreground = #000000
-label-urgent-background = #bd2c40
-label-urgent-padding = 4
-
-; Separator in between workspaces
-label-separator = |
-label-separator-padding = 0
-label-separator-foreground = #ffb52a
-
-[module/spotify]
-type = custom/script
-interval = 1
-format-prefix = "  "  
-format = <label>
-exec = python   /home/carlazz/.config/polybar/spotify.py  -f '{play_pause} {song} - {artist} - {album}'
-
-format-underline = #1db954
-
-; vim:ft=dosini
+label-focused = %name%
+label-focused-underline	 = ${colors.yellow}
+label-focused-padding = 1
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume>
+format-volume =  <bar-volume>
 label-volume =  %percentage%%
-label-volume-foreground = ${root.foreground}
+label-volume-foreground = ${colors.foreground}
 
 label-muted =  muted
-label-muted-foreground = #666
+label-muted-foreground = ${colors.secondary}
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-0 = ${colors.foreground}
+bar-volume-foreground-1 = ${colors.green}
+bar-volume-foreground-2 = ${colors.green}
+bar-volume-foreground-3 = ${colors.yellow}
+bar-volume-foreground-4 = ${colors.yellow}
+bar-volume-foreground-5 = ${colors.alert}
+bar-volume-foreground-6 = ${colors.alert}
 bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
+bar-volume-indicator = "◎"
+bar-volume-indicator-font = 1
 bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${colors.foreground}
 
 [module/wifi-download]
 type = internal/network
-interface = wlp41s0f3u2
-interval = 3.0
+interface = enp37s0
+interval = 1.0
 unknown-as-up = true
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 label-connected =    %downspeed%
-format-connected-prefix-foreground = ${colors.foreground}
-label-connected-foreground = ${colors.foreground}
 
 [module/wifi-upload]
 type = internal/network
-interface = wlp41s0f3u2
-interval = 3.0
+interface = enp37s0
+interval = 1.0
 unknown-as-up = true
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 format-connected-prefix = "  "   
 label-connected =  %upspeed%
-format-connected-prefix-foreground = ${colors.foreground}
-label-connected-foreground = ${colors.foreground}
+
