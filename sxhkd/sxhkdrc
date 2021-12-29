@@ -83,6 +83,9 @@ super + {grave,Tab}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
+super + button{4,5}
+	bspc desktop {prev,next}.occupied -f
+
 #
 # preselect
 #
