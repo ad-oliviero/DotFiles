@@ -1,5 +1,6 @@
 #! /bin/sh
 
+export WINIT_X11_SCALE_FACTOR=1 # for alacritty on the laptop
 pkill -USR1 -x sxhkd || sxhkd &
 feh --bg-fill ~/Downloads/mikasa.png # https://images7.alphacoders.com/632/632843.png
 ~/.config/polybar/launch.sh
@@ -7,13 +8,23 @@ pkill -USR1 -x picom --experimental-backends --backend glx || picom --experiment
 pkill -USR1 -x dunst || dunst &
 dconf reset -f /org/gnome # fix gtk-apps slow loading
 redshift -oP 4400K
-setxkbmap -layout "us" -option "ctrl:nocaps,compose:menu" # set keyboard layout and compose key 
+if [ $(cat /sys/devices/virtual/dmi/id/product_name) == "81YK" ] # if i am on the laptop
+then
+	setxkbmap -layout "it" # set keyboard layout
+else
+	setxkbmap -layout "us" -option "compose:menu" # set keyboard layout and compose key 
+fi
+light-locker --lock-on-suspend --lock-on-lid & # lock with suspension
 
-# mouse
+# mouse and touchpad
 xset +dpms
-#xset m 0 0
 xinput set-prop pointer:"Micro-Star INT'L CO., LTD MSI GM11 Gaming Mouse" "libinput Accel Speed" +0.1 # speed
 xinput set-prop pointer:"Micro-Star INT'L CO., LTD MSI GM11 Gaming Mouse" "libinput Accel Profile Enabled" 0, 1 # disable acceleration
+
+xinput set-prop "MSFT0001:01 06CB:7F28 Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "MSFT0001:01 06CB:7F28 Touchpad" "libinput Tapping Drag Enabled" 1
+xinput set-prop "MSFT0001:01 06CB:7F28 Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "MSFT0001:01 06CB:7F28 Touchpad" "libinput Scrolling Pixel Distance" 50
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 

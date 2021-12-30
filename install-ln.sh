@@ -10,6 +10,8 @@ mv -vt ~/config_backup \
 		~/.config/chrome-flags.conf \
 		~/.config/brave-flags.conf \
 		~/.config/chromium-flags.conf \
+		~/.config/libinput-gestures.conf \
+		~/.config/bspwm \
 		~/.config/dunst \
 		~/.config/htop \
 		~/.config/i3 \
@@ -41,6 +43,7 @@ ln -vs \
 		~/.config/DotFiles/i3 \
 		~/.config/DotFiles/kitty \
 		~/.config/DotFiles/mako \
+		~/.config/DotFiles/libinput-gestures.conf \
 		~/.config/DotFiles/picom \
 		~/.config/DotFiles/polybar \
 		~/.config/DotFiles/rofi \
@@ -71,3 +74,4 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 printf "Installed correctly!\n"
 # you should also ln -s ~/.config/DotFiles/ffvars.sh /etc/profile.d
+# and ln -s ~/.config/DotFiles/tlp.conf /etc

@@ -7,7 +7,7 @@ super + Return
 # rofi commands
 # power-menu: https://github.com/jluttine/rofi-power-menu
 super + {d, e}
-	rofi {-show drun -show-icons -drun-icon-theme GruvBox-Material-Dark, -show p -modi p:~/.config/scripts/rofi/rofi-power-menu -theme frost -font "JetBrains Mono NF 16" -width 20 -lines 3}
+	rofi {-show drun -show-icons -drun-icon-theme GruvBox-Material-Dark, -show powermenu -modi powermenu:~/.config/scripts/rofi/rofi-powermenu.sh -theme frost -font "JetBrains Mono NF 16" -width 20 -lines 9}
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -122,3 +122,21 @@ super + alt + shift + {Left,Down,Up,Right}
 super + ctrl + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# media controls and backlight
+XF86Audio{Raise,Lower}Volume
+	pactl set-sink-volume @DEFAULT_SINK@ {+,-}10%
+
+XF86Audio{Play,Pause}
+	playerctl {play,pause}
+
+XF86Audio{Next,Prev,Stop}
+	playerctl {next,previous,stop}
+
+XF86Audio{_,Mic}Mute
+	pactl set-{sink,source}-mute @DEFAULT_{SINK,SOURCE}@ toggle
+
+XF86MonBrightness{Down,Up}
+	xbacklight {-,+}5
+
+super + {F5,F6}
+	xbacklight {-,+}5
