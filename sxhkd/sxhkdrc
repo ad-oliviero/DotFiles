@@ -7,7 +7,17 @@ super + Return
 # rofi commands
 # power-menu: https://github.com/jluttine/rofi-power-menu
 super + {d, e}
-	rofi {-show drun -show-icons -drun-icon-theme GruvBox-Material-Dark, -show powermenu -modi powermenu:~/.config/scripts/rofi/rofi-powermenu.sh -theme frost -font "JetBrains Mono NF 16" -width 20 -lines 9}
+	rofi {-show drun -show-icons -drun-icon-theme GruvBox-Material-Dark, -show powermenu -modi powermenu:~/.config/scripts/rofi/rofi-powermenu.sh -theme frost -font "JetBrains Mono NF 16" -width 20 -lines 2}
+
+# some default programs
+super + n
+	nautilus
+
+super + b
+	waterfox
+
+super + v
+	emacs
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -18,7 +28,7 @@ super + Escape
 #
 
 # quit/restart bspwm
-super + shift + {q,r}
+super + shift + {k,r}
 	bspc {quit,wm -r}
 
 # close and kill

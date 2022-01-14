@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=4.0.5.1
+Name=Waterfox
+Comment=Browse the World Wide Web
+GenericName=Web Browser
+Keywords=Internet;WWW;Browser;Web;Explorer;
+Exec=/opt/waterfox/waterfox-bin %u
+Terminal=false
+X-MuiltpleArgs=false
+Type=Application
+Icon=/opt/waterfox/browser/chrome/icons/default/default256.png
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;
+StartupNotify=true

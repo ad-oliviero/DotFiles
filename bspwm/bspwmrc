@@ -15,9 +15,11 @@ else
 	setxkbmap -layout "us" -option "compose:menu" # set keyboard layout and compose key 
 fi
 light-locker --lock-on-suspend --lock-on-lid & # lock with suspension
+pgrep syncthing || syncthing serve --no-browser & # start syncthing
+env GTK_PATH=/usr/lib/gtk-3.0 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & # polkit for authentication
 
 # mouse and touchpad
-xset +dpms
+xset -dpms s off
 xinput set-prop pointer:"Micro-Star INT'L CO., LTD MSI GM11 Gaming Mouse" "libinput Accel Speed" +0.1 # speed
 xinput set-prop pointer:"Micro-Star INT'L CO., LTD MSI GM11 Gaming Mouse" "libinput Accel Profile Enabled" 0, 1 # disable acceleration
 
@@ -43,3 +45,4 @@ bspc config gapless_monocle      true
 bspc config pointer_follows_monitor true
 bspc config focus_follows_pointer true
 
+bspc rule -a Emacs state=tiled # start emacs tiled

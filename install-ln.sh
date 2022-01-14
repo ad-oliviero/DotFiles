@@ -30,6 +30,7 @@ mv -vt ~/config_backup \
 		~/.config/nvim/init.vim \
 		~/.config/uwufetch \
 		~/.config/zsh \
+		~/.emacs.d \
 		~/.vim* \
 		~/.zprofile \
 		~/.xinitrc \
@@ -63,6 +64,7 @@ ln -s ~/.config/DotFiles/chrome-flags.conf ~/.config/chromium-flags.conf
 ln -s ~/.config/DotFiles/chrome-flags.conf ~/.config/brave-flags.conf
 
 ln -s \
+		~/.config/DotFiles/.emacs.d \
 		~/.config/DotFiles/.vim* \
 		~/.config/DotFiles/.xinitrc \
 		~/.config/DotFiles/zsh/.zshrc \
