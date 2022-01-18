@@ -28,6 +28,9 @@ xinput set-prop "MSFT0001:01 06CB:7F28 Touchpad" "libinput Tapping Drag Enabled"
 xinput set-prop "MSFT0001:01 06CB:7F28 Touchpad" "libinput Natural Scrolling Enabled" 1
 xinput set-prop "MSFT0001:01 06CB:7F28 Touchpad" "libinput Scrolling Pixel Distance" 50
 
+# wacom tablet flip
+xsetwacom --set "Wacom One by Wacom S Pen stylus" Area 15200 9500 0 0
+
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         3
