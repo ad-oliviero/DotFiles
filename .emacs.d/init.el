@@ -1,29 +1,148 @@
+;; MOST OF THIS CONFIG IS TAKEN FROM https://github.com/matman26/emacs-config
+
+(setq user-emacs-directory "/home/adri/.emacs.d")
+
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+
+(package-initialize)
+(require 'package)
+(require 'use-package)
+
+(use-package org
+  :ensure t)
+
+(use-package undo-tree)
+(global-undo-tree-mode)
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode 1)
+  (evil-set-undo-system 'undo-tree))
+
+;; Theme and font
+(use-package gruvbox-theme
+  :config
+  (load-theme 'gruvbox t))
+(set-frame-font "JetBrains Mono 12" nil t)
+
+;; Remove initial buffer, set index file
 (setq inhibit-startup-message t)
+;;(setq initial-buffer-choice "index.org")
+
+;; Hide Scroll bar,menu bar, tool bar
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(tooltip-mode -1)
-(set-fringe-mode 10)
 (menu-bar-mode -1)
-(setq visible-bell t)
+
+;; Line numbering
+(global-display-line-numbers-mode)
+(setq display-line-numbers-type 'relative)
+
+;; Display battery for when in full screen mode
+(display-battery-mode t)
+
+;; Keybindings
+(global-set-key (kbd "<f5>") 'revert-buffer)
+(global-set-key (kbd "<f3>") 'org-export-dispatch)
+(global-set-key (kbd "<f6>") 'eshell) 
+(global-set-key (kbd "<f7>") 'dired) 
+(global-set-key (kbd "<f8>") 'magit) 
+
+;; Misc stuff
+(fset 'yes-or-no-p 'y-or-n-p)
+(setenv "HOME" "/home/adri")
+;; (server-start)
 
 
-(set-face-attribute 'default nil :font "JetBrains Mono" :height 120)
+;; ------- OTHER PACKAGES -------
+(use-package try
+  :ensure t)
 
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/")
-	     '("non-gnu-elpa" . "https://elpa.nongnu.org/nongnu/"))
-(package-initialize)
-;;(package-refresh-contents)
+(use-package which-key
 
-(unless (package-installed-p 'evil)
-  (package-install 'evil))
+  :config 
+    (setq which-key-idle-delay 0.3)
+    (setq which-key-popup-type 'frame)
+    (which-key-mode)
+    (which-key-setup-minibuffer)
+    (set-face-attribute 'which-key-local-map-description-face nil 
+       :weight 'bold)
+  :ensure t)
+
+;; auto complete
+(use-package auto-complete
+  :ensure t
+  :config 
+  (ac-config-default)
+)
+
+;; lsp
+(setq lsp-keymap-prefix "s-l")
+(use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+	 (rust-mode . lsp)
+	 (python-mode . lsp)
+	 (c-mode . lsp)
+	 ;; if you want which-key integration
+	 (lsp-mode . lsp-enable-which-key-integration)
+	 (lsp-evil-multiedit-highlights . lsp))
+  :commands lsp)
+(setq lsp-file-watch-threshold 10000)
+
+;; C/C++
+(use-package clang-format)
+(require 'clang-format)
+(setq clang-format-style "file")
+(add-hook 'c-mode-common-hook
+	  (function (lambda ()
+		      (add-hook 'before-save-hook
+				'clang-format-buffer))))
+
+;; rust
+(use-package rust-mode)
+(add-hook 'rust-mode-hook
+  (lambda () (setq indent-tabs-mode nil)))
+(setq rust-format-on-save t)
+(add-hook 'rust-mode-hook
+	  (lambda () (prettify-symbols-mode)))
+(use-package racer)
+(add-hook 'rust-mode-hook 'racer-mode)
+(define-key rust-mode-map (kbd "C-c C-c") 'rust-run)
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+(add-hook 'racer-mode-hook 'company-mode)
+(define-key rust-mode-map (kbd "TAB") 'company-indent-or-complete-common)
+(setq company-tooltip-align-annotations t)
+
+;; python
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+			 (require 'lsp-pyright)
+			 (lsp))))  ; or lsp-deferred
+
+;; markdown
+(use-package markdown-mode
+  :ensure t
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
 (custom-set-variables
- '(custom-safe-themes
-   '("cd4d1a0656fee24dc062b997f54d6f9b7da8f6dc8053ac858f15820f9a04a679" default))
- '(package-selected-packages '(gruvbox-theme gnu-elpa evil)))
-
-(load-theme 'gruvbox)
-
-(require 'evil)
-(evil-mode 1)
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(elpy company undo-tree which-key use-package try rust-mode lsp-mode helm gruvbox-theme evil clang-format clang-capf auto-complete auctex)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

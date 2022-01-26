@@ -65,6 +65,7 @@ ln -s ~/.config/DotFiles/chrome-flags.conf ~/.config/brave-flags.conf
 
 ln -s \
 		~/.config/DotFiles/.emacs.d \
+		~/.config/DotFiles/.profile \
 		~/.config/DotFiles/.vim* \
 		~/.config/DotFiles/.xinitrc \
 		~/.config/DotFiles/zsh/.zshrc \

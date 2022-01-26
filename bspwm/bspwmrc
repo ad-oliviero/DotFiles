@@ -30,6 +30,8 @@ xinput set-prop "MSFT0001:01 06CB:7F28 Touchpad" "libinput Scrolling Pixel Dista
 
 # wacom tablet flip
 xsetwacom --set "Wacom One by Wacom S Pen stylus" Area 15200 9500 0 0
+xsetwacom --set "Wacom One by Wacom S Pen stylus" Button 2 key shift
+xsetwacom --set "Wacom One by Wacom S Pen stylus" Button 3 key 'x'
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 

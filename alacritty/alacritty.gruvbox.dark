@@ -47,7 +47,6 @@ window:
     lines: 24
 
 cursor:
-  cursor: '0xabb2bf'
   style: underline
 
 scrolling:
@@ -69,5 +68,3 @@ key_bindings:
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: Plus, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
-  - { key: Return,   mods: Shift,   chars: "\x1b[13;2u" }
-  - { key: Return,   mods: Control, chars: "\x1b[13;5u" }
