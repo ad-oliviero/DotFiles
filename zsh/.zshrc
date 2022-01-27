@@ -7,7 +7,7 @@ export PATH=$PATH:~/.local/bin:/var/lib/snapd/snap/bin:/usr/local/i386elfgcc/bin
 export VISUAL=vim
 export EDITOR=vim
 export PICO_SDK_PATH=/opt/pico-sdk
-export LC_ALL="C"
+#export LC_ALL="C" # breaks prompts
 
 # colored man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
@@ -78,15 +78,10 @@ eval "$(starship init zsh)"
 #SPACESHIP_PTOMPT_SEPARATE_LINE=false
 #PURE_PROMPT_SYMBOL=➜
 
-#PROMPT=%$(( ${#PROMPT} - 13 )){$PROMPT%} # this is to fix the strange characters at the end of the prompt
-
 # loading sources
 source ~/.config/zsh/aliasrc
 source ~/.config/zsh/keybindings.zsh
 source ~/.config/zsh/utils.zsh
 
 UWUFETCH_CACHE_ENABLED=1 uwufetch -d arch; UWUFETCH_CACHE_ENABLED=0
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 

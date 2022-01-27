@@ -2,9 +2,21 @@
 
 (setq user-emacs-directory "/home/adri/.emacs.d")
 
+;; setup repos 
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+
+;; setup use-package if not installed
+(eval-after-load 'gnutls
+  '(add-to-list 'gnutls-trustfiles "/etc/ssl/cert.pem"))
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+(require 'bind-key)
+(setq use-package-always-ensure t)
 
 (package-initialize)
 (require 'package)
@@ -40,7 +52,7 @@
 (global-display-line-numbers-mode)
 (setq display-line-numbers-type 'relative)
 
-;; Display battery for when in full screen mode
+;; display battery for when in full screen mode
 (display-battery-mode t)
 
 ;; Keybindings
