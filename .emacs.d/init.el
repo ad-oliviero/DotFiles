@@ -113,9 +113,7 @@
 
 ;; rust
 (use-package rust-mode)
-(add-hook 'rust-mode-hook
-  (lambda () (setq indent-tabs-mode nil)))
-(setq rust-format-on-save t)
+;;(add-hook 'after-save-hook 'rustic-format-buffer) ;; works, but formats in two different ways at the same time
 (add-hook 'rust-mode-hook
 	  (lambda () (prettify-symbols-mode)))
 (use-package racer)
@@ -142,3 +140,16 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(evil-multiedit which-key use-package undo-tree try rustic racer lsp-pyright helm gruvbox-theme flycheck evil elpy clang-format clang-capf auto-complete auctex)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

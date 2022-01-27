@@ -78,7 +78,7 @@ eval "$(starship init zsh)"
 #SPACESHIP_PTOMPT_SEPARATE_LINE=false
 #PURE_PROMPT_SYMBOL=➜
 
-PROMPT=%$(( ${#PROMPT} - 13 )){$PROMPT%} # this is to fix the strange characters at the end of the prompt
+#PROMPT=%$(( ${#PROMPT} - 13 )){$PROMPT%} # this is to fix the strange characters at the end of the prompt
 
 # loading sources
 source ~/.config/zsh/aliasrc
