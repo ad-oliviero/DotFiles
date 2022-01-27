@@ -50,6 +50,7 @@ ln -vs \
 		~/.config/DotFiles/rofi \
 		~/.config/DotFiles/redshift \
 		~/.config/DotFiles/scripts \
+		~/.config/DotFiles/starship.toml \
 		~/.config/DotFiles/sxhkd \
 		~/.config/DotFiles/sway \
 		~/.config/DotFiles/swaylock \

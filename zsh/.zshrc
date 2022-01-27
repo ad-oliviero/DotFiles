@@ -68,14 +68,15 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #autoload -Uz promptinit
 #promptinit
 #prompt pure
-source ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh-theme
+#source ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh-theme
 #source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 #source ~/.p10k.zsh
+eval "$(starship init zsh)"
 
 # prompt vars
 #SPACESHIP_PROMPT_ADD_NEWLINE=false
 #SPACESHIP_PTOMPT_SEPARATE_LINE=false
-PURE_PROMPT_SYMBOL=➜
+#PURE_PROMPT_SYMBOL=➜
 
 PROMPT=%$(( ${#PROMPT} - 13 )){$PROMPT%} # this is to fix the strange characters at the end of the prompt
 

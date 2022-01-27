@@ -57,6 +57,11 @@
 
 
 ;; ------- OTHER PACKAGES -------
+
+;; auto braces
+(electric-pair-mode 1)
+(setq electric-pair-preserve-balance nil)
+
 (use-package try
   :ensure t)
 
@@ -77,6 +82,10 @@
   :config 
   (ac-config-default)
 )
+
+;; comments
+(global-set-key "\M-c" 'comment-line)
+(global-set-key "\M-shift-c" 'comment-block)
 
 ;; lsp
 (setq lsp-keymap-prefix "s-l")
@@ -133,16 +142,3 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(elpy company undo-tree which-key use-package try rust-mode lsp-mode helm gruvbox-theme evil clang-format clang-capf auto-complete auctex)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

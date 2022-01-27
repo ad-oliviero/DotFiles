@@ -2,3 +2,5 @@ eln-cache
 elpa
 \#*
 *\~*
+.lsp-session-v1
+ac-comphist.dat
