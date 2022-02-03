@@ -33,6 +33,19 @@
   (evil-mode 1)
   (evil-set-undo-system 'undo-tree))
 
+;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
+;; smooth scrolling
+;(pixel-scroll-mode 1)
+;(good-scroll-mode 1)
+(use-package sublimity
+             :ensure t
+             :config
+             (sublimity-mode 1))
+
 ;; Theme and font
 (use-package gruvbox-theme
   :config
@@ -67,8 +80,8 @@
 (setenv "HOME" "/home/adri")
 ;; (server-start)
 
-
-;; ------- OTHER PACKAGES -------
+;; tab width
+(setq-default tab-width 2)
 
 ;; auto braces
 (electric-pair-mode 1)
