@@ -134,7 +134,8 @@
 (add-hook 'c-mode-common-hook
 	  (function (lambda ()
 		      (add-hook 'before-save-hook
-				'clang-format-buffer))))
+				'clang-format-buffer)))
+    (lambda () (c-toggle-comment-style -1)))
 
 ;; rust
 (use-package rust-mode)
@@ -142,12 +143,12 @@
 (add-hook 'rust-mode-hook
 	  (lambda () (prettify-symbols-mode)))
 (use-package racer)
-(add-hook 'rust-mode-hook 'racer-mode)
+;;(add-hook 'rust-mode-hook 'racer-mode)
 (define-key rust-mode-map (kbd "C-c C-c") 'rust-run)
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode))
-(add-hook 'racer-mode-hook 'company-mode)
+;;(add-hook 'racer-mode-hook 'company-mode)
 (define-key rust-mode-map (kbd "TAB") 'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
 
@@ -165,16 +166,3 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(evil-multiedit which-key use-package undo-tree try rustic racer lsp-pyright helm gruvbox-theme flycheck evil elpy clang-format clang-capf auto-complete auctex)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
