@@ -25,7 +25,7 @@
 (require 'use-package)
 
 ;; (use-package org
- ;; :ensure t)
+;; :ensure t)
 
 (use-package undo-tree)
 (global-undo-tree-mode)
@@ -33,22 +33,22 @@
   :ensure t
   :config
   (evil-mode 1))
-  ;; (evil-set-undo-system 'undo-tree))
+;; (evil-set-undo-system 'undo-tree))
 
 ;; scroll one line at a time (less "jumpy" than defaults)
-																				;;(setq mouse-wheel-scroll-amount '(2 ((shift) . 1))) ;; one line at a time
+;;(setq mouse-wheel-scroll-amount '(2 ((shift) . 1))) ;; one line at a time
 ;;(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 ;;(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 ;;(setq scroll-step .1) ;; keyboard scroll one line at a time
-																				;; smooth scrolling
-																				;;(pixel-scroll-mode 1)
+;; smooth scrolling
+;;(pixel-scroll-mode 1)
 (good-scroll-mode 1)
 ;;(use-package sublimity
 ;;             :ensure t
 ;;             :config
 ;;             (sublimity-mode 1))
 ;;(setq pixel-scroll-precision-large-scroll-height 40.0)
-																				;;(setq pixel-scroll-precision-interpolation-factor 30)
+;;(setq pixel-scroll-precision-interpolation-factor 30)
 
 ;; Theme and font
 (use-package gruvbox-theme
@@ -75,9 +75,9 @@
 ;; Keybindings
 ;; (global-set-key (kbd "<f5>") 'revert-buffer)
 ;; (global-set-key (kbd "<f3>") 'org-export-dispatch)
-;; (global-set-key (kbd "<f6>") 'eshell) 
-;; (global-set-key (kbd "<f7>") 'dired) 
-;; (global-set-key (kbd "<f8>") 'magit) 
+;; (global-set-key (kbd "<f6>") 'eshell)
+;; (global-set-key (kbd "<f7>") 'dired)
+;; (global-set-key (kbd "<f8>") 'magit)
 
 ;; Misc stuff
 (setenv "HOME" "/home/adri")
@@ -93,9 +93,8 @@
 ;; auto complete
 (use-package auto-complete
   :ensure t
-  :config 
-  (ac-config-default)
-)
+  :config
+  (ac-config-default))
 
 ;; comments
 (global-set-key "\M-c" 'comment-line)
@@ -105,16 +104,23 @@
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-c l")
-  :hook ((c-mode . lsp)
-				 (rust-mode . lsp)
-				 (python-mode . lsp))
   :commands lsp)
+                                        ; (add-hook 'prog-mode-hook #'lsp)
+(add-hook 'lsp (c-mode))
+(add-hook 'lsp (rust-mode))
+(add-hook 'lsp (python-mode))
+(add-hook 'lsp (makefile-mode))
+(add-hook 'lsp (makefile-gmake-mode))
+
 (setq lsp-file-watch-threshold 10000)
 
 ;; C/C++
 (use-package clang-format)
 (require 'clang-format)
 (setq clang-format-style "file")
+(defun setup-c-mode () (add-hook 'before-save-hook 'clang-format-buffer))
+(add-hook 'c-mode-common-hook 'setup-c-mode)
+(c-toggle-comment-style 1)
 
 ;; rust
 (use-package rust-mode)
@@ -127,8 +133,8 @@
 (use-package lsp-pyright
   :ensure t
   :hook (python-mode . (lambda ()
-			 (require 'lsp-pyright)
-			 (lsp))))  ;; or lsp-deferred
+                         (require 'lsp-pyright)
+                         (lsp))))  ;; or lsp-deferred
 
 ;; markdown
 (use-package markdown-mode
@@ -138,9 +144,22 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
-;; indent on save
-(add-hook 'before-save-hook
-					'indent-according-to-mode)
+;; auto indent on save, taken from https://coldnew.github.io/coldnew-emacs/init.el.html
+(defun indent-region-or-buffer-and-cleanup ()
+  "Indents a region if selected, otherwise the whole buffer."
+  (interactive)
+  (cl-flet ((format-fn (BEG END) (indent-region BEG END) (untabify BEG END)))
+    (save-excursion
+      (if (region-active-p)
+          (progn
+            (delete-trailing-whitespace (region-beginning) (region-end))
+            (format-fn (region-beginning) (region-end))
+            (message "Indented selected region and clear whitespace and untabify."))
+        (progn
+          (delete-trailing-whitespace)
+          (format-fn (point-min) (point-max))
+          (message "Indented whole buffer and clear whitespace and untabify."))))))
+(add-hook 'before-save-hook 'indent-region-or-buffer-and-cleanup)
 
 ;; display language errors
 (use-package flycheck
