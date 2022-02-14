@@ -1,11 +1,13 @@
-;; MOST OF THIS CONFIG IS TAKEN FROM https://github.com/matman26/emacs-config
-
+;; MOST OF THIS CONFIG IS TAKEN FROM https : // github.com/matman26/emacs-config
 (setq user-emacs-directory "/home/adri/.emacs.d")
 
-;; setup repos 
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+;;save session
+(desktop-save-mode 1)
+
+;; setup repos
+(add-to-list 'package-archives '("gnu"."http://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable"."http://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa"."http://melpa.org/packages/"))
 
 ;; setup use-package if not installed
 (eval-after-load 'gnutls
@@ -22,29 +24,31 @@
 (require 'package)
 (require 'use-package)
 
-(use-package org
-  :ensure t)
+;; (use-package org
+ ;; :ensure t)
 
 (use-package undo-tree)
 (global-undo-tree-mode)
 (use-package evil
   :ensure t
   :config
-  (evil-mode 1)
-  (evil-set-undo-system 'undo-tree))
+  (evil-mode 1))
+  ;; (evil-set-undo-system 'undo-tree))
 
 ;; scroll one line at a time (less "jumpy" than defaults)
-(setq mouse-wheel-scroll-amount '(2 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 1) ;; keyboard scroll one line at a time
-;; smooth scrolling
-;(pixel-scroll-mode 1)
-;(good-scroll-mode 1)
-(use-package sublimity
-             :ensure t
-             :config
-             (sublimity-mode 1))
+																				;;(setq mouse-wheel-scroll-amount '(2 ((shift) . 1))) ;; one line at a time
+;;(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+;;(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+;;(setq scroll-step .1) ;; keyboard scroll one line at a time
+																				;; smooth scrolling
+																				;;(pixel-scroll-mode 1)
+(good-scroll-mode 1)
+;;(use-package sublimity
+;;             :ensure t
+;;             :config
+;;             (sublimity-mode 1))
+;;(setq pixel-scroll-precision-large-scroll-height 40.0)
+																				;;(setq pixel-scroll-precision-interpolation-factor 30)
 
 ;; Theme and font
 (use-package gruvbox-theme
@@ -56,7 +60,7 @@
 (setq inhibit-startup-message t)
 ;;(setq initial-buffer-choice "index.org")
 
-;; Hide Scroll bar,menu bar, tool bar
+;; Hide Scroll bar, menu bar, tool bar
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -69,14 +73,13 @@
 (display-battery-mode t)
 
 ;; Keybindings
-(global-set-key (kbd "<f5>") 'revert-buffer)
-(global-set-key (kbd "<f3>") 'org-export-dispatch)
-(global-set-key (kbd "<f6>") 'eshell) 
-(global-set-key (kbd "<f7>") 'dired) 
-(global-set-key (kbd "<f8>") 'magit) 
+;; (global-set-key (kbd "<f5>") 'revert-buffer)
+;; (global-set-key (kbd "<f3>") 'org-export-dispatch)
+;; (global-set-key (kbd "<f6>") 'eshell) 
+;; (global-set-key (kbd "<f7>") 'dired) 
+;; (global-set-key (kbd "<f8>") 'magit) 
 
 ;; Misc stuff
-(fset 'yes-or-no-p 'y-or-n-p)
 (setenv "HOME" "/home/adri")
 ;; (server-start)
 
@@ -85,21 +88,7 @@
 
 ;; auto braces
 (electric-pair-mode 1)
-(setq electric-pair-preserve-balance nil)
-
-(use-package try
-  :ensure t)
-
-(use-package which-key
-
-  :config 
-    (setq which-key-idle-delay 0.3)
-    (setq which-key-popup-type 'frame)
-    (which-key-mode)
-    (which-key-setup-minibuffer)
-    (set-face-attribute 'which-key-local-map-description-face nil 
-       :weight 'bold)
-  :ensure t)
+(setq electric-pair-preserve-balance 1)
 
 ;; auto complete
 (use-package auto-complete
@@ -113,17 +102,12 @@
 (global-set-key "\M-shift-c" 'comment-block)
 
 ;; lsp
-(setq lsp-keymap-prefix "s-l")
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-c l")
-  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-	 (rust-mode . lsp)
-	 (python-mode . lsp)
-	 (c-mode . lsp)
-	 ;; if you want which-key integration
-	 (lsp-mode . lsp-enable-which-key-integration)
-	 (lsp-evil-multiedit-highlights . lsp))
+  :hook ((c-mode . lsp)
+				 (rust-mode . lsp)
+				 (python-mode . lsp))
   :commands lsp)
 (setq lsp-file-watch-threshold 10000)
 
@@ -131,33 +115,20 @@
 (use-package clang-format)
 (require 'clang-format)
 (setq clang-format-style "file")
-(add-hook 'c-mode-common-hook
-	  (function (lambda ()
-		      (add-hook 'before-save-hook
-				'clang-format-buffer)))
-    (lambda () (c-toggle-comment-style -1)))
 
 ;; rust
 (use-package rust-mode)
-;;(add-hook 'after-save-hook 'rustic-format-buffer) ;; works, but formats in two different ways at the same time
-(add-hook 'rust-mode-hook
-	  (lambda () (prettify-symbols-mode)))
 (use-package racer)
-;;(add-hook 'rust-mode-hook 'racer-mode)
 (define-key rust-mode-map (kbd "C-c C-c") 'rust-run)
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
-;;(add-hook 'racer-mode-hook 'company-mode)
-(define-key rust-mode-map (kbd "TAB") 'company-indent-or-complete-common)
-(setq company-tooltip-align-annotations t)
+;; (define-key rust-mode-map (kbd "TAB") 'company-indent-or-complete-common)
+;; (setq company-tooltip-align-annotations t)
 
 ;; python
 (use-package lsp-pyright
   :ensure t
   :hook (python-mode . (lambda ()
 			 (require 'lsp-pyright)
-			 (lsp))))  ; or lsp-deferred
+			 (lsp))))  ;; or lsp-deferred
 
 ;; markdown
 (use-package markdown-mode
@@ -166,3 +137,12 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+
+;; indent on save
+(add-hook 'before-save-hook
+					'indent-according-to-mode)
+
+;; display language errors
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
