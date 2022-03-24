@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pkill -USR1 -x pkexec swhkd || pkexec swhkd &

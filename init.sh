@@ -1,19 +1,18 @@
 #!/bin/sh
 
-export WINIT_X11_SCALE_FACTOR=1 # for alacritty on the laptop
-pkill -USR1 -x sxhkd || sxhkd &
-feh --bg-fill /usr/share/wallpapers/Next/contents/images/1920x1080.jpg #~/Downloads/WallpaperDog-17284371.jpg
-~/.config/polybar/launch.sh
-pkill -USR1 -x picom --experimental-backends --backend glx || picom --experimental-backends --backend glx & # picom with blur
-pkill -USR1 -x dunst || dunst &
+# pkill -USR1 -x sxhkd || sxhkd &
+# feh --bg-fill ~/Downloads/mikasa.png # https://images7.alphacoders.com/632/632843.png
+# ~/.config/polybar/launch.sh
+# pkill -USR1 -x picom --experimental-backends --backend glx || picom --experimental-backends --backend glx & # picom with blur
+# pkill -USR1 -x dunst || dunst &
 dconf reset -f /org/gnome # fix gtk-apps slow loading
 redshift -oP 4400K
-if [ $(cat /sys/devices/virtual/dmi/id/product_name) == "81YK" ] # if i am on the laptop
-then
-	setxkbmap -layout "it" # set keyboard layout
-else
-	setxkbmap -layout "us" -option "compose:menu" # set keyboard layout and compose key 
-fi
+# if [ $(cat /sys/devices/virtual/dmi/id/product_name) == "81YK" ] # if i am on the laptop
+# then
+# 	setxkbmap -layout "it" # set keyboard layout
+# else
+# 	setxkbmap -layout "us" -option "compose:menu" # set keyboard layout and compose key 
+# fi
 light-locker --lock-on-suspend --lock-on-lid & # lock with suspension
 pgrep syncthing || syncthing serve --no-browser & # start syncthing
 env GTK_PATH=/usr/lib/gtk-3.0 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & # polkit for authentication
@@ -33,21 +32,3 @@ xsetwacom --set "Wacom One by Wacom S Pen stylus" Area 15200 9500 0 0
 # xsetwacom --set "Wacom One by Wacom S Pen stylus" Button 2 key shift
 # xsetwacom --set "Wacom One by Wacom S Pen stylus" Button 3 key 'x'
 
-bspc monitor -d I II III IV V VI VII VIII IX X
-
-bspc config border_width         3
-bspc config window_gap					16
-bspc config top_padding					26
-
-# gruvbox colors
-bspc config focused_border_color \#d79921
-bspc config normal_border_color \#282828
-bspc config presel_feedback_color \#d79921
-
-bspc config split_ratio          0.50
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
-bspc config pointer_follows_monitor true
-bspc config focus_follows_pointer true
-
-bspc rule -a Emacs state=tiled # start emacs tiled

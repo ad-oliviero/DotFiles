@@ -14,13 +14,16 @@ mv -vt ~/config_backup \
 		~/.config/bspwm \
 		~/.config/dunst \
 		~/.config/htop \
+		~/.config/init.sh \
 		~/.config/i3 \
 		~/.config/kitty \
+		~/.config/keyd \
 		~/.config/mako \
 		~/.config/picom \
 		~/.config/polybar \
 		~/.config/rofi \
 		~/.config/redshift \
+		~/.config/river \
 		~/.config/scripts \
 		~/.config/sxhkd \
 		~/.config/sway \
@@ -30,6 +33,7 @@ mv -vt ~/config_backup \
 		~/.config/nvim/init.vim \
 		~/.config/uwufetch \
 		~/.config/zsh \
+		~/.local/bin/lemonconfig \
 		~/.emacs.d \
 		~/.vim* \
 		~/.zprofile \
@@ -41,14 +45,17 @@ ln -vs \
 		~/.config/DotFiles/bspwm \
 		~/.config/DotFiles/dunst \
 		~/.config/DotFiles/htop \
+		~/.config/DotFiles/init.sh \
 		~/.config/DotFiles/i3 \
 		~/.config/DotFiles/kitty \
+		~/.config/DotFiles/keyd \
 		~/.config/DotFiles/mako \
 		~/.config/DotFiles/libinput-gestures.conf \
 		~/.config/DotFiles/picom \
 		~/.config/DotFiles/polybar \
 		~/.config/DotFiles/rofi \
 		~/.config/DotFiles/redshift \
+		~/.config/DotFiles/river \
 		~/.config/DotFiles/scripts \
 		~/.config/DotFiles/starship.toml \
 		~/.config/DotFiles/sxhkd \
@@ -73,9 +80,12 @@ ln -s \
 		~/.config/DotFiles/zsh/.zprofile \
 		~/
 
+ln -s ~/.config/DotFiles/bin/lemonconfig/lemonconfig ~/.local/bin
+
 ln -s ~/.vimrc ~/.config/nvim/init.vim
-#ln -s ~/.config/alacritty/alacritty.yml.dark ~/.config/alacritty/alacritty.yml
+# ln -s ~/.config/alacritty/alacritty.yml.dark ~/.config/alacritty/alacritty.yml
 
 printf "Installed correctly!\n"
 # you should also ln -s ~/.config/DotFiles/ffvars.sh /etc/profile.d
 # and ln -s ~/.config/DotFiles/tlp.conf /etc
+# and ln -s ~/.config/DotFiles/keyd/default.conf /etc/keyd/default.conf

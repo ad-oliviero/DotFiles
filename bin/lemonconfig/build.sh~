@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cc -o lemonconfig -Wall -O2 lemonconfig.c
+
+if [ $1 -e "run" ];then
+		killall -q lemonbar
+		killall -q lemonconfig
+		./lemonconfig
+fi

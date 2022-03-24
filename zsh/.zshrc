@@ -3,7 +3,8 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
 export TERM=xterm-256color
-export PATH=$PATH:~/.local/bin:/var/lib/snapd/snap/bin:/usr/local/i386elfgcc/bin:/usr/lib/jvm/java-17-openjdk/bin:./
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+export PATH=$PATH:~/.local/bin:/var/lib/snapd/snap/bin:/usr/local/i386elfgcc/bin:$JAVA_HOME/bin
 export VISUAL=vim
 export EDITOR=vim
 export PICO_SDK_PATH=/opt/pico-sdk
@@ -72,6 +73,7 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 #source ~/.p10k.zsh
 eval "$(starship init zsh)"
+eval $(thefuck --alias)
 
 # prompt vars
 #SPACESHIP_PROMPT_ADD_NEWLINE=false
@@ -84,4 +86,3 @@ source ~/.config/zsh/keybindings.zsh
 source ~/.config/zsh/utils.zsh
 
 UWUFETCH_CACHE_ENABLED=1 uwufetch -d arch; UWUFETCH_CACHE_ENABLED=0
-

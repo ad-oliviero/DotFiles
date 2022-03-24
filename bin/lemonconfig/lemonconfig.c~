@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "config.h"
+
+int main() {
+	// kill all the lemonbar instances
+	system("killall -q lemonbar");
+	char*args = malloc(64);
+	FILE* lemon_proc = popen("lemonbar", "r");
+	system("echo ciao|lemonbar -f \"JetBrains Mono\" -p -g 1920x32+0+0 -F \"#FFFFFFFF\"");
+	return 0;
+}
