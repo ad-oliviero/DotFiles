@@ -34,7 +34,7 @@ bar {
 	swaybar_command waybar
 }
 
-output DP-2 pos 0 0 res 1920x1080 bg /usr/share/wallpapers/Next/contents/images/1920x1080.jpg fill #FAFAFA
+output DP-2 pos 0 0 res 1920x1080 bg ~/Pictures/gruvw.png fill #FAFAFA
 #output DP-2 pos 0 0 res 1920x1080 bg ~/Immagini/wallpapersden.com_mikasa-ackerman_3840x2160.jpg fill #FAFAFA
 #output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/.wallpaper fill #000000
 #output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/wallpapersden.com_mikasa-ackerman_3840x2160.jpg fill #FAFAFA
@@ -149,13 +149,13 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # Gaps and borders
-for_window [class="^.*"] border pixel 10
-default_border pixel 10
+for_window [class="^.*"] border pixel 2
+default_border pixel 2
 gaps inner 0
 
 # Colors
-set $bgcolor    #282828
-set $ibgcolor   #7daea3
+set $bgcolor    #b86767
+set $ibgcolor   #282828
 set $textcolor  #dfbf8e
 set $itextcolor #665c54
 set $ubgcolor   #ea6962
