@@ -34,8 +34,8 @@
 	},
 	"network": {
 		"interval": 3,
-		"format-wifi": " {bandwidthDownBits} |  {bandwidthUpBits}",
-		"format-ethernet": "{ipaddr}/{cidr} ",
+		"format-wifi": "{ipaddr} |  {bandwidthDownBits} |  {bandwidthUpBits}",
+		"format-ethernet": "{ipaddr} |  {bandwidthDownBits} |  {bandwidthUpBits}",
 		"format-disconnected": "Disconnected ⚠",
 		"on-click": "alacritty nmtui"
 	},
