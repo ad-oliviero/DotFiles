@@ -1,6 +1,6 @@
 # ---INIT---
 set $mod Mod4
-font pango:JetBrains Mono 10
+font pango:JetBrains Mono 14
 # Creating workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -30,6 +30,10 @@ input 1739:32552:MSFT0001:01_06CB:7F28_Touchpad {
 	natural_scroll enabled
 }
 
+bar {
+	swaybar_command waybar
+}
+
 output DP-2 pos 0 0 res 1920x1080 bg /usr/share/wallpapers/Next/contents/images/1920x1080.jpg fill #FAFAFA
 #output DP-2 pos 0 0 res 1920x1080 bg ~/Immagini/wallpapersden.com_mikasa-ackerman_3840x2160.jpg fill #FAFAFA
 #output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/.wallpaper fill #000000
@@ -41,7 +45,6 @@ exec_always dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRES
 exec --no-startup-id nm-applet
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always xset s on
-exec_always ~/.config/waybar/launch.sh
 exec_always --no-startup-id mako
 #exec_always sudo ~/.config/scripts/anbox-bridge.sh start #anbox internet bridge
 exec_always v4l2-ctl -d /dev/video42 -c timeout=3000
@@ -146,17 +149,16 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # Gaps and borders
-for_window [class="^.*"] border pixel 0
-default_border pixel 0
-#border_radius 15
-gaps inner 10
+for_window [class="^.*"] border pixel 10
+default_border pixel 10
+gaps inner 0
 
 # Colors
-set $bgcolor    #FF9940
-set $ibgcolor   #0A0E14
-set $textcolor  #B3B1AD
-set $itextcolor #4D556699
-set $ubgcolor   #F51818
+set $bgcolor    #282828
+set $ibgcolor   #7daea3
+set $textcolor  #dfbf8e
+set $itextcolor #665c54
+set $ubgcolor   #ea6962
 #			border		background	text		indicator
 client.focused		$bgcolor	$bgcolor	$textcolor	$bgcolor
 client.unfocused	$ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
