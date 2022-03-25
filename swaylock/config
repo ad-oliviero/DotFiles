@@ -1,7 +1,7 @@
 #ignore-empty-password
 font=OpenSans
 
-clock
+#clock
 timestr=%R
 datestr=%a, %e %B
 

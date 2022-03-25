@@ -1,10 +1,10 @@
 {
 	"layer": "top",
 	"position": "top",
-	"height": 20,
+	"height": 40,
 	"modules-left": ["sway/workspaces", "sway/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["idle_inhibitor", "network", "disk", "cpu", "memory", "tray", "pulseaudio", "battery"],
+	"modules-right": ["idle_inhibitor", "network", "disk", "memory", "cpu", "tray", "battery", "pulseaudio"],
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
@@ -15,7 +15,7 @@
 	"clock": {
 		"interval": 1,
 		"tooltip-format": "<big>{:%d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-		"format": "{:%d/%m %H-%M-%S}"
+		"format": "{:%d %B %H:%M:%S}"
 	},
 	"cpu": {
 		"format": "{usage}% ",
@@ -24,19 +24,20 @@
 	"disk": {
 		"interval": 30,
 		"format": "{free}",
-		"on-click": "kitty sh -c 'duf && sleep 100'"
+		"on-click": "alacritty sh -c 'duf && sleep 100'"
 	},
 	"memory": {
 		"interval": 5,
-		"format": "{used:0.2f}GB/{avail:0.2f}GB",
+		"format": "{used:0.2f}GB/{total:0.2f}GB",
+		"tooltip-format": "available {avail:0.2f}GB",
 		"on-click": "~/.config/scripts/cache-clean.sh"
 	},
 	"network": {
 		"interval": 3,
 		"format-wifi": " {bandwidthDownBits} |  {bandwidthUpBits}",
-		"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+		"format-ethernet": "{ipaddr}/{cidr} ",
 		"format-disconnected": "Disconnected ⚠",
-		"on-click": "kitty nmtui"
+		"on-click": "alacritty nmtui"
 	},
 	"pulseaudio": {
 		"scroll-step": 5,
@@ -62,8 +63,4 @@
     	"format-icons": ["", "", "", "", ""],
     	"max-length": 25
 	}
-	/*"clock": {
-		"interval": 1,
-		"format": "{:%d %B %H:%M:%S}"
-	},*/
 }

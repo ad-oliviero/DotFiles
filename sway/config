@@ -1,6 +1,6 @@
 # ---INIT---
 set $mod Mod4
-font pango:ttf-opensans 10
+font pango:JetBrains Mono 10
 # Creating workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -13,13 +13,12 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 # input and output
+input 7847:2311:SEMITEK_USB-HID_Gaming_Keyboard {
+	xkb_layout us
+}
 input * {
-    xkb_layout it
-    xkb_options terminate:ctrl_alt_bksp
-    xkb_model pc104
-    xkb_numlock enabled
-    accel_profile flat
-	pointer_accel 0
+	accel_profile flat
+	pointer_accel 0.1
 }
 input 1739:32552:MSFT0001:01_06CB:7F28_Touchpad {
 	accel_profile adaptive
@@ -31,9 +30,10 @@ input 1739:32552:MSFT0001:01_06CB:7F28_Touchpad {
 	natural_scroll enabled
 }
 
-output DP-2 pos 0 0 res 1920x1080 bg ~/Immagini/wallpapersden.com_mikasa-ackerman_3840x2160.jpg fill #FAFAFA
+output DP-2 pos 0 0 res 1920x1080 bg /usr/share/wallpapers/Next/contents/images/1920x1080.jpg fill #FAFAFA
+#output DP-2 pos 0 0 res 1920x1080 bg ~/Immagini/wallpapersden.com_mikasa-ackerman_3840x2160.jpg fill #FAFAFA
 #output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/.wallpaper fill #000000
-output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/wallpapersden.com_mikasa-ackerman_3840x2160.jpg fill #FAFAFA
+#output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/wallpapersden.com_mikasa-ackerman_3840x2160.jpg fill #FAFAFA
 
 # Some daemons, startup programs
 exec_always dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY # fix slow gtk apps loading
@@ -68,7 +68,6 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
 
 bindsym $mod+Shift+k exec swaymsg exit
-bindsym $mod+Shift+c exec gsudo zsh -c 'echo 3 > /proc/sys/vm/drop_caches' && free -h
 bindsym $mod+r reload
 bindsym $mod+Return exec alacritty
 #bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme

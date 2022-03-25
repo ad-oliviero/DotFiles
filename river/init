@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal Super+Shift Return spawn alacritty
+riverctl map normal Super Return spawn alacritty
 
 # Super+Q to close the focused view
 riverctl map normal Super Q close
@@ -27,7 +27,7 @@ riverctl map normal Super+Shift Period send-to-output next
 riverctl map normal Super+Shift Comma send-to-output previous
 
 # Super+Return to bump the focused view to the top of the layout stack
-riverctl map normal Super Return zoom
+riverctl map normal Super+Shift Return zoom
 
 # Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
 riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
@@ -148,3 +148,6 @@ riverctl csd-filter-add app-id "gedit"
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
 exec rivertile -view-padding 6 -outer-padding 6
+
+# mouse and keyboard settings
+
