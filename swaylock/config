@@ -1,7 +1,8 @@
+# NOTE: you need swaylock-effects to use this config
 #ignore-empty-password
-font=OpenSans
+font=JetBrains Mono
 
-#clock
+clock
 timestr=%R
 datestr=%a, %e %B
 
