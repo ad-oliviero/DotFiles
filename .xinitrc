@@ -2,14 +2,13 @@
 #i3
 #gnome-session
 #xfce4-session
-
-
+bspwm
 
 #DESKTOP_SESSION=plasma
 #startplasma-x11
 
-export PATH=$PATH:/usr/dt/bin
-export LANG=C
+#export PATH=$PATH:/usr/dt/bin
+#export LANG=C
 
 #openbox
 
