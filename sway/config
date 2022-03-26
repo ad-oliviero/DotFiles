@@ -1,5 +1,5 @@
 set $mod Mod4
-font pango:JetBrains Mono 14
+font pango:JetBrains Mono 12
 # Creating workspaces
 set $ws1 "1"
 set $ws2 "2"
@@ -44,7 +44,8 @@ output DP-2 pos 0 0 res 1920x1080 bg ~/Pictures/gruvw.png fill #FAFAFA
 output eDP-1 pos 0 0 res 1920x1080 bg ~/Pictures/gruvw.png fill #FAFAFA
 
 # Some daemons, startup programs
-exec_always dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY # fix slow gtk apps loading
+exec systemctl --user import-environment
+exec_always dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY WAYLAND_DISPLAY SWAYSOCK # fix slow gtk apps loading
 # exec_always --no-startup-id dconf reset -f /org/gnome/control-center/
 exec --no-startup-id nm-applet
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -79,8 +80,8 @@ bindsym $mod+r reload
 bindsym $mod+Return exec alacritty
 #bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
 bindsym $mod+d exec env MOZ_ENABLE_WAYLAND=1 rofi -show drun
-#bindsym $mod+b exec env MOZ_ENABLE_WAYLAND=1 firefox
-bindsym $mod+b exec brave --enable-features=UseOzonePlatform --ozone-platform=wayland --password-store=kwallet5
+bindsym $mod+b exec env MOZ_ENABLE_WAYLAND=1 /opt/waterfox/waterfox
+#bindsym $mod+b exec brave --enable-features=UseOzonePlatform --ozone-platform=wayland --password-store=kwallet5
 bindsym $mod+Shift+d env MOZ_ENABLE_WAYLAND=1 exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
 bindsym $mod+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
 bindsym $mod+l exec swaylock -C ~/.config/swaylock/config

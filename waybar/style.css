@@ -1,7 +1,7 @@
 * {
     border: none;
     border-radius: 10px;
-    font-family: FontAwesome, JetBrains Mono;
+    font-family: JetBrains Mono, FontAwesome;
     font-size: 14px;
     min-height: 0;
     transition-property: background-color;
@@ -16,7 +16,7 @@
 
 #workspaces button {
     margin: 0px 5px;
-    padding: 0px 0px;
+    padding: 0px 8px;
     background-color: #5d3535;
     border-radius: 10px;
 }

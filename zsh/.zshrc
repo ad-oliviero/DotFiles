@@ -73,7 +73,6 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 #source ~/.p10k.zsh
 eval "$(starship init zsh)"
-eval $(thefuck --alias)
 
 # prompt vars
 #SPACESHIP_PROMPT_ADD_NEWLINE=false

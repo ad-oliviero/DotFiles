@@ -11,4 +11,4 @@ configuration {
 	scroll-method: 0;
 	display-drun: "";
 }
-@theme "frost"
+@theme "gruvbox-dark-soft"
