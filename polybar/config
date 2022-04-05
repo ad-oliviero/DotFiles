@@ -42,12 +42,11 @@ module-margin-right = 0
 separator = " | "
 
 font-0 = "JetBrains Mono:style=regular:size=11:antialias=true;3"
-font-1 = "Font Awesome 5 Free Solid:pixelsize=11;3"
-font-2 = "Iosevka Nerd Font:pixelsize=16;3"
+font-1 = "Symbols Nerd Font:pixelsize=13;3"
 
 modules-left = bspwm
 modules-center = date
-modules-right = filesystem memory cpu wifi-download wifi-upload battery pulseaudio
+modules-right = filesystem memory cpu network battery pulseaudio
 
 wm-restack = bspwm
 
@@ -109,8 +108,7 @@ animation-discharging-framerate = 500
 [module/cpu]
 type = internal/cpu
 interval = 1
-format-prefix = " "
-label = %percentage%%
+label = %percentage%% 
 
 [module/date]
 type = internal/date
@@ -119,19 +117,18 @@ date-alt = %%{F#999}%d-%m-%Y%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
 
 [module/memory]
 type = internal/memory
-format-prefix = " "
-label = %gb_used%/%gb_free%
+label = %gb_used%/%gb_free% 
 
 
 [module/filesystem]
 type = internal/fs
 interval = 25
 mount-0 = /
-label-mounted =  %free%
+label-mounted = %free% 
 
 [module/bspwm]
 type = internal/bspwm
-pin-workspaces = true
+pin-workspaces = false
 inline-mode = false
 enable-click = true
 ; enable-scroll = false
@@ -158,11 +155,11 @@ label-empty-padding = 1
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume =  <bar-volume>
-label-volume =  %percentage%%
+#format-volume = 墳 <bar-volume>
+label-volume = 墳 %percentage%%
 label-volume-foreground = ${colors.foreground}
 
-label-muted =  muted
+label-muted = "婢 "
 label-muted-foreground = ${colors.secondary}
 
 bar-volume-width = 10
@@ -174,7 +171,7 @@ bar-volume-foreground-4 = ${colors.yellow}
 bar-volume-foreground-5 = ${colors.alert}
 bar-volume-foreground-6 = ${colors.alert}
 bar-volume-gradient = false
-bar-volume-indicator = "◎"
+bar-volume-indicator = ""
 bar-volume-indicator-font = 1
 bar-volume-fill = ─
 bar-volume-fill-font = 2
@@ -182,40 +179,14 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground}
 
-[module/eth-download]
-type = internal/network
-interface = enp37s0
-interval = 1.0
-unknown-as-up = true
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-label-connected =    %downspeed%
-
-[module/eth-upload]
-type = internal/network
-interface = enp37s0
-interval = 1.0
-unknown-as-up = true
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-format-connected-prefix = "  "   
-label-connected =  %upspeed%
-
-[module/wifi-download]
+[module/network]
 type = internal/network
 interface = wlp0s20f3
-interval = 1.0
-unknown-as-up = true
 format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-label-connected =    %downspeed%
+label-connected = %local_ip%
+label-disconnected = Disconnected ⚠
+animation-packetloss-0 = 
+animation-packetloss-1 = ﮻
+animation-packetloss-framerate = 500
 
-[module/wifi-upload]
-type = internal/network
-interface = wlp0s20f3
-interval = 1.0
-unknown-as-up = true
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-format-connected-prefix = "  "   
-label-connected =  %upspeed%
+

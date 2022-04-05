@@ -36,7 +36,7 @@
 		"scroll-step": 5,
 		"format": "{volume}% {icon}",
 		"format-bluetooth": "{volume}% {icon}",
-		"format-muted": "",
+		"format-muted": "婢",
 		"format-icons": {
 			"headphones": "",
 			"handsfree": "",
