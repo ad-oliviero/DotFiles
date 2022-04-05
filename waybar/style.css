@@ -1,8 +1,8 @@
 * {
     border: none;
     border-radius: 10px;
-    font-family: JetBrains Mono, FontAwesome;
-    font-size: 14px;
+    font-family: JetBrains Mono, Symbols Nerd Font;
+    font-size: 15px;
     min-height: 0;
     transition-property: background-color;
     transition-duration: .7s;
@@ -14,9 +14,13 @@
     border-radius: 0px 0px 10px 10px;
 }
 
+#workspaces {
+    margin: 5px;
+}
+
 #workspaces button {
     margin: 0px 5px;
-    padding: 0px 8px;
+    padding: 0px 0px;
     background-color: #5d3535;
     border-radius: 10px;
 }
@@ -45,17 +49,9 @@
 #custom-media,
 #tray,
 #mode,
-#date,
-#idle_inhibitor {
+#date {
     padding: 0 15px;
     margin: 5px 5px;
     background-color: #5d3535;
 }
 
-#idle_inhibitor.activated {
-    background-color: #d1831c;
-}
-
-#workspaces {
-    margin: 5px;
-}

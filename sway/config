@@ -37,11 +37,12 @@ bar {
 	swaybar_command waybar
 }
 
-output DP-2 pos 0 0 res 1920x1080 bg ~/Pictures/gruvw.png fill #FAFAFA
-#output DP-2 pos 0 0 res 1920x1080 bg ~/Immagini/wallpapersden.com_mikasa-ackerman_3840x2160.jpg fill #FAFAFA
-#output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/.wallpaper fill #000000
-#output eDP-1 pos 0 0 res 1920x1080 scale 1 bg ~/Immagini/wallpapersden.com_mikasa-ackerman_3840x2160.jpg fill #FAFAFA
-output eDP-1 pos 0 0 res 1920x1080 bg ~/Pictures/gruvw.png fill #FAFAFA
+# https://cdn.wallpapersafari.com/45/94/AyVLsg.jpg `convert doom-dark.jpg -fuzz 10% -fill #282828 -opaque black result.jpg`
+# https://imgur.com/r1NUi8l
+
+set $bg_img "~/Pictures/doom-dark.jpg"
+output DP-2 pos 0 0 res 1920x1080 bg $bg_img fill #FAFAFA
+output eDP-1 pos 0 0 res 1920x1080 bg $bg_img fill #FAFAFA
 
 # Some daemons, startup programs
 exec systemctl --user import-environment
@@ -53,7 +54,7 @@ exec_always xset s on
 exec_always --no-startup-id mako
 #exec_always sudo ~/.config/scripts/anbox-bridge.sh start #anbox internet bridge
 exec_always v4l2-ctl -d /dev/video42 -c timeout=3000
-exec_always pkill redshift; redshift -oP 4400K -m wayland
+#exec_always pkill redshift; redshift -oP 4400K -m wayland
 #exec_always pamusb-agent
 exec_always --no-startup-id /usr/lib/pam_kwallet_init
 exec_always --no-startup-id ksmserver

@@ -4,14 +4,7 @@
 	"height": 40,
 	"modules-left": ["sway/workspaces", "sway/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["idle_inhibitor", "network", "disk", "memory", "cpu", "tray", "battery", "pulseaudio"],
-	"idle_inhibitor": {
-		"format": "{icon}",
-		"format-icons": {
-			"activated": "",
-			"deactivated": ""
-		}
-	},
+	"modules-right": ["network", "disk", "memory", "cpu", "tray", "battery", "pulseaudio"],
 	"clock": {
 		"interval": 1,
 		"tooltip-format": "<big>{:%d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
@@ -23,19 +16,19 @@
 	},
 	"disk": {
 		"interval": 30,
-		"format": "{free}",
+		"format": "{free} ",
 		"on-click": "alacritty sh -c 'duf && sleep 100'"
 	},
 	"memory": {
 		"interval": 5,
-		"format": "{used:0.2f}GB/{total:0.2f}GB",
+		"format": "{used:0.2f}GB/{total:0.2f}GB ",
 		"tooltip-format": "available {avail:0.2f}GB",
 		"on-click": "~/.config/scripts/cache-clean.sh"
 	},
 	"network": {
 		"interval": 3,
-		"format-wifi": "{ipaddr} |  {bandwidthDownBits} |  {bandwidthUpBits}",
-		"format-ethernet": "{ipaddr} |  {bandwidthDownBits} |  {bandwidthUpBits}",
+		"format-wifi": "{ipaddr}",
+		"format-ethernet": "{ipaddr}",
 		"format-disconnected": "Disconnected ⚠",
 		"on-click": "alacritty nmtui"
 	},
@@ -43,7 +36,7 @@
 		"scroll-step": 5,
 		"format": "{volume}% {icon}",
 		"format-bluetooth": "{volume}% {icon}",
-		"format-muted": " muted",
+		"format-muted": "",
 		"format-icons": {
 			"headphones": "",
 			"handsfree": "",
@@ -59,7 +52,7 @@
         	"warning": 30,
         	"critical": 15
     	},
-    	"format": "{capacity}% {icon}",
+    	"format": "{capacity} {icon}",
     	"format-icons": ["", "", "", "", ""],
     	"max-length": 25
 	}

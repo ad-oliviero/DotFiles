@@ -1,11 +1,9 @@
 ;;MOST OF THIS CONFIG IS TAKEN FROM https://github.com/matman26/emacs-config
 
 (require 'package)
-(require 'use-package)
 (add-to-list 'package-archives '("gnu"."http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable"."http://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa"."http://melpa.org/packages/"))
-;;(add-to-list 'load-path "~/.emacs.d/")
 (package-initialize)
 
 ;;save the current session
@@ -25,8 +23,8 @@
 (require 'bind-key)
 (setq use-package-always-ensure t)
 
-;;(use-package org
-;;:ensure t)
+(use-package org
+	:ensure t)
 
 (use-package undo-tree)
 (global-undo-tree-mode)
@@ -56,7 +54,6 @@
 (use-package gruvbox-theme
   :config
   (load-theme 'gruvbox t))
-;(set-frame-font "JetBrains Mono 12" nil t)
 (add-to-list 'default-frame-alist '(font . "JetBrains Mono 12"))
 
 ;;Remove initial buffer, set index file
@@ -75,16 +72,11 @@
 ;;display battery for when in full screen mode
 (display-battery-mode t)
 
-;;Keybindings
-;;(global-set-key (kbd "<f5>") 'revert-buffer)
-;;(global-set-key (kbd "<f3>") 'org-export-dispatch)
-;;(global-set-key (kbd "<f6>") 'eshell)
-;;(global-set-key (kbd "<f7>") 'dired)
-;;(global-set-key (kbd "<f8>") 'magit)
+(use-package treemacs)
 
-;; Misc stuff
-(setenv "HOME" "/home/adri")
-;; (server-start)
+;;Keybindings
+(global-set-key (kbd "<f2>") 'treemacs)
+(global-set-key (kbd "<f3>") 'magit)
 
 ;; tab width
 (setq-default tab-width 2)
@@ -100,12 +92,27 @@
 ;; default mode
 ;; (setq-default major-mode 'text-mode)
 
+(use-package markdown-preview-mode)
+(setq markdown-command "pandoc -D latex")
+
 (use-package lsp-mode
 	:init
 	(setq lsp-keymap-prefix "C-c l")
 	:hook (c-mode . lsp)
+	:hook (markdown-mode . lsp)
+	:hook (markdown-preview-mode . lsp)
 	:commands lsp)
 
-(use-package treemacs)
-
-
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+	 '(remark-mode markdown-preview-eww markdown-preview-mode magit use-package undo-tree treemacs lsp-mode gruvbox-theme good-scroll evil)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
