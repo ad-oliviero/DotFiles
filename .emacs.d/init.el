@@ -93,26 +93,12 @@
 ;; (setq-default major-mode 'text-mode)
 
 (use-package markdown-preview-mode)
-(setq markdown-command "pandoc -D latex")
+(setq markdown-command "pandoc -s --mathjax -f markdown -t html")
 
 (use-package lsp-mode
 	:init
 	(setq lsp-keymap-prefix "C-c l")
 	:hook (c-mode . lsp)
-	:hook (markdown-mode . lsp)
 	:hook (markdown-preview-mode . lsp)
 	:commands lsp)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-	 '(remark-mode markdown-preview-eww markdown-preview-mode magit use-package undo-tree treemacs lsp-mode gruvbox-theme good-scroll evil)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

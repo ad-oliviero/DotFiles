@@ -2,7 +2,7 @@
 
 export WINIT_X11_SCALE_FACTOR=1 # for alacritty on the laptop
 pkill -USR1 -x sxhkd || sxhkd &
-feh --bg-fill /usr/share/wallpapers/Next/contents/images/1920x1080.jpg #~/Downloads/WallpaperDog-17284371.jpg
+feh --bg-fill ~/Pictures/doom-dark.jpg
 ~/.config/polybar/launch.sh
 pkill -USR1 -x picom --experimental-backends --backend glx || picom --experimental-backends --backend glx & # picom with blur
 pkill -USR1 -x dunst || dunst &
