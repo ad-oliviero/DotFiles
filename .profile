@@ -2,3 +2,4 @@
 #mpv -fs --mute=yes ~/Videos/login.mp4
 
 
+. "$HOME/.cargo/env"

@@ -41,7 +41,7 @@ bar {
 # https://imgur.com/r1NUi8l
 
 set $bg_img "~/Pictures/doom-dark.jpg"
-output DP-2 pos 0 0 res 1920x1080 bg $bg_img fill #FAFAFA
+output HDMI-A-1 pos 0 0 res 1920x1080 bg $bg_img fill #FAFAFA
 output eDP-1 pos 0 0 res 1920x1080 bg $bg_img fill #FAFAFA
 
 # Some daemons, startup programs
