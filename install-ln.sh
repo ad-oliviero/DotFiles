@@ -86,6 +86,8 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 # ln -s ~/.config/alacritty/alacritty.yml.dark ~/.config/alacritty/alacritty.yml
 
 printf "Installed correctly!\n"
-# you should also ln -s ~/.config/DotFiles/ffvars.sh /etc/profile.d
-# and ln -s ~/.config/DotFiles/tlp.conf /etc
-# and ln -s ~/.config/DotFiles/keyd/default.conf /etc/keyd/default.conf
+printf "you should also
+\tln -s ~/.config/DotFiles/ffvars.sh /etc/profile.d
+\tln -s ~/.config/DotFiles/tlp.conf /etc
+\tln -s ~/.config/DotFiles/keyd/default.conf /etc/keyd/default.conf
+\tcp fffonts.conf ~/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf\n"
