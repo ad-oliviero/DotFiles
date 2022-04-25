@@ -14,11 +14,13 @@ mv -vt ~/config_backup \
 		~/.config/bspwm \
 		~/.config/dunst \
 		~/.config/htop \
+		~/.config/helix \
 		~/.config/init.sh \
 		~/.config/i3 \
 		~/.config/kitty \
 		~/.config/keyd \
 		~/.config/mako \
+		~/.config/nvim \
 		~/.config/picom \
 		~/.config/polybar \
 		~/.config/rofi \
@@ -45,11 +47,13 @@ ln -vs \
 		~/.config/DotFiles/bspwm \
 		~/.config/DotFiles/dunst \
 		~/.config/DotFiles/htop \
+		~/.config/DotFiles/helix \
 		~/.config/DotFiles/init.sh \
 		~/.config/DotFiles/i3 \
 		~/.config/DotFiles/kitty \
 		~/.config/DotFiles/keyd \
 		~/.config/DotFiles/mako \
+		~/.config/DotFiles/nvim \
 		~/.config/DotFiles/libinput-gestures.conf \
 		~/.config/DotFiles/picom \
 		~/.config/DotFiles/polybar \
