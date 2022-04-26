@@ -28,9 +28,17 @@ Plugin 'morhetz/gruvbox'
 Plugin 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install'}
 Plugin 'sbdchd/neoformat'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'github/copilot.vim'
+Plugin 'luukvbaal/nnn.nvim'
 call vundle#end()
 
 colorscheme gruvbox
+
+" file manager
+lua << EOF
+require("nnn").setup()
+EOF
+noremap <F2> :NnnExplorer<CR>
 
 " move line or visually selected block - alt+j/k
 inoremap <A-j> <Esc>:m .+1<CR>==gi
