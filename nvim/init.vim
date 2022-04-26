@@ -30,6 +30,7 @@ Plugin 'sbdchd/neoformat'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'github/copilot.vim'
 Plugin 'luukvbaal/nnn.nvim'
+Plugin 'preservim/nerdcommenter'
 call vundle#end()
 
 colorscheme gruvbox
@@ -56,6 +57,14 @@ if has("autocmd")
 	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 				\| exe "normal! g'\"" | endif
 endif
+
+" nerdcommenter settings
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+noremap <A-c> <ESC>:call nerdcommenter#Comment('n', 'Toggle')<CR>
+
 " indent file
 function Indent()
 	let lnn = line(".")
