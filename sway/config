@@ -14,6 +14,7 @@ set $ws10 "10"
 # input and output
 input 7847:2311:SEMITEK_USB-HID_Gaming_Keyboard {
 	xkb_layout us
+	xkb_options compose:menu
 }
 input 1:1:AT_Translated_Set_2_keyboard {
 	xkb_layout it
@@ -49,6 +50,7 @@ exec systemctl --user import-environment
 exec_always dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY WAYLAND_DISPLAY SWAYSOCK # fix slow gtk apps loading
 # exec_always --no-startup-id dconf reset -f /org/gnome/control-center/
 exec --no-startup-id nm-applet
+exec_always --no-startup-id pkill wayvnc; wayvnc -r $(ip a | grep inet | grep dynamic | awk '{print $2}' | sed "s/\/24//g")
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always xset s on
 exec_always --no-startup-id mako

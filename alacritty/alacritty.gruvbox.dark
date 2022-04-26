@@ -47,7 +47,7 @@ window:
     lines: 24
 
 cursor:
-  style: underline
+  style: beam
 
 scrolling:
   history: 10000

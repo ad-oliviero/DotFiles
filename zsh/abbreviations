@@ -1,6 +1,6 @@
 abbr pu="sudo pacman -Syu --noconfirm"
 abbr pi="sudo pacman -S --noconfirm"
-abbr pii="yes s | sudo pacman -S"
+abbr pii="yes | sudo pacman -S"
 abbr pss="pacman -Ss"
 abbr prm="sudo pacman -Rddns"
 abbr pc="sudo pacman -Rddns $(pacman -Qtdq) --noconfirm 2>/dev/null; sudo pacman -Scc --noconfirm"
