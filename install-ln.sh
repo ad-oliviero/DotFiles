@@ -14,11 +14,13 @@ mv -vt ~/config_backup \
 		~/.config/bspwm \
 		~/.config/dunst \
 		~/.config/htop \
+		~/.config/helix \
 		~/.config/init.sh \
 		~/.config/i3 \
 		~/.config/kitty \
 		~/.config/keyd \
 		~/.config/mako \
+		~/.config/nvim \
 		~/.config/picom \
 		~/.config/polybar \
 		~/.config/rofi \
@@ -45,11 +47,13 @@ ln -vs \
 		~/.config/DotFiles/bspwm \
 		~/.config/DotFiles/dunst \
 		~/.config/DotFiles/htop \
+		~/.config/DotFiles/helix \
 		~/.config/DotFiles/init.sh \
 		~/.config/DotFiles/i3 \
 		~/.config/DotFiles/kitty \
 		~/.config/DotFiles/keyd \
 		~/.config/DotFiles/mako \
+		~/.config/DotFiles/nvim \
 		~/.config/DotFiles/libinput-gestures.conf \
 		~/.config/DotFiles/picom \
 		~/.config/DotFiles/polybar \
@@ -86,6 +90,8 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 # ln -s ~/.config/alacritty/alacritty.yml.dark ~/.config/alacritty/alacritty.yml
 
 printf "Installed correctly!\n"
-# you should also ln -s ~/.config/DotFiles/ffvars.sh /etc/profile.d
-# and ln -s ~/.config/DotFiles/tlp.conf /etc
-# and ln -s ~/.config/DotFiles/keyd/default.conf /etc/keyd/default.conf
+printf "you should also
+\tln -s ~/.config/DotFiles/ffvars.sh /etc/profile.d
+\tln -s ~/.config/DotFiles/tlp.conf /etc
+\tln -s ~/.config/DotFiles/keyd/default.conf /etc/keyd/default.conf
+\tcp fffonts.conf ~/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf\n"

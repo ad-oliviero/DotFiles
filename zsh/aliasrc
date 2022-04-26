@@ -16,6 +16,7 @@ alias \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x" \
 	vi="vim" \
+	hx="helix" \
 	ccat="highlight --out-format=ansi" \
 	starwars="telnet towel.blinkenlights.nl" \
 	cram="sudo zsh -c 'echo 3 > /proc/sys/vm/drop_caches' && free -h" \
