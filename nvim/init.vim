@@ -76,8 +76,8 @@ inoremap <A-i> <ESC>:call Indent()<CR>
 nnoremap <A-i> <ESC>:call Indent()<CR>
 
 " custom commands
-command -nargs=0 W :w !sudo tee %
-command -nargs=0 WQ :w !sudo tee % <ESC> :q
+" command -nargs=0 W :w !sudo -S tee %
+" command -nargs=0 WQ :w !sudo -S tee % <ESC> :q
 
 " neoformat config
 let g:neoformat_python_black = {

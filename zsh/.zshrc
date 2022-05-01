@@ -3,12 +3,6 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
 export TERM=xterm-256color
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
-export PATH=$PATH:~/.local/bin:/var/lib/snapd/snap/bin:/usr/local/i386elfgcc/bin:$JAVA_HOME/bin
-export VISUAL=nvim
-export EDITOR=nvim
-export PICO_SDK_PATH=/opt/pico-sdk
-#export LC_ALL="C" # breaks prompts
 
 # colored man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
