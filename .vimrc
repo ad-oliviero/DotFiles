@@ -85,6 +85,5 @@ nmap        <C-i>       :tabnext<CR>
 nmap        <C-t>       :tabnew<CR>
 
 " custom commands
-command -nargs=0 W :w !sudo tee %
-command -nargs=0 WQ :wq !sudo tee %
+command -nargs=0 W :w !sudo tee >/dev/null %
 

@@ -1,0 +1,11 @@
+{
+	"pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
+		"suggest.noselect": true,
+		"coc.preferences.formatOnSaveFiletypes": [
+			"c",
+			"cpp",
+			"python",
+			"java",
+			"rust"
+		]
+	}

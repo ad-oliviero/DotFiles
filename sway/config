@@ -62,10 +62,10 @@ exec_always --no-startup-id /usr/lib/pam_kwallet_init
 exec_always --no-startup-id ksmserver
 
 # Navigation&System bindings
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym $mod+F4 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym $mod+F3 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+F4 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym $mod+F3 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym $mod+F5 exec light -U 5
@@ -86,7 +86,7 @@ bindsym $mod+d exec env MOZ_ENABLE_WAYLAND=1 rofi -show drun
 bindsym $mod+b exec env MOZ_ENABLE_WAYLAND=1 /opt/waterfox/waterfox
 #bindsym $mod+b exec brave --enable-features=UseOzonePlatform --ozone-platform=wayland --password-store=kwallet5
 bindsym $mod+Shift+d env MOZ_ENABLE_WAYLAND=1 exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
-bindsym $mod+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
+bindsym $mod+Shift+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.config/scripts/rofi/rofi-powermenu.sh
 bindsym $mod+l exec swaylock -C ~/.config/swaylock/config
 bindsym --release Print exec gnome-screenshot
 
@@ -176,4 +176,4 @@ client.urgent		$ubgcolor	$ubgcolor	$textcolor	$ubgcolor
 # Extra things
 for_window [window_role="pop-up"] floating enable
 bindsym $mod+n exec nautilus
-include @sysconfdir@/sway/config.d/*
+bindsym $mod+e exec neovide

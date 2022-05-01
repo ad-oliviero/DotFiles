@@ -38,7 +38,7 @@ mv -vt ~/config_backup \
 		~/.local/bin/lemonconfig \
 		~/.emacs.d \
 		~/.vim* \
-		~/.zprofile \
+		~/.env \
 		~/.xinitrc \
 		~/.zshrc
 
@@ -77,11 +77,10 @@ ln -s ~/.config/DotFiles/chrome-flags.conf ~/.config/brave-flags.conf
 
 ln -s \
 		~/.config/DotFiles/.emacs.d \
-		~/.config/DotFiles/.profile \
 		~/.config/DotFiles/.vim* \
 		~/.config/DotFiles/.xinitrc \
+		~/.config/DotFiles/.env \
 		~/.config/DotFiles/zsh/.zshrc \
-		~/.config/DotFiles/zsh/.zprofile \
 		~/
 
 ln -s ~/.config/DotFiles/bin/lemonconfig/lemonconfig ~/.local/bin
