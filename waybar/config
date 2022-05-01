@@ -54,6 +54,7 @@
     	},
     	"format": "{capacity} {icon}",
     	"format-icons": ["", "", "", "", ""],
+    	"format-charging": "{capacity} {icon} ﮣ",
     	"max-length": 25
 	}
 }

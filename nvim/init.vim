@@ -63,6 +63,8 @@ let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
+let g:NERDAltDelims_c = 1
+let g:NERDAltDelims_cpp = 1
 noremap <A-c> <ESC>:call nerdcommenter#Comment('n', 'Toggle')<CR>
 
 " indent file
@@ -99,6 +101,15 @@ let g:neoformat_c_enabled = {
 			\ 'no_append': 1,
 			\ }
 let g:neoformat_cpp_enabled = neoformat_c_enabled
+let g:neoformat_rs_enabled = {
+			\ 'exe': 'rustfmt',
+			\ 'args': [''],
+			\ 'replace': 0,
+			\ 'stdin': 1,
+			\ 'env': [''],
+			\ 'valid_exit_codes': [0],
+			\ 'no_append': 1,
+			\ }
 let g:neoformat_latex_enabled = {
 			\ 'exe': 'latex-indent',
 			\ 'args': [''],

@@ -1,3 +1,6 @@
+abbr fi="flatpak install"
+abbr fs="flatpak search"
+abbr fu="flatpak update"
 abbr pu="sudo pacman -Syu --noconfirm"
 abbr pi="sudo pacman -S --noconfirm"
 abbr pii="yes | sudo pacman -S"
