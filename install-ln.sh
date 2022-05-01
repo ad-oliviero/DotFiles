@@ -1,96 +1,94 @@
-printf "\033[1;33mWARNING: THIS IS GOING TO MOVE MOST OF YOUR CONFIG FILES TO A BACKUP DIRECTORY: ~/config_backup\033[1;0m\n"
+printf "\033[1;33mWARNING: THIS IS GOING TO MOVE MOST OF YOUR CONFIG FILES TO A BACKUP DIRECTORY: $HOME/config_backup\033[1;0m\n"
 printf "Are you sure that you want to continue? (y/N): "
 read choice
 [ "$choice" == "n" ] || [ -z "$choice" ] && printf "Ok, you will install manually\n" && exit
 printf "Installing...\n"
 
-[ ! -d ~/config_backup ] && mkdir -pv ~/config_backup
-mv -vt ~/config_backup \
-		~/.config/alacritty \
-		~/.config/chrome-flags.conf \
-		~/.config/brave-flags.conf \
-		~/.config/chromium-flags.conf \
-		~/.config/libinput-gestures.conf \
-		~/.config/bspwm \
-		~/.config/dunst \
-		~/.config/htop \
-		~/.config/helix \
-		~/.config/init.sh \
-		~/.config/i3 \
-		~/.config/kitty \
-		~/.config/keyd \
-		~/.config/mako \
-		~/.config/nvim \
-		~/.config/picom \
-		~/.config/polybar \
-		~/.config/rofi \
-		~/.config/redshift \
-		~/.config/river \
-		~/.config/scripts \
-		~/.config/sxhkd \
-		~/.config/sway \
-		~/.config/swaylock \
-		~/.config/waybar \
-		~/.config/wayfire.ini \
-		~/.config/nvim/init.vim \
-		~/.config/uwufetch \
-		~/.config/zsh \
-		~/.local/bin/lemonconfig \
-		~/.emacs.d \
-		~/.vim* \
-		~/.env \
-		~/.xinitrc \
-		~/.zshrc
+cwd=$(pwd)
+configdir="$XDG_CONFIG_HOME"
+[ -z "$configdir" ] && configdir="$HOME/.config"
+[ -d "$configdir" ] || mkdir -p "$configdir"
+
+[ -d $HOME/config_backup ] || mkdir -pv $HOME/config_backup
+mv -vt $HOME/config_backup \
+	$configdir/alacritty \
+	$configdir/brave-flags.conf \
+	$configdir/bspwm \
+	$configdir/chrome-flags.conf \
+	$configdir/chromium-flags.conf \
+	$configdir/dunst \
+	$configdir/htop \
+	$configdir/i3 \
+	$configdir/init.sh \
+	$configdir/keyd \
+	$configdir/kitty \
+	$configdir/libinput-gestures.conf \
+	$configdir/mako \
+	$configdir/nvim \
+	$configdir/picom \
+	$configdir/polybar \
+	$configdir/river \
+	$configdir/rofi \
+	$configdir/scripts \
+	$configdir/sxhkd \
+	$configdir/sway \
+	$configdir/swaylock \
+	$configdir/waybar \
+	$configdir/uwufetch \
+	$configdir/zsh \
+	$HOME/.emacs.d \
+	$HOME/.env \
+	$HOME/.vim* \
+	$HOME/.xinitrc \
+	$HOME/.zshrc
+
+local_bin="$(ls bin)"
+for f in $(ls $HOME/.local/bin); do
+	mv $(echo "$local_bin" | grep -e "^$f$") $HOME/config_backup
+done
 
 ln -vs \
-		~/.config/DotFiles/alacritty \
-		~/.config/DotFiles/bspwm \
-		~/.config/DotFiles/dunst \
-		~/.config/DotFiles/htop \
-		~/.config/DotFiles/helix \
-		~/.config/DotFiles/init.sh \
-		~/.config/DotFiles/i3 \
-		~/.config/DotFiles/kitty \
-		~/.config/DotFiles/keyd \
-		~/.config/DotFiles/mako \
-		~/.config/DotFiles/nvim \
-		~/.config/DotFiles/libinput-gestures.conf \
-		~/.config/DotFiles/picom \
-		~/.config/DotFiles/polybar \
-		~/.config/DotFiles/rofi \
-		~/.config/DotFiles/redshift \
-		~/.config/DotFiles/river \
-		~/.config/DotFiles/scripts \
-		~/.config/DotFiles/starship.toml \
-		~/.config/DotFiles/sxhkd \
-		~/.config/DotFiles/sway \
-		~/.config/DotFiles/swaylock \
-		~/.config/DotFiles/waybar \
-		~/.config/DotFiles/wayfire.ini \
-		~/.config/DotFiles/uwufetch \
-		~/.config/DotFiles/zsh \
-		~/.config
-
-ln -s ~/.config/DotFiles/chrome-flags.conf ~/.config/
-ln -s ~/.config/DotFiles/chrome-flags.conf ~/.config/chromium-flags.conf
-ln -s ~/.config/DotFiles/chrome-flags.conf ~/.config/brave-flags.conf
+	$cwd/alacritty \
+	$cwd/bspwm \
+	$cwd/dunst \
+	$cwd/htop \
+	$cwd/i3 \
+	$cwd/init.sh \
+	$cwd/keyd \
+	$cwd/kitty \
+	$cwd/libinput-gestures.conf \
+	$cwd/mako \
+	$cwd/nvim \
+	$cwd/picom \
+	$cwd/polybar \
+	$cwd/river \
+	$cwd/rofi \
+	$cwd/starship.toml \
+	$cwd/sxhkd \
+	$cwd/sway \
+	$cwd/swaylock \
+	$cwd/waybar \
+	$cwd/uwufetch \
+	$cwd/zsh \
+	$configdir
 
 ln -s \
-		~/.config/DotFiles/.emacs.d \
-		~/.config/DotFiles/.vim* \
-		~/.config/DotFiles/.xinitrc \
-		~/.config/DotFiles/.env \
-		~/.config/DotFiles/zsh/.zshrc \
-		~/
+	$cwd/.emacs.d \
+	$cwd/.env \
+	$cwd/.vim* \
+	$cwd/.xinitrc \
+	$cwd/zsh/.zshrc \
+	$HOME
 
-ln -s ~/.config/DotFiles/bin/lemonconfig/lemonconfig ~/.local/bin
+for f in $(ls); do
+	ln -s \$cwd/$f \$HOME/.local/bin
+done
 
-ln -s ~/.vimrc ~/.config/nvim/init.vim
-# ln -s ~/.config/alacritty/alacritty.yml.dark ~/.config/alacritty/alacritty.yml
+# ln -s $configdir/alacritty/alacritty.yml.dark $configdir/alacritty/alacritty.yml
+
+ln -s fffonts.conf $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
 
 printf "Installed correctly!\n"
 printf "you should also
-\tln -s ~/.config/DotFiles/ffvars.sh /etc/profile.d
-\tln -s ~/.config/DotFiles/tlp.conf /etc
-\tln -s ~/.config/DotFiles/keyd/default.conf /etc/keyd/default.conf
-\tcp fffonts.conf ~/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf\n"
+\tln -s $cwd/tlp.conf /etc
+\tln -s $cwd/keyd/default.conf /etc/keyd/default.conf\n"

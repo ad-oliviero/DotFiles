@@ -10,7 +10,7 @@ set autoindent " self explanatory
 set number " line numbers
 set wildmode=longest,list " completions
 filetype plugin indent on " file type based indent style
-set clipboard=unnamedplus " use system clipboard (works only in gui mode)
+set clipboard+=unnamedplus " use system clipboard (works only in gui mode)
 set cursorline " line under cursor
 set ttyfast " fast scrolling
 set guicursor= "\<Esc>[5 q
@@ -27,7 +27,7 @@ call vundle#begin("~/.vim/plugged")
 Plugin 'morhetz/gruvbox'
 Plugin 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install'}
 Plugin 'sbdchd/neoformat'
-Plugin 'jiangmiao/auto-pairs'
+" Plugin 'jiangmiao/auto-pairs'
 Plugin 'github/copilot.vim'
 Plugin 'luukvbaal/nnn.nvim'
 Plugin 'preservim/nerdcommenter'
@@ -40,6 +40,11 @@ lua << EOF
 require("nnn").setup()
 EOF
 noremap <F2> :NnnExplorer<CR>
+
+" some auto things
+autocmd InsertEnter * norm zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " move line or visually selected block - alt+j/k
 inoremap <A-j> <Esc>:m .+1<CR>==gi
@@ -78,8 +83,11 @@ inoremap <A-i> <ESC>:call Indent()<CR>
 nnoremap <A-i> <ESC>:call Indent()<CR>
 
 " custom commands
-" command -nargs=0 W :w !sudo -S tee %
-" command -nargs=0 WQ :w !sudo -S tee % <ESC> :q
+" cmap W w !sudo tee > /dev/null %
+
+" latex and markdown filetypes
+autocmd BufRead,BufNewFile *.tex set filetype=tex
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 " neoformat config
 let g:neoformat_python_black = {
