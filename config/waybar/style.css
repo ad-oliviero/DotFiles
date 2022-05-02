@@ -1,6 +1,6 @@
 * {
     border: none;
-    border-radius: 10px;
+		border-radius: 10px;
     font-family: JetBrains Mono, Symbols Nerd Font;
     font-size: 15px;
     min-height: 0;
@@ -10,23 +10,21 @@
 }
 
 #waybar {
-    background-color: #282828;
+		background-color: #282828;
     border-radius: 0px 0px 10px 10px;
 }
 
 #workspaces {
-    margin: 5px;
+		margin: 5px;
 }
 
 #workspaces button {
-    margin: 0px 5px;
-    padding: 0px 0px;
-    background-color: #5d3535;
-    border-radius: 10px;
+		margin: 0px 5px;
+		background-color: #5d3535;
 }
 
 #workspaces button:hover {
-    background: #b86767;
+		background: #b86767;
 }
 
 #workspaces button.focused {
@@ -50,8 +48,8 @@
 #tray,
 #mode,
 #date {
-    padding: 0 15px;
-    margin: 5px 5px;
+		padding: 0 15px;
+		margin: 5px 5px;
     background-color: #5d3535;
 }
 
