@@ -2,61 +2,45 @@
 
 My .files, here is a preview:
 
-![](https://raw.githubusercontent.com/TheDarkBug/DotFiles/main/dotfiles.png)
+<!-- ![](https://raw.githubusercontent.com/TheDarkBug/DotFiles/main/dotfiles.png) -->
 
 ## Dependances:
 
-- WM: [xmonad](https://archlinux.org/packages/community/x86_64/xmonad/) + [xmonad-contrib](https://archlinux.org/packages/community/x86_64/xmonad-contrib/),  [i3-gaps](https://aur.archlinux.org/packages/i3-gaps/), or [sway](https://swaywm.org/)
+- WM: [sway](https://swaywm.org/)
 
-- Compositor: [Picom](https://wiki.archlinux.org/index.php/Picom)
+- Color scheme: [Gruvbox](https://github.com/morhetz/gruvbox)
 
-- Gtk theme: [layan-dark](https://github.com/vinceliuice/Layan-gtk-theme)
+- Gtk theme: [Gruvbox](https://github.com/TheGreatMcPain/gruvbox-material-gtk)
 
-- Terminal: [kitty](https://github.com/kovidgoyal/kitty)
+- Terminal: [Alacritty](https://alacritty.org/)
 
-- Shell: [zsh](https://wiki.archlinux.org/index.php/zsh) + [oh my zsh](https://ohmyz.sh/)
+- Shell: [zsh](https://wiki.archlinux.org/index.php/zsh)
 
-- Fetch tool: [uwufetch](https://github.com/TheDarkBug/uwufetch)
+- Fetch tool: [UwUfetch](https://github.com/TheDarkBug/uwufetch)
 
-- Zsh theme: [PowerLevel10k](https://github.com/romkatv/powerlevel10k)
+- Zsh theme: [Starship](https://starship.rs/)
 
-- Bar: [Polybar](https://wiki.archlinux.org/index.php/Polybar)/[Waybar](https://github.com/Alexays/Waybar)
+- Bar: [Waybar](https://github.com/Alexays/Waybar)
 
-- Launcher: [Rofi](https://wiki.archlinux.org/index.php/Rofi)/[dmenu](https://tools.suckless.org/dmenu/)
+- Launcher: [Rofi](https://github.com/davatorium/rofi)
 
-- File manager: [Nautilus](https://archlinux.org/packages/extra/x86_64/nautilus/)
+- File manager: [Nautilus](https://gitlab.gnome.org/GNOME/nautilus)
 
-- Background manager: [Feh](https://feh.finalrewind.org/)
+- Fonts: [JetBrains Mono](https://www.jetbrains.com/lp/mono/), [Nerd Fonts](https://www.nerdfonts.com/)
 
-- Fonts: [Roboto](https://fonts.google.com/specimen/Roboto), [JetBrains Mono](https://www.jetbrains.com/lp/mono/), [Awesome 5](https://fontawesome.com/), [OpenSans](https://fonts.google.com/specimen/Open+Sans)
+- Notifications: [Mako](https://github.com/emersion/mako)
 
-- Notifications: [Dunst](https://dunst-project.org/)/[Mako](https://github.com/emersion/mako)
+- Audio: [Pipewire](https://pipewire.org/)
 
-- Audio: [Pulseaudio](https://en.wikipedia.org/wiki/PulseAudio)
-
-- Screenshot: [Maim](https://github.com/naelstrof/maim)/[swayshot](https://gitlab.com/radio_rogal/swayshot)
+- Screenshot: [swayshot](https://gitlab.com/radio_rogal/swayshot)
 
 ## Installation
 
-**<u>Make Backups</u>**
-
-After instaling dependances, copy all the folders (except for .oh-my-zsh, .xmonad and .vim) in ~/.config/
-
+Run
 ```shell
-git clone --recursive https://github.com/TheDarkBug/DotFiles.git
-cp -rt ~/.config alacritty  aliasrc  dunst  htop  i3rofi  scripts  sway  swaylock  waybar  zsh
+$ mkdir .config && cd .config
+$ git clone --recursive https://github.com/TheDarkBug/DotFiles.git
+$ cd DotFiles
+$ ./install
 ```
-
-Now copy the other files in the home directory and the wallpaper in ~/Pictures/
-
-```shell
-cp -t ~/ .zshrc .xmonad .vim .vimrc
-cp -t ~/Pictures/ *.png *.jpg
-```
-
-Or you can just run `install-ln.sh` to install with symlinks (not recommended, i made the script just for me).
-
-To configure PowerLevel10k, run ```p10k configure``` in terminal and follow the instructions.
-Finally you should change some lines in the config files, you need to swap my username (adri) with yours.
-
-Nothing else, if all works you can delete the DotFiles forlder, if you liked it please leave a star.
+Before the installation begins, a backup of your current configuration will be automatically generated in `~/config_backup`.

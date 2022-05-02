@@ -84,9 +84,9 @@ bindsym $mod+Return exec alacritty
 #bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
 bindsym $mod+d exec rofi -show drun
 bindsym $mod+Shift+d exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
-bindsym $mod+Shift+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.local/bin/rofi-powermenu.sh
+bindsym $mod+Shift+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.local/bin/rofi-power-menu
 bindsym $mod+l exec swaylock -C ~/.config/swaylock/config
-bindsym --release Print exec gnome-screenshot
+bindsym --release Print exec swayshot
 
 # Moving containers
 floating_modifier $mod
