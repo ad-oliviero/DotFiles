@@ -12,10 +12,7 @@ configdir="$XDG_CONFIG_HOME"
 [ -d $HOME/config_backup ] || mkdir -pv $HOME/config_backup
 mv -vt $HOME/config_backup \
 	$configdir/alacritty \
-	$configdir/brave-flags.conf \
 	$configdir/bspwm \
-	$configdir/chrome-flags.conf \
-	$configdir/chromium-flags.conf \
 	$configdir/dunst \
 	$configdir/htop \
 	$configdir/i3 \
@@ -29,7 +26,7 @@ mv -vt $HOME/config_backup \
 	$configdir/polybar \
 	$configdir/river \
 	$configdir/rofi \
-	$configdir/scripts \
+	$configdir/starship.toml \
 	$configdir/sxhkd \
 	$configdir/sway \
 	$configdir/swaylock \
@@ -42,53 +39,54 @@ mv -vt $HOME/config_backup \
 	$HOME/.xinitrc \
 	$HOME/.zshrc
 
-local_bin="$(ls bin)"
+local_bin_files=$(ls bin)
 for f in $(ls $HOME/.local/bin); do
-	mv $(echo "$local_bin" | grep -e "^$f$") $HOME/config_backup
+	df=$(echo "$local_bin_files" | grep -e "^$f$")
+	[ -z "$df" ] || mv $HOME/.local/bin/$df $HOME/config_backup
 done
 
-ln -vs \
-	$cwd/alacritty \
-	$cwd/bspwm \
-	$cwd/dunst \
-	$cwd/htop \
-	$cwd/i3 \
-	$cwd/init.sh \
-	$cwd/keyd \
-	$cwd/kitty \
-	$cwd/libinput-gestures.conf \
-	$cwd/mako \
-	$cwd/nvim \
-	$cwd/picom \
-	$cwd/polybar \
-	$cwd/river \
-	$cwd/rofi \
-	$cwd/starship.toml \
-	$cwd/sxhkd \
-	$cwd/sway \
-	$cwd/swaylock \
-	$cwd/waybar \
-	$cwd/uwufetch \
-	$cwd/zsh \
+mv $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf $HOME/config_backup
+
+ln -vs  $cwd/config/alacritty \
+	$cwd/config/bspwm \
+	$cwd/config/dunst \
+	$cwd/config/htop \
+	$cwd/config/i3 \
+	$cwd/config/init.sh \
+	$cwd/config/keyd \
+	$cwd/config/kitty \
+	$cwd/config/libinput-gestures.conf \
+	$cwd/config/mako \
+	$cwd/config/nvim \
+	$cwd/config/picom \
+	$cwd/config/polybar \
+	$cwd/config/river \
+	$cwd/config/rofi \
+	$cwd/config/starship.toml \
+	$cwd/config/sxhkd \
+	$cwd/config/sway \
+	$cwd/config/swaylock \
+	$cwd/config/waybar \
+	$cwd/config/uwufetch \
+	$cwd/config/zsh \
 	$configdir
 
 ln -s \
-	$cwd/.emacs.d \
-	$cwd/.env \
-	$cwd/.vim* \
-	$cwd/.xinitrc \
-	$cwd/zsh/.zshrc \
+	$cwd/home/.emacs.d \
+	$cwd/home/.env \
+	$cwd/home/.vim* \
+	$cwd/home/.xinitrc \
+	$cwd/config/zsh/.zshrc \
 	$HOME
 
-for f in $(ls); do
-	ln -s \$cwd/$f \$HOME/.local/bin
+for f in $(ls bin); do
+	ln -s $cwd/$f $HOME/.local/bin
 done
 
-# ln -s $configdir/alacritty/alacritty.yml.dark $configdir/alacritty/alacritty.yml
 
-ln -s fffonts.conf $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
+ln -s $cwd/other/fffonts.conf $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
 
 printf "Installed correctly!\n"
 printf "you should also
-\tln -s $cwd/tlp.conf /etc
-\tln -s $cwd/keyd/default.conf /etc/keyd/default.conf\n"
+\tln -s $cwd/other/tlp.conf /etc\n
+\tln -s $cwd/config/alacritty/alacritty.gruvbox.dark $configdir/alacritty/alacritty.yml\n"
