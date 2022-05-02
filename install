@@ -32,6 +32,7 @@ mv -vt $HOME/config_backup \
 	$configdir/swaylock \
 	$configdir/waybar \
 	$configdir/uwufetch \
+	$configdir/zathura \
 	$configdir/zsh \
 	$HOME/.emacs.d \
 	$HOME/.vim* \
@@ -67,6 +68,7 @@ ln -vs  $cwd/config/alacritty \
 	$cwd/config/swaylock \
 	$cwd/config/waybar \
 	$cwd/config/uwufetch \
+	$cwd/config/zathura \
 	$cwd/config/zsh \
 	$configdir
 
@@ -82,7 +84,9 @@ for f in $(ls bin); do
 done
 
 
-ln -s $cwd/other/fffonts.conf $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
+mkdir -pv $HOME/.mozilla/config/fontconfig
+ln -s $cwd/other/fffonts.conf $HOME/.mozilla/config/fontconfig/fonts.conf
+#$HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
 
 printf "Installed correctly!\n"
 printf "You should also
