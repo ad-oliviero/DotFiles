@@ -22,6 +22,3 @@
 [submodule "config/zsh/themes/pure"]
 	path = config/zsh/themes/pure
 	url = https://github.com/sindresorhus/pure.git
-[submodule ".vim/bundle/Vundle.vim"]
-	path = home/.vim/bundle/Vundle.vim
-	url = https://github.com/VundleVim/Vundle.vim.git

@@ -14,7 +14,6 @@ set clipboard+=unnamedplus " use system clipboard (works only in gui mode)
 set cursorline " line under cursor
 set ttyfast " fast scrolling
 set guicursor= "\<Esc>[5 q
-set rtp+=~/.vim/bundle/Vundle.vim
 syntax on " syntax highlighting
 
 " highlight trailing whitespace
@@ -23,15 +22,15 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 " Plugins
-call vundle#begin("~/.vim/plugged")
-Plugin 'morhetz/gruvbox'
-Plugin 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install'}
-Plugin 'sbdchd/neoformat'
-" Plugin 'jiangmiao/auto-pairs'
-Plugin 'github/copilot.vim'
-Plugin 'luukvbaal/nnn.nvim'
-Plugin 'preservim/nerdcommenter'
-call vundle#end()
+call plug#begin()
+Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install'}
+Plug 'sbdchd/neoformat'
+" Plug 'jiangmiao/auto-pairs'
+Plug 'github/copilot.vim'
+Plug 'luukvbaal/nnn.nvim'
+Plug 'preservim/nerdcommenter'
+call plug#end()
 
 colorscheme gruvbox
 
