@@ -85,6 +85,7 @@ done
 ln -s $cwd/other/fffonts.conf $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
 
 printf "Installed correctly!\n"
-printf "you should also
+printf "You should also
 \tsudo mv -t $HOME/config_backup /etc/{tlp.conf,environment}; sudo ln -s $cwd/etc/tlp.conf /etc;sudo ln -s $cwd/etc/environment /etc\n"
+printf "And wget \"https://cdn.wallpapersafari.com/45/94/AyVLsg.jpg\" $HOME/Pictures/doom-dark.jpg\n"
 # ln -s $cwd/config/alacritty/alacritty.gruvbox.dark $configdir/alacritty/alacritty.yml

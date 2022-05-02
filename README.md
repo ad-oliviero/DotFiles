@@ -2,13 +2,15 @@
 
 My .files, here is a preview:
 
-<!-- ![](https://raw.githubusercontent.com/TheDarkBug/DotFiles/main/dotfiles.png) -->
+![](https://raw.githubusercontent.com/TheDarkBug/DotFiles/main/dotfiles.png)
 
-## Dependances:
+## Programs and other resources used
 
 - WM: [sway](https://swaywm.org/)
 
 - Color scheme: [Gruvbox](https://github.com/morhetz/gruvbox)
+
+- Wallpaper: [doom eternal](https://cdn.wallpapersafari.com/45/94/AyVLsg.jpg)
 
 - Gtk theme: [Gruvbox](https://github.com/TheGreatMcPain/gruvbox-material-gtk)
 
