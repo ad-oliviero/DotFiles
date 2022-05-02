@@ -82,10 +82,8 @@ bindsym $mod+Shift+k exec swaymsg exit
 bindsym $mod+r reload
 bindsym $mod+Return exec alacritty
 #bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
-bindsym $mod+d exec env MOZ_ENABLE_WAYLAND=1 rofi -show drun
-bindsym $mod+b exec env MOZ_ENABLE_WAYLAND=1 /opt/waterfox/waterfox
-#bindsym $mod+b exec brave --enable-features=UseOzonePlatform --ozone-platform=wayland --password-store=kwallet5
-bindsym $mod+Shift+d env MOZ_ENABLE_WAYLAND=1 exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+Shift+d exec dmenu_run -l 10 -fn 'JetBrains Mono' -p run
 bindsym $mod+Shift+e exec rofi -theme powermenu -show power-menu -modi power-menu:~/.local/bin/rofi-powermenu.sh
 bindsym $mod+l exec swaylock -C ~/.config/swaylock/config
 bindsym --release Print exec gnome-screenshot

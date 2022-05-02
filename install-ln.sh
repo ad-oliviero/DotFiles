@@ -34,7 +34,6 @@ mv -vt $HOME/config_backup \
 	$configdir/uwufetch \
 	$configdir/zsh \
 	$HOME/.emacs.d \
-	$HOME/.env \
 	$HOME/.vim* \
 	$HOME/.xinitrc \
 	$HOME/.zshrc
@@ -73,14 +72,13 @@ ln -vs  $cwd/config/alacritty \
 
 ln -s \
 	$cwd/home/.emacs.d \
-	$cwd/home/.env \
 	$cwd/home/.vim* \
 	$cwd/home/.xinitrc \
 	$cwd/config/zsh/.zshrc \
 	$HOME
 
 for f in $(ls bin); do
-	ln -s $cwd/$f $HOME/.local/bin
+	ln -s $cwd/bin/$f $HOME/.local/bin
 done
 
 
@@ -88,5 +86,5 @@ ln -s $cwd/other/fffonts.conf $HOME/.var/app/org.mozilla.firefox/config/fontconf
 
 printf "Installed correctly!\n"
 printf "you should also
-\tln -s $cwd/other/tlp.conf /etc\n
-\tln -s $cwd/config/alacritty/alacritty.gruvbox.dark $configdir/alacritty/alacritty.yml\n"
+\tsudo mv -t $HOME/config_backup /etc/{tlp.conf,environment}; sudo ln -s $cwd/etc/tlp.conf /etc;sudo ln -s $cwd/etc/environment /etc\n"
+# ln -s $cwd/config/alacritty/alacritty.gruvbox.dark $configdir/alacritty/alacritty.yml
