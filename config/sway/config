@@ -40,6 +40,7 @@ bar {
 
 # https://cdn.wallpapersafari.com/45/94/AyVLsg.jpg `convert doom-dark.jpg -fuzz 10% -fill #282828 -opaque black result.jpg`
 # https://imgur.com/r1NUi8l
+# https://i.redd.it/er2o4aonrcw11.jpg
 
 set $bg_img "~/Pictures/doom-dark.jpg"
 output HDMI-A-1 pos 0 0 res 1920x1080 bg $bg_img fill #FAFAFA
