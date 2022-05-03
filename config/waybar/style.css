@@ -1,38 +1,37 @@
 * {
-    border: none;
-		border-radius: 10px;
-    font-family: JetBrains Mono, Symbols Nerd Font;
-    font-size: 15px;
-    min-height: 0;
-    transition-property: background-color;
-    transition-duration: .7s;
-    color: #dfbf8e;
+	border-radius: 10px;
+	font-family: JetBrains Mono, Symbols Nerd Font;
+	font-size: 15px;
+	min-height: 0;
+	transition-property: background-color;
+	transition-duration: .7s;
+	color: #dfbf8e;
 }
 
 #waybar {
-		background-color: #282828;
-    border-radius: 0px 0px 10px 10px;
+	background-color: #282828;
+	border-radius: 0px 0px 10px 10px;
 }
 
 #workspaces {
-		margin: 5px;
+	margin: 5px;
 }
 
 #workspaces button {
-		margin: 0px 5px;
-		background-color: #5d3535;
+	margin: 0px 5px;
+	background-color: #5d3535;
 }
 
 #workspaces button:hover {
-		background: #b86767;
+	background: #b86767;
 }
 
 #workspaces button.focused {
-    background-color: #8d5050;
+	background-color: #8d5050;
 }
 
 #workspaces button.urgent {
-    background-color: #ff3333;
+	background-color: #ff3333;
 }
 
 #clock,
@@ -48,8 +47,12 @@
 #tray,
 #mode,
 #date {
-		padding: 0 15px;
-		margin: 5px 5px;
-    background-color: #5d3535;
+	padding: 0 15px;
+	margin: 5px 5px;
+	background-color: #5d3535;
+}
+
+#pulseaudio {
+	margin: 5px 15px 5px 5px;
 }
 

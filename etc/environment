@@ -1,13 +1,13 @@
 # Default programs
-EDITOR="nvim"
-VISUAL="nvim"
-TERMINAL="alacritty"
-BROWSER="firefox"
-VIDEO="mpv"
-IMAGE="imv"
-OPENER="xdg-open"
-PAGER="less"
-WM="sway"
+EDITOR=nvim
+VISUAL=nvim
+TERMINAL=alacritty
+BROWSER=firefox
+VIDEO=mpv
+IMAGE=imv
+OPENER=xdg-open
+PAGER=less
+WM=sway
 
 # QT variables
 QT_QPA_PLATFORMTHEME=qt5ct
@@ -25,7 +25,7 @@ GDK_BACKEND=wayland
 MOZ_ENABLE_WAYLAND=1
 
 # PATH
-JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+JAVA_HOME=/usr/lib/jvm/java-18-openjdk
 PICO_SDK_PATH=/opt/pico-sdk
 PATH=$PATH:~/.local/bin:$JAVA_HOME/bin
 

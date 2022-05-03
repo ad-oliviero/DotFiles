@@ -84,8 +84,8 @@ for f in $(ls bin); do
 done
 
 
-mkdir -pv $HOME/.mozilla/config/fontconfig
-ln -s $cwd/other/fffonts.conf $HOME/.mozilla/config/fontconfig/fonts.conf
+mkdir -pv $HOME/.mozilla/firefox/config/fontconfig
+ln -s $cwd/other/fffonts.conf $HOME/.mozilla/firefox/config/fontconfig/fonts.conf
 #$HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
 
 printf "Installed correctly!\n"
