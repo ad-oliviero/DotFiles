@@ -61,6 +61,8 @@ exec_always v4l2-ctl -d /dev/video42 -c timeout=3000
 #exec_always pamusb-agent
 exec_always --no-startup-id /usr/lib/pam_kwallet_init
 exec_always --no-startup-id ksmserver
+# swaylock on suspend
+exec_always swayidle -w before-sleep 'loginctl lock-session $XDG_SESSION_ID' lock 'playerctl -a pause; swaylock'
 
 # Navigation&System bindings
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
