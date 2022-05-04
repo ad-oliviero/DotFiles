@@ -21,7 +21,6 @@ _JAVA_AWT_WM_NONREPARENTING=1
 XDG_CURRENT_DESKTOP=sway
 XDG_SESSION_DESKTOP=sway
 # GDK_BACKEND=wayland # sadly breaks microsoft teams
-MOZ_ENABLE_WAYLAND=1
 
 # PATH
 JAVA_HOME=/usr/lib/jvm/java-18-openjdk
