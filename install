@@ -10,82 +10,56 @@ configdir="$XDG_CONFIG_HOME"
 [ -d "$configdir" ] || mkdir -p "$configdir"
 
 [ -d $HOME/config_backup ] || mkdir -pv $HOME/config_backup
-mv -vt $HOME/config_backup \
-	$configdir/alacritty \
-	$configdir/bspwm \
-	$configdir/dunst \
-	$configdir/htop \
-	$configdir/i3 \
-	$configdir/init.sh \
-	$configdir/keyd \
-	$configdir/kitty \
-	$configdir/libinput-gestures.conf \
-	$configdir/mako \
-	$configdir/nvim \
-	$configdir/picom \
-	$configdir/polybar \
-	$configdir/river \
-	$configdir/rofi \
-	$configdir/starship.toml \
-	$configdir/sxhkd \
-	$configdir/sway \
-	$configdir/swaylock \
-	$configdir/waybar \
-	$configdir/uwufetch \
-	$configdir/zathura \
-	$configdir/zsh \
-	$HOME/.emacs.d \
-	$HOME/.vim* \
-	$HOME/.xinitrc \
-	$HOME/.zshrc
 
-local_bin_files=$(ls bin)
-for f in $(ls $HOME/.local/bin); do
-	df=$(echo "$local_bin_files" | grep -e "^$f$")
-	[ -z "$df" ] || mv $HOME/.local/bin/$df $HOME/config_backup
+# backing up home files
+local_files=$(ls -a home | sed "s/\.\.//g" | sed "s/^\.$//g")
+for f in $(ls -a $HOME | sed "s/\.\.//g" | sed "s/^\.$//g"); do
+	df=$(echo "$local_files" | grep -e "^$f$")
+	[ -z "$df" ] || mv $HOME/$df $HOME/config_backup
 done
 
-mv $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf $HOME/config_backup
+# backing up config files
+if [ -d $HOME/.config ]; then
+	local_files=$(ls config)
+	for f in $(ls $HOME/.config); do
+		df=$(echo "$local_files" | grep -e "^$f$")
+		[ -z "$df" ] || mv $HOME/.config/$df $HOME/config_backup
+	done
+fi
 
-ln -vs  $cwd/config/alacritty \
-	$cwd/config/bspwm \
-	$cwd/config/dunst \
-	$cwd/config/htop \
-	$cwd/config/i3 \
-	$cwd/config/init.sh \
-	$cwd/config/keyd \
-	$cwd/config/kitty \
-	$cwd/config/libinput-gestures.conf \
-	$cwd/config/mako \
-	$cwd/config/nvim \
-	$cwd/config/picom \
-	$cwd/config/polybar \
-	$cwd/config/river \
-	$cwd/config/rofi \
-	$cwd/config/starship.toml \
-	$cwd/config/sxhkd \
-	$cwd/config/sway \
-	$cwd/config/swaylock \
-	$cwd/config/waybar \
-	$cwd/config/uwufetch \
-	$cwd/config/zathura \
-	$cwd/config/zsh \
-	$configdir
+# backing up local/bin files
+if [ -d $HOME/.local/bin ]; then
+	local_files=$(ls bin)
+	for f in $(ls $HOME/.local/bin); do
+		df=$(echo "$local_files" | grep -e "^$f$")
+		[ -z "$df" ] || mv $HOME/.local/bin/$df $HOME/config_backup
+	done
+fi
 
-ln -s \
-	$cwd/home/.emacs.d \
-	$cwd/home/.vim* \
-	$cwd/home/.xinitrc \
-	$cwd/config/zsh/.zshrc \
-	$HOME
+# backing up other files
+mv $HOME/.zshrc $HOME/config_backup
+# mv $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf $HOME/config_backup
+mv $HOME/.mozilla/firefox/config/fontconfig/fonts.conf $HOME/config_backup
 
+# installing home files
+for f in $(ls -a home | sed "s/\.\.//g" | sed "s/^\.$//g"); do
+	ln -vs $cwd/home/$f $HOME
+done
+
+# installing config files
+for f in $(ls config); do
+	ln -vs $cwd/config/$f $HOME/.config
+done
+
+# installing bin files
 for f in $(ls bin); do
-	ln -s $cwd/bin/$f $HOME/.local/bin
+	ln -vs $cwd/bin/$f $HOME/.local/bin
 done
 
-
+# installing other files
+ln -vs $cwd/config/zsh/.zshrc $HOME
 mkdir -pv $HOME/.mozilla/firefox/config/fontconfig
-ln -s $cwd/other/fffonts.conf $HOME/.mozilla/firefox/config/fontconfig/fonts.conf
+ln -vs $cwd/other/fffonts.conf $HOME/.mozilla/firefox/config/fontconfig/fonts.conf
 #$HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
 
 printf "Installed correctly!\n"
