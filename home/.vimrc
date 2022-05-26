@@ -1,89 +1,126 @@
-set nocompatible
-set encoding=utf-8
-filetype on
-set rtp+=~/.vim/bundle/Vundle.vim
+set nocompatible " disable vi compatibility
+set mouse=a " mouse click
+set hlsearch " highlight search
+set tabstop=2 " tab size
+set softtabstop=2 " space as tab size
+" set expandtab " use spaces instead of tabs
+set shiftwidth=2 " auto indent size
+set autoindent " self explanatory
+set number " line numbers
+set wildmode=longest,list " completions
+filetype plugin indent on " file type based indent style
+set clipboard+=unnamedplus " use system clipboard (works only in gui mode)
+set cursorline " line under cursor
+set ttyfast " fast scrolling
+set guicursor= "\<Esc>[5 q
+syntax on " syntax highlighting
 
-call vundle#begin('~/.vim/plugged')
-Plugin 'VundleVim/Vundle.vim'
+" highlight trailing whitespace
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
-" Colorschemes
-Plugin 'ayu-theme/ayu-vim'
-Plugin 'morhetz/gruvbox'
+" Plugins
+call plug#begin()
+Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install'}
+Plug 'sbdchd/neoformat'
+" Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdcommenter'
+call plug#end()
 
-" Other plugins
-Plugin 'sbdchd/neoformat'
-Plugin 'rhsyd/vim-clang-format'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'preservim/nerdtree'
-Plugin 'preservim/tagbar'
-Plugin 'derekwyatt/vim-protodef'
-call vundle#end()
-filetype plugin indent on
+set background=dark
+colorscheme gruvbox
 
-" auto-pairs configuration
-let g:AutoPairsShortcutToggle = '<C-P>'
-
-" NERDTree configuration
-let NERDTreeShowBookmarks = 1
-let NERDTreeShowHidden = 1
-let NERDTreeShowLineNumbers = 0
-let NERDTreeMinimalMenu = 1
-let NERDTreeWinPos = "left"
-let NERDTreeWinSize = 32
-
-" vim-protodef configuration 
-nmap <buffer> <silent> <leader> ,PP
-nmap <buffer> <silent> <leader> ,PN
-let g:disable_protodef_sorting = 1
-
-" Vim configuration
-set nu                  " Enable line numbers
-" set relativenumber    " Enable relative line numbers
-syntax on               " Enable synax highlighting
-set incsearch           " Enable incremental search
-set hlsearch            " Enable highlight search
-set splitbelow          " Always split below
-set mouse=v             " Enable mouse drag on window splits
-" set smartindent       " Enable smart indentation
-set tabstop=2           " How many columns of whitespace a \t is worth
-set shiftwidth=2        " How many columns of whitespace a “level of indentation” is worth
-" set expandtab         " Use spaces when tabbing
-set softtabstop=2       " Too long to explain, go on google and find it yourself
-set ruler
-set clipboard=unnamed
-set cul
-
-" filetype system
-filetype on
-filetype plugin on
-filetype indent on
-
-" cursor
-autocmd VimLeave * call system('printf "\e[4 q" > $TTY')
+" some auto things
+autocmd InsertEnter * norm zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+autocmd VimLeave * call system('printf "\e[5 q" > $TTY')
 autocmd VimEnter * call system('printf "\e[3 q" > $TTY')
 let &t_SI .= "\<Esc>[5 q"
 let &t_EI .= "\<Esc>[3 q"
 
-"let ayucolor="mirage"
-"colorscheme ayu
-set background=dark     " Set background 
-" colorscheme scheakur    " Set color scheme
-colorscheme gruvbox
+" move line or visually selected block - alt+j/k
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+inoremap <A-down> <Esc>:m .+1<CR>==gi
+inoremap <A-up> <Esc>:m .-2<CR>==gi
 
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+vnoremap <A-down> :m '>+1<CR>gv=gv
+vnoremap <A-up> :m '<-2<CR>gv=gv
 
-" Key mappings
-nmap        <C-B>       :buffers<CR>
-nmap        <C-J>       :term<CR>
-nmap        <F2>        :NERDTreeToggle<CR>
-nmap        <C-s>       :w<CR>
-nmap        <C-w>       :q<CR>
-nmap				<C-q>				:qa<CR>
-nmap				<C-a>				ggVG
-nmap				<C-c>				Vy
-nmap        <C-i>       :tabnext<CR>
-nmap        <C-t>       :tabnew<CR>
+" jump to the last position when reopening a file
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+				\| exe "normal! g'\"" | endif
+endif
+
+" nerdcommenter settings
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDAltDelims_c = 1
+let g:NERDAltDelims_cpp = 1
+noremap <A-c> <ESC>:call nerdcommenter#Comment('n', 'Toggle')<CR>
+
+" indent file
+function Indent()
+	let lnn = line(".")
+	normal gg=G
+	exe lnn
+	:Neoformat
+endfunction
+inoremap <A-i> <ESC>:call Indent()<CR>
+nnoremap <A-i> <ESC>:call Indent()<CR>
 
 " custom commands
+" cmap W w !sudo tee > /dev/null %
+
+" latex and markdown filetypes
+autocmd BufRead,BufNewFile *.tex set filetype=tex
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+" neoformat config
+let g:neoformat_python_black = {
+			\ 'exe': 'black',
+			\ 'args': [''],
+			\ 'replace': 0,
+			\ 'stdin': 1,
+			\ 'env': [''],
+			\ 'valid_exit_codes': [0],
+			\ 'no_append': 1,
+			\ }
+let g:neoformat_c_enabled = {
+			\ 'exe': 'clang-format',
+			\ 'args': [''],
+			\ 'replace': 1,
+			\ 'stdin': 1,
+			\ 'env': [''],
+			\ 'valid_exit_codes': [0],
+			\ 'no_append': 1,
+			\ }
+let g:neoformat_cpp_enabled = neoformat_c_enabled
+let g:neoformat_rs_enabled = {
+			\ 'exe': 'rustfmt',
+			\ 'args': [''],
+			\ 'replace': 0,
+			\ 'stdin': 1,
+			\ 'env': [''],
+			\ 'valid_exit_codes': [0],
+			\ 'no_append': 1,
+			\ }
+let g:neoformat_latex_enabled = {
+			\ 'exe': 'latex-indent',
+			\ 'args': [''],
+			\ 'replace': 1,
+			\ 'stdin': 1,
+			\ 'env': [''],
+			\ 'valid_exit_codes': [0],
+			\ 'no_append': 1,
+			\ }
 command -nargs=0 W :w !sudo tee >/dev/null %
 
