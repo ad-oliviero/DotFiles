@@ -47,15 +47,10 @@ nnoremap N Nzzzv
 autocmd VimLeave * set guicursor=a:ver25 " reset cursor after leaving
 
 " move line or visually selected block - alt+j/k
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-inoremap <A-down> <Esc>:m .+1<CR>==gi
-inoremap <A-up> <Esc>:m .-2<CR>==gi
-
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
-vnoremap <A-down> :m '>+1<CR>gv=gv
-vnoremap <A-up> :m '<-2<CR>gv=gv
+noremap <A-j> <Esc>:m .+1<CR>==
+noremap <A-k> <Esc>:m .-2<CR>==
+noremap <A-down> <Esc>:m .+1<CR>==
+noremap <A-up> <Esc>:m .-2<CR>==
 
 " jump to the last position when reopening a file
 if has("autocmd")
