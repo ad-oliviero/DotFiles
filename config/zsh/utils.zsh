@@ -23,3 +23,8 @@ exec_time_null() {
     DATE2=$(date +%s%N)
     printf "'${*:1}' took $(expr $(expr $DATE2 - $DATE1) / 1000000)ms to run!"
 }
+
+mc() {
+	mkdir $1
+	cd $1
+}
