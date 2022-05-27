@@ -23,6 +23,10 @@ abbr ungz="tar -zxvf"
 abbr pacman="sudo pacman"
 abbr free="free -h"
 abbr sprd="speedread -w 300"
+abbr gc="git clone"
+abbr gp="git pull"
+abbr gcp="git add && git commit && git push"
+abbr gcm="git checkout main"
 
 # error correction
 abbr ysy="yay"
