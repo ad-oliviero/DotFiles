@@ -13,7 +13,7 @@ filetype plugin indent on " file type based indent style
 set clipboard+=unnamedplus " use system clipboard (works only in gui mode)
 set cursorline " line under cursor
 set ttyfast " fast scrolling
-set guicursor= "\<Esc>[5 q
+set guicursor=n-c-sm:hor20,i-ci-ve:ver25,r-v-cr-o:block " set cursor shape
 syntax on " syntax highlighting
 
 " highlight trailing whitespace
@@ -26,7 +26,7 @@ call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install'}
 Plug 'sbdchd/neoformat'
-" Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 Plug 'github/copilot.vim'
 Plug 'luukvbaal/nnn.nvim'
 Plug 'preservim/nerdcommenter'
@@ -44,17 +44,13 @@ noremap <F2> :NnnExplorer<CR>
 autocmd InsertEnter * norm zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
+autocmd VimLeave * set guicursor=a:ver25 " reset cursor after leaving
 
 " move line or visually selected block - alt+j/k
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-inoremap <A-down> <Esc>:m .+1<CR>==gi
-inoremap <A-up> <Esc>:m .-2<CR>==gi
-
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
-vnoremap <A-down> :m '>+1<CR>gv=gv
-vnoremap <A-up> :m '<-2<CR>gv=gv
+noremap <A-j> <Esc>:m .+1<CR>==
+noremap <A-k> <Esc>:m .-2<CR>==
+noremap <A-down> <Esc>:m .+1<CR>==
+noremap <A-up> <Esc>:m .-2<CR>==
 
 " jump to the last position when reopening a file
 if has("autocmd")
