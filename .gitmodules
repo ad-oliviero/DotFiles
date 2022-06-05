@@ -10,15 +10,3 @@
 [submodule "config/zsh/plugins/zsh-autosuggestions"]
 	path = config/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "config/zsh/themes/spaceship-prompt"]
-	path = config/zsh/themes/spaceship-prompt
-	url = https://github.com/denysdovhan/spaceship-prompt.git
-[submodule "config/zsh/themes/powerlevel10k"]
-	path = config/zsh/themes/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k.git
-[submodule "config/zsh/themes/purer"]
-	path = config/zsh/themes/purer
-	url = https://github.com/DFurnes/purer.git
-[submodule "config/zsh/themes/pure"]
-	path = config/zsh/themes/pure
-	url = https://github.com/sindresorhus/pure.git
