@@ -7,14 +7,9 @@ no-unlock-indicator
 clock
 timestr=%R
 datestr=%a, %e %B
-
 screenshots
-
 fade-in=0.5
-
 effect-blur=10x5
-# effect-greyscale
-effect-scale=1
 
 indicator
 indicator-radius=150
@@ -47,7 +42,7 @@ text-clear-color=dfbf8e
 text-ver-color=dfbf8e
 text-wrong-color=ee2e2400
 
-# bs-hl-color=0000
+bs-hl-color=cc241d
 caps-lock-key-hl-color=ffd204FF
 caps-lock-bs-hl-color=ee2e24FF
 disable-caps-lock-text
