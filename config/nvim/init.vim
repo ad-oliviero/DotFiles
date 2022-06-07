@@ -123,3 +123,4 @@ let g:neoformat_latex_enabled = {
 			\ 'no_append': 1,
 			\ }
 
+command -nargs=0 W :w !sudo tee >/dev/null %

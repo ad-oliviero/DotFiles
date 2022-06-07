@@ -1,12 +1,12 @@
 # Default programs
-EDITOR=nvim
-VISUAL=nvim
-TERMINAL=alacritty
-BROWSER=firefox
-VIDEO=mpv
-IMAGE=imv
-OPENER=xdg-open
-WM=sway
+#EDITOR=nvim
+#VISUAL=nvim
+#TERMINAL=alacritty
+#BROWSER=firefox
+#VIDEO=mpv
+#IMAGE=imv
+#OPENER=xdg-open
+#WM=sway
 
 # QT variables
 # QT_QPA_PLATFORMTHEME=qt5ct
@@ -23,11 +23,11 @@ _JAVA_AWT_WM_NONREPARENTING=1
 # GDK_BACKEND=wayland # sadly breaks microsoft teams
 
 # PATH
-JAVA_HOME=/usr/lib/jvm/java-18-openjdk
-PICO_SDK_PATH=/opt/pico-sdk
-PATH=$PATH:~/.local/bin:$JAVA_HOME/bin
+# JAVA_HOME=/usr/lib/jvm/java-18-openjdk
+# PICO_SDK_PATH=/opt/pico-sdk
+# PATH=$PATH:~/.local/bin:$JAVA_HOME/bin:$HOME/.local/bin
 
 # firefox
-MOZ_ENABLE_WAYLAND=1
-MOZ_USE_XINPUT2=1 # inertial scrolling in x11
-MOZ_DISABLE_RDD_SANDBOX=1 # gpu acceleration
+#MOZ_ENABLE_WAYLAND=1
+#MOZ_USE_XINPUT2=1 # inertial scrolling in x11
+#MOZ_DISABLE_RDD_SANDBOX=1 # gpu acceleration
