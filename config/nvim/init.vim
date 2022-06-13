@@ -15,6 +15,7 @@ set cursorline " line under cursor
 set ttyfast " fast scrolling
 set guicursor=n-c-sm:hor20,i-ci-ve:ver25,r-v-cr-o:block " set cursor shape
 syntax on " syntax highlighting
+set tags+=$HOME/Dev/tags
 
 " highlight trailing whitespace
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
