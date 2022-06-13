@@ -47,7 +47,7 @@ output HDMI-A-1 pos 0 0 res 1920x1080 bg $bg_img fill #FAFAFA
 output eDP-1 pos 0 0 res 1920x1080 bg $bg_img fill #FAFAFA
 
 # Some daemons, startup programs
-exec systemctl --user import-environment
+exec_always systemctl --user import-environment
 exec_always dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY WAYLAND_DISPLAY SWAYSOCK # fix slow gtk apps loading
 # exec_always --no-startup-id dconf reset -f /org/gnome/control-center/
 exec --no-startup-id nm-applet

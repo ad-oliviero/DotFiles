@@ -2,7 +2,7 @@
 	"layer": "top",
 		"position": "top",
 		"height": 40,
-		"modules-left": ["sway/workspaces", "sway/window"],
+		"modules-left": ["sway/workspaces", "sway/window", "zext-workspaces"],
 		"modules-center": ["clock"],
 		"modules-right": ["network", "disk", "memory", "cpu", "tray", "battery", "pulseaudio"],
 		"clock": {

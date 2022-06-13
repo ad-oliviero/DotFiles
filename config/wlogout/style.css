@@ -6,6 +6,7 @@
 }
 window {
   background-color: #282828;
+	border-radius: 10px;
 }
 button {
   color: #dfbf8e;
