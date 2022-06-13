@@ -2,7 +2,6 @@
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
-export TERM=xterm-256color
 
 # colored man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'

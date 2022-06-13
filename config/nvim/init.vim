@@ -7,10 +7,12 @@ set softtabstop=2 " space as tab size
 " set expandtab " use spaces instead of tabs
 set shiftwidth=2 " auto indent size
 set autoindent " self explanatory
+set smartindent " smart indentation
 set number " line numbers
 set wildmode=longest,list " completions
 filetype plugin indent on " file type based indent style
 set clipboard+=unnamedplus " use system clipboard (works only in gui mode)
+set termguicolors " true color
 set cursorline " line under cursor
 set ttyfast " fast scrolling
 set guicursor=n-c-sm:hor20,i-ci-ve:ver25,r-v-cr-o:block " set cursor shape
@@ -122,4 +124,5 @@ let g:neoformat_latex_enabled = {
 			\ 'valid_exit_codes': [0],
 			\ 'no_append': 1,
 			\ }
+
 

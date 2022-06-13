@@ -49,6 +49,9 @@ window:
 cursor:
   style: beam
 
+env:
+  TERM: xterm-256color
+
 scrolling:
   history: 10000
   multiplier: 5
