@@ -14,7 +14,7 @@ set $ws9 "9"
 set $ws10 "10"
 # Keyboard and mouse
 exec_always numlockx on
-#exec_always setxkbmap it
+exec_always setxkbmap it
 # mouse
 exec_always xinput set-prop 12 304 -0.7
 exec_always xinput set-prop 12 306 0 1
@@ -24,31 +24,28 @@ exec_always xinput set-prop 10 325 1 # natural scrolling
 exec_always xinput set-prop 11 335 1 # tap to click
 exec_always xinput set-prop 11 317 1 # natural scrolling
 exec_always xsetroot -cursor_name left_ptr
-exec_always --no-startup-id ~/.config/scripts/fix_xcursor
 
 # Some daemons, startup programs and the compositor
 # exec_always --no-startup-id dconf reset -f /org/gnome/control-center/
 exec --no-startup-id nm-applet
 exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always feh --bg-fill ~/Downloads/WallpaperDog-17284371.jpg
+exec_always feh --bg-fill ~/Pictures/doom-dark.jpg
 exec_always picom --experimental-backends --backend glx
 exec_always xset s on
 exec_always xset -dpms
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id dunst
 exec_always sudo ~/.config/scripts/anbox-bridge.sh start #anbox internet bridge
 exec_always v4l2-ctl -d /dev/video42 -c timeout=3000
 #exec_always redshift -oP 4400K
 
 # Navigation&System bindings
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym $mod+F5 exec light -U 5
 bindsym $mod+F6 exec xbacklight -A 5
-#bindsym XF86MonBrightnessUp exec notify-send up
-#bindsym XF86MonBrightnessDown exec notify-send down
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
@@ -56,7 +53,6 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
 
 bindsym $mod+Shift+k exec i3-msg exit
-bindsym $mod+Shift+c exec ~/.config/scripts/cache-clean.sh
 bindsym $mod+r restart
 bindsym $mod+Return exec alacritty #i3-sensible-terminal
 #bindsym $mod+d exec rofi -show drun -show-icons -drun-icon-theme
@@ -119,6 +115,17 @@ mode "resize" {
     bindsym Escape mode "default"
     bindsym $mod+r mode "default"
 }
+bar {
+	font pango: JetBrains Mono 14
+	position top
+	status_command i3status
+	colors {
+		background #282828
+		focused_workspace #dfbf8e #8d5050
+		active_workspace #dfbf8e #8d5050
+		inactive_workspace #dfbf8e #5d3535
+	}
+}
 bindsym $mod+Shift+r mode "resize"
 
 # Workspace
@@ -134,17 +141,17 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # Gaps and borders
-for_window [class="^.*"] border pixel 1
-#border_radius 10
-gaps inner 10
-#gaps outer 5
+for_window [class="^.*"] border pixel 2
+# border_radius 10
+# gaps inner 10
+# gaps outer 5
 
 # Colors
-set $bgcolor	#FF9940
-set $ibgcolor	#0A0E14
-set $textcolor	#B3B1AD
-set $itextcolor	#4D556699
-set $ubgcolor	#F51818
+set $bgcolor    #b86767
+set $ibgcolor   #282828
+set $textcolor  #dfbf8e
+set $itextcolor #665c54
+set $ubgcolor   #ea6962
 #			border		background	text		indicator
 client.focused		$bgcolor	$bgcolor	$textcolor	$bgcolor
 client.unfocused	$ibgcolor	$ibgcolor	$itextcolor	$ibgcolor
