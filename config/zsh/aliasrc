@@ -15,7 +15,6 @@ alias \
 	md="mkdir" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x" \
-	vi="vim" \
 	hx="helix" \
 	ccat="highlight --out-format=ansi" \
 	starwars="telnet towel.blinkenlights.nl" \

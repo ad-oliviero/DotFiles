@@ -1,12 +1,12 @@
 # Default programs
-#EDITOR=nvim
-#VISUAL=nvim
-#TERMINAL=alacritty
-#BROWSER=firefox
-#VIDEO=mpv
-#IMAGE=imv
-#OPENER=xdg-open
-#WM=sway
+EDITOR=nvim
+VISUAL=nvim
+TERMINAL=alacritty
+BROWSER=firefox
+VIDEO=mpv
+IMAGE=imv
+OPENER=xdg-open
+WM=sway
 
 # QT variables
 # QT_QPA_PLATFORMTHEME=qt5ct
