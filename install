@@ -56,6 +56,11 @@ for f in $(ls bin); do
 	ln -vs $cwd/bin/$f $HOME/.local/bin
 done
 
+# installing share files
+for f in $(ls share); do
+	ln -vs $cwd/share/$f $HOME/.local/share
+done
+
 # installing other files
 ln -vs $cwd/config/zsh/.zshrc $HOME
 mkdir -pv $HOME/.mozilla/firefox/config/fontconfig
