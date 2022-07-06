@@ -25,7 +25,7 @@ _JAVA_AWT_WM_NONREPARENTING=1
 # PATH
 # JAVA_HOME=/usr/lib/jvm/java-18-openjdk
 # PICO_SDK_PATH=/opt/pico-sdk
-# PATH=$PATH:~/.local/bin:$JAVA_HOME/bin:$HOME/.local/bin
+PATH=$PATH:~/.local/bin:$JAVA_HOME/bin:$HOME/.local/bin
 
 # firefox
 #MOZ_ENABLE_WAYLAND=1

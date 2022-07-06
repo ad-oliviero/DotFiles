@@ -36,6 +36,15 @@ if [ -d $HOME/.local/bin ]; then
 	done
 fi
 
+# backing up local/share files
+if [ -d $HOME/.local/share ]; then
+	local_files=$(ls share)
+	for f in $(ls $HOME/.local/share); do
+		df=$(echo "$local_files" | grep -e "^$f$")
+		[ -z "$df" ] || mv $HOME/.local/share/$df $HOME/config_backup
+	done
+fi
+
 # backing up other files
 mv $HOME/.zshrc $HOME/config_backup
 # mv $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf $HOME/config_backup
