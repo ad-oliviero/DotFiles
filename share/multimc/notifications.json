@@ -1,0 +1,16 @@
+[
+	{
+		"id": 0,
+		"message": "The current development build of MultiMC contains a new experimental system for modded instances that might not work in the current stable version of MultiMC. This means that instances you create in this development build might not work if you switch back to stable (until 0.3.0). If you don't want this, please switch back to stable now.",
+		"channel": "develop",
+		"type": "warning",
+		"from": "0.2.0",
+		"to": "0.3.0"
+	},
+	{
+		"id": 1,
+		"message": "The QuickMod system is still in the very early stages of development. If you're using these early QuickMod builds, be prepared for lots and lots of crashes! Also note that the QuickMod file format has not been finalized yet, and will likely be changing a lot in the future. Please report bugs on GitHub issues and IRC.",
+		"channel": "quickmod",
+		"type": "warning"
+	}
+]

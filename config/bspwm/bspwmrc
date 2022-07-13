@@ -1,6 +1,7 @@
 #!/bin/sh
 
 export WINIT_X11_SCALE_FACTOR=1 # for alacritty on the laptop
+[ "$WAYLAND_DISPLAY" = "wayland-1" ] && export DISPLAY=:12 # Xwayland -retro -noreset :12
 pkill -USR1 -x sxhkd || sxhkd &
 feh --bg-fill ~/Pictures/doom-dark.jpg
 ~/.config/polybar/launch.sh

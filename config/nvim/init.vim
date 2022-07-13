@@ -18,6 +18,8 @@ set ttyfast " fast scrolling
 set guicursor=n-c-sm:hor20,i-ci-ve:ver25,r-v-cr-o:block " set cursor shape
 syntax on " syntax highlighting
 set tags+=$HOME/Dev/tags
+setlocal spell
+set spelllang=it,en_us
 
 " highlight trailing whitespace
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
@@ -33,6 +35,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'github/copilot.vim'
 Plug 'luukvbaal/nnn.nvim'
 Plug 'preservim/nerdcommenter'
+Plug 'lervag/vimtex'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
 colorscheme gruvbox
@@ -42,6 +47,16 @@ lua << EOF
 require("nnn").setup()
 EOF
 noremap <F2> :NnnExplorer<CR>
+
+" vimtex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+augroup vimtex_config
+	autocmd User VimtexEventInitPost VimtexCompile
+augroup END
 
 " some auto things
 autocmd InsertEnter * norm zz

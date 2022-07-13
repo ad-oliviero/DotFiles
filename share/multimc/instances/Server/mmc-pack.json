@@ -15,17 +15,6 @@
             "version": "1.19"
         },
         {
-            "cachedName": "Fabric Loader",
-            "cachedRequires": [
-                {
-                    "uid": "net.fabricmc.intermediary"
-                }
-            ],
-            "cachedVersion": "0.14.8",
-            "uid": "net.fabricmc.fabric-loader",
-            "version": "0.14.8"
-        },
-        {
             "cachedName": "Intermediary Mappings",
             "cachedRequires": [
                 {
@@ -46,6 +35,17 @@
             "dependencyOnly": true,
             "uid": "org.lwjgl3",
             "version": "3.3.1"
+        },
+        {
+            "cachedName": "Fabric Loader",
+            "cachedRequires": [
+                {
+                    "uid": "net.fabricmc.intermediary"
+                }
+            ],
+            "cachedVersion": "0.14.8",
+            "uid": "net.fabricmc.fabric-loader",
+            "version": "0.14.8"
         }
     ],
     "formatVersion": 1

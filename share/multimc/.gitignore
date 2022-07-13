@@ -6,3 +6,5 @@ meta
 metacache
 *.log
 translations
+assets
+libraries
