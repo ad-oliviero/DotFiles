@@ -42,7 +42,7 @@ bar {
 # https://imgur.com/r1NUi8l
 # https://i.redd.it/er2o4aonrcw11.jpg
 
-set $bg_img "~/Pictures/doom-dark.jpg"
+set $bg_img "~/Pictures/webb.jpg"
 output HDMI-A-1 pos 0 0 res 1920x1080 bg $bg_img fill #FAFAFA
 output eDP-1 pos 0 0 res 1920x1080 bg $bg_img fill #FAFAFA
 
