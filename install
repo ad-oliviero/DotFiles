@@ -78,6 +78,6 @@ ln -vs $cwd/other/fffonts.conf $HOME/.mozilla/firefox/config/fontconfig/fonts.co
 
 printf "Installed correctly!\n"
 printf "You should also
-\tsudo mv -t $HOME/config_backup /etc/{tlp.conf,environment}; sudo ln -s $cwd/etc/tlp.conf /etc; sudo ln -s $cwd/etc/environment /etc; sudo ln -s $cwd/etc/envars.sh /etc/profile.d\n"
+\tsudo mv -t $HOME/config_backup /etc/{tlp.conf,environment}; sudo ln -s $cwd/etc/tlp.conf /etc; sudo ln -s $cwd/etc/environment /etc; sudo ln -s $cwd/etc/libinput.conf /etc; sudo ln -s $cwd/etc/envars.sh /etc/profile.d\n"
 printf "And wget \"https://cdn.wallpapersafari.com/45/94/AyVLsg.jpg\" $HOME/Pictures/doom-dark.jpg\n"
 # ln -s $cwd/config/alacritty/alacritty.gruvbox.dark $configdir/alacritty/alacritty.yml
