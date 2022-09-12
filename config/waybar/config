@@ -2,12 +2,11 @@
 	"layer": "top",
 		"position": "top",
 		"height": 40,
-		"modules-left": ["sway/workspaces", "sway/window", "zext-workspaces"],
+		"modules-left": ["wlr/workspaces", "hyprland/window"],
 		"modules-center": ["clock"],
 		"modules-right": ["network", "disk", "memory", "cpu", "tray", "battery", "pulseaudio"],
 		"clock": {
 			"interval": 1,
-			"tooltip-format": "<big>{:%d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
 			"format": "{:%d %B %H:%M:%S}"
 		},
 		"cpu": {
@@ -58,6 +57,10 @@
 			"max-length": 25
 		},
 		"sway/workspaces": {
+			"format": "{name}",
+			"disable-scroll-wraparound": true
+		},
+		"wlr/workspaces": {
 			"format": "{name}",
 			"disable-scroll-wraparound": true
 		}
