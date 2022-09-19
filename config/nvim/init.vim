@@ -33,20 +33,18 @@ Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install'}
 Plug 'sbdchd/neoformat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'github/copilot.vim'
-Plug 'luukvbaal/nnn.nvim'
+Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 call plug#end()
 
+if exists('+termguicolors')
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
 colorscheme gruvbox
-
-" file manager
-lua << EOF
-require("nnn").setup()
-EOF
-noremap <F2> :NnnExplorer<CR>
 
 " vimtex
 let g:tex_flavor='latex'
@@ -63,6 +61,8 @@ autocmd InsertEnter * norm zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 autocmd VimLeave * set guicursor=a:ver25 " reset cursor after leaving
+
+nnoremap <F2> :NERDTreeToggle<CR>
 
 " move line or visually selected block - alt+j/k
 noremap <A-j> <Esc>:m .+1<CR>==
@@ -140,5 +140,22 @@ let g:neoformat_latex_enabled = {
 			\ 'valid_exit_codes': [0],
 			\ 'no_append': 1,
 			\ }
+
+" coc settings
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+nmap <leader>do <Plug>(coc-codeaction)
+nmap <leader>rn <Plug>(coc-rename)
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 command -nargs=0 W :w !sudo tee >/dev/null %
