@@ -8,6 +8,7 @@ _JAVA_AWT_WM_NONREPARENTING=1
 
 # PATH
 JAVA_HOME=/usr/lib/jvm/java-18-openjdk
+ANDROID_HOME=~/Android/Sdk
 PICO_SDK_PATH=/opt/pico-sdk
 #PATH=$PATH:~/.local/bin:$JAVA_HOME/bin:$HOME/.local/bin
 

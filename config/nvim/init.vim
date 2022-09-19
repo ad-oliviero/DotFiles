@@ -26,7 +26,7 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-" Plugins
+" Plugins via plug
 call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install'}
@@ -40,12 +40,30 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 call plug#end()
 
-colorscheme gruvbox
-
-" file manager
+" Plugins via packer
 lua << EOF
+-- package manager
+require('packer').startup(function(use)
+	use 'wbthomason/packer.nvim'
+	use {
+		"anuvyklack/windows.nvim",
+		requires = {
+			"anuvyklack/middleclass",
+			"anuvyklack/animation.nvim"
+		},
+		config = function()
+			vim.o.winwidth = 10
+			vim.o.winminwidth = 10
+			vim.o.equalalways = false
+			require('windows').setup()
+		end
+	}
+end)
+
+-- file manager
 require("nnn").setup()
 EOF
+colorscheme gruvbox
 noremap <F2> :NnnExplorer<CR>
 
 " vimtex
