@@ -28,3 +28,11 @@ mc() {
 	mkdir $1
 	cd $1
 }
+
+reenv() {
+	content=$(grep -v '#' /etc/environment)
+		for l in $content
+		do
+			export $l
+		done
+}

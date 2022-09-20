@@ -9,6 +9,9 @@ _JAVA_AWT_WM_NONREPARENTING=1
 # PATH
 JAVA_HOME=/usr/lib/jvm/java-18-openjdk
 ANDROID_HOME=~/Android/Sdk
+ANDROID_SDK_ROOT=$ANDROID_HOME
+ANDROID_TOOLCHAIN=~/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/linux-x86_64/bin
+NDK_HOME=$ANDROID_HOME/ndk/25.1.8937393
 PICO_SDK_PATH=/opt/pico-sdk
 #PATH=$PATH:~/.local/bin:$JAVA_HOME/bin:$HOME/.local/bin
 
