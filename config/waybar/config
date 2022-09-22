@@ -7,7 +7,7 @@
 		"modules-right": ["network", "disk", "memory", "cpu", "tray", "battery", "pulseaudio"],
 		"clock": {
 			"interval": 1,
-			"format": "{:%d %B %H:%M:%S}"
+			"format": "{:%d %b %H:%M:%S}"
 		},
 		"cpu": {
 			"format": "{usage}% ",
@@ -15,12 +15,12 @@
 		},
 		"disk": {
 			"interval": 30,
+			"path": "/home",
 			"format": "{free} ",
-			"on-click": "alacritty sh -c 'duf && sleep 100'"
 		},
 		"memory": {
 			"interval": 5,
-			"format": "{used:0.2f}GB/{total:0.2f}GB ",
+			"format": "{used:0.2f}GB ",
 			"tooltip-format": "available {avail:0.2f}GB",
 			"on-click": "~/.config/scripts/cache-clean.sh"
 		},
