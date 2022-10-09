@@ -13,6 +13,7 @@ alias \
 	rm="rm -v" \
 	mkdir="mkdir -pv" \
 	md="mkdir" \
+	r2s="export ROS_DOMAIN_ID=42; source /opt/ros/humble/setup.zsh" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x" \
 	hx="helix" \

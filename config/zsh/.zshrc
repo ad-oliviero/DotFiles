@@ -78,7 +78,4 @@ source ~/.config/zsh/aliasrc
 source ~/.config/zsh/keybindings.zsh
 source ~/.config/zsh/utils.zsh
 
-export ROS_DOMAIN_ID=42
-source /opt/ros/humble/setup.zsh
-
 uwufetch -r
