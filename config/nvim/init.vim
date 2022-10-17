@@ -1,25 +1,31 @@
-set nocompatible " disable vi compatibility
-" configuration inspired by https://medium.com/geekculture/neovim-configuration-for-beginners-b2116dbbde84
-set mouse=a " mouse click
-set hlsearch " highlight search
-set tabstop=2 " tab size
-set softtabstop=2 " space as tab size
-" set expandtab " use spaces instead of tabs
-set shiftwidth=2 " auto indent size
 set autoindent " self explanatory
-set smartindent " smart indentation
-set number " line numbers
-set wildmode=longest,list " completions
-filetype plugin indent on " file type based indent style
-set clipboard+=unnamedplus " use system clipboard (works only in gui mode)
-set termguicolors " true color
+set clipboard=unnamedplus " use system clipboard (works only in gui mode)
+set copyindent " copy the previous indentation
 set cursorline " line under cursor
-set ttyfast " fast scrolling
+set fileencoding=utf-8
 set guicursor=n-c-sm:hor20,i-ci-ve:ver25,r-v-cr-o:block " set cursor shape
-syntax on " syntax highlighting
-set tags+=$HOME/Dev/tags
-setlocal spell
+set hlsearch " highlight search
+set ignorecase
+set lazyredraw
+set mouse=a " mouse click
+set number " line numbers
+set noswapfile
+set nowrap
+set nowritebackup
+set preserveindent
+set pumheight=10
+set shiftwidth=2 " auto indent size
+set showtabline=2 " always show tab line
+set smartindent " smart indentation
 set spelllang=it,en_us
+set tabstop=2 " tab size
+set termguicolors " true color
+set tags+=$HOME/Dev/tags
+set undofile
+set wildmode=longest,list " completions
+syntax on " syntax highlighting
+setlocal spell
+filetype plugin indent on " file type based indent style
 
 " highlight trailing whitespace
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
@@ -45,7 +51,6 @@ if exists('+termguicolors')
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-colorscheme gruvbox
 
 " vimtex
 let g:tex_flavor='latex'
