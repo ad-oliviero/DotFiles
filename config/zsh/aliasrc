@@ -9,6 +9,7 @@ alias \
 	l="ll -a" \
 	la="ls -a" \
 	cp="cp -iv" \
+	rs="rsync -av --progress --stats" \
 	mv="mv -iv" \
 	rm="rm -v" \
 	mkdir="mkdir -pv" \
