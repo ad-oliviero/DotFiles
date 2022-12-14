@@ -1,7 +1,6 @@
 configuration {
 	font: "JetBrains Mono 15";
 	show-icons: true;
-	icon-theme: "~/.local/share/icons/Gruvbox-Material-Dark";
 	drun-display-format: "{name}";
 	disable-history: false;
 	sidebar-mode: false;
@@ -11,4 +10,3 @@ configuration {
 	scroll-method: 1;
 	display-drun: "";
 }
-@theme "~/.config/rofi/themes/custom"
