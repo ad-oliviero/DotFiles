@@ -33,6 +33,10 @@ abbr gc="git clone"
 abbr gp="git pull"
 abbr gcp="git add . && git commit && git push"
 abbr gcm="git checkout main"
+abbr ai="sudo apt install -y"
+abbr as="apt search"
+abbr arm="sudo apt remove -y"
+abbr au="sudo apt update -y && sudo apt upgrade -y"
 
 # error correction
 abbr ysy="yay"

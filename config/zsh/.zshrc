@@ -1,7 +1,7 @@
 # env variables
 source /etc/environment
-source ~/.config/DotFiles/etc/envars.sh
-source ~/.cargo/env
+source $HOME/.config/DotFiles/etc/envars.sh
+source $HOME/.cargo/env
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
@@ -41,7 +41,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completition:*' rehash true
 zstyle ':completition:*' accept-exact '*(N)'
 #zstyle ':completition:*' use-cache on
-#zstyle ':completition:*' cache-path ~/.cache/zsh_cache
+#zstyle ':completition:*' cache-path $HOME/.cache/zsh_cache
 #zstyle ':completion:*' format 'Completing %d'
 #zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s%p
 
@@ -56,18 +56,18 @@ zstyle ':completition:*' accept-exact '*(N)'
 #zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
 
 # Plugins
-source ~/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
-source ~/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh >/dev/null
-source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.config/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
+source $HOME/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh >/dev/null
+source $HOME/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #fpath+=$HOME/.config/zsh/themes/pure
 #fpath+=$HOME/.config/zsh/themes/purer
 #autoload -Uz promptinit
 #promptinit
 #prompt pure
-#source ~/.config/zsh/themes/spaceship-prompt/spaceship.zsh-theme
-#source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
-#source ~/.p10k.zsh
+#source $HOME/.config/zsh/themes/spaceship-prompt/spaceship.zsh-theme
+#source $HOME/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
+#source $HOME/.p10k.zsh
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
@@ -77,8 +77,8 @@ eval "$(zoxide init zsh)"
 #PURE_PROMPT_SYMBOL=➜
 
 # loading sources
-source ~/.config/zsh/aliasrc
-source ~/.config/zsh/keybindings.zsh
-source ~/.config/zsh/utils.zsh
+source $HOME/.config/zsh/aliasrc
+source $HOME/.config/zsh/keybindings.zsh
+source $HOME/.config/zsh/utils.zsh
 
 uwufetch -r

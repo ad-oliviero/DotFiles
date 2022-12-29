@@ -61,6 +61,7 @@ for f in $(ls config); do
 done
 
 # installing bin files
+[ -d "$HOME/.local/bin" ] || mkdir -p "$HOME/.local/bin"
 for f in $(ls bin); do
 	ln -vs $cwd/bin/$f $HOME/.local/bin
 done
