@@ -1,6 +1,6 @@
 # env variables
 source /etc/environment
-source /etc/profile.d/envars.sh
+source ~/.config/DotFiles/etc/envars.sh
 source ~/.cargo/env
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
