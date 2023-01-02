@@ -1,3 +1,85 @@
+----- NeoVim Settings -----
+    --- Indentation ---
+vim.opt.autoindent = true
+vim.opt.copyindent = true
+vim.opt.preserveindent = true
+vim.opt.smartindent = true
+vim.opt.shiftwidth = 2
+--- System Integration ---
+vim.cmd[[set gcr=n-c-sm:hor20,i-ci-ve:ver25,r-v-cr-o:block]] -- cursor shape
+vim.opt.mouse = 'a'
+vim.opt.clipboard = 'unnamedplus'
+      --- History ---
+vim.opt.swapfile = false
+vim.opt.writebackup = false
+vim.opt.undofile = true
+vim.opt.fileencoding = 'utf-8'
+      --- Visuals ---
+vim.opt.number = true
+vim.opt.cursorline = true
+vim.opt.lazyredraw = true
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.pumheight=10
+vim.opt.showtabline = 2
+vim.opt.tabstop = 2
+vim.opt.wrap = false
+vim.opt.termguicolors = true
+vim.opt.syntax = 'on'
+vim.opt.lcs = 'tab:——,space:·,extends:◣,precedes:◢'
+vim.opt.list = true
+    --- Completion ---
+vim.opt.spl = 'it,en_us'
+vim.opt.spell = true
+vim.cmd[[set tags+=$HOME/Dev/tags]]
+vim.opt.cot = 'menu,menuone,noselect'
+vim.opt.wim = 'longest,list'
+
+----- Plugin Settings -----
+  --- Loading Plugins ---
+local ensure_packer = function() -- https://github.com/wbthomason/packer.nvim#bootstrapping @Iron-E and @khuedoan
+	local fn = vim.fn
+	local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+		vim.cmd[[packadd packer.nvim]]
+		return true
+	end
+	return false
+end
+local packer_bootstrap = ensure_packer()
+require('packer').startup(function(use)
+	use 'wbthomason/packer.nvim'
+	use 'morhetz/gruvbox'
+	use 'jiangmiao/auto-pairs'
+	use 'preservim/nerdtree'
+	use 'preservim/nerdcommenter'
+	use 'lervag/vimtex'
+	use 'tpope/vim-surround'
+	use 'vim-airline/vim-airline'
+	use 'neovim/nvim-lspconfig'
+	use 'lukas-reineke/lsp-format.nvim'
+	use 'hrsh7th/nvim-cmp'
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
+	use 'hrsh7th/cmp-vsnip'
+	use 'hrsh7th/vim-vsnip'
+	if packer_bootstrap then
+		require('packer').sync()
+	end
+end)
+vim.cmd[[colo gruvbox]]
+
+----- Plugin Settings -----
+    --- LaTex/VimTex ---
+vim.g.tex_flavor = 'latex'
+vim.g.vimtex_view_method = 'zathura'
+vim.g.vimtex_quickfix_mode = 0
+vim.g.tex_conceal = 'abdmg'
+vim.opt.conceallevel = 1
+
 local lspconfig = require('lspconfig')
 local lspformat = require('lsp-format')
 local capabilities = require("cmp_nvim_lsp").default_capabilities()

@@ -1,47 +1,6 @@
-" --- NeoVim Settings ---
-set ai ci pi si sw=2															" autoindend copying the previous indentation
-set gcr=n-c-sm:hor20,i-ci-ve:ver25,r-v-cr-o:block	" set cursor shape
-set mouse=a clipboard=unnamedplus									" mouse click and system clipboard
-set nu cul lz hls ic															" line numbers, line under cursor, fast rendering, search settings
-set noswf nowb udf fenc=utf-8											" history settings
-set ph=10 stal=2 ts=2 nowrap tgc									" max items count in pop up menu, always show tab name, other visualization settings
-set spl=it,en_us spell														" spelling
-set tags+=$HOME/Dev/tags													" auto complete from my own code
-set cot=menu,menuone,noselect wim=longest,list		" completions
-set list lcs=tab:——,space:·,extends:◣,precedes:◢	" show invisible characters
-syntax on																					" syntax highlighting
-filetype plugin indent on													" file type based indent style
-
 " --- Plugins ---
-call plug#begin()
-Plug 'morhetz/gruvbox'
-Plug 'jiangmiao/auto-pairs'
-Plug 'preservim/nerdtree'
-Plug 'preservim/nerdcommenter'
-Plug 'lervag/vimtex'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'neovim/nvim-lspconfig'
-Plug 'lukas-reineke/lsp-format.nvim'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
-call plug#end()
-
 lua require('config')
-colo gruvbox
 
-" latex/vimtex
-let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
 aug vimtex_config
 	au User VimtexEventInitPost VimtexCompile
 aug END
