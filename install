@@ -1,6 +1,7 @@
-printf "\033[1;33mWARNING: THIS IS GOING TO MOVE MOST OF YOUR CONFIG FILES TO A BACKUP DIRECTORY: $HOME/config_backup\033[1;0m\n"
+#!/bin/bash
+printf "\033[1;33mWARNING: THIS IS GOING TO MOVE MOST OF YOUR CONFIG FILES TO A BACKUP DIRECTORY: %s/config_backup\033[1;0m\n" "$HOME"
 printf "Are you sure that you want to continue? (y/N): "
-read choice
+read -r choice
 [ "$choice" == "n" ] || [ -z "$choice" ] && printf "Ok, you will install manually\n" && exit
 printf "Installing...\n"
 
@@ -9,76 +10,76 @@ configdir="$XDG_CONFIG_HOME"
 [ -z "$configdir" ] && configdir="$HOME/.config"
 [ -d "$configdir" ] || mkdir -p "$configdir"
 
-[ -d $HOME/config_backup ] || mkdir -pv $HOME/config_backup
+[ -d "$HOME/config_backup" ] || mkdir -pv "$HOME/config_backup"
 
 # backing up home files
-local_files=$(ls -a home | sed "s/\.\.//g" | sed "s/^\.$//g")
-for f in $(ls -a $HOME | sed "s/\.\.//g" | sed "s/^\.$//g"); do
+local_files=$(find home -maxdepth 1 -printf "%f\n" | tail -n+2)
+for f in $(find "$HOME" -maxdepth 1 -printf "%f\n" | tail -n+2); do
 	df=$(echo "$local_files" | grep -e "^$f$")
-	[ -z "$df" ] || mv $HOME/$df $HOME/config_backup
+	[ -z "$df" ] || mv "$HOME/$df" "$HOME/config_backup"
 done
 
 # backing up config files
-if [ -d $HOME/.config ]; then
-	local_files=$(ls config)
-	for f in $(ls $HOME/.config); do
+if [ -d "$HOME/.config" ]; then
+	local_files=$(find config -maxdepth 1 -printf "%f\n" | tail -n+2)
+	for f in $(find "$HOME/.config" -maxdepth 1 -printf "%f\n" | tail -n+2); do
 		df=$(echo "$local_files" | grep -e "^$f$")
-		[ -z "$df" ] || mv $HOME/.config/$df $HOME/config_backup
+		[ -z "$df" ] || mv "$HOME/.config/$df" "$HOME/config_backup"
 	done
 fi
 
 # backing up local/bin files
-if [ -d $HOME/.local/bin ]; then
-	local_files=$(ls bin)
-	for f in $(ls $HOME/.local/bin); do
+if [ -d "$HOME/.local/bin" ]; then
+	local_files=$(find "bin" -maxdepth 1 -printf "%f\n" | tail -n+2)
+	for f in $(find "$HOME/.local/bin" -maxdepth 1 -printf "%f\n" | tail -n+2); do
 		df=$(echo "$local_files" | grep -e "^$f$")
-		[ -z "$df" ] || mv $HOME/.local/bin/$df $HOME/config_backup
+		[ -z "$df" ] || mv "$HOME/.local/bin/$df" "$HOME/config_backup"
 	done
 fi
 
 # backing up local/share files
-if [ -d $HOME/.local/share ]; then
+if [ -d "$HOME/.local/share" ]; then
 	local_files=$(ls share)
-	for f in $(ls $HOME/.local/share); do
+	for f in $(find "$HOME/.local/bin" -maxdepth 1 -printf "%f\n" | tail -n+2); do
 		df=$(echo "$local_files" | grep -e "^$f$")
-		[ -z "$df" ] || mv $HOME/.local/share/$df $HOME/config_backup
+		[ -z "$df" ] || mv "$HOME/.local/share/$df" "$HOME/config_backup"
 	done
 fi
 
 # backing up other files
-mv $HOME/.zshrc $HOME/config_backup
+mv "$HOME/.zshrc" "$HOME/config_backup"
 # mv $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf $HOME/config_backup
-mv $HOME/.mozilla/firefox/config/fontconfig/fonts.conf $HOME/config_backup
+mv "$HOME/.mozilla/firefox/config/fontconfig/fonts.conf" "$HOME/config_backup"
 
 # installing home files
-for f in $(ls -a home | sed "s/\.\.//g" | sed "s/^\.$//g"); do
-	ln -vs $cwd/home/$f $HOME
+for f in $(find "$HOME" -maxdepth 1 -printf "%f\n" | tail -n+2); do
+	ln -vs "$cwd/home/$f" "$HOME"
 done
 
 # installing config files
-for f in $(ls config); do
-	ln -vs $cwd/config/$f $HOME/.config
+for f in $(find config -maxdepth 1 -printf "%f\n" | tail -n+2); do
+	ln -vs "$cwd/config/$f" "$HOME/.config"
 done
 
 # installing bin files
 [ -d "$HOME/.local/bin" ] || mkdir -p "$HOME/.local/bin"
-for f in $(ls bin); do
-	ln -vs $cwd/bin/$f $HOME/.local/bin
+for f in $(find bin -maxdepth 1 -printf "%f\n" | tail -n+2); do
+	ln -vs "$cwd/bin/$f" "$HOME/.local/bin"
 done
 
 # installing share files
-for f in $(ls share); do
-	ln -vs $cwd/share/$f $HOME/.local/share
+for f in $(find share -maxdepth 1 -printf "%f\n" | tail -n+2); do
+	ln -vs "$cwd/share/$f" "$HOME/.local/share"
 done
 
 # installing other files
-ln -vs $cwd/config/zsh/.zshrc $HOME
-mkdir -pv $HOME/.mozilla/firefox/config/fontconfig
-ln -vs $cwd/other/fffonts.conf $HOME/.mozilla/firefox/config/fontconfig/fonts.conf
-#$HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
+ln -vs "$cwd/config/zsh/.zshrc" "$HOME"
+mkdir -pv "$HOME/.mozilla/firefox/config/fontconfig"
+# ln -vs "$cwd/other/fffonts.conf" "$HOME/.mozilla/firefox/config/fontconfig/fonts.conf"
+# $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
 
 printf "Installed correctly!\n"
-printf "You should also
-\tsudo mv -t $HOME/config_backup /etc/{tlp.conf,environment}; sudo ln -s $cwd/etc/tlp.conf /etc; sudo ln -s $cwd/etc/environment /etc; sudo ln -s $cwd/etc/libinput.conf /etc; sudo ln -s $cwd/etc/envars.sh /etc/profile.d\n"
-printf "And wget \"https://cdn.wallpapersafari.com/45/94/AyVLsg.jpg\" $HOME/Pictures/doom-dark.jpg\n"
+# printf "You should also
+# \tsudo mv -t $HOME/config_backup /etc/{tlp.conf,environment}; sudo ln -s $cwd/etc/tlp.conf /etc; sudo ln -s $cwd/etc/environment /etc; sudo ln -s $cwd/etc/libinput.conf /etc; sudo ln -s $cwd/etc/envars.sh /etc/profile.d\n"
+# printf "And wget \"https://cdn.wallpapersafari.com/45/94/AyVLsg.jpg\" $HOME/Pictures/doom-dark.jpg\n"
 # ln -s $cwd/config/alacritty/alacritty.gruvbox.dark $configdir/alacritty/alacritty.yml

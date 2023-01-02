@@ -63,7 +63,6 @@ au VimLeave * set guicursor=a:ver25
 au ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-
 au BufEnter * set noro
 let g:password = ""
 function! s:sudowrite() abort
@@ -103,6 +102,8 @@ inoremap <A-i> <ESC>:Format<CR>
 nnoremap <A-i> <ESC>:Format<CR>
 inoremap <C-d> <ESC>viw<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <C-q> :tabn<CR>
+nnoremap <C-S-q> :tabp<CR>
 " move line or visually selected block - alt+j/k
 noremap <A-j> :m .+1<CR>==
 noremap <A-k> :m .-2<CR>==
