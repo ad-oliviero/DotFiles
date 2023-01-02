@@ -6,76 +6,30 @@ read -r choice
 printf "Installing...\n"
 
 cwd=$(pwd)
-configdir="$XDG_CONFIG_HOME"
-[ -z "$configdir" ] && configdir="$HOME/.config"
-[ -d "$configdir" ] || mkdir -p "$configdir"
+configdir=".config"
+[ -d "$HOME/$configdir" ] || mkdir -p "$HOME/$configdir" >/dev/null
+[ -d "$HOME/config_backup" ] || mkdir -pv "$HOME/config_backup" >/dev/null
 
-[ -d "$HOME/config_backup" ] || mkdir -pv "$HOME/config_backup"
+local_dirs=("home" "config" "bin" "share")
+system_dirs=("" "$configdir" ".local/bin" ".local/share")
 
-# backing up home files
-local_files=$(find home -maxdepth 1 -printf "%f\n" | tail -n+2)
-for f in $(find "$HOME" -maxdepth 1 -printf "%f\n" | tail -n+2); do
-	df=$(echo "$local_files" | grep -e "^$f$")
-	[ -z "$df" ] || mv "$HOME/$df" "$HOME/config_backup"
+for i in {0..3}; do
+	local_files=$(find "${local_dirs[$i]}" -maxdepth 1 -printf "%f\n" | tail -n+2)
+	system_files=$(find "$HOME/${system_dirs[$i]}" -maxdepth 1 -printf "%f\n" | tail -n+2)
+	for f in $local_files; do
+		df=$(echo "$system_files" | grep -e "^$f$")
+		[ -z "$df" ] || mv "$HOME/${system_dirs[$i]}/$df" "$HOME/config_backup"
+		ln -vs "$cwd/${local_dirs[$i]}/$f" "$HOME/${system_dirs[$i]}"
+	done
 done
-
-# backing up config files
-if [ -d "$HOME/.config" ]; then
-	local_files=$(find config -maxdepth 1 -printf "%f\n" | tail -n+2)
-	for f in $(find "$HOME/.config" -maxdepth 1 -printf "%f\n" | tail -n+2); do
-		df=$(echo "$local_files" | grep -e "^$f$")
-		[ -z "$df" ] || mv "$HOME/.config/$df" "$HOME/config_backup"
-	done
-fi
-
-# backing up local/bin files
-if [ -d "$HOME/.local/bin" ]; then
-	local_files=$(find "bin" -maxdepth 1 -printf "%f\n" | tail -n+2)
-	for f in $(find "$HOME/.local/bin" -maxdepth 1 -printf "%f\n" | tail -n+2); do
-		df=$(echo "$local_files" | grep -e "^$f$")
-		[ -z "$df" ] || mv "$HOME/.local/bin/$df" "$HOME/config_backup"
-	done
-fi
-
-# backing up local/share files
-if [ -d "$HOME/.local/share" ]; then
-	local_files=$(ls share)
-	for f in $(find "$HOME/.local/bin" -maxdepth 1 -printf "%f\n" | tail -n+2); do
-		df=$(echo "$local_files" | grep -e "^$f$")
-		[ -z "$df" ] || mv "$HOME/.local/share/$df" "$HOME/config_backup"
-	done
-fi
 
 # backing up other files
 mv "$HOME/.zshrc" "$HOME/config_backup"
-# mv $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf $HOME/config_backup
-mv "$HOME/.mozilla/firefox/config/fontconfig/fonts.conf" "$HOME/config_backup"
-
-# installing home files
-for f in $(find "$HOME" -maxdepth 1 -printf "%f\n" | tail -n+2); do
-	ln -vs "$cwd/home/$f" "$HOME"
-done
-
-# installing config files
-for f in $(find config -maxdepth 1 -printf "%f\n" | tail -n+2); do
-	ln -vs "$cwd/config/$f" "$HOME/.config"
-done
-
-# installing bin files
-[ -d "$HOME/.local/bin" ] || mkdir -p "$HOME/.local/bin"
-for f in $(find bin -maxdepth 1 -printf "%f\n" | tail -n+2); do
-	ln -vs "$cwd/bin/$f" "$HOME/.local/bin"
-done
-
-# installing share files
-for f in $(find share -maxdepth 1 -printf "%f\n" | tail -n+2); do
-	ln -vs "$cwd/share/$f" "$HOME/.local/share"
-done
-
-# installing other files
 ln -vs "$cwd/config/zsh/.zshrc" "$HOME"
-mkdir -pv "$HOME/.mozilla/firefox/config/fontconfig"
+# mkdir -p "$HOME/.mozilla/firefox/config/fontconfig"
+# mv $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf $HOME/config_backup
 # ln -vs "$cwd/other/fffonts.conf" "$HOME/.mozilla/firefox/config/fontconfig/fonts.conf"
+# mv "$HOME/.mozilla/firefox/config/fontconfig/fonts.conf" "$HOME/config_backup"
 # $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf
 
 printf "Installed correctly!\n"
