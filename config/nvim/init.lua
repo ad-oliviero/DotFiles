@@ -6,7 +6,7 @@ vim.opt.preserveindent = true
 vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
 --- System Integration ---
-vim.cmd[[set gcr=n-c-sm:hor20,i-ci-ve:ver25,r-v-cr-o:block]] -- cursor shape
+vim.opt.guicursor = 'n-c-sm:hor20,i-ci-ve:ver25,r-v-cr-o:block'
 vim.opt.mouse = 'a'
 vim.opt.clipboard = 'unnamedplus'
       --- History ---
@@ -26,14 +26,58 @@ vim.opt.tabstop = 2
 vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.opt.syntax = 'on'
-vim.opt.lcs = 'tab:——,space:·,extends:◣,precedes:◢'
+vim.opt.lcs = {tab = '——', space = '·', extends = '◣', precedes = '◢'}
 vim.opt.list = true
     --- Completion ---
-vim.opt.spl = 'it,en_us'
+vim.opt.spl = {'it', 'en_us'}
 vim.opt.spell = true
 vim.cmd[[set tags+=$HOME/Dev/tags]]
 vim.opt.cot = 'menu,menuone,noselect'
 vim.opt.wim = 'longest,list'
+    --- Automation ---
+vim.api.nvim_create_autocmd("InsertEnter", {callback = function() vim.cmd[[norm zz]] end})
+vim.api.nvim_create_autocmd("VimLeave", {callback = function() vim.opt.guicursor = 'a:ver25' end})
+vim.api.nvim_create_autocmd("BufEnter", {callback = function() vim.opt.readonly = false end})
+local highlight_sp_cmd = {'ExtraWhitespace', 'ctermbg=red', 'guibg=red'}
+vim.api.nvim_create_autocmd("Colorscheme", {callback = function() vim.cmd.highlight(highlight_sp_cmd) end})
+vim.cmd.highlight(highlight_sp_cmd)
+vim.cmd[[match ExtraWhitespace /\s\+$/]]
+if vim.fn.has('autocmd') then
+	vim.api.nvim_create_autocmd("BufReadPost", {callback = function() vim.cmd[[exe "normal! g'\""]] end})
+end
+  --- Custom Shortcuts ---
+vim.keymap.set('n', 'n', 'nzzzv') -- center searched word on screen
+vim.keymap.set('n', 'N', 'Nzzzv')
+vim.keymap.set('n', '<F2>', ':NERDTreeToggle')
+vim.keymap.set({'n', 'i'}, '<A-i>', '<ESC>:Format<CR>')
+vim.keymap.set({'n', 'i'}, '<C-d>', '<ESC>viw') -- select word with ctrl+d
+vim.keymap.set('n', '<leader>sv', ':source $MYVIMRC<CR>') -- reload configuration
+vim.keymap.set('n', '<C-q>', ':tabn<CR>') -- switch tabs
+vim.keymap.set('n', '<C-S-q>', ':tabp<CR>')
+vim.keymap.set('n', '<A-j', ':m .+1<CR>==') -- move line
+vim.keymap.set('n', '<A-k', ':m .-2<CR>==')
+vim.keymap.set('n', '<A-down', ':m .+1<CR>==')
+vim.keymap.set('n', '<A-up', ':m .-2<CR>==')
+vim.keymap.set({'n', 'v', 'i'}, '<A-c>', function() vim.fn['nerdcommenter#Comment']('n', 'Toggle') end)
+vim.keymap.set({'n', 'v', 'i'}, '<C-A-c>', function() vim.fn['nerdcommenter#Comment']('n', 'Invert') end)
+vim.keymap.set({'n', 'v', 'i'}, '<S-A-c>', function() vim.fn['nerdcommenter#Comment']('n', 'Comment') end)
+local password_used = false
+vim.api.nvim_create_user_command('W', function()
+	local path = vim.api.nvim_buf_get_name(0)
+	local options = {cmdarg = vim.v.cmdarg, cmdbang = vim.v.cmdbang, range = ''}
+	local tempfile = vim.fn['tempname']()
+	vim.cmd(string.format('%swrite%s %s %s', options.range, options.cmdbang and '!' or '', options.cmdarg, tempfile))
+	local password = ''
+	if not password_used then
+		vim.fn['inputsave']()
+		password = vim.fn['inputsecret'](string.format('[sudo] %s password: ', os.getenv('USER')))
+	end
+	local result = (string.format('%ssudo -p \'\' -sS dd if=%s of=%s bs=1048576 status=none', not password_used and string.format('printf \'%s\\n\' | ', password) or '', tempfile, path))
+	password = '' -- deleting the password for security reasons
+	password_used = true
+	if result == 0 then vim.cmd[[redraw]] end
+	vim.cmd(string.format('silent call delete(%s)', tempfile))
+end, {})
 
 ----- Plugin Settings -----
   --- Loading Plugins ---
@@ -70,16 +114,22 @@ require('packer').startup(function(use)
 		require('packer').sync()
 	end
 end)
-vim.cmd[[colo gruvbox]]
-
------ Plugin Settings -----
+vim.cmd.color[[gruvbox]]
     --- LaTex/VimTex ---
 vim.g.tex_flavor = 'latex'
 vim.g.vimtex_view_method = 'zathura'
 vim.g.vimtex_quickfix_mode = 0
 vim.g.tex_conceal = 'abdmg'
 vim.opt.conceallevel = 1
-
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {pattern = '*.tex', command = 'set filetype=tex'})
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {pattern = '*.md', command = 'set filetype=markdown'})
+   --- NerdCommenter ---
+vim.g.NERDCreateDefaultMappings = 1
+vim.g.NERDSpaceDelims = 1
+vim.g.NERDDefaultAlign = 'left'
+vim.g.NERDAltDelims_c = 1
+vim.g.NERDAltDelims_cpp = 1
+ --- Lsp and Completion ---
 local lspconfig = require('lspconfig')
 local lspformat = require('lsp-format')
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -129,3 +179,4 @@ cmp.setup({
 cmp.setup.filetype('gitcommit', {sources = cmp.config.sources({{name = 'cmp_git'}}, {{name = 'buffer'}})})
 cmp.setup.cmdline({'/', '?'}, {mapping = cmp.mapping.preset.cmdline(), sources = {{name = 'buffer'}}})
 cmp.setup.cmdline(':', {mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})})
+
