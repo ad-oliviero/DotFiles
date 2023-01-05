@@ -7,7 +7,7 @@
 		"modules-right": ["network", "disk", "memory", "cpu", "tray", "battery", "pulseaudio"],
 		"clock": {
 			"interval": 1,
-			"format": "{:%d %b %H:%M:%S}"
+			"format": "{:%a%e %b %Y, %H:%M:%S %Z}"
 		},
 		"cpu": {
 			"format": "{usage}% ",
@@ -62,6 +62,9 @@
 		},
 		"wlr/workspaces": {
 			"format": "{name}",
-			"disable-scroll-wraparound": true
+			"disable-scroll-wraparound": true,
+			"on-click": "activate",
+			"sort-by-number": true,
+			"sort-by-name": false
 		}
 }

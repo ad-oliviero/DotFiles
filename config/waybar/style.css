@@ -1,7 +1,7 @@
 * {
-	border-radius: 20px;
+	border-radius: 15px;
 	font-family: JetBrains Mono, Symbols Nerd Font;
-	font-size: 14px;
+	font-size: 15px;
 	transition-duration: .8s;
 	color: #dfbf8e;
 }
@@ -12,16 +12,12 @@
 }
 
 #workspaces {
-	margin: 8px;
+	margin: 0px 8px;
 }
 
 #workspaces button {
-	margin: 0px 8px;
-	background-color: rgba(93, 53, 53, 0.90);
-}
-
-#workspaces button {
-	margin: 0px 8px;
+	padding: 0px 5px;
+	margin: 8px 4px;
 	background-color: rgba(93, 53, 53, 0.90);
 }
 
@@ -29,8 +25,8 @@
 	background-color: #b86767;
 }
 
-#workspaces button.focused {
-	background-color: #8d5050;
+#workspaces button.focused, #workspaces button.active {
+	background-color: #884747;
 }
 
 #workspaces button.urgent {
@@ -50,8 +46,8 @@
 #tray,
 #mode,
 #date {
-	padding: 0 10px 0;
-	margin: 8px 8px;
+	padding: 2px 8px;
+	margin: 8px 4px;
 	background-color: rgba(93, 53, 53, 0.90);
 }
 

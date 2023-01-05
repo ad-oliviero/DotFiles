@@ -54,10 +54,10 @@ vim.keymap.set({'n', 'i'}, '<C-d>', '<ESC>viw') -- select word with ctrl+d
 vim.keymap.set('n', '<leader>sv', ':source $MYVIMRC<CR>') -- reload configuration
 vim.keymap.set('n', '<C-q>', ':tabn<CR>') -- switch tabs
 vim.keymap.set('n', '<C-S-q>', ':tabp<CR>')
-vim.keymap.set('n', '<A-j', ':m .+1<CR>==') -- move line
-vim.keymap.set('n', '<A-k', ':m .-2<CR>==')
-vim.keymap.set('n', '<A-down', ':m .+1<CR>==')
-vim.keymap.set('n', '<A-up', ':m .-2<CR>==')
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==') -- move line
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==')
+vim.keymap.set('n', '<A-down>', ':m .+1<CR>==')
+vim.keymap.set('n', '<A-up>', ':m .-2<CR>==')
 vim.keymap.set({'n', 'v', 'i'}, '<A-c>', function() vim.fn['nerdcommenter#Comment']('n', 'Toggle') end)
 vim.keymap.set({'n', 'v', 'i'}, '<C-A-c>', function() vim.fn['nerdcommenter#Comment']('n', 'Invert') end)
 vim.keymap.set({'n', 'v', 'i'}, '<S-A-c>', function() vim.fn['nerdcommenter#Comment']('n', 'Comment') end)
@@ -99,6 +99,7 @@ require('packer').startup(function(use)
 	use 'preservim/nerdtree'
 	use 'preservim/nerdcommenter'
 	use 'lervag/vimtex'
+	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 	use 'tpope/vim-surround'
 	use 'vim-airline/vim-airline'
 	use 'neovim/nvim-lspconfig'
@@ -122,7 +123,16 @@ vim.g.vimtex_quickfix_mode = 0
 vim.g.tex_conceal = 'abdmg'
 vim.opt.conceallevel = 1
 vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {pattern = '*.tex', command = 'set filetype=tex'})
-vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {pattern = '*.md', command = 'set filetype=markdown'})
+  --- Markdown Preview ---
+vim.g.mkdp_auto_start = true
+vim.g.mkdp_auto_close = true
+vim.g.mkdp_refresh_slow = 0
+vim.g.mkdp_command_for_global = 1
+vim.g.mkdp_open_to_the_world = 1
+vim.g.mkdp_echo_preview_url = 1
+vim.g.mkdp_page_title = '「${name}」'
+vim.g.mkdp_filetypes = 'markdown'
+vim.g.mkdp_theme = 'dark'
    --- NerdCommenter ---
 vim.g.NERDCreateDefaultMappings = 1
 vim.g.NERDSpaceDelims = 1
