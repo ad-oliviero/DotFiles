@@ -23,7 +23,7 @@ vim.opt.ignorecase = true
 vim.opt.pumheight=10
 vim.opt.showtabline = 2
 vim.opt.tabstop = 2
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.termguicolors = true
 vim.opt.syntax = 'on'
 vim.opt.lcs = {tab = '——', space = '·', extends = '◣', precedes = '◢'}

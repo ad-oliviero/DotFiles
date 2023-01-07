@@ -16,7 +16,7 @@
 }
 
 #workspaces button {
-	padding: 0px 5px;
+	padding: 1px 5px 0px;
 	margin: 8px 4px;
 	background-color: rgba(93, 53, 53, 0.90);
 }
@@ -33,6 +33,10 @@
 	background-color: #ff3333;
 }
 
+#pulseaudio.muted {
+	background-color: #ff3333;
+}
+
 #clock,
 #battery,
 #cpu,
@@ -42,11 +46,12 @@
 #backlight,
 #network,
 #pulseaudio,
+#wireplumber,
 #custom-media,
 #tray,
 #mode,
 #date {
-	padding: 2px 8px;
+	padding: 3px 8px 2px;
 	margin: 8px 4px;
 	background-color: rgba(93, 53, 53, 0.90);
 }

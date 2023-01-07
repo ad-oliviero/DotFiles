@@ -32,18 +32,15 @@
 			"on-click": "alacritty nmtui"
 		},
 		"pulseaudio": {
+			"format": "{icon} {volume}% {format_source}",
+			"format-muted": "",
+			"format-source": "",
+			"format-source-muted": "",
 			"scroll-step": 5,
-			"format": "{volume}% {icon}",
-			"format-bluetooth": "{volume}% {icon}",
-			"format-muted": "婢",
-			"format-icons": {
-				"headphones": "",
-				"handsfree": "",
-				"headset": "",
-				"default": ["", ""]
-			},
-			"on-click-right": "pavucontrol",
-			"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+			"format-bluetooth": "{icon} {volume}%,{format_source}",
+			"format-icons": ["", "", ""],
+			"on-click-right": "helvum", // "pavucontrol",
+			"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",//"pactl set-sink-mute @DEFAULT_SINK@ toggle"
 		},
 		"battery": {
 			"interval": 2,
