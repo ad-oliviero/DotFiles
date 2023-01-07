@@ -33,11 +33,11 @@
 		},
 		"pulseaudio": {
 			"format": "{icon} {volume}% {format_source}",
-			"format-muted": "",
+			"format-muted": " {format_source}",
 			"format-source": "",
 			"format-source-muted": "",
 			"scroll-step": 5,
-			"format-bluetooth": "{icon} {volume}%,{format_source}",
+			"format-bluetooth": "{icon} {volume}% {format_source}",
 			"format-icons": ["", "", ""],
 			"on-click-right": "helvum", // "pavucontrol",
 			"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",//"pactl set-sink-mute @DEFAULT_SINK@ toggle"
@@ -45,12 +45,12 @@
 		"battery": {
 			"interval": 2,
 			"states": {
-				"warning": 30,
-				"critical": 15
+				"warning": 20,
+				"critical": 10
 			},
 			"format": "{capacity} {icon}",
 			"format-icons": ["", "", "", "", ""],
-			"format-charging": "{capacity} {icon} ﮣ",
+			"format-charging": "{capacity} {icon}",
 			"max-length": 25
 		},
 		"sway/workspaces": {

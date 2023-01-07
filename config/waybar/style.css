@@ -35,6 +35,21 @@
 
 #pulseaudio.muted {
 	background-color: #ff3333;
+	color: rgba(40, 40, 40, 0.90);
+}
+
+#battery.charging {
+	background-color: #98971a;
+	color: rgba(40, 40, 40, 0.90);
+}
+
+#battery.warning {
+	background-color: #884747;
+}
+
+#battery.critical {
+	background-color: #ff3333;
+	color: rgba(40, 40, 40, 0.90);
 }
 
 #clock,
@@ -46,7 +61,6 @@
 #backlight,
 #network,
 #pulseaudio,
-#wireplumber,
 #custom-media,
 #tray,
 #mode,

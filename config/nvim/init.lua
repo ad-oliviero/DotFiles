@@ -102,6 +102,7 @@ require('packer').startup(function(use)
 	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 	use 'tpope/vim-surround'
 	use 'vim-airline/vim-airline'
+	use 'lukas-reineke/indent-blankline.nvim'
 	use 'neovim/nvim-lspconfig'
 	use 'lukas-reineke/lsp-format.nvim'
 	use 'hrsh7th/nvim-cmp'
