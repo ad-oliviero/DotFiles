@@ -48,7 +48,7 @@ end
   --- Custom Shortcuts ---
 vim.keymap.set('n', 'n', 'nzzzv') -- center searched word on screen
 vim.keymap.set('n', 'N', 'Nzzzv')
-vim.keymap.set('n', '<F2>', ':NERDTreeToggle')
+vim.keymap.set('n', '<F2>', ':NERDTreeToggle<CR>')
 vim.keymap.set({'n', 'i'}, '<A-i>', '<ESC>:Format<CR>')
 vim.keymap.set({'n', 'i'}, '<C-d>', '<ESC>viw') -- select word with ctrl+d
 vim.keymap.set('n', '<leader>sv', ':source $MYVIMRC<CR>') -- reload configuration
