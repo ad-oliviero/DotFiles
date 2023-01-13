@@ -7,7 +7,7 @@
 		"modules-right": ["network", "disk", "memory", "cpu", "tray", "battery", "pulseaudio"],
 		"clock": {
 			"interval": 1,
-			"format": "{:%a%e %b %Y, %H:%M:%S %Z}"
+			"format": "{:%a %e %b %Y, %H:%M:%S %Z}"
 		},
 		"cpu": {
 			"format": "{usage}% ",
@@ -45,8 +45,8 @@
 		"battery": {
 			"interval": 2,
 			"states": {
-				"warning": 20,
-				"critical": 10
+				"warning": 30,
+				"critical": 20
 			},
 			"format": "{capacity} {icon}",
 			"format-icons": ["", "", "", "", ""],
