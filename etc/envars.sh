@@ -23,7 +23,7 @@ _JAVA_AWT_WM_NONREPARENTING=1
 # GDK_BACKEND=wayland # sadly breaks microsoft teams
 
 # PATH
-export JAVA_HOME=/usr/lib/jvm/java-18-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 export PICO_SDK_PATH=/opt/pico-sdk
 export PATH=$PATH:$JAVA_HOME/bin:$HOME/.local/bin
 

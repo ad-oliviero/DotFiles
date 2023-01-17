@@ -99,7 +99,9 @@ require('packer').startup(function(use)
 	use 'preservim/nerdtree'
 	use 'preservim/nerdcommenter'
 	use 'lervag/vimtex'
-	use { 'iamcco/markdown-preview.nvim', run = 'cd app && npm install', setup = function() vim.g.mkdp_filetypes = { 'markdown' } end, ft = { 'markdown' } }
+	use { 'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end }
+	use 'godlygeek/tabular'
+	use 'preservim/vim-markdown'
 	use 'tpope/vim-surround'
 	use 'vim-airline/vim-airline'
 	use 'lukas-reineke/indent-blankline.nvim'
@@ -125,14 +127,14 @@ vim.g.tex_conceal = 'abdmg'
 vim.opt.conceallevel = 1
 vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {pattern = '*.tex', command = 'set filetype=tex'})
   --- Markdown Preview ---
-vim.g.mkdp_auto_start = true
-vim.g.mkdp_auto_close = true
+-- vim.g.mkdp_auto_start = 1
+vim.g.mkdp_auto_close = 1
 vim.g.mkdp_refresh_slow = 0
 vim.g.mkdp_command_for_global = 1
 vim.g.mkdp_open_to_the_world = 1
 vim.g.mkdp_echo_preview_url = 1
-vim.g.mkdp_page_title = '「${name}」'
 vim.g.mkdp_filetypes = 'markdown'
+vim.g.mkdp_page_title = '${name}'
 vim.g.mkdp_theme = 'dark'
    --- NerdCommenter ---
 vim.g.NERDCreateDefaultMappings = 1
@@ -190,4 +192,3 @@ cmp.setup({
 cmp.setup.filetype('gitcommit', {sources = cmp.config.sources({{name = 'cmp_git'}}, {{name = 'buffer'}})})
 cmp.setup.cmdline({'/', '?'}, {mapping = cmp.mapping.preset.cmdline(), sources = {{name = 'buffer'}}})
 cmp.setup.cmdline(':', {mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})})
-
