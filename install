@@ -14,12 +14,13 @@ local_dirs=("home" "config" "bin" "share")
 system_dirs=("" "$configdir" ".local/bin" ".local/share")
 
 for i in {0..3}; do
+	mkdir -p "$HOME/${system_dirs[$i]}" # avoid linking a directory to a file
 	local_files=$(find "${local_dirs[$i]}" -maxdepth 1 -printf "%f\n" | tail -n+2)
 	system_files=$(find "$HOME/${system_dirs[$i]}" -maxdepth 1 -printf "%f\n" | tail -n+2)
 	for f in $local_files; do
 		df=$(echo "$system_files" | grep -e "^$f$")
 		[ -z "$df" ] || mv "$HOME/${system_dirs[$i]}/$df" "$HOME/config_backup"
-		ln -vs "$cwd/${local_dirs[$i]}/$f" "$HOME/${system_dirs[$i]}"
+		ln -vs "$cwd/${local_dirs[$i]}/$f" "$HOME/${system_dirs[$i]}/"
 	done
 done
 
