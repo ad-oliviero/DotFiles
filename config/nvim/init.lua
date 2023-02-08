@@ -45,6 +45,8 @@ vim.cmd[[match ExtraWhitespace /\s\+$/]]
 if vim.fn.has('autocmd') then
 	vim.api.nvim_create_autocmd("BufReadPost", {callback = function() vim.cmd[[exe "normal! g'\""]] end})
 end
+vim.api.nvim_create_autocmd("filetype python", {callback = function() vim.keymap.set('n', '<C-c>', [[:w <bar> exec '!python '.shellescape('%')<CR>]]) end })
+vim.api.nvim_create_autocmd("filetype c", {callback = function() vim.keymap.set('n', '<C-c>', [[:w <bar> exec '![ \! -z $(find . -type f -regex "^./\(M\|m\)akefile$") ] && make || gcc '.shellescape('%').' -o '.shellescape('%:r').' || ./'.shellescape('%:r')<CR>]]) end })
   --- Custom Shortcuts ---
 vim.keymap.set('n', 'n', 'nzzzv') -- center searched word on screen
 vim.keymap.set('n', 'N', 'Nzzzv')
@@ -106,6 +108,9 @@ require('packer').startup(function(use)
 	use 'vim-airline/vim-airline'
 	use 'lukas-reineke/indent-blankline.nvim'
 	use 'neovim/nvim-lspconfig'
+	use 'jose-elias-alvarez/null-ls.nvim'
+	use 'nvim-lua/plenary.nvim'
+	use 'MunifTanjim/prettier.nvim'
 	use 'lukas-reineke/lsp-format.nvim'
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-nvim-lsp'
@@ -121,7 +126,7 @@ end)
 vim.cmd.color[[gruvbox]]
     --- LaTex/VimTex ---
 vim.g.tex_flavor = 'latex'
-vim.g.vimtex_view_method = 'zathura'
+vim.g.vimtex_view_general_viewer = 'zathura'
 vim.g.vimtex_quickfix_mode = 0
 vim.g.tex_conceal = 'abdmg'
 vim.opt.conceallevel = 1
@@ -145,13 +150,13 @@ vim.g.NERDAltDelims_cpp = 1
  --- Lsp and Completion ---
 local lspconfig = require('lspconfig')
 local lspformat = require('lsp-format')
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local cmp = require('cmp')
 local feedkey = function(key, mode) vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true) end
 local has_words_before = function()
 	unpack = unpack or table.unpack
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 lspformat.setup {}
 for _, lsp in ipairs({'clangd', 'rust_analyzer', 'pyright'}) do
@@ -160,6 +165,55 @@ for _, lsp in ipairs({'clangd', 'rust_analyzer', 'pyright'}) do
 		capabilities = capabilities
 	}
 end
+
+local null_ls = require('null-ls')
+local group = vim.api.nvim_create_augroup('lsp_format_on_save', { clear = false })
+local event = 'BufWritePre' -- or 'BufWritePost'
+local async = event == 'BufWritePost'
+null_ls.setup({
+	on_attach = function(client, bufnr)
+		if client.supports_method('textDocument/formatting') then
+			vim.keymap.set('n', '<Leader>f', function()
+				vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
+			end, { buffer = bufnr, desc = '[lsp] format' })
+
+			-- format on save
+			vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
+			vim.api.nvim_create_autocmd(event, {
+				buffer = bufnr,
+				group = group,
+				callback = function()
+					vim.lsp.buf.format({ bufnr = bufnr, async = async })
+				end,
+				desc = '[lsp] format on save',
+			})
+		end
+
+		if client.supports_method('textDocument/rangeFormatting') then
+			vim.keymap.set('x', '<Leader>f', function()
+				vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
+			end, { buffer = bufnr, desc = '[lsp] format' })
+		end
+	end,
+})
+require('prettier').setup({
+	bin = 'prettier',
+	filetypes = {
+	 	'css',
+	 	'graphql',
+	 	'html',
+	 	'javascript',
+	 	'javascriptreact',
+	 	'json',
+	 	'less',
+	 	'markdown',
+	 	'scss',
+	 	'typescript',
+	 	'typescriptreact',
+	 	'yaml',
+	},
+})
+
 cmp.setup({
 	snippet = {expand = function(args) vim.fn["vsnip#anonymous"](args.body) end},
 	mapping = cmp.mapping.preset.insert({

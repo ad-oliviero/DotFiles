@@ -13,7 +13,7 @@ exec_time() {
     DATE1=$(date +%s%N)
     ${*:1}
     DATE2=$(date +%s%N)
-    printf "'${*:1}' took $(expr $(expr $DATE2 - $DATE1) / 1000000)ms to run!"
+    printf "'${*:1}' took $(expr $(expr $DATE2 - $DATE1) / 1000000)ms to run!\n"
 }
 
 exec_time_null() {
@@ -21,7 +21,7 @@ exec_time_null() {
     DATE1=$(date +%s%N)
     ${*:1} >/dev/null
     DATE2=$(date +%s%N)
-    printf "'${*:1}' took $(expr $(expr $DATE2 - $DATE1) / 1000000)ms to run!"
+    printf "'${*:1}' took $(expr $(expr $DATE2 - $DATE1) / 1000000)ms to run!\n"
 }
 
 mc() {
