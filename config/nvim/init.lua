@@ -125,7 +125,7 @@ require('packer').startup(function(use)
 end)
 vim.cmd.color[[gruvbox]]
     --- LaTex/VimTex ---
-vim.g.tex_flavor = 'latex'
+vim.g.tex_flavor = 'xelatex'
 vim.g.vimtex_view_general_viewer = 'zathura'
 vim.g.vimtex_quickfix_mode = 0
 vim.g.tex_conceal = 'abdmg'
