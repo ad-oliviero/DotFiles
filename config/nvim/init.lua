@@ -60,6 +60,8 @@ vim.keymap.set('n', '<A-j>', ':m .+1<CR>==') -- move line
 vim.keymap.set('n', '<A-k>', ':m .-2<CR>==')
 vim.keymap.set('n', '<A-down>', ':m .+1<CR>==')
 vim.keymap.set('n', '<A-up>', ':m .-2<CR>==')
+vim.keymap.set('i', '<C-s>', '<ESC>:wa<CR>a') -- save with ctrl+s
+vim.keymap.set('n', '<C-s>', ':wa<CR>')
 vim.keymap.set({'n', 'v', 'i'}, '<A-c>', function() vim.fn['nerdcommenter#Comment']('n', 'Toggle') end)
 vim.keymap.set({'n', 'v', 'i'}, '<C-A-c>', function() vim.fn['nerdcommenter#Comment']('n', 'Invert') end)
 vim.keymap.set({'n', 'v', 'i'}, '<S-A-c>', function() vim.fn['nerdcommenter#Comment']('n', 'Comment') end)

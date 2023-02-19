@@ -1,8 +1,8 @@
 #~/.config/scripts/start-dwm.s
 #i3
-#gnome-session
+gnome-session
 #xfce4-session
-bspwm
+#bspwm
 
 #DESKTOP_SESSION=plasma
 #startplasma-x11
