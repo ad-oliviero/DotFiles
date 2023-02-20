@@ -104,6 +104,7 @@ require('packer').startup(function(use)
 	use 'preservim/nerdcommenter'
 	use 'lervag/vimtex'
 	use { 'iamcco/markdown-preview.nvim', run = function() vim.fn['mkdp#util#install']() end }
+	use 'kylechui/nvim-surround'
 	use 'godlygeek/tabular'
 	use 'preservim/vim-markdown'
 	use 'tpope/vim-surround'
