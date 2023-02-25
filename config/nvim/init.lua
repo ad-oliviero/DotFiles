@@ -132,8 +132,6 @@ vim.cmd.color[[gruvbox]]
 vim.g.tex_flavor = 'xelatex'
 vim.g.vimtex_view_general_viewer = 'zathura'
 vim.g.vimtex_quickfix_mode = 0
-vim.g.tex_conceal = 'abdmg'
-vim.opt.conceallevel = 1
 vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {pattern = '*.tex', command = 'set filetype=tex'})
   --- Markdown Preview ---
 -- vim.g.mkdp_auto_start = 1
