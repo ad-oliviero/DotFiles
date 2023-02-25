@@ -9,6 +9,7 @@ vim.opt.shiftwidth = 2
 vim.opt.guicursor = 'n-c-sm:hor20,i-ci-ve:ver25,r-v-cr-o:block'
 vim.opt.mouse = 'a'
 vim.opt.clipboard = 'unnamedplus'
+vim.opt.whichwrap = vim.opt.whichwrap + '<,>,[,]'
       --- History ---
 vim.opt.swapfile = false
 vim.opt.writebackup = false
