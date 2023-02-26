@@ -7,7 +7,7 @@
 		"modules-right": ["network", "disk", "memory", "cpu", "tray", "battery", "pulseaudio"],
 		"clock": {
 			"interval": 1,
-			"format": "{:%a %e %b %Y, %H:%M:%S %Z}"
+			"format": "{:%a %e %b %Y, %I:%M:%S %p %Z}"
 		},
 		"cpu": {
 			"format": "{usage}% ",
