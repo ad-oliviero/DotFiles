@@ -1,3 +1,4 @@
+-- some of the configuration is 'inspired' (copied) from https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 ----- NeoVim Settings -----
     --- Indentation ---
 vim.opt.autoindent = true
@@ -33,7 +34,7 @@ vim.opt.list = true
 vim.opt.spl = {'it', 'en_us'}
 vim.opt.spell = true
 vim.cmd[[set tags+=$HOME/Dev/tags]]
-vim.opt.cot = 'menu,menuone,noselect'
+vim.opt.cot = 'menuone,noselect'
 vim.opt.wim = 'longest,list'
     --- Automation ---
 vim.api.nvim_create_autocmd("InsertEnter", {callback = function() vim.cmd[[norm zz]] end})
@@ -48,6 +49,15 @@ if vim.fn.has('autocmd') then
 end
 vim.api.nvim_create_autocmd("filetype python", {callback = function() vim.keymap.set('n', '<C-c>', [[:w <bar> exec '!python '.shellescape('%')<CR>]]) end })
 vim.api.nvim_create_autocmd("filetype c", {callback = function() vim.keymap.set('n', '<C-c>', [[:w <bar> exec '![ \! -z $(find . -type f -regex "^./\(M\|m\)akefile$") ] && make || gcc '.shellescape('%').' -o '.shellescape('%:r').' || ./'.shellescape('%:r')<CR>]]) end })
+-- highlight on yank
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = '*',
+})
   --- Custom Shortcuts ---
 vim.keymap.set('n', 'n', 'nzzzv') -- center searched word on screen
 vim.keymap.set('n', 'N', 'Nzzzv')
@@ -112,6 +122,7 @@ require('packer').startup(function(use)
 	use 'vim-airline/vim-airline'
 	use 'lukas-reineke/indent-blankline.nvim'
 	use 'neovim/nvim-lspconfig'
+	use 'folke/neodev.nvim'
 	use 'jose-elias-alvarez/null-ls.nvim'
 	use 'nvim-lua/plenary.nvim'
 	use 'MunifTanjim/prettier.nvim'
@@ -124,6 +135,8 @@ require('packer').startup(function(use)
 	use 'hrsh7th/cmp-vsnip'
 	use 'hrsh7th/vim-vsnip'
 	use 'hrsh7th/vim-vsnip-integ'
+	use 'lewis6991/gitsigns.nvim'
+	use 'nvim-treesitter/nvim-treesitter'
 	if packer_bootstrap then
 		require('packer').sync()
 	end
@@ -249,3 +262,52 @@ cmp.setup({
 cmp.setup.filetype('gitcommit', {sources = cmp.config.sources({{name = 'cmp_git'}}, {{name = 'buffer'}})})
 cmp.setup.cmdline({'/', '?'}, {mapping = cmp.mapping.preset.cmdline(), sources = {{name = 'buffer'}}})
 cmp.setup.cmdline(':', {mapping = cmp.mapping.preset.cmdline(), sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})})
+
+  --- Treesitter ---
+require('nvim-treesitter.configs').setup {
+	-- Add languages to be installed here that you want installed for treesitter
+	ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'help', 'vim' },
+
+	-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
+	auto_install = false,
+
+	highlight = { enable = true },
+	indent = { enable = true, disable = { 'python' } },
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = '<c-space>',
+			node_incremental = '<c-space>',
+			scope_incremental = '<c-s>',
+			node_decremental = '<M-space>',
+		},
+	},
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+			keymaps = {
+				-- You can use the capture groups defined in textobjects.scm
+				['aa'] = '@parameter.outer',
+				['ia'] = '@parameter.inner',
+				['af'] = '@function.outer',
+				['if'] = '@function.inner',
+				['ac'] = '@class.outer',
+				['ic'] = '@class.inner',
+			},
+		},
+		move = {
+			enable = true,
+			set_jumps = true, -- whether to set jumps in the jumplist
+			goto_next_start = {[']m'] = '@function.outer', [']]'] = '@class.outer'},
+			goto_next_end = {[']M'] = '@function.outer', [']['] = '@class.outer'},
+			goto_previous_start = {['[m'] = '@function.outer', ['[['] = '@class.outer'},
+			goto_previous_end = {['[M'] = '@function.outer', ['[]'] = '@class.outer'},
+		},
+		swap = {
+			enable = true,
+			swap_next = {['<leader>a'] = '@parameter.inner'},
+			swap_previous = {['<leader>A'] = '@parameter.inner'},
+		},
+	},
+}
