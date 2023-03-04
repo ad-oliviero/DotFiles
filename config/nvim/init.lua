@@ -48,7 +48,10 @@ if vim.fn.has('autocmd') then
 	vim.api.nvim_create_autocmd("BufReadPost", {callback = function() vim.cmd[[exe "normal! g'\""]] end})
 end
 vim.api.nvim_create_autocmd("filetype python", {callback = function() vim.keymap.set('n', '<C-c>', [[:w <bar> exec '!python '.shellescape('%')<CR>]]) end })
-vim.api.nvim_create_autocmd("filetype c", {callback = function() vim.keymap.set('n', '<C-c>', [[:w <bar> exec '![ \! -z $(find . -type f -regex "^./\(M\|m\)akefile$") ] && make || gcc '.shellescape('%').' -o '.shellescape('%:r').' || ./'.shellescape('%:r')<CR>]]) end })
+vim.g.compilecmd = "echo 'Compile command not set, use :Setmk to set it'"
+vim.api.nvim_create_autocmd("filetype *", {callback = function() vim.keymap.set('n', '<C-c>', [[:w <bar> exec g:compilecmd<CR>]]) end})
+function setmk(cmd) vim.g.compilecmd = cmd end
+vim.cmd('command! -nargs=1 Setmk :lua setmk(<f-args>)')
 -- highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
