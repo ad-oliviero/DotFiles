@@ -50,7 +50,7 @@ end
 vim.api.nvim_create_autocmd("filetype python", {callback = function() vim.keymap.set('n', '<C-c>', [[:w <bar> exec '!python '.shellescape('%')<CR>]]) end })
 local compilecmd = "!exec echo 'Compile command not set, use :Setmk to set it'"
 vim.api.nvim_create_autocmd("filetype *", {callback = function() vim.keymap.set('n', '<C-c>', function() vim.cmd(":w"); vim.cmd(compilecmd) end) end})
-function setmk(cmd) compilecmd = '!exec' .. cmd end
+function setmk(cmd) compilecmd = '!exec ' .. cmd end
 vim.cmd('command! -nargs=1 Setmk :lua setmk(<f-args>)')
 -- highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
