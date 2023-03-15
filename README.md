@@ -1,6 +1,6 @@
 # DotFiles
 
-My .files, here is a preview:
+My .files, here is a preview (*keep in mind: the screenshots are not updated*):
 
 ![](https://raw.githubusercontent.com/TheDarkBug/DotFiles/main/dotfiles.png)
 
@@ -10,11 +10,11 @@ _A command to install all the dependances will be printed after running the `./i
 
 - WM: [hyprland](https://hyprland.org/)
 
-- Color scheme: [Gruvbox](https://github.com/morhetz/gruvbox)
+- Color scheme: [Srcery](https://github.com/srcery-colors)
 
 - Wallpaper: [none](#)
 
-- Gtk theme: [Gruvbox](https://github.com/TheGreatMcPain/gruvbox-material-gtk)
+<!--- Gtk theme: [Gruvbox](https://github.com/TheGreatMcPain/gruvbox-material-gtk)-->
 
 - Terminal: [Alacritty](https://alacritty.org/)
 
@@ -40,7 +40,7 @@ _A command to install all the dependances will be printed after running the `./i
 
 ### Other dependances
 
-- [swaylock](https://github.com/swaywm/swaylock): locks wayland session
+- [swaylock-effects](https://github.com/jirutka/swaylock-effects): locks wayland session
 
 - [swayidle](https://github.com/swaywm/swayidle): lock the session before hibernating/suspending
 
