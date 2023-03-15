@@ -6,7 +6,7 @@ My .files, here is a preview:
 
 ## Programs and other resources used
 
-*A command to install all the dependances will be printed after running the `./install` script (arch linux only).*
+_A command to install all the dependances will be printed after running the `./install` script (arch linux only)._
 
 - WM: [hyprland](https://hyprland.org/)
 
@@ -39,6 +39,7 @@ My .files, here is a preview:
 - Screenshot: [flameshot](https://flameshot.org/)
 
 ### Other dependances
+
 - [swaylock](https://github.com/swaywm/swaylock): locks wayland session
 
 - [swayidle](https://github.com/swaywm/swayidle): lock the session before hibernating/suspending
@@ -62,12 +63,14 @@ My .files, here is a preview:
 ## Installation
 
 Run
+
 ```shell
 mkdir .config && cd .config
 git clone --recursive https://github.com/TheDarkBug/DotFiles.git
 cd DotFiles
 ./install
 ```
+
 Before the installation begins, a backup of your current configuration will be automatically generated in `~/config_backup`.
 
 ## Post installation

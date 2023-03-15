@@ -24,5 +24,5 @@ GDK_BACKEND=wayland
 
 # PATH
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
-export PICO_SDK_PATH=/opt/pico-sdk
+export PICO_SDK_PATH=/usr/share/pico-sdk
 export PATH=$PATH:$JAVA_HOME/bin:$HOME/.local/bin

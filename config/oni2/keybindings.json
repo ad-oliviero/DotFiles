@@ -1,5 +1,0 @@
-[
-  // https://onivim.github.io/docs/configuration/key-bindings
-  // { "key": "<TAB>", "command": "workbench.action.quickOpen", "when": "editorTextFocus" },
-  // { "key": "jk", "command": "vim.esc", "when": "insertMode" },
-]

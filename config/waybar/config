@@ -1,67 +1,66 @@
 {
-	"layer": "top",
-		"position": "top",
-		"height": 40,
-		"modules-left": ["wlr/workspaces", "hyprland/window"],
-		"modules-center": ["clock"],
-		"modules-right": ["network", "disk", "memory", "cpu", "tray", "battery", "pulseaudio"],
-		"clock": {
-			"interval": 1,
-			"format": "{:%a %e %b %Y, %I:%M:%S %p %Z}"
-		},
-		"cpu": {
-			"format": "{usage}% ",
-			"tooltip": false
-		},
-		"disk": {
-			"interval": 30,
-			"path": "/home",
-			"format": "{free} ",
-		},
-		"memory": {
-			"interval": 5,
-			"format": "{used:0.2f}GB ",
-			"tooltip-format": "available {avail:0.2f}GB",
-			"on-click": "~/.config/scripts/cache-clean.sh"
-		},
-		"network": {
-			"interval": 3,
-			"format-wifi": "{ipaddr}",
-			"format-ethernet": "{ipaddr}",
-			"format-disconnected": "Disconnected ⚠",
-			"on-click": "alacritty nmtui"
-		},
-		"pulseaudio": {
-			"format": "{icon} {volume}% {format_source}",
-			"format-muted": " {format_source}",
-			"format-source": "",
-			"format-source-muted": "",
-			"scroll-step": 5,
-			"format-bluetooth": "{icon} {volume}% {format_source}",
-			"format-icons": ["", "", ""],
-			"on-click-right": "helvum", // "pavucontrol",
-			"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",//"pactl set-sink-mute @DEFAULT_SINK@ toggle"
-		},
-		"battery": {
-			"interval": 2,
-			"states": {
-				"warning": 30,
-				"critical": 20
-			},
-			"format": "{capacity} {icon}",
-			"format-icons": ["", "", "", "", ""],
-			"format-charging": "{capacity} {icon}",
-			"max-length": 25
-		},
-		"sway/workspaces": {
-			"format": "{name}",
-			"disable-scroll-wraparound": true
-		},
-		"wlr/workspaces": {
-			"format": "{name}",
-			"disable-scroll-wraparound": true,
-			"on-click": "activate",
-			"sort-by-number": true,
-			"sort-by-name": false
-		}
+  "layer": "top",
+  "position": "top",
+  "height": 40,
+  "modules-left": ["wlr/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["network", "disk", "memory", "cpu", "tray", "battery", "pulseaudio"],
+  "clock": {
+    "interval": 1,
+    "format": "{:%a %e %b %Y, %I:%M:%S %p %Z}"
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false
+  },
+  "disk": {
+    "interval": 30,
+    "path": "/home",
+    "format": "{free} "
+  },
+  "memory": {
+    "interval": 5,
+    "format": "{used:0.2f}GB ",
+    "tooltip-format": "available {avail:0.2f}GB"
+  },
+  "network": {
+    "interval": 3,
+    "format-wifi": "{ipaddr}",
+    "format-ethernet": "{ipaddr}",
+    "format-disconnected": "Disconnected ⚠",
+    "on-click": "alacritty -e nmtui"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}% {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "scroll-step": 5,
+    "format-bluetooth": "{icon} {volume}% {format_source}",
+    "format-icons": ["", "", ""],
+    "on-click-right": "helvum",
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle"
+  },
+  "battery": {
+    "interval": 2,
+    "states": {
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{capacity} {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "format-charging": "{capacity} {icon}",
+    "max-length": 25
+  },
+  "sway/workspaces": {
+    "format": "{name}",
+    "disable-scroll-wraparound": true
+  },
+  "wlr/workspaces": {
+    "format": "{name}",
+    "disable-scroll-wraparound": true,
+    "on-click": "activate",
+    "sort-by-number": true,
+    "sort-by-name": false
+  }
 }

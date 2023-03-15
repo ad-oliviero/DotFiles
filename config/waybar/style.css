@@ -1,55 +1,48 @@
 * {
-	border-radius: 15px;
-	font-family: JetBrains Mono, Symbols Nerd Font;
-	font-size: 15px;
-	transition-duration: .8s;
-	color: #dfbf8e;
+  border-radius: 12px;
+  font-family: JetBrains Mono, Symbols Nerd Font;
+  font-size: 15px;
+  transition: 0.8s;
+  color: #fce8c3;
 }
 
 #waybar {
-	background-color: rgba(40, 40, 40, 0.90);
-	border-radius: 0px 0px 15px 15px;
+  background: #1c1b19;
+  background: linear-gradient(0deg, #1c1b19 0%, #282828 100%);
+  border-radius: 0px 0px 0px 0px;
 }
 
 #workspaces {
-	margin: 0px 8px;
+  margin: 0px 8px;
 }
 
 #workspaces button {
-	padding: 1px 5px 0px;
-	margin: 8px 4px;
-	background-color: rgba(93, 53, 53, 0.90);
+  box-shadow: none;
+  border: none;
+  background: #053240;
+  padding: 1px 5px 0px;
+  margin: 8px 4px;
+}
+#workspaces button.focused,
+#workspaces button.active {
+  box-shadow: inset 0px 0px 10px -5px #68a8e4;
 }
 
-#workspaces button.hover {
-	background-color: #b86767;
+#workspaces button:hover {
+  box-shadow: inset 0px 0px 10px 0px #68a8e4;
 }
 
-#workspaces button.focused, #workspaces button.active {
-	background-color: #884747;
-}
-
-#workspaces button.urgent {
-	background-color: #ff3333;
-}
-
-#pulseaudio.muted {
-	background-color: #ff3333;
-	color: rgba(40, 40, 40, 0.90);
-}
-
+#battery.critical,
+#workspaces button.urgent,
+#pulseaudio.muted,
 #battery.charging {
-	background-color: #98971a;
-	color: rgba(40, 40, 40, 0.90);
+  box-shadow: inset 0px 0px 30px -10px #ef2f27;
+  color: #1c1b19;
 }
 
 #battery.warning {
-	background-color: #884747;
-}
-
-#battery.critical {
-	background-color: #ff3333;
-	color: rgba(40, 40, 40, 0.90);
+  box-shadow: inset 0px 0px 30px -10px #fbb829;
+  color: #1c1b19;
 }
 
 #clock,
@@ -57,16 +50,11 @@
 #cpu,
 #disk,
 #memory,
-#temperature,
-#backlight,
 #network,
 #pulseaudio,
-#custom-media,
 #tray,
-#mode,
 #date {
-	padding: 3px 8px 2px;
-	margin: 8px 4px;
-	background-color: rgba(93, 53, 53, 0.90);
+  padding: 3px 8px 2px;
+  margin: 8px 4px;
+  background: #053240;
 }
-
