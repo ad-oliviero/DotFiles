@@ -1,6 +1,8 @@
 # DotFiles
 
-My .files, here is a preview (*keep in mind: the screenshots are not updated*):
+My .files, here is a preview (_keep in mind: the screenshots are not updated_):
+
+Also, [here](https://github.com/TheDarkBug/DotFiles/blob/main/wallpapers.md)'s a list of the wallpapers I'm using and have used in past configurations.
 
 ![](https://raw.githubusercontent.com/TheDarkBug/DotFiles/main/dotfiles.png)
 

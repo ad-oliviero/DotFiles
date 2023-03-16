@@ -34,9 +34,13 @@
 
 #battery.critical,
 #workspaces button.urgent,
-#pulseaudio.muted,
-#battery.charging {
+#pulseaudio.muted {
   box-shadow: inset 0px 0px 30px -10px #ef2f27;
+  color: #1c1b19;
+}
+
+#battery.charging {
+  box-shadow: inset 0px 0px 30px -10px #519f50;
   color: #1c1b19;
 }
 
