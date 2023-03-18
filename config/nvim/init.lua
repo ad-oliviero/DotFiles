@@ -7,7 +7,7 @@ vim.opt.preserveindent = true
 vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
 --- System Integration ---
-vim.opt.guicursor = 'n-c-sm:hor20,i-ci-ve:ver25,r-v-cr-o:block'
+-- vim.opt.guicursor = 'n-c-sm:hor20,i-ci-ve:ver25,r-v-cr-o:block'
 vim.opt.mouse = 'a'
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.whichwrap = vim.opt.whichwrap + '<,>,[,]'

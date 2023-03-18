@@ -24,8 +24,8 @@ alias \
 	performance="echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference" \
 	powersave="echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor | sed \"s/save//g\" | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference" \
   bakkesmod="WINEFSYNC=1 protontricks -c 'wine ~/Games/bakkesmod.exe' 252950" \
-  oni="Oni2" \
   snvim="EDITOR=nvim sudoedit" \
+  gnvim="goneovim" \
   termuxusb="adb forward tcp:8022 tcp:8022; ssh localhost -p 8022"
 
 # scripts
