@@ -68,10 +68,10 @@ vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'},
                             {pattern = '*.conf', command = 'set filetype=conf'})
 function setmk(cmd) compilecmd = ':w | !echo ""; ' .. cmd end
 vim.cmd('command! -nargs=1 Setmk :lua setmk(<f-args>)')
-vim.api.nvim_create_autocmd("filetype python",
-                            {callback = function() setmk("python ./%") end})
 vim.api.nvim_create_autocmd("filetype c",
                             {callback = function() setmk("make debug") end})
+vim.api.nvim_create_autocmd("filetype python",
+                            {callback = function() setmk("python ./%") end})
 -- highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight',
                                                     {clear = true})
@@ -179,6 +179,7 @@ require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'nvim-treesitter/nvim-treesitter'
     use 'windwp/nvim-ts-autotag'
+    use 'github/copilot.vim'
     if packer_bootstrap then require('packer').sync() end
 end)
 -- vim.cmd.color [[gruvbox]]

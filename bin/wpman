@@ -13,7 +13,8 @@ def getArgs() -> argparse.Namespace:
     parser.add_argument("-w", "--wallpaper", dest="number", help="set wallpaper ID immediately", metavar="ID", type=int)
     options = parser.parse_args()
     if options.config is None:
-        options.config = os.path.dirname(os.path.abspath(__file__)) + "/../wallpapers.md"
+        #  options.config = os.path.dirname(os.path.abspath(__file__)) + "/../wallpapers.md"
+        options.config = os.path.expanduser("~") + "/.config/DotFiles/wallpapers.md"
     if options.output is None:
         options.output = os.path.expanduser("~") + "/Pictures/wallpaper.jpg"
     if options.command is None:
