@@ -4,7 +4,7 @@
   "height": 40,
   "modules-left": ["wlr/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
-  "modules-right": ["network", "disk", "memory", "cpu", "tray", "battery", "pulseaudio"],
+  "modules-right": ["network", "disk", "memory", "cpu", "tray", "battery", "idle_inhibitor", "pulseaudio"],
   "clock": {
     "interval": 1,
     "format": "{:%a %e %b %Y, %I:%M:%S %p %Z}"
@@ -22,6 +22,17 @@
     "interval": 5,
     "format": "{used:0.2f}GB ",
     "tooltip-format": "available {avail:0.2f}GB"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󱐋",
+      "deactivated": "󰂏"
+    },
+    "tooltip-format-activated": "Performance mode",
+    "tooltip-format-deactivated": "Power saving",
+    "on-click": "[ \"$(tlp-stat -s | grep Mode | sed \"s/Mode *= //g;s/ (manual)//g\")\" = 'AC' ] && { sudo tlp bat; } || { sudo tlp ac; }",
+    "start-activated": false
   },
   "network": {
     "interval": 3,

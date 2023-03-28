@@ -34,6 +34,7 @@
 
 #battery.critical,
 #workspaces button.urgent,
+#idle_inhibitor.deactivated,
 #pulseaudio.muted {
   box-shadow: inset 0px 0px 30px -10px #ef2f27;
   color: #1c1b19;
@@ -49,11 +50,16 @@
   color: #1c1b19;
 }
 
+#idle_inhibitor.activated {
+  box-shadow: inset 0px 0px 30px -10px #2c78bf;
+}
+
 #clock,
 #battery,
 #cpu,
 #disk,
 #memory,
+#idle_inhibitor,
 #network,
 #pulseaudio,
 #tray,

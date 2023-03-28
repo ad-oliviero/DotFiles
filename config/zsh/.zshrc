@@ -6,7 +6,8 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
 
-[ "$TTY" = "/dev/tty1" ] && Hyprland >/dev/null && exit
+[ "$TTY" = "/dev/tty1" ] && Hyprland 2>&1 >/dev/null && exit
+# [ "$TTY" = "/dev/tty1" ] && Hyprland # debug mode
 
 # colored man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
