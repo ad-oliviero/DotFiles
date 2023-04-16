@@ -10,21 +10,32 @@ vim.opt.shiftwidth = 2
 -- vim.opt.guicursor = 'n-c-sm:hor20,i-ci-ve:ver25,r-v-cr-o:block'
 vim.opt.mouse = 'a'
 vim.opt.clipboard = 'unnamedplus'
-vim.opt.whichwrap = vim.opt.whichwrap + '<,>,[,]'
+vim.opt.whichwrap:append '<,>,[,]'
 --- History ---
 vim.opt.swapfile = false
 vim.opt.writebackup = false
 vim.opt.undofile = true
 vim.opt.fileencoding = 'utf-8'
 --- Visuals ---
+vim.opt.laststatus = 3 -- statusline always at the bottom
+vim.opt.fillchars = { eob = ' ' }
+vim.opt.showmode = false
 vim.opt.number = true
+vim.opt.numberwidth = 2
+vim.opt.ruler = false
+vim.opt.shortmess:append 'sI' -- disable nvim initial page help
+vim.opt.signcolumn = 'yes'
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 vim.opt.cursorline = true
 vim.opt.lazyredraw = true
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
+vim.opt.smartcase = true
 vim.opt.pumheight = 10
 vim.opt.showtabline = 2
 vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 vim.opt.wrap = true
 vim.opt.termguicolors = true
 vim.opt.syntax = 'on'
@@ -83,7 +94,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 --- Custom Shortcuts ---
 vim.keymap.set('n', 'n', 'nzzzv') -- center searched word on screen
 vim.keymap.set('n', 'N', 'Nzzzv')
-vim.keymap.set('n', '<F2>', ':NERDTreeToggle<CR>')
+vim.keymap.set('n', '<F2>', ':NvimTreeToggle<CR>:NvimTreeFocus<CR>')
 vim.keymap.set({'n', 'i'}, '<A-i>', '<ESC>:Format<CR>')
 vim.keymap.set({'n', 'i'}, '<C-d>', '<ESC>viw') -- select word with ctrl+d
 vim.keymap.set('n', '<leader>sv', ':source $MYVIMRC<CR>') -- reload configuration
@@ -95,6 +106,9 @@ vim.keymap.set('n', '<A-down>', ':m .+1<CR>==')
 vim.keymap.set('n', '<A-up>', ':m .-2<CR>==')
 vim.keymap.set('i', '<C-s>', '<ESC>:wa<CR>a') -- save with ctrl+s
 vim.keymap.set('n', '<C-s>', ':wa<CR>')
+vim.keymap.set('n', '<TAB>', function() vim.cmd[[:echo "TODO: set change tab"]] end) -- clear highlights
+vim.keymap.set('n', '<C-k>', function() vim.lsp.buf.hover() end)
+vim.keymap.set('n', '<S-TAB>', function() vim.cmd[[:echo "TODO: set change tab"]] end) -- clear highlights
 vim.keymap.set({'n', 'v', 'i'}, '<A-c>',
                function() vim.fn['nerdcommenter#Comment']('n', 'Toggle') end)
 vim.keymap.set({'n', 'v', 'i'}, '<C-A-c>',
@@ -149,7 +163,6 @@ require('packer').startup(function(use)
     -- use 'morhetz/gruvbox'
     use 'srcery-colors/srcery-vim'
     use 'jiangmiao/auto-pairs'
-    use 'preservim/nerdtree'
     use 'preservim/nerdcommenter'
     use 'lervag/vimtex'
     use {
