@@ -41,7 +41,6 @@ require('packer').startup(function(use)
     use 'windwp/nvim-autopairs'
     -- automation
     use 'sbdchd/neoformat'
-    use 'rmagatti/session-lens'
 end)
 
 -- Plugin Settings

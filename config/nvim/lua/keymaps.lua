@@ -17,3 +17,6 @@ vim.keymap.set({'n', 'v'}, '<A-c>', ':CommentToggle<CR>',
 vim.keymap.set('n', '<F2>', ':NvimTreeToggle<CR>',
                {noremap = true, silent = true})
 vim.keymap.set('v', 's', '<Plug>VSurround', {noremap = false})
+vim.keymap.set('n', '<leader>r',
+               [[:lua _G.reloading = true<CR>:source $MYVIMRC<CR>:echo 'Vim configuration reloaded.'<CR>]],
+               {noremap = true})

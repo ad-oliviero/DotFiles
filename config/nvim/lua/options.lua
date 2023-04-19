@@ -9,8 +9,7 @@ vim.opt.shiftwidth = 2 -- number of spaces for each indentation level
 vim.opt.mouse = 'a' -- enable mouse support in all modes
 vim.opt.clipboard = 'unnamedplus' -- use the system clipboard
 vim.opt.whichwrap:append '<,>,[,]'
--- make the < and > keys move to the beginning and end of lines, 
--- and the [ and ] keys move to the beginning and end of words
+vim.g.mapleader = ' '
 
 --- History
 vim.opt.swapfile = false -- disable swap file
@@ -53,7 +52,6 @@ vim.opt.list = true -- show whitespace characters
 --- Completion
 vim.opt.spl = {'it', 'en_us'} -- set the spell languages
 vim.opt.spell = true -- enable spelling correction
-vim.cmd [[set tags+=$HOME/Dev/tags]] -- add a tags file to the search path
 vim.opt.cot = 'menuone,noselect' -- enable preview window
 vim.opt.wildmenu = true -- enable wildmenu
 vim.opt.wim = 'longest,list' -- set wildmenu options (longest common substring and list of completions)
