@@ -5,7 +5,7 @@ font-size=32
 
 no-unlock-indicator
 clock
-timestr=%R
+timestr=%r
 datestr=%a, %e %B
 screenshots
 fade-in=0.5
