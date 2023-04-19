@@ -8,7 +8,7 @@ clock
 timestr=%r
 datestr=%a, %e %B
 screenshots
-fade-in=0.5
+fade-in=1
 effect-blur=10x5
 
 indicator
@@ -16,26 +16,26 @@ indicator-radius=150
 indicator-thickness=30
 indicator-caps-lock
 
-key-hl-color=ac3a03
+key-hl-color=076678
 
-separator-color=ac3a03
+separator-color=076678
 
-inside-color=ac3a03
-inside-clear-color=ac3a03
+inside-color=076678
+inside-clear-color=076678
 inside-caps-lock-color=009ddc00
-inside-ver-color=1c1b19
+inside-ver-color=282828
 inside-wrong-color=cc241d
 
-ring-color=1c1b19
+ring-color=282828
 ring-clear-color=cc241d
 ring-caps-lock-color=231f20D9
-ring-ver-color=1c1b19
+ring-ver-color=282828
 ring-wrong-color=cc241d
 
-line-color=ac3a03
+line-color=076678
 line-clear-color=ffd204FF
 line-caps-lock-color=009ddcFF
-line-ver-color=ac3a03
+line-ver-color=076678
 line-wrong-color=cc241d
 
 text-clear-color=dfbf8e

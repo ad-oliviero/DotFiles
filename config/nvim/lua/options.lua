@@ -18,7 +18,7 @@ vim.opt.undofile = true -- enable persistent undo
 vim.opt.fileencoding = 'utf-8' -- set file encoding to utf-8
 
 --- Visuals
-vim.cmd.color [[srcery]] -- set the color scheme
+vim.cmd.color [[gruvbox]] -- set the color scheme
 vim.opt.laststatus = 3 -- always show the statusline
 vim.opt.fillchars = {eob = ' '} -- replace ~ at the end of the buffer with a space
 vim.opt.showmode = false -- do not show the current mode

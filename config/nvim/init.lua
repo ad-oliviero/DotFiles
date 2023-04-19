@@ -1,4 +1,4 @@
-local modules = {'options', 'plugins', 'keymaps', 'autocmds'}
+local modules = {'plugins', 'options', 'keymaps', 'autocmds'}
 if _G.reloading then
     for _, m in ipairs(modules) do package.loaded[m] = nil end
     _G.reloading = false

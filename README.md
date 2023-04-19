@@ -12,11 +12,9 @@ _A command to install all the dependances will be printed after running the `./i
 
 - WM: [hyprland](https://hyprland.org/)
 
-- Color scheme: [Srcery](https://github.com/srcery-colors)
+- Color scheme: [GruvBox](https://github.com/morhetz/gruvbox)
 
 - Wallpaper: [none](#)
-
-<!--- Gtk theme: [Gruvbox](https://github.com/TheGreatMcPain/gruvbox-material-gtk)-->
 
 - Terminal: [Alacritty](https://alacritty.org/)
 

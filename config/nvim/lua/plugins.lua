@@ -18,7 +18,7 @@ ensure_packer()
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     -- visuals
-    use 'srcery-colors/srcery-vim'
+    use 'ellisonleao/gruvbox.nvim'
     use {
         'hoob3rt/lualine.nvim',
         requires = {'nvim-tree/nvim-web-devicons', opt = true}
