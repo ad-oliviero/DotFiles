@@ -23,3 +23,14 @@ vim.cmd [[
     autocmd BufWritePre * undojoin | Neoformat
   augroup END
 ]]
+
+vim.api.nvim_create_autocmd('VimLeave', {
+    callback = function() vim.cmd [[mksession! ./.nvim-session]] end
+})
+
+function LoadSession()
+    vim.cmd [[source ./.nvim-session]]
+    print('Session Loaded!')
+end
+
+vim.cmd [[command! LoadSession lua LoadSession()]]
