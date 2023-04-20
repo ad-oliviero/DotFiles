@@ -1,7 +1,6 @@
 # env variables
 source /etc/environment
 source $HOME/.config/DotFiles/etc/envars.sh
-source $HOME/.cargo/env
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
@@ -50,7 +49,6 @@ source $HOME/.config/zsh/plugins/zsh-abbr/zsh-abbr.plugin.zsh >/dev/null
 source $HOME/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
 
 # loading sources
 source $HOME/.config/zsh/aliasrc

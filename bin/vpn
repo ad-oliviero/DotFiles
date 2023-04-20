@@ -1,0 +1,6 @@
+#!/bin/bash
+[ -z "$1" ] && arg=c
+[ -z "$1" ] || [ "$1" == "c" ] && nm-applet&
+arg=$1
+protonvpn-cli $arg
+pkill nm-applet
