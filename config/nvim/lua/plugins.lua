@@ -24,6 +24,10 @@ require('packer').startup(function(use)
         requires = {'nvim-tree/nvim-web-devicons', opt = true}
     }
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end
+    })
     -- utils
     use 'terrortylor/nvim-comment'
     use 'kyazdani42/nvim-tree.lua'
@@ -39,8 +43,15 @@ require('packer').startup(function(use)
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
     use 'windwp/nvim-autopairs'
+    use 'ray-x/lsp_signature.nvim'
+    use 'Exafunction/codeium.vim'
     -- automation
     use 'sbdchd/neoformat'
+    -- other
+    use {
+        'akinsho/flutter-tools.nvim',
+        requires = {'nvim-lua/plenary.nvim', 'stevearc/dressing.nvim'}
+    }
 end)
 
 -- Plugin Settings
@@ -113,7 +124,7 @@ require('nvim-treesitter.configs').setup {
     indent = {enable = true}
 }
 
-local cmp = require 'cmp'
+local cmp = require('cmp')
 
 cmp.setup {
     snippet = {expand = function(args) vim.fn['vsnip#anonymous'](args.body) end},
@@ -147,10 +158,22 @@ cmp.setup.cmdline(':', {
 })
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-lspconfig.clangd.setup {capabilities = capabilities}
+lspconfig.clangd.setup {
+    capabilities = capabilities,
+    includeDirs = {'.', './build'}
+}
 lspconfig.rust_analyzer.setup {capabilities = capabilities}
 lspconfig.pyright.setup {capabilities = capabilities}
 lspconfig.lua_ls.setup {capabilities = capabilities}
 
 require('nvim-tree').setup()
 require('nvim-autopairs').setup()
+require('flutter-tools').setup()
+require('lsp_signature').setup()
+vim.g.codeium_disable_bindings = true
+vim.keymap.set('i', '<C-space>',
+               function() return vim.fn['codeium#Accept']() end, {expr = true})
+vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end,
+               {expr = true})
+vim.g.mkdp_command_for_global = true
+vim.g.mkdp_open_to_the_world = true

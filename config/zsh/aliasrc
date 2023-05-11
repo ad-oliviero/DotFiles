@@ -17,6 +17,8 @@ alias \
 	r2s="export ROS_DOMAIN_ID=42; source /opt/ros/humble/setup.zsh" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x" \
+	ytd="yt-dlp --add-metadata -i" \
+	ytda="ytd -x" \
 	hx="helix" \
 	ccat="highlight --out-format=ansi" \
 	starwars="telnet towel.blinkenlights.nl" \

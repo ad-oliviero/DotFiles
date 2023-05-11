@@ -14,7 +14,7 @@ vim.keymap.set({'n', 'i', 'v'}, '<C-q>', '<ESC>:bdelete<CR>',
                {noremap = true, silent = true})
 vim.keymap.set({'n', 'v'}, '<A-c>', ':CommentToggle<CR>',
                {noremap = true, silent = true})
-vim.keymap.set('n', '<F2>', ':NvimTreeToggle<CR>',
+vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>',
                {noremap = true, silent = true})
 vim.keymap.set('v', 's', '<Plug>VSurround', {noremap = false})
 vim.keymap.set('n', '<leader>r',

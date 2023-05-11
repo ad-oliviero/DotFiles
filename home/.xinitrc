@@ -1,6 +1,4 @@
-#~/.config/scripts/start-dwm.s
-#i3
-gnome-session
+i3
 #xfce4-session
 #bspwm
 

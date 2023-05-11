@@ -2,6 +2,9 @@
 
 **NOTE**: _this file was automatically generated (not yet actually) by [bin/wpman.py](https://github.com/TheDarkBug/DotFiles/blob/main/bin/wpman.py), you shouldn't modify it!_
 
++ Default wallpaper path: `~/Pictures/wallpaper.jpg`
++ Default wallpaper program: `pkill hyprpaper; hyprpaper`
+
 ## Current
 
 [![Ferrari 488 GTB](https://r4.wallpaperflare.com/wallpaper/852/146/553/car-red-vehicle-ferrari-488-gtb-wallpaper-f36ad7fa554ec45ded8c7512ebe8ef35.jpg)](https://www.wallpaperflare.com/red-ferrari-488-gtb-car-vehicle-motor-vehicle-mode-of-transportation-wallpaper-pnvwf)
@@ -9,10 +12,8 @@
 ## Other
 
 [![Doom Red Blur](https://r4.wallpaperflare.com/wallpaper/906/911/804/video-games-doom-game-wallpaper-38167d88d0801cd8801cb1eef892640a.jpg)](https://www.wallpaperflare.com/doom-wallpaper-video-games-doom-game-text-close-up-religion-wallpaper-hpbkb)
-[![B&W Doom Slayer](https://r4.wallpaperflare.com/wallpaper/107/537/187/doom-game-video-games-doom-2016-wallpaper-28468d7820e04cd8109c31ce7822040a.jpg)](https://www.wallpaperflare.com/person-holding-rifle-wallpaper-doom-game-video-games-doom-2016-wallpaper-ptbcw)
 [![Death Star](https://r4.wallpaperflare.com/wallpaper/1005/822/563/star-wars-death-star-at-at-space-wallpaper-abe6bced53f1bfb9a5847bf93dac5c90.jpg)](https://www.wallpaperflare.com/star-wars-star-destroyer-wallpaper-death-star-at-at-space-wallpaper-mxva)
 [![Star Destroyer](https://r4.wallpaperflare.com/wallpaper/581/864/856/imperial-class-star-destroyer-wallpaper-3da50da6ed6bd846c4bc956940432d58.jpg)](https://www.wallpaperflare.com/imperial-class-star-destroyer-star-wars-star-destroyer-wallpaper-wallpaper-ptaiq)
-[![Your Computer Is On](https://r4.wallpaperflare.com/wallpaper/465/78/448/humor-motivational-black-background-minimalism-wallpaper-f9b048ed415aad0be6e7889f1041a6ad.jpg)](https://www.wallpaperflare.com/off-on-text-overlay-humor-motivational-black-background-minimalism-wallpaper-hqhr)
 [![Minecraft Posters](https://r4.wallpaperflare.com/wallpaper/174/742/406/minecraft-video-games-wallpaper-db06cc1d73d10f39a5942bb94d7c5c40.jpg)](https://www.wallpaperflare.com/minecraft-collage-poster-video-games-architecture-building-wallpaper-aio)
 [![Minimal Sun & Mountain](https://r4.wallpaperflare.com/wallpaper/658/800/994/simple-simple-background-minimalism-black-background-wallpaper-f8967d3850106c9810dce14e7892047a.jpg)](https://www.wallpaperflare.com/silhouette-of-mountain-simple-simple-background-minimalism-wallpaper-phxwd)
 [![Nebula](https://r4.wallpaperflare.com/wallpaper/824/766/324/nebula-4k-teal-turquoise-wallpaper-032b333ddd19ab25df069207c82bc838.jpg)](https://www.wallpaperflare.com/nebula-4k-teal-turquoise-8k-wallpaper-qpnrh)

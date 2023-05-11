@@ -1,9 +1,4 @@
-# env variables
-source /etc/environment
-source $HOME/.config/DotFiles/etc/envars.sh
-export HISTFILE="$HOME/.zsh_history"
-export HISTSIZE=10000
-export SAVEHIST=$HISTSIZE
+source .profile
 
 [ "$TTY" = "/dev/tty1" ] && Hyprland 2>&1 >/dev/null && exit
 # [ "$TTY" = "/dev/tty1" ] && Hyprland # debug mode
