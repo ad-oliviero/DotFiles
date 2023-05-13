@@ -160,8 +160,6 @@ class WallpaperConfig:
 def main():
     options = getArgs()
     config = WallpaperConfig(options.config)
-    if options.number is not None:
-        config.select(options.number)
     done = False
 
     if options.delay != None:
@@ -176,8 +174,9 @@ def main():
             config.select(
                 (int(input(f"\033[KSelect a wallpaper [1-{config.count}]: ")) - 1)
                 if options.number is None
-                else options.number
+                else options.number - 1
             )
+            options.number = None
             print("\033[K\033[2F")
             config.refresh()
             shouldSave = (
