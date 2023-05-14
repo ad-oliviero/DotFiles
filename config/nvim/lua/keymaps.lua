@@ -20,3 +20,4 @@ vim.keymap.set('v', 's', '<Plug>VSurround', {noremap = false})
 vim.keymap.set('n', '<leader>r',
                [[:lua _G.reloading = true<CR>:source $MYVIMRC<CR>:echo 'Vim configuration reloaded.'<CR>]],
                {noremap = true})
+vim.keymap.set('n', '<leader>s', [[:LoadSession<CR>]], {noremap = true})

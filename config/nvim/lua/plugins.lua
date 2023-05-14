@@ -24,15 +24,20 @@ require('packer').startup(function(use)
         requires = {'nvim-tree/nvim-web-devicons', opt = true}
     }
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-    use({
+    use {
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end
-    })
+    }
+    use {
+        'folke/noice.nvim',
+        requires = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"}
+    }
     -- utils
     use 'terrortylor/nvim-comment'
     use 'kyazdani42/nvim-tree.lua'
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
+    use 'folke/which-key.nvim'
     -- completion
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'
@@ -43,7 +48,6 @@ require('packer').startup(function(use)
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
     use 'windwp/nvim-autopairs'
-    use 'ray-x/lsp_signature.nvim'
     use 'Exafunction/codeium.vim'
     -- automation
     use 'sbdchd/neoformat'
@@ -119,7 +123,7 @@ require('lualine').setup {
     extensions = {}
 }
 require('nvim-treesitter.configs').setup {
-    ensure_installed = {'python', 'lua', 'c', 'cpp', 'rust'},
+    ensure_installed = {'python', 'lua', 'c', 'cpp', 'rust', 'dart'},
     highlight = {enable = true},
     indent = {enable = true}
 }
@@ -169,7 +173,24 @@ lspconfig.lua_ls.setup {capabilities = capabilities}
 require('nvim-tree').setup()
 require('nvim-autopairs').setup()
 require('flutter-tools').setup()
-require('lsp_signature').setup()
+require('which-key').setup()
+require('noice').setup {
+    lsp = {
+        override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true
+        }
+        -- signature = {enabled = false}
+    },
+    presets = {
+        bottom_search = true, -- use a classic bottom cmdline for search
+        command_palette = true, -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false -- add a border to hover docs and signature help
+    }
+}
 vim.g.codeium_disable_bindings = true
 vim.keymap.set('i', '<C-space>',
                function() return vim.fn['codeium#Accept']() end, {expr = true})
