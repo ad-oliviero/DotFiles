@@ -40,6 +40,6 @@ printf "Installed correctly!\n"
 # ln -s $cwd/config/alacritty/alacritty.gruvbox.dark $configdir/alacritty/alacritty.yml
 
 printf "To install all the dependances on arch linux, you can run this commands:\n\n
-sudo pacman -S hyprland git alacritty zsh uwufetch starship nautilus ttf-jetbrains-mono ttf-nerd-fonts-symbols-2048-em-mono mako pipewire wireplumber flameshot swaylock swayidle syncthing gammastep wf-recorder # installing packages available on arch official repositories\n
-git clone https://aur.archlinux.org/paru.git; cd paru; makepkg -si # installing paru to install aur packages\n
-paru -S waybar-hyprland-git rofi-lbonn-wayland-git rofi-calc rofi-file-browser-extended-git sunshine wlogout # installing aur packages\n"
+sudo pacman -S hyprland git alacritty zsh uwufetch starship nautilus ttf-jetbrains-mono ttf-nerd-fonts-symbols-2048-em-mono mako pipewire wireplumber flameshot swaylock swayidle syncthing gammastep wf-recorder rofi-calc rofi-emoji\n
+git clone https://aur.archlinux.org/paru.git; cd paru; makepkg -si\n
+paru -S waybar-hyprland-git rofi-lbonn-wayland-git rofi-file-browser-extended-git sunshine wlogout\n"
