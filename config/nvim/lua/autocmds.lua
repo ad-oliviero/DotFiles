@@ -17,12 +17,12 @@ if vim.fn.has('autocmd') then
         callback = function() vim.cmd [[exe "normal! g'\""]] end
     })
 end
-vim.cmd [[
-  augroup AutoFormat
-    autocmd!
-    autocmd BufWritePre * undojoin | Neoformat
-  augroup END
-]]
+-- vim.cmd [[
+--   augroup AutoFormat
+--     autocmd!
+--     autocmd BufWritePre * undojoin | Neoformat
+--   augroup END
+-- ]]
 
 vim.api.nvim_create_autocmd('VimLeave', {
     callback = function() vim.cmd [[mksession! ./.nvim-session]] end

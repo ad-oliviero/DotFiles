@@ -32,6 +32,6 @@ export XDG_SESSION_DESKTOP=Hyprland
 # PATH
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 export PICO_SDK_PATH=/usr/share/pico-sdk
-export PATH=$PATH:$JAVA_HOME/bin:$HOME/.local/bin
+export PATH=$PATH:$JAVA_HOME/bin:$HOME/.local/bin:/opt/flutter/bin
 export ANDROID_HOME=$HOME/Android/Sdk
 export XDG_DATA_DIRS=$XDG_DATA_DIRS:$HOME/.local/share/flatpak/exports/share
