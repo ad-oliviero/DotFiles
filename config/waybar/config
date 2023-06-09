@@ -31,8 +31,7 @@
     },
     "tooltip-format-activated": "Performance mode",
     "tooltip-format-deactivated": "Power saving",
-    "on-click": "[ \"$(tlp-stat -s | grep Mode | sed \"s/Mode *= //g;s/ (manual)//g\")\" = 'AC' ] && { sudo tlp bat; } || { sudo tlp ac; }",
-    "on-click-right": "sudo tlp start",
+    "on-click": "~/.local/bin/hyprgamemode",
     "start-activated": false
   },
   "network": {
@@ -76,3 +75,5 @@
     "sort-by-name": false
   }
 }
+
+# vim: filetype=conf

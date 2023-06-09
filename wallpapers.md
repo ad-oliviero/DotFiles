@@ -8,7 +8,7 @@
 
 ## Current
 
-[![Vettel's F1 Ferrari](https://r4.wallpaperflare.com/wallpaper/587/946/472/sebastian-vettel-ferrari-f1-formula-1-race-tracks-hd-wallpaper-9b196d9af45457731cb2fd19187ee8cd.jpg)](https://www.wallpaperflare.com/sebastian-vettel-ferrari-f1-formula-1-race-tracks-wallpaper-ytloh)
+[![Neon Corvette](https://r4.wallpaperflare.com/wallpaper/193/556/883/car-neon-chevrolet-corvette-race-cars-hd-wallpaper-5970780de1da4d6bf62798ff90b1a6ed.jpg)](https://www.wallpaperflare.com/car-neon-chevrolet-corvette-race-cars-wallpaper-gjjso)
 
 
 ## Cars

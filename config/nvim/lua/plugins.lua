@@ -32,6 +32,7 @@ require('packer').startup(function(use)
         'folke/noice.nvim',
         requires = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"}
     }
+    use {'tanvirtin/vgit.nvim', requires = {'nvim-lua/plenary.nvim'}}
     -- utils
     use 'terrortylor/nvim-comment'
     use 'kyazdani42/nvim-tree.lua'
@@ -174,6 +175,7 @@ require('nvim-tree').setup()
 require('nvim-autopairs').setup()
 require('flutter-tools').setup()
 require('which-key').setup()
+require('vgit').setup()
 require('noice').setup {
     lsp = {
         override = {
