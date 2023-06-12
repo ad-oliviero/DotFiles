@@ -57,6 +57,9 @@ require('packer').startup(function(use)
         'akinsho/flutter-tools.nvim',
         requires = {'nvim-lua/plenary.nvim', 'stevearc/dressing.nvim'}
     }
+    use 'othree/html5.vim'
+    use 'pangloss/vim-javascript'
+    use 'evanleck/vim-svelte'
 end)
 
 -- Plugin Settings
