@@ -1,6 +1,6 @@
 #!/bin/env python
 import os, re, requests, argparse, time
-import notify
+import notify # pip install notify-send
 
 
 def getArgs() -> argparse.Namespace:
