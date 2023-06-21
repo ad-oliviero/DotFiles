@@ -32,13 +32,15 @@ require('packer').startup(function(use)
         'folke/noice.nvim',
         requires = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"}
     }
-    use {'tanvirtin/vgit.nvim', requires = {'nvim-lua/plenary.nvim'}}
+    use {'tanvirtin/vgit.nvim', requires = 'nvim-lua/plenary.nvim'}
+    use {'folke/todo-comments.nvim', requires = 'nvim-lua/plenary.nvim'}
     -- utils
     use 'terrortylor/nvim-comment'
     use 'kyazdani42/nvim-tree.lua'
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'folke/which-key.nvim'
+    -- use 'andymass/vim-matchup'
     -- completion
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'
@@ -60,6 +62,8 @@ require('packer').startup(function(use)
     use 'othree/html5.vim'
     use 'pangloss/vim-javascript'
     use 'evanleck/vim-svelte'
+    use 'mfussenegger/nvim-dap'
+    use {'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'}}
 end)
 
 -- Plugin Settings
@@ -172,7 +176,10 @@ lspconfig.clangd.setup {
 }
 lspconfig.rust_analyzer.setup {capabilities = capabilities}
 lspconfig.pyright.setup {capabilities = capabilities}
-lspconfig.lua_ls.setup {capabilities = capabilities}
+lspconfig.lua_ls.setup {
+    settings = {Lua = {completion = {callSnippet = "Replace"}}},
+    capabilities = capabilities
+}
 
 require('nvim-tree').setup()
 require('nvim-autopairs').setup()
@@ -196,6 +203,8 @@ require('noice').setup {
         lsp_doc_border = false -- add a border to hover docs and signature help
     }
 }
+require('todo-comments').setup()
+require('dapui').setup()
 vim.g.codeium_disable_bindings = true
 vim.keymap.set('i', '<C-space>',
                function() return vim.fn['codeium#Accept']() end, {expr = true})
