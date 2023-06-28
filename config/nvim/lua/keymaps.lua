@@ -22,3 +22,10 @@ vim.keymap.set('n', '<leader>r',
                {noremap = true})
 vim.keymap.set('n', '<leader>s', [[:LoadSession<CR>]], {noremap = true})
 vim.keymap.set('n', '<leader>f', [[:Neoformat<CR>]], {noremap = true})
+vim.keymap.set('n', '<leader>db', function() require('dapui').toggle() end,
+               {noremap = true})
+vim.keymap.set('n', '<leader>dc', function() require('dap').continue() end,
+               {noremap = true})
+vim.keymap.set('n', '<leader>b',
+               function() require('dap').toggle_breakpoint() end,
+               {noremap = true})
