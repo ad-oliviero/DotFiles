@@ -36,7 +36,7 @@ _A command to install all the dependances will be printed after running the `./i
 
 - Audio: [Pipewire](https://pipewire.org/) + [wireplumber](https://pipewire.pages.freedesktop.org/wireplumber/)
 
-- Screenshot: [flameshot](https://flameshot.org/)
+- Screenshot: [grimshot](https://github.com/swaywm/sway/blob/master/contrib/grimshot)
 
 ### Other dependances
 

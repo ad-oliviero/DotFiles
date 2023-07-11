@@ -1,5 +1,5 @@
 configuration {
-	font: "JetBrains Mono 15";
+	font: "JetBrains Mono NL 15";
 	show-icons: true;
 	drun-display-format: "{name}";
 	disable-history: false;

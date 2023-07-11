@@ -4,6 +4,9 @@ vim.opt.copyindent = true -- copy the previous line's indent when autoindenting
 vim.opt.preserveindent = true -- preserve the indent of the current line
 vim.opt.smartindent = true -- insert indents automatically
 vim.opt.shiftwidth = 2 -- number of spaces for each indentation level
+vim.opt.expandtab = true -- use spaces instead of tab characters
+vim.opt.tabstop = 2 -- number of spaces that a <Tab> in the file counts for
+vim.opt.softtabstop = 2 -- number of spaces that a <Tab> key in insert mode inserts or removes
 
 -- System Integration
 vim.opt.mouse = 'a' -- enable mouse support in all modes
@@ -36,8 +39,6 @@ vim.opt.ignorecase = true -- ignore case when searching
 vim.opt.smartcase = true -- override ignorecase if search pattern contains uppercase letters
 vim.opt.pumheight = 10 -- limit the number of items displayed in the popup menu
 vim.opt.showtabline = 2 -- always show the tabline
-vim.opt.tabstop = 2 -- number of spaces that a <Tab> in the file counts for
-vim.opt.softtabstop = 2 -- number of spaces that a <Tab> key in insert mode inserts or removes
 vim.opt.wrap = true -- wrap lines that exceed the width of the window
 vim.opt.termguicolors = true -- enable true colors in the terminal
 vim.opt.syntax = 'on' -- enable syntax highlighting
@@ -55,3 +56,8 @@ vim.opt.spell = true -- enable spelling correction
 vim.opt.cot = 'menuone,noselect' -- enable preview window
 vim.opt.wildmenu = true -- enable wildmenu
 vim.opt.wim = 'longest,list' -- set wildmenu options (longest common substring and list of completions)
+
+--- Plugins
+vim.g.codeium_disable_bindings = true
+vim.g.mkdp_command_for_global = true
+vim.g.mkdp_open_to_the_world = true

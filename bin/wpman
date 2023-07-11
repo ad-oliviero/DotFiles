@@ -1,6 +1,6 @@
 #!/bin/env python
 import os, re, requests, argparse, time
-import notify # pip install notify-send
+import notify  # pip install notify-send
 
 
 def getArgs() -> argparse.Namespace:
@@ -11,6 +11,13 @@ def getArgs() -> argparse.Namespace:
         dest="config",
         help="set configuration FILE path",
         metavar="FILE",
+    )
+    parser.add_argument(
+        "-e",
+        "--edit",
+        dest="edit",
+        help="manually edit wallpapers.md with $EDITOR",
+        action="store_true",
     )
     parser.add_argument(
         "-t",
@@ -34,6 +41,13 @@ def getArgs() -> argparse.Namespace:
     options = parser.parse_args()
     if options.config is None:
         options.config = os.path.expanduser("~/.config/DotFiles/wallpapers.md")
+
+    if options.edit == True:
+        editor = os.getenv("EDITOR")
+        if editor is None:
+            editor = "vi"
+        os.system(f"{editor} {options.config}")
+        exit(0)
     return options
 
 

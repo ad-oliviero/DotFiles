@@ -24,8 +24,8 @@ end
 --   augroup END
 -- ]]
 
-vim.api.nvim_create_autocmd('VimLeave', {
-    callback = function() vim.cmd [[mksession! ./.nvim-session]] end
-})
-
+-- vim.api.nvim_create_autocmd('VimLeave', {
+--     callback = function() vim.cmd [[mksession! ./.nvim-session]] end
+-- })
+vim.cmd [[command! SaveSession mksession! ./.nvim-session]]
 vim.cmd [[command! LoadSession source ./.nvim-session]]

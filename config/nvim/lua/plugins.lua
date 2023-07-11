@@ -62,8 +62,6 @@ require('packer').startup(function(use)
     use 'othree/html5.vim'
     use 'pangloss/vim-javascript'
     use 'evanleck/vim-svelte'
-    use 'mfussenegger/nvim-dap'
-    use {'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'}}
 end)
 
 -- Plugin Settings
@@ -204,11 +202,3 @@ require('noice').setup {
     }
 }
 require('todo-comments').setup()
-require('dapui').setup()
-vim.g.codeium_disable_bindings = true
-vim.keymap.set('i', '<C-space>',
-               function() return vim.fn['codeium#Accept']() end, {expr = true})
-vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end,
-               {expr = true})
-vim.g.mkdp_command_for_global = true
-vim.g.mkdp_open_to_the_world = true
