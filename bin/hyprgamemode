@@ -13,8 +13,8 @@ HOST=$(cat /etc/hostname)
 	[ "$(cat /tmp/hyprgamemode)" = "1" ] && {
 		[ "$1" = "s" ] && exit 1
 		[ "$HOST" = "adri-lap" ] && sudo tlp ac
-		hyprctl reload
 		printf "0" > /tmp/hyprgamemode
+		hyprctl reload
 		exit 0
 	} || {
 		[ "$1" = "s" ] && exit 0
