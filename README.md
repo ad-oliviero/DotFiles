@@ -81,3 +81,4 @@ This post installation to-do list is mainly for me as I use arch linux (btw) and
 - Setup [swapfile](https://wiki.archlinux.org/title/Swap#Swap_file) and [hibernation](https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Hibernation_into_swap_file)
 - To enable pipewire video capture in obs, you need to `pacman -S xdg-desktop-portal-wlr`, and go in `Settings > Output > set "Output Mode" to "Advanced" > Streaming > set "Encoder" to the "VAAPI" option` and that should be it
 - Ask for password and fingerprint at the same time: `paru -S pam-fprint-grosshack`, then add `auth sufficient pam_fprintd_grosshack.so\nauth sufficient pam_unix.so try_first_pass nullok` to `/etc/pam.d/{swaylock,login,polkit-1,su,sudo,system-local-login,system-auth}`
+- Suppress boot logs and enable sysrq (boot parameters): `quiet loglevel=3 udev.log_level=3 sysrq_always_enabled=1`
