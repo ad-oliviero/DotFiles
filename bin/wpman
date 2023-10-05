@@ -1,6 +1,5 @@
 #!/bin/env python
 import os, re, requests, argparse, time
-import notify  # pip install notify-send
 
 
 def getArgs() -> argparse.Namespace:
@@ -128,6 +127,7 @@ class WallpaperConfig:
                 f.write(f"[![{w.name}]({w.url})]({w.credits_link})\n")
 
     def tryAll(self, delay):
+        import notify  # pip install notify-send
         try:
             for i in range(3):
                 notify.notification("Starting in", f"{3 - i}...", 1000)
