@@ -42,4 +42,4 @@ printf "Installed correctly!\n"
 printf "To install all the dependances on arch linux, you can run this commands:\n\n
 sudo pacman -S hyprland git alacritty zsh uwufetch starship nautilus ttf-jetbrains-mono ttf-nerd-fonts-symbols-2048-em-mono mako pipewire wireplumber grimshot swaylock swayidle syncthing gammastep wf-recorder rofi-calc rofi-emoji noto-fonts-emoji\n
 git clone https://aur.archlinux.org/paru.git; cd paru; makepkg -si\n
-paru -S waybar-hyprland-git rofi-lbonn-wayland-git rofi-file-browser-extended-git sunshine wlogout\n"
+paru -S waybar-hyprland-git rofi-lbonn-wayland-git rofi-file-browser-extended-git sunshine wlogout xwaylandvideobridge-cursor-mode-2-git\n"

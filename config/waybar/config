@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "top",
   "height": 45,
-  "modules-left": ["wlr/workspaces", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
   "modules-right": ["network", "disk", "memory", "cpu", "tray", "battery", "idle_inhibitor", "pulseaudio"],
   "clock": {
