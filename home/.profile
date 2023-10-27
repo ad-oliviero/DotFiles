@@ -18,4 +18,4 @@ export PICO_SDK_PATH=/usr/share/pico-sdk
 export PATH=$PATH:$JAVA_HOME/bin:$HOME/.local/bin:/opt/flutter/bin:$HOME/.pub-cache/bin
 export ANDROID_HOME=$HOME/Android/Sdk
 export XDG_DATA_DIRS=$XDG_DATA_DIRS:$HOME/.local/share/flatpak/exports/share
-. "$HOME/.cargo/env"
+. "$HOME/.cargo/env" 2>/dev/null
