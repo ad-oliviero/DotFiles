@@ -8,7 +8,7 @@
 
 ## Current
 
-[![Ferrari 499P Light](https://images6.alphacoders.com/128/1285164.jpg)](https://wall.alphacoders.com/big.php?i=1285164)
+[![Ferrari 499P](https://images7.alphacoders.com/128/1285157.jpg)](https://wall.alphacoders.com/big.php?i=1285157)
 
 
 ## Cars

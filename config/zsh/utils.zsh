@@ -36,7 +36,3 @@ reenv() {
 			export $l
 		done
 }
-
-fleet() {
-	~/.local/share/JetBrains/Toolbox/apps/Fleet/ch-0/1.*/bin/Fleet $1 >/dev/null & disown
-}

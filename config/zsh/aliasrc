@@ -38,5 +38,6 @@ alias \
 	myip="curl ipinfo.io/ip && printf '\n'" \
 	simplettt="~/.config/scripts/simplettt.sh" \
 	wclall="cat \$(find ./ -type f) | wc -l" \
-	scrsh="yes | wf-recorder -m avi -f >(ffplay -window_title Screenshare -f avi -) --geometry=\"\$(slurp -o)\"; pkill ffplay 2>&1 >/dev/null; pkill wf-recorder 2>&1 >/dev/null"
+	scrsh="yes | wf-recorder -m avi -f >(ffplay -window_title Screenshare -f avi -) --geometry=\"\$(slurp -o)\"; pkill ffplay 2>&1 >/dev/null; pkill wf-recorder 2>&1 >/dev/null" \
+	clnipc="ipcrm -a \$(ipcs | awk '{print \$2}' | grep -vE '[^0-9]')"
 

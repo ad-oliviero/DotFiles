@@ -40,7 +40,7 @@ require('packer').startup(function(use)
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
     use 'folke/which-key.nvim'
-    -- use 'andymass/vim-matchup'
+    use 'andymass/vim-matchup'
     -- completion
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'
@@ -60,8 +60,7 @@ require('packer').startup(function(use)
         requires = {'nvim-lua/plenary.nvim', 'stevearc/dressing.nvim'}
     }
     use 'othree/html5.vim'
-    use 'pangloss/vim-javascript'
-    use 'evanleck/vim-svelte'
+    use 'hsanson/vim-android'
 end)
 
 -- Plugin Settings
@@ -128,11 +127,11 @@ require('lualine').setup {
     inactive_winbar = {},
     extensions = {}
 }
-require('nvim-treesitter.configs').setup {
-    ensure_installed = {'python', 'lua', 'c', 'cpp', 'rust', 'dart'},
-    highlight = {enable = true},
-    indent = {enable = true}
-}
+-- require('nvim-treesitter.configs').setup {
+--     ensure_installed = {'python', 'lua', 'c', 'cpp', 'rust', 'dart', 'sql'},
+--     highlight = {enable = true},
+--     indent = {enable = true}
+-- }
 
 local cmp = require('cmp')
 

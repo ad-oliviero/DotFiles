@@ -24,5 +24,6 @@ vim.keymap.set('n', '<leader>s', [[:LoadSession<CR>]], {noremap = true})
 vim.keymap.set('n', '<leader>f', [[:Neoformat<CR>]], {noremap = true})
 vim.keymap.set('i', '<C-space>',
                function() return vim.fn['codeium#Accept']() end, {expr = true})
-vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end,
-               {expr = true})
+vim.keymap.set('i', '<C-x>',
+               function() return vim.fn['codeium#Clear']() end, {expr = true})
+
