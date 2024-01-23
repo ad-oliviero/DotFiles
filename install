@@ -41,4 +41,4 @@ printf "Installed correctly!\n"
 
 printf "To install all the dependances on arch linux, you can run this commands:\n\n
 git clone https://aur.archlinux.org/paru.git; cd paru; makepkg -si\n
-paru -Syu --noconfirm hyprland git alacritty zsh uwufetch starship nautilus ttf-jetbrains-mono mako pipewire wireplumber grimshot-git swayidle syncthing gammastep wf-recorder rofi-calc rofi-emoji noto-fonts-emoji nerd-fonts wl-clipboard polkit-gnome xdg-desktop-portal-hyprland  waybar-hyprland-git rofi-lbonn-wayland-git wlogout swaylock-effects\n"
+paru -Syu --noconfirm hyprland git alacritty zsh uwufetch starship nautilus ttf-jetbrains-mono mako pipewire wireplumber grimshot-git swayidle syncthing gammastep wf-recorder rofi-calc rofi-emoji noto-fonts-emoji nerd-fonts wl-clipboard polkit-gnome xdg-desktop-portal-hyprland  waybar-hyprland-git rofi-lbonn-wayland-git wlogout swaylock-effects bluetooth-autoconnect\n"

@@ -50,4 +50,4 @@ source $HOME/.config/zsh/aliasrc
 source $HOME/.config/zsh/keybindings.zsh
 source $HOME/.config/zsh/utils.zsh
 
-uwufetch -r
+uwufetch -c
