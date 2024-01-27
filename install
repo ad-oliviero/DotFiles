@@ -36,8 +36,7 @@ ln -vs "$cwd/config/zsh/.zshrc" "$HOME"
 printf "Installed correctly!\n"
 # printf "You should also
 # \tsudo mv -t $HOME/config_backup /etc/{tlp.conf,environment}; sudo ln -s $cwd/etc/tlp.conf /etc; sudo ln -s $cwd/etc/environment /etc; sudo ln -s $cwd/etc/libinput.conf /etc; sudo ln -s $cwd/etc/envars.sh /etc/profile.d\n"
-# printf "And wget \"https://cdn.wallpapersafari.com/45/94/AyVLsg.jpg\" $HOME/Pictures/doom-dark.jpg\n"
-# ln -s $cwd/config/alacritty/alacritty.gruvbox.dark $configdir/alacritty/alacritty.yml
+# printf "\n/dev/nvme0n1p3  /run/media/windows  ntfs rw,auto,user,fmask=133,dmask=022,uid=1000,gid=1000 0 0\n" >> /etc/fstab
 
 printf "To install all the dependances on arch linux, you can run this commands:\n\n
 git clone https://aur.archlinux.org/paru.git; cd paru; makepkg -si\n
