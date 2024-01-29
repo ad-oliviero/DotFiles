@@ -10,17 +10,17 @@
     "format": "{:%a %e %b %Y, %I:%M:%S %p %Z}"
   },
   "cpu": {
-    "format": "{usage}% ",
+    "format": "{usage}%  ",
     "tooltip": false
   },
   "disk": {
     "interval": 30,
     "path": "/home",
-    "format": "{free} "
+    "format": "{free}  "
   },
   "memory": {
     "interval": 5,
-    "format": "{used:0.2f}GB ",
+    "format": "{used:0.2f}GB  ",
     "tooltip-format": "available {avail:0.2f}GB"
   },
   "idle_inhibitor": {
@@ -36,9 +36,9 @@
   },
   "network": {
     "interval": 3,
-    "format-wifi": "{ipaddr} 󰖩",
-    "format-ethernet": "{ipaddr} 󰈀",
-    "format-disconnected": "Disconnected ⚠",
+    "format-wifi": "{ipaddr} 󰖩 ",
+    "format-ethernet": "{ipaddr} 󰈀 ",
+    "format-disconnected": "Disconnected ⚠ ",
     "on-click": "alacritty -e nmtui"
   },
   "pulseaudio": {
@@ -59,7 +59,7 @@
       "critical": 20
     },
     "format": "{capacity} {icon}",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": [" ", " ", " ", " ", " "],
     "format-charging": "{capacity} {icon}",
     "max-length": 25
   },

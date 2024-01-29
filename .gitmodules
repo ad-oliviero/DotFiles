@@ -10,3 +10,7 @@
 [submodule "config/zsh/plugins/zsh-autosuggestions"]
 	path = config/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "config/nvim"]
+  path = config/nvim
+  url = https://github.com/NvChad/NvChad.git
+  branch = v3.0
