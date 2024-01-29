@@ -37,7 +37,7 @@ function install_all() {
 	done
 
 	# install custom configs
-	install_custom "nvim/custom" "${LOCAL_DIRS[1]}/nvim"
+	install_custom "nvim/custom" "${LOCAL_DIRS[1]}/nvim/lua"
 
 	# mkdir -p "$HOME/.mozilla/firefox/config/fontconfig"
 	# mv $HOME/.var/app/org.mozilla.firefox/config/fontconfig/fonts.conf $HOME/config_backup
