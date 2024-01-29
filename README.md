@@ -68,7 +68,7 @@ Run
 mkdir .config && cd .config
 git clone --recursive https://github.com/TheDarkBug/DotFiles.git
 cd DotFiles
-./install
+./install -a
 ```
 
 Before the installation begins, a backup of your current configuration will be automatically generated in `~/config_backup`.
