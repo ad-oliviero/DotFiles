@@ -31,11 +31,21 @@ M.comment = {
       end,
       "Toggle comment",
     },
+    ["<leader>|"] = {
+      function()
+        require("Comment.api").toggle.blockwise.current()
+      end,
+      "Toggle comment",
+    },
   },
 
   v = {
     ["<leader>\\"] = {
       "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+      "Toggle comment",
+    },
+    ["<leader>|"] = {
+      "<ESC><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<CR>",
       "Toggle comment",
     },
   },

@@ -10,10 +10,15 @@ autocmd("BufEnter", {
   callback = function() vim.opt.readonly = false end
 })
 
-opt.showtabline = 2
+-- open the file in the last position
+if vim.fn.has('autocmd') then
+  vim.api.nvim_create_autocmd("BufReadPost", {
+    callback = function() vim.cmd [[exe "normal! g'\""]] end
+  })
+end
+
 opt.list = true
 -- opt.spl = {'it', 'en_us'}
-opt.spell = true
+-- opt.spell = true
 
 vim.g.codeium_disable_bindings = true
-
