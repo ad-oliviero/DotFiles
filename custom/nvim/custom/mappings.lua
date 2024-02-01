@@ -18,6 +18,15 @@ M.general = {
       end,
       "LSP formatting",
     },
+    ["<leader><down>"] = {
+      ":m .+1<CR>==",
+      "Move line down"
+    },
+    ["<leader><up>"] = {
+      ":m .-2<CR>==",
+      "Move line up"
+    }
+
   },
 }
 
