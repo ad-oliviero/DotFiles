@@ -44,8 +44,9 @@ function get_dspid() {
 asc() {
 	display_id=$(get_dspid)
 	screen_size="1920x1080/392\\;"
-	[[ "$1" == "h" ]] && screen_size="1880x2020/392\\;"
-	[ -z "display_id" ] && adb shell settings put global overlay_display_devices "$screen_size"
+	[[ "$1" == "-h" ]] && screen_size="1880x2020/392\\;"
+	[[ "$display_id" == "0" ]] && adb shell settings put global overlay_display_devices "$screen_size"
+	display_id=$(get_dspid)
 	scrcpy --no-audio --display $display_id
 }
 
