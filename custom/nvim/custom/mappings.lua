@@ -44,7 +44,7 @@ M.comment = {
       function()
         require("Comment.api").toggle.blockwise.current()
       end,
-      "Toggle comment",
+      "Toggle comment block",
     },
   },
 

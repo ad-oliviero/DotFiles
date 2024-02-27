@@ -41,6 +41,19 @@ local plugins = {
       })
     end,
   },
+  {
+    "akinsho/flutter-tools.nvim",
+    config = function()
+      require("flutter-tools").setup()
+    end,
+  },
+  { "frabjous/knap", config = true },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  }
 }
 
 return plugins
