@@ -65,7 +65,16 @@
 
   hardware.bluetooth.enable = true;
 
-  services.fprintd.enable = true;
+  # services.fprintd.enable = true;
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+  };
 
   # Enable sound.
   # sound.enable = true;
@@ -81,9 +90,21 @@
     neovim
     uwufetch
     fprintd
+    light
     curl
     zsh
+    gnumake
+    gcc
+    android-tools
+    phinger-cursors
   ];
+
+  services.udev = {
+    enable = true;
+    packages = with pkgs; [
+      android-udev-rules
+    ];
+  };
 
   users.users.adri = {
     isNormalUser = true;
@@ -100,6 +121,7 @@
   };
   programs.hyprland.enable = true;
   programs.zsh.enable = true;
+  programs.light.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -12,7 +12,11 @@ in
       autocd = true;
       enableAutosuggestions = true;
       history.ignoreAllDups = true;
-      historySubstringSearch.enable = true;
+      historySubstringSearch = {
+        enable = true;
+	searchDownKey = "$terminfo[kcud1]";
+	searchUpKey = "$terminfo[kcuu1]";
+      };
       syntaxHighlighting.enable = true;
       zsh-abbr.enable = true;
       cdpath = [
@@ -20,7 +24,6 @@ in
       ];
       initExtra = ''
         uwufetch -r
-	eval "$(starship init zsh)"
 
         autoload -U edit-command-line
         zle -N edit-command-line
@@ -74,6 +77,7 @@ in
 	ytda = "ytd -x";
 	snvim = "EDITOR=nvim sudoedit";
 	".." = "cd ..";
+	rl = "sudo nixos-rebuild switch --flake ~/.config/dotfiles#laptop";
 
 	myip = "curl ipinfo.io/ip && printf '\\n'";
 	bakkesmod = "WINEFSYNC=1 protontricks -c 'wine ~/Games/bakkesmod.exe' 252950";
@@ -92,7 +96,6 @@ in
         gpu = "git push";
         gc = "git add . && git commit";
         gcp = "git add . && git commit && git push";
-	nirl = "sudo nixos-rebuild switch --flake ~/.config/dotfiles#laptop";
         
         # error correction
         pc = "cp";
