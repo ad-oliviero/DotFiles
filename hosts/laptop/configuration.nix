@@ -65,11 +65,7 @@
 
   hardware.bluetooth.enable = true;
 
-  services.fprintd = {
-    enable = true;
-    # tod.enable = true;
-    # tod.driver = pkgs.libfprint-2-tod1;
-  };
+  services.fprintd.enable = true;
 
   # Enable sound.
   # sound.enable = true;
@@ -86,13 +82,14 @@
     uwufetch
     fprintd
     curl
+    zsh
   ];
 
   users.users.adri = {
     isNormalUser = true;
     initialPassword = "1";
     extraGroups = [ "wheel" "video" ];
-    shell = pkgs.bash;
+    shell = pkgs.zsh;
   };
 
   home-manager = {
@@ -102,6 +99,7 @@
     };
   };
   programs.hyprland.enable = true;
+  programs.zsh.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

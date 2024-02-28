@@ -90,7 +90,7 @@ in
     home.file.".config/waybar/style.css".text = ''
     * {
   border: none;
-  font-family: JetBrains Mono, Symbols Nerd Font;
+  font-family: JetBrains Mono, Symbols Nerd Fonts;
   font-size: 15px;
   transition: 0.8s;
   color: #fbf1c7;

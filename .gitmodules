@@ -1,0 +1,16 @@
+[submodule "modules/home-manager/zsh/plugins/fast-syntax-highlighting"]
+	path = modules/home-manager/zsh/plugins/fast-syntax-highlighting
+	url = https://github.com/zdharma-continuum/fast-syntax-highlighting.git
+[submodule "modules/home-manager/zsh/plugins/zsh-history-substring-search"]
+	path = modules/home-manager/zsh/plugins/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
+[submodule "modules/home-manager/zsh/plugins/zsh-abbr"]
+	path = modules/home-manager/zsh/plugins/zsh-abbr
+	url = https://github.com/olets/zsh-abbr.git
+[submodule "modules/home-manager/zsh/plugins/zsh-autosuggestions"]
+	path = modules/home-manager/zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+#[submodule "modules/home-manager/nvim"]
+#  path = modules/home-manager/nvim
+#  url = https://github.com/NvChad/NvChad.git
+#  branch = v3.0

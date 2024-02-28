@@ -5,9 +5,14 @@
   home.homeDirectory = "/home/adri";
   imports = [
     ../../modules/home-manager/waybar.nix
+    ../../modules/home-manager/alacritty.nix
+    ../../modules/home-manager/zsh.nix
   ];
+  nixpkgs.config.allowUnfree = true;
 
   waybar.enable = true;
+  alacritty.enable = true;
+  zsh.enable = true;
 
   # xdg.configFile."hypr/hyprland.conf".source = ./hypr/hyprland.conf;
   # home.file.".profile".source = ./.profile;
@@ -80,6 +85,8 @@ element.selected {
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
+  fonts.fontconfig.enable = true;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -95,10 +102,12 @@ element.selected {
     bitwarden
     telegram-desktop
     jetbrains-mono
-    noto-fonts
+    nerdfonts
     ifwifi
     gnome.adwaita-icon-theme
     wl-clipboard
+    starship
+    eza
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -113,6 +122,7 @@ element.selected {
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
 
   programs.rofi = {
     enable = true;
@@ -207,7 +217,8 @@ element.selected {
         "$mod, Q, killactive"
         "$mod, K, exit"
         "$mod, space, togglefloating"
-        "$mod, R, exec, ~/.local/bin/hyprgamemode r"
+        # "$mod, R, exec, ~/.local/bin/hyprgamemode r"
+        "$mod, R, exec, hyprctl reload"
         "$mod_SHIFT, F, fakefullscreen"
         "$mod, F, fullscreen"
         "$mod, S, togglesplit"
@@ -314,7 +325,8 @@ element.selected {
     userEmail = "adrianoliviero23@gmail.com";
   };
 
-  home.sessionVariables = {
+  home.sessionVariables = rec {
+    GIT_EDITOR = "nvim";
     EDITOR = "nvim";
     GDK_BACKEND = "wayland,x11";
     GTK_BACKEND = "wayland,x11";
