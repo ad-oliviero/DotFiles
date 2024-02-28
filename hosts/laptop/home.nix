@@ -19,6 +19,7 @@
   home.file.".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
   fonts.fontconfig.enable = true;
 
+  # TODO: move packages to their modules (if possible)
   home.packages = with pkgs; [
     alacritty
     gnome.gnome-control-center
@@ -38,6 +39,7 @@
     starship
     eza
     hyprpaper
+    wlogout
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
