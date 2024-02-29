@@ -32,7 +32,6 @@
     mako
     libnotify
     waybar
-    rofi
     wlogout
     bitwarden
     telegram-desktop
@@ -48,6 +47,14 @@
     zathura
     imv
     mpv
+    gnome.nautilus
+    xwaylandvideobridge
+    ydotool
+    #rofi # for some reason if this package is installed you can't use plugins as there are some conflicts
+    rofi-calc
+    rofi-emoji
+    rofi-rbw
+    sway-contrib.grimshot
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

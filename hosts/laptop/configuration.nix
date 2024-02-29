@@ -14,7 +14,13 @@
     "acpi_call"
   ];
   boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
-  # boot.kernelParams = [ "irqpoll" ];
+  boot.kernelParams = [
+    # "irqpoll"
+    "quiet"
+    "loglevel=3"
+    "udev.log_level=3"
+    "sysrq_always_enabled=1"
+  ];
   environment.variables = {
     VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
   };

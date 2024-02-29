@@ -146,6 +146,7 @@ in
           "$mod, N, exec, nautilus"
           "$mod, D, exec, rofi -show drun -theme ~/.config/rofi/themes/custom"
           "$mod, C, exec, rofi -show calc -modi calc -no-sort -theme gruvbox-dark"
+          "$mod, P, exec, rofi -show rbw -modi rbw -no-sort -theme gruvbox-dark"
           "$mod_SHIFT, E, exec, rofi -modi emoji -show emoji -theme gruvbox-dark"
           ", XF86Calculator, exec, rofi -show calc -modi calc -no-sort -theme gruvbox-dark"
           "$mod, I, exec, XDG_CURRENT_DESKTOP=gnome gnome-control-center"

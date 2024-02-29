@@ -9,6 +9,12 @@ in
   config = lib.mkIf cfg.enable {
     programs.rofi = {
       enable = true;
+      package = pkgs.rofi-wayland;
+      plugins = with pkgs; [
+        rofi-calc
+        rofi-emoji
+        rofi-rbw
+      ];
       extraConfig = {
         threads = 4;
         show-icons = true;
