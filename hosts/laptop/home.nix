@@ -9,11 +9,13 @@
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/desktop/default.nix
     ../../modules/home-manager/git.nix
+    ../../modules/home-manager/zathura.nix
     ../../modules/home-manager/zsh.nix
   ];
   alacritty.enable = true;
   desktop.enable = true;
   git.enable = true;
+  zathura.enable = true;
   zsh.enable = true;
 
   home.file.".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
@@ -23,6 +25,9 @@
   home.packages = with pkgs; [
     alacritty
     gnome.gnome-control-center
+    gnome.gnome-bluetooth
+    gnome.adwaita-icon-theme
+    gnomeExtensions.appindicator
     firefox
     mako
     libnotify
@@ -34,13 +39,15 @@
     jetbrains-mono
     nerdfonts
     ifwifi
-    gnome.adwaita-icon-theme
     wl-clipboard
     starship
     eza
     hyprpaper
     wlogout
     swaylock-effects
+    zathura
+    imv
+    mpv
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -59,6 +66,7 @@
   home.sessionVariables = rec {
     GIT_EDITOR = "nvim";
     EDITOR = "nvim";
+    VISUAL = "nvim";
     GDK_BACKEND = "wayland,x11";
     GTK_BACKEND = "wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
@@ -69,6 +77,18 @@
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     _JAVA_AWT_WM_NONREPARENTING = "1";
+
+    TERMINAL = "alacritty";
+    BROWSER = "firefox";
+    VIDEO = "mpv";
+    IMAGE = "imv";
+    # OPENER = "xdg-open";
+
+    # JAVA_HOME = "/usr/lib/jvm/java-20-openjdk";
+    # PICO_SDK_PATH = "/usr/share/pico-sdk";
+    # PATH = "$PATH:$JAVA_HOME/bin:$HOME/.local/bin:/opt/flutter/bin:$HOME/.pub-cache/bin";
+    # ANDROID_HOME = "$HOME/Android/Sdk";
+    # XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/local/share:/usr/share:$HOME/.local/share/flatpak/exports/share";
   };
 
   programs.home-manager.enable = true;

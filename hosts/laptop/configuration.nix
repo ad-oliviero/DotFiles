@@ -65,6 +65,8 @@
 
   hardware.bluetooth.enable = true;
 
+  security.pam.services.swaylock = {};
+
   # services.fprintd.enable = true;
 
   security.rtkit.enable = true;
@@ -109,7 +111,7 @@
   users.users.adri = {
     isNormalUser = true;
     initialPassword = "1";
-    extraGroups = [ "wheel" "video" ];
+    extraGroups = [ "wheel" "video" "networkmanager" ];
     shell = pkgs.zsh;
   };
 

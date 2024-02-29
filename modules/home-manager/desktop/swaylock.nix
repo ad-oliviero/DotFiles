@@ -19,7 +19,7 @@ in
         "timestr" = "%r";
         "datestr" = "%a, %e %B";
         "screenshots" = true;
-        "fade-in" = "1";
+        "fade-in" = "0.7";
         "effect-blur" = "10x5";
         
         "indicator" = true;
