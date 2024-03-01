@@ -175,6 +175,10 @@ in
           "pkill waybar; waybar"
           "pkill hyprpaper; sleep 1; hyprpaper"
         ];
+	exec-once = [
+	  "swayidle -w before-sleep 'loginctl lock-session $XDG_SESSION_ID' lock 'playerctl -a pause; swaylock'"
+	  "gammastep"
+	];
       };
     };
     xdg.configFile."hypr/hyprpaper.conf".text = ''

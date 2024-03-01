@@ -23,6 +23,7 @@ in
         "$HOME/.config/dotfiles"
       ];
       initExtra = ''
+	[ "$TTY" = "/dev/tty1" ] && Hyprland 2>&1 >/dev/null && exit
         uwufetch -r
 
         autoload -U edit-command-line
