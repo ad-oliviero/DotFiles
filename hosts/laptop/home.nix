@@ -7,7 +7,7 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
   imports = [
     ../../modules/home-manager/alacritty.nix
-    ../../modules/home-manager/desktop/default.nix
+    ../../modules/home-manager/desktop
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/zathura.nix
     ../../modules/home-manager/zsh.nix
@@ -27,7 +27,43 @@
     temperature.night = 3600;
   };
 
+  gtk = {
+    enable = true;
+    #iconTheme = {
+    #  name = "";
+    #  package = pkgs.;
+    #};
+    theme = {
+      name = "Gruvbox-Dark-B";
+      package = pkgs.gruvbox-gtk-theme;
+    };
+    cursorTheme = {
+      name = "Phinger Cursors";
+      package = pkgs.phinger-cursors;
+    };
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-theme = "Gruvbox-Dark-B";
+      cursor-theme = "Phinger Cursors";
+      #icon-theme = "";
+    };
+  };
+
   home.file.".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
+  home.file.".themes".source = "${pkgs.gruvbox-gtk-theme}/share/themes";
   fonts.fontconfig.enable = true;
 
   # TODO: move packages to their modules (if possible)
@@ -69,6 +105,8 @@
     libreoffice
     inkscape
     discord
+    gruvbox-gtk-theme
+    nwg-look # just to take a look at themes, not to change them
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -98,6 +136,7 @@
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     _JAVA_AWT_WM_NONREPARENTING = "1";
+    GTK_THEME = "Gruvbox-Dark-B";
 
     TERMINAL = "alacritty";
     BROWSER = "firefox";
