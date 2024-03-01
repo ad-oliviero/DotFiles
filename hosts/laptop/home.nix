@@ -18,14 +18,21 @@
   zathura.enable = true;
   zsh.enable = true;
 
+  services.gammastep = {
+    enable = true;
+    provider = "manual";
+    latitude = 40.83;
+    longitude = 14.34;
+    temperature.day = 5700;
+    temperature.night = 3600;
+  };
+
   home.file.".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
   fonts.fontconfig.enable = true;
 
   # TODO: move packages to their modules (if possible)
   home.packages = with pkgs; [
     alacritty
-    gnome.gnome-control-center
-    gnome.gnome-bluetooth
     gnome.adwaita-icon-theme
     gnomeExtensions.appindicator
     firefox
@@ -36,6 +43,7 @@
     bitwarden
     telegram-desktop
     jetbrains-mono
+    helvetica-neue-lt-std
     nerdfonts
     ifwifi
     wl-clipboard
@@ -44,6 +52,7 @@
     hyprpaper
     wlogout
     swaylock-effects
+    swayidle
     zathura
     imv
     mpv
@@ -55,6 +64,11 @@
     rofi-emoji
     rofi-rbw
     sway-contrib.grimshot
+    playerctl
+    imagemagick
+    libreoffice
+    inkscape
+    discord
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

@@ -1,11 +1,16 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, outputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
+  ];
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.unstable-packages
     ];
+    config.allowUnfree = true;
+  };
   # Additional hardware configurations
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   # GPU
@@ -20,7 +25,9 @@
     "quiet"
     "udev.log_level=3"
     "sysrq_always_enabled=1"
+    "resume_offset=201912320"
   ];
+  boot.resumeDevice = "/dev/nvme0n1p2";
   environment.variables = {
     VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
   };
@@ -29,9 +36,33 @@
     libvdpau-va-gl
     intel-media-driver
   ];
+  powerManagement.enable = true;
   services = {
     fstrim.enable = lib.mkDefault true;
     tlp.enable = true;
+    udev = {
+      enable = true;
+      packages = with pkgs; [
+        android-udev-rules
+      ];
+    };
+    openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "no";
+	PasswordAuthentication = false;
+      };
+    };
+    printing.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      wireplumber.enable = true;
+    };
+    thermald.enable = true;
+    # tlp
   };
 
   # Use the systemd-boot EFI boot loader.
@@ -66,23 +97,13 @@
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   hardware.bluetooth.enable = true;
 
-  security.pam.services.swaylock = {};
 
   # services.fprintd.enable = true;
 
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-  };
+  security.pam.services.swaylock = {};
 
   # Enable sound.
   # sound.enable = true;
@@ -105,14 +126,10 @@
     gcc
     android-tools
     phinger-cursors
+    gnome.gnome-control-center
+    gnome.gnome-bluetooth
+    gammastep
   ];
-
-  services.udev = {
-    enable = true;
-    packages = with pkgs; [
-      android-udev-rules
-    ];
-  };
 
   users.users.adri = {
     isNormalUser = true;
@@ -123,9 +140,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      "adri" = import ./home.nix;
-    };
+    users.adri = import ./home.nix;
   };
   programs.hyprland.enable = true;
   programs.zsh.enable = true;
@@ -139,11 +154,6 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
@@ -155,23 +165,6 @@
   # accidentally delete configuration.nix.
   # system.copySystemConfiguration = true;
 
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "23.11"; # Did you read the comment?
-
+  system.stateVersion = "23.11";
 }
 
