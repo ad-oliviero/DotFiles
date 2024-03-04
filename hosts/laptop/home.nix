@@ -9,12 +9,14 @@
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/desktop
     ../../modules/home-manager/git.nix
+    ../../modules/home-manager/nvchad
     ../../modules/home-manager/zathura.nix
     ../../modules/home-manager/zsh.nix
   ];
   alacritty.enable = true;
   desktop.enable = true;
   git.enable = true;
+  nvchad.enable = true;
   zathura.enable = true;
   zsh.enable = true;
 
@@ -60,6 +62,10 @@
       cursor-theme = "Phinger Cursors";
       #icon-theme = "";
     };
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
+    };
   };
 
   home.file.".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
@@ -94,7 +100,6 @@
     mpv
     gnome.nautilus
     xwaylandvideobridge
-    ydotool
     #rofi # for some reason if this package is installed you can't use plugins as there are some conflicts
     rofi-calc
     rofi-emoji
@@ -107,6 +112,9 @@
     discord
     gruvbox-gtk-theme
     nwg-look # just to take a look at themes, not to change them
+    vscodium
+    ghidra
+    nurl # get "fetchFromGitHub" configurations
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

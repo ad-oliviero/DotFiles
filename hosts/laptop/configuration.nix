@@ -37,9 +37,9 @@
     intel-media-driver
   ];
   powerManagement.enable = true;
+  systemd.services.ydotoold.enable = true;
   services = {
     fstrim.enable = lib.mkDefault true;
-    tlp.enable = true;
     udev = {
       enable = true;
       packages = with pkgs; [
@@ -53,6 +53,7 @@
 	PasswordAuthentication = false;
       };
     };
+    blueman.enable = true;
     printing.enable = true;
     pipewire = {
       enable = true;
@@ -62,8 +63,27 @@
       wireplumber.enable = true;
     };
     thermald.enable = true;
-    # tlp
+    tlp = {
+      enable = true;
+      settings.STOP_CHARGE_THRESH_BAT0 = true;
+    };
+    auto-cpufreq = {
+      enable = true;
+      settings = {
+        battery = {
+	  governor = "powersave";
+	  turbo = "never";
+	};
+        charger = {
+	  governor = "performance";
+	  turbo = "auto";
+	};
+      };
+    };
   };
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -129,12 +149,18 @@
     gnome.gnome-control-center
     gnome.gnome-bluetooth
     gammastep
+    blueman
+    virt-manager
+    ydotool
+    file
+    python313
+    brlaser
   ];
 
   users.users.adri = {
     isNormalUser = true;
     initialPassword = "1";
-    extraGroups = [ "wheel" "video" "networkmanager" ];
+    extraGroups = [ "wheel" "video" "networkmanager" "libvirtd" ];
     shell = pkgs.zsh;
   };
 
@@ -145,6 +171,7 @@
   programs.hyprland.enable = true;
   programs.zsh.enable = true;
   programs.light.enable = true;
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
