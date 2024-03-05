@@ -1,8 +1,11 @@
-{ lib, config, pkgs, ... }:
-let
-  cfg = config.mako;
-in
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
+  cfg = config.mako;
+in {
   options.mako = {
     enable = lib.mkEnableOption "enable mako module";
   };

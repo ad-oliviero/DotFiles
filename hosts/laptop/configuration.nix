@@ -1,9 +1,14 @@
-{ config, lib, pkgs, inputs, outputs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  outputs,
+  ...
+}: {
   imports = [
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
   ];
   nixpkgs = {
     overlays = [
@@ -18,7 +23,7 @@
     "i915"
     "acpi_call"
   ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [acpi_call];
   boot.consoleLogLevel = 3;
   boot.kernelParams = [
     # "irqpoll"
@@ -32,7 +37,11 @@
     VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
   };
   hardware.opengl.extraPackages = with pkgs; [
-    (if (lib.versionOlder (lib.versions.majorMinor lib.version) "23.11") then vaapiIntel else intel-vaapi-driver)
+    (
+      if (lib.versionOlder (lib.versions.majorMinor lib.version) "23.11")
+      then vaapiIntel
+      else intel-vaapi-driver
+    )
     libvdpau-va-gl
     intel-media-driver
   ];
@@ -50,7 +59,7 @@
       enable = true;
       settings = {
         PermitRootLogin = "no";
-	PasswordAuthentication = false;
+        PasswordAuthentication = false;
       };
     };
     blueman.enable = true;
@@ -71,13 +80,13 @@
       enable = true;
       settings = {
         battery = {
-	  governor = "powersave";
-	  turbo = "never";
-	};
+          governor = "powersave";
+          turbo = "never";
+        };
         charger = {
-	  governor = "performance";
-	  turbo = "auto";
-	};
+          governor = "performance";
+          turbo = "auto";
+        };
       };
     };
   };
@@ -107,18 +116,15 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
-  
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   hardware.bluetooth.enable = true;
-
 
   # services.fprintd.enable = true;
 
@@ -132,7 +138,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   # nix search package_name
   environment.systemPackages = with pkgs; [
     git
@@ -160,18 +166,17 @@
   users.users.adri = {
     isNormalUser = true;
     initialPassword = "1";
-    extraGroups = [ "wheel" "video" "networkmanager" "libvirtd" ];
+    extraGroups = ["wheel" "video" "networkmanager" "libvirtd"];
     shell = pkgs.zsh;
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users.adri = import ./home.nix;
   };
   programs.hyprland.enable = true;
   programs.zsh.enable = true;
   programs.light.enable = true;
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -194,4 +199,3 @@
 
   system.stateVersion = "23.11";
 }
-

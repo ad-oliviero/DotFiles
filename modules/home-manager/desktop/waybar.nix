@@ -1,8 +1,11 @@
-{ lib, config, pkgs, ... }:
-let
-  cfg = config.waybar;
-in
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
+  cfg = config.waybar;
+in {
   options.waybar = {
     enable = lib.mkEnableOption "enable waybar module";
   };
@@ -94,36 +97,36 @@ in
         transition: 0.8s;
         color: #fbf1c7;
       }
-      
+
       #waybar, #tray menu {
         background: #282828;
       }
-      
+
       #workspaces {
         margin: 0px 8px;
       }
-      
+
       #workspaces button.focused,
       #workspaces button.active,
       #workspaces button:hover {
         background: #458588;
       }
-      
+
       #battery.critical,
       #workspaces button.urgent,
       #idle_inhibitor.deactivated,
       #pulseaudio.muted {
         background: #cc241d;
       }
-      
+
       #battery.charging {
         background: #689d6a;
       }
-      
+
       #battery.warning {
         background: #d79921;
       }
-      
+
       #clock,
       #battery,
       #cpu,

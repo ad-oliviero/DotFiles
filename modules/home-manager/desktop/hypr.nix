@@ -1,8 +1,11 @@
-{ lib, config, pkgs, ... }:
-let
-  cfg = config.hypr;
-in
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
+  cfg = config.hypr;
+in {
   options.hypr = {
     enable = lib.mkEnableOption "enable hypr module";
   };
@@ -175,10 +178,10 @@ in
           "pkill waybar; waybar"
           "pkill hyprpaper; sleep 1; hyprpaper"
         ];
-	exec-once = [
-	  "swayidle -w before-sleep 'loginctl lock-session $XDG_SESSION_ID' lock 'playerctl -a pause; swaylock'"
-	  "gammastep"
-	];
+        exec-once = [
+          "swayidle -w before-sleep 'loginctl lock-session $XDG_SESSION_ID' lock 'playerctl -a pause; swaylock'"
+          "gammastep"
+        ];
       };
     };
     xdg.configFile."hypr/hyprpaper.conf".text = ''

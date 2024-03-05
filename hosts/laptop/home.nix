@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-{
+{pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
   home.username = "adri";
   home.homeDirectory = "/home/adri";
@@ -63,8 +61,8 @@
       #icon-theme = "";
     };
     "org/virt-manager/virt-manager/connections" = {
-      autoconnect = [ "qemu:///system" ];
-      uris = [ "qemu:///system" ];
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
     };
   };
 
@@ -95,7 +93,6 @@
     wlogout
     swaylock-effects
     swayidle
-    zathura
     imv
     mpv
     gnome.nautilus
@@ -130,7 +127,7 @@
     # '')
   ];
 
-  home.sessionVariables = rec {
+  home.sessionVariables = {
     GIT_EDITOR = "nvim";
     EDITOR = "nvim";
     VISUAL = "nvim";

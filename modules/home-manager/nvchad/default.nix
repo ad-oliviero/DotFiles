@@ -1,12 +1,23 @@
-{ lib, config, pkgs, ... }:
-let
-  cfg = config.nvchad;
-in
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
+  cfg = config.nvchad;
+in {
   options.nvchad = {
     enable = lib.mkEnableOption "enable nvchad module";
   };
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      zathura
+      nil
+      alejandra
+      stylua
+      lua-language-server
+    ];
+
     xdg.configFile."nvim/".source = pkgs.stdenv.mkDerivation {
       name = "NvChad";
       src = pkgs.fetchFromGitHub {

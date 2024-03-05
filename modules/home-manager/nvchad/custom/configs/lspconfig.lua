@@ -4,7 +4,7 @@ local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 -- pacman -S clangd pyright vscode-html-languageserver vscode-css-languageserver
-local servers = {"clangd", "pyright", "rust_analyzer", "lua_ls", "dartls", "html", "cssls", "eslint"}
+local servers = { "clangd", "pyright", "rust_analyzer", "lua_ls", "dartls", "html", "cssls", "eslint", "nil_ls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

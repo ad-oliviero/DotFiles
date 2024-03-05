@@ -1,8 +1,11 @@
-{ lib, config, pkgs, ... }:
-let
-  cfg = config.desktop;
-in
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
+  cfg = config.desktop;
+in {
   options.desktop = {
     enable = lib.mkEnableOption "enable desktop module";
   };

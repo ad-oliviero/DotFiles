@@ -1,8 +1,10 @@
-{ lib, config, pkgs, ... }:
-let
-  cfg = config.zathura;
-in
 {
+  lib,
+  config,
+  ...
+}: let
+  cfg = config.zathura;
+in {
   options.zathura = {
     enable = lib.mkEnableOption "enable zathura module";
   };
@@ -50,7 +52,7 @@ in
         recolor-lightcolor = "#282828";
         recolor-darkcolor = "#ebdbb2";
         recolor = true;
-        recolor-keephue = true     ;
+        recolor-keephue = true;
 
         font = "JetBrains Mono 12";
       };
