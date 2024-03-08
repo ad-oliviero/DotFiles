@@ -14,32 +14,29 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     ...
   } @ inputs: let
     inherit (self) outputs;
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-    formatter = system: nixpkgs.legacyPackages.${system}.alejandra;
-  in {
-    overlays = import ./hosts/laptop/overlays {inherit inputs;};
-    nixosModules = import ./hosts/laptop/modules/nixos;
-    homeManagerModules = import ./hosts/laptop/modules/home-manager;
+  in rec {
+    inherit nixpkgs;
+    inherit nixpkgs-unstable;
+    overlays = import ./hosts/adri-lap/overlays {inherit inputs;};
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
+
     nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
+      "adri-lap" = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./hosts/laptop/configuration.nix
-        ];
+        modules = [./hosts/adri-lap/configuration.nix];
       };
     };
     homeConfigurations = {
       "adri@adri-lap" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          ./hosts/laptop/home.nix
-        ];
+        modules = [./hosts/adri-lap/home.nix];
       };
     };
   };

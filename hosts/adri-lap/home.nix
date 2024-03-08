@@ -1,75 +1,27 @@
-{pkgs, ...}: {
-  nixpkgs.config.allowUnfree = true;
+{
+  pkgs,
+  outputs,
+  ...
+}: {
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [outputs.overlays.unstable-packages];
+  };
   home.username = "adri";
   home.homeDirectory = "/home/adri";
   home.stateVersion = "23.11"; # Please read the comment before changing.
   imports = [
-    ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/desktop
-    ../../modules/home-manager/git.nix
-    ../../modules/home-manager/nvchad
+    ../../modules/home-manager/dev
     ../../modules/home-manager/zathura.nix
     ../../modules/home-manager/zsh.nix
   ];
-  alacritty.enable = true;
   desktop.enable = true;
-  git.enable = true;
-  nvchad.enable = true;
+  dev.enable = true;
   zathura.enable = true;
   zsh.enable = true;
 
-  services.gammastep = {
-    enable = true;
-    provider = "manual";
-    latitude = 40.83;
-    longitude = 14.34;
-    temperature.day = 5700;
-    temperature.night = 3600;
-  };
-
-  gtk = {
-    enable = true;
-    #iconTheme = {
-    #  name = "";
-    #  package = pkgs.;
-    #};
-    theme = {
-      name = "Gruvbox-Dark-B";
-      package = pkgs.gruvbox-gtk-theme;
-    };
-    cursorTheme = {
-      name = "Phinger Cursors";
-      package = pkgs.phinger-cursors;
-    };
-    gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-    gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-  };
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-      gtk-theme = "Gruvbox-Dark-B";
-      cursor-theme = "Phinger Cursors";
-      #icon-theme = "";
-    };
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system"];
-      uris = ["qemu:///system"];
-    };
-  };
-
-  home.file.".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
-  home.file.".themes".source = "${pkgs.gruvbox-gtk-theme}/share/themes";
   fonts.fontconfig.enable = true;
-
   # TODO: move packages to their modules (if possible)
   home.packages = with pkgs; [
     alacritty
@@ -106,11 +58,9 @@
     imagemagick
     libreoffice
     inkscape
-    discord
+    unstable.discord
     gruvbox-gtk-theme
     nwg-look # just to take a look at themes, not to change them
-    vscodium
-    ghidra
     nurl # get "fetchFromGitHub" configurations
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -148,12 +98,6 @@
     VIDEO = "mpv";
     IMAGE = "imv";
     # OPENER = "xdg-open";
-
-    # JAVA_HOME = "/usr/lib/jvm/java-20-openjdk";
-    # PICO_SDK_PATH = "/usr/share/pico-sdk";
-    # PATH = "$PATH:$JAVA_HOME/bin:$HOME/.local/bin:/opt/flutter/bin:$HOME/.pub-cache/bin";
-    # ANDROID_HOME = "$HOME/Android/Sdk";
-    # XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/local/share:/usr/share:$HOME/.local/share/flatpak/exports/share";
   };
 
   programs.home-manager.enable = true;

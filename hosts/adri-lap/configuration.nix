@@ -11,10 +11,8 @@
     inputs.home-manager.nixosModules.default
   ];
   nixpkgs = {
-    overlays = [
-      outputs.overlays.unstable-packages
-    ];
     config.allowUnfree = true;
+    overlays = [outputs.overlays.unstable-packages];
   };
   # Additional hardware configurations
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
@@ -32,6 +30,7 @@
     "sysrq_always_enabled=1"
     "resume_offset=201912320"
   ];
+  boot.kernel.sysctl."kernel.sysrq" = 502;
   boot.resumeDevice = "/dev/nvme0n1p2";
   environment.variables = {
     VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
@@ -141,16 +140,10 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # nix search package_name
   environment.systemPackages = with pkgs; [
-    git
-    neovim
     uwufetch
     fprintd
     light
-    curl
     zsh
-    gnumake
-    gcc
-    android-tools
     phinger-cursors
     gnome.gnome-control-center
     gnome.gnome-bluetooth
@@ -159,21 +152,25 @@
     virt-manager
     ydotool
     file
-    python313
     brlaser
   ];
 
   users.users.adri = {
     isNormalUser = true;
     initialPassword = "1";
-    extraGroups = ["wheel" "video" "networkmanager" "libvirtd"];
-    shell = pkgs.zsh;
+    extraGroups = ["wheel" "video" "networkmanager" "libvirtd" "adbusers"];
+    useDefaultShell = true;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDCAFcsKYreVcas0Kz94oWSBjgQVtyu3ENR3OV++YRTS adri@adri-lap
+"
+    ];
   };
-
+  users.defaultUserShell = pkgs.zsh;
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {inherit inputs outputs;};
     users.adri = import ./home.nix;
   };
+
   programs.hyprland.enable = true;
   programs.zsh.enable = true;
   programs.light.enable = true;

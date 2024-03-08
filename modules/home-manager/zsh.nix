@@ -26,26 +26,26 @@ in {
       ];
       initExtra = ''
         [ "$TTY" = "/dev/tty1" ] && Hyprland 2>&1 >/dev/null && exit
-               uwufetch -r
+        uwufetch -r
 
-               autoload -U edit-command-line
-               zle -N edit-command-line
+        autoload -U edit-command-line
+        zle -N edit-command-line
 
         zstyle ":completion:*" menu yes select
-               zstyle -e ':completion:*:default' list-colors 'reply=("''${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:''${(s.:.)LS_COLORS}")'
-               zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}'
-               zstyle ':completition:*' rehash true
-               zstyle ':completition:*' accept-exact '*(N)'
+        zstyle -e ':completion:*:default' list-colors 'reply=("''${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:''${(s.:.)LS_COLORS}")'
+        zstyle ':completion:*' matcher-list ''' 'm:{a-zA-Z}={A-Za-z}'
+        zstyle ':completition:*' rehash true
+        zstyle ':completition:*' accept-exact '*(N)'
 
-               bindkey '^a' beginning-of-line
-               bindkey '^e' end-of-line
-               bindkey '^v' edit-command-line
-               bindkey '^[[3;5~' delete-word
-               bindkey '^H' backward-delete-word
-               bindkey '^[[3~' delete-char
-               bindkey '^[[Z' undo
-               bindkey '^[[1;5D' backward-word
-               bindkey '^[[1;5C' forward-word
+        bindkey '^a' beginning-of-line
+        bindkey '^e' end-of-line
+        bindkey '^v' edit-command-line
+        bindkey '^[[3;5~' delete-word
+        bindkey '^H' backward-delete-word
+        bindkey '^[[3~' delete-char
+        bindkey '^[[Z' undo
+        bindkey '^[[1;5D' backward-word
+        bindkey '^[[1;5C' forward-word
 
         source $HOME/.config/zsh/utils.zsh
       '';
@@ -80,7 +80,7 @@ in {
         ytda = "ytd -x";
         snvim = "EDITOR=nvim sudoedit";
         ".." = "cd ..";
-        rl = "sudo nixos-rebuild switch --flake ~/.config/dotfiles#laptop";
+        rl = "sudo nixos-rebuild switch --flake ~/.config/dotfiles#adri-lap";
 
         myip = "curl ipinfo.io/ip && printf '\\n'";
         bakkesmod = "WINEFSYNC=1 protontricks -c 'wine ~/Games/bakkesmod.exe' 252950";
