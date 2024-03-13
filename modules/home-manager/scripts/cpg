@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# C Project Generate
+
+echo hello

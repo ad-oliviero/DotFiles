@@ -17,9 +17,6 @@ in {
         "$mod" = "SUPER";
         monitor = "eDP-1,1920x1080@60,1920x0,1";
         workspace = "eDP-1,1";
-        "device:at-translated-set-2-keyboard" = {
-          kb_layout = "it";
-        };
         input = {
           kb_options = "compose:menu,level3:menu_switch";
           numlock_by_default = true;
@@ -190,6 +187,13 @@ in {
       wallpaper=HDMI-A-1,~/Pictures/wallpaper.jpg
       wallpaper=HDMI-A-2,~/Pictures/wallpaper.jpg
       ipc = off
+    '';
+    # additional configurations that do not work if written in nix
+    xdg.configFile."hypr/hyprland.conf".text = ''
+      device {
+        name=at-translated-set-2-keyboard
+        kb_layout=it
+      }
     '';
   };
 }

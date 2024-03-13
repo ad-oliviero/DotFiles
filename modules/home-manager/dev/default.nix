@@ -10,16 +10,17 @@ in {
     enable = lib.mkEnableOption "enable dev module";
   };
   imports = [
-    ./nvchad
+    ./nvim
     ./git.nix
+    ./scripts.nix
   ];
   config = lib.mkIf cfg.enable {
-    nvchad.enable = true;
+    nvim.enable = true;
     git.enable = true;
+    scripts.enable = true;
     # packages used for all kinds of development environments
     home.packages = with pkgs; [
       git
-      neovim
       vscodium
       ghidra
       curl
@@ -31,10 +32,12 @@ in {
       openjdk
       gnumake
       gcc
+      rocmPackages.llvm.clang-tools-extra
+      llvm
       android-tools
       python313
       android-studio
-      # unstable.androidenv.androidPkgs_9_0.platform-tools
+      # unstable.androidenv.androidPkgs_9_0.androidsdk
     ];
     home.sessionVariables = {
       _JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";

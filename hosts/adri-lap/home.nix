@@ -4,7 +4,10 @@
   ...
 }: {
   nixpkgs = {
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      android_sdk.accept_license = true;
+    };
     overlays = [outputs.overlays.unstable-packages];
   };
   home.username = "adri";

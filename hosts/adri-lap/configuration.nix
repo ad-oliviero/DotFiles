@@ -8,12 +8,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
   ];
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [outputs.overlays.unstable-packages];
-  };
   # Additional hardware configurations
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   # GPU
@@ -170,7 +165,6 @@
     extraSpecialArgs = {inherit inputs outputs;};
     users.adri = import ./home.nix;
   };
-
   programs.hyprland.enable = true;
   programs.zsh.enable = true;
   programs.light.enable = true;
