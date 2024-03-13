@@ -2,7 +2,7 @@ local opt = vim.opt
 local o = vim.o
 local g = vim.g
 
-opt.spl = {'it', 'en_us'}
+opt.spl = { "it", "en_us" }
 opt.spell = true
 
 opt.laststatus = 3 -- global statusline
@@ -30,7 +30,7 @@ opt.numberwidth = 2
 opt.ruler = false
 
 -- disable nvim intro
-opt.shortmess:append "sI"
+opt.shortmess:append("sI")
 
 opt.signcolumn = "yes"
 opt.splitbelow = true
@@ -43,7 +43,7 @@ opt.updatetime = 250
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>[]hl"
+opt.whichwrap:append("<>[]hl")
 
 g.mapleader = " "
 

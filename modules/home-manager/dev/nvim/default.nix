@@ -12,10 +12,14 @@ in {
   config =
     lib.mkIf cfg.enable {
       home.packages = with pkgs; [
-      llvm
+      alejandra
+      codeium
+      clang-tools
       lua-language-server
-      pyright
       nil
+      stylua
+      pyright
+      ripgrep
       ];
     programs.neovim = {
       enable = true;

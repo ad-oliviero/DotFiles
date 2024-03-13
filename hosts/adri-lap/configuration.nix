@@ -86,6 +86,10 @@
   };
 
   virtualisation.libvirtd.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
   programs.virt-manager.enable = true;
 
   # Use the systemd-boot EFI boot loader.
@@ -153,7 +157,7 @@
   users.users.adri = {
     isNormalUser = true;
     initialPassword = "1";
-    extraGroups = ["wheel" "video" "networkmanager" "libvirtd" "adbusers"];
+    extraGroups = ["wheel" "video" "networkmanager" "libvirtd" "adbusers" "docker"];
     useDefaultShell = true;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDCAFcsKYreVcas0Kz94oWSBjgQVtyu3ENR3OV++YRTS adri@adri-lap
