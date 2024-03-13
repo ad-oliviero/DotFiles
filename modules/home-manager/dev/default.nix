@@ -33,7 +33,6 @@ in {
       gnumake
       gcc
       rocmPackages.llvm.clang-tools-extra
-      llvm
       android-tools
       python313
       android-studio
