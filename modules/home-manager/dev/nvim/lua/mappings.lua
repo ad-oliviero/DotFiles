@@ -20,7 +20,8 @@ map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "Toggle NvCheatsheet" }
 
 -- global lsp mappings
 map("n", "<leader>f", function()
-	vim.lsp.buf.format({ async = true })
+	-- vim.lsp.buf.format({ async = true })
+	require("conform").format()
 end, { desc = "Lsp formatting" })
 
 map("n", "<leader>lf", vim.diagnostic.open_float, { desc = "Lsp floating diagnostics" })
