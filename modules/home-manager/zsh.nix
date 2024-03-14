@@ -79,7 +79,6 @@ in {
         ytd = "yt-dlp --add-metadata -i";
         ytda = "ytd -x";
         snvim = "EDITOR=nvim sudoedit";
-        ".." = "cd ..";
 
         rl = "sudo nixos-rebuild switch --flake ~/.config/dotfiles#adri-lap";
         hrl = "home-manager switch --flake ~/.config/dotfiles#adri-lap";

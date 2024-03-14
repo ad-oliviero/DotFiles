@@ -11,8 +11,8 @@ in {
   config = lib.mkIf cfg.enable {
     home.file.".local/bin/cpg".source = ../scripts/cpg;
 
-  home.sessionVariables = {
-PATH="$PATH:~/.local/bin/";
-  };
+    home.sessionVariables = {
+      PATH = "$PATH:~/.local/bin/";
+    };
   };
 }

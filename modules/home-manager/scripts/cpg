@@ -2,4 +2,92 @@
 
 # C Project Generate
 
-echo hello
+[ ! $# -gt 0 ] && {
+	printf "No options provided\n"
+	exit 1
+}
+
+MAKEFILE="Makefile"
+CMAKELISTS="CMakeLists.txt"
+C_EXT=".c"
+CPP_EXT=".cpp"
+SRC_DIR="src"
+
+declare project_name
+language="${CPP_EXT}"
+build_system="${CMAKELISTS}"
+extension="${language}"
+
+while getopts ":chmn:" opt; do
+	case ${opt} in
+	c)
+		language="${C_EXT}"
+		extension="${language}"
+		;;
+	h)
+		printf "TODO\n"
+		exit 0
+		;;
+	m)
+		build_system="${MAKEFILE}"
+		;;
+	n)
+		project_name="${OPTARG}"
+		;;
+	:)
+		echo "Option -${OPTARG} requires an argument."
+		exit 1
+		;;
+	?)
+		printf "Invalid option: -%s\n" "${OPTARG}"
+		exit 1
+		;;
+	esac
+done
+
+gen_cmakelists() {
+	printf "
+cmake_minimum_required(VERSION 3.28)
+project(${project_name})
+add_executable(${project_name} src/main${extension})
+" >$CMAKELISTS
+}
+gen_makefile() {
+	printf "
+CC=$([ "$language" = "$C_EXT" ] && printf "gcc" || printf "g++")
+SRCS=\$(wildcard ${SRC_DIR}/*${extension})
+OBJS=\$(SRCS:${extension}=.o)
+TARGET=${project_name}
+
+\$(TARGET): \$(OBJS)
+\t\$(CC) -o \$(TARGET) \$(OBJS)
+
+%%.o: %%${extension}
+\t\$(CC) -c -o \$@ \$<
+
+clean:
+\trm -f \$(OBJS) \$(TARGET)
+" >$MAKEFILE
+}
+
+gen_c_files() {
+	printf "#include <stdio.h>\nint main() {\n\tprintf(\"Hello, ${project_name}!\\\\n\");\n\treturn 0;\n}\n" >"${SRC_DIR}/main${C_EXT}"
+}
+gen_cpp_files() {
+	printf "#include <iostream>\nint main() {\n\tstd::cout << \"Hello, ${project_name}!\" << std::endl;\n\treturn 0;\n}\n" >"${SRC_DIR}/main${CPP_EXT}"
+}
+
+[ -d "${project_name}" ] && {
+	printf "Directory \"${project_name}\" already exists\n"
+	exit 1
+}
+mkdir -pv "${project_name}/src"
+pushd "${project_name}"
+[ "${build_system}" = "${MAKEFILE}" ] && gen_makefile
+[ "${build_system}" = "${CMAKELISTS}" ] && gen_cmakelists
+
+[ "${language}" = "${C_EXT}" ] && gen_c_files
+[ "${language}" = "${CPP_EXT}" ] && gen_cpp_files
+popd
+
+printf "Project generation completed! Now you can\n\tcd ${project_name}\n\tcmake -B build && { pushd build && make && ./${project_name} && popd }\n"

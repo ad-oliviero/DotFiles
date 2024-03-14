@@ -152,6 +152,7 @@
     ydotool
     file
     brlaser
+    tree
   ];
 
   users.users.adri = {

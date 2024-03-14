@@ -35,6 +35,7 @@ in {
       android-tools
       python313
       android-studio
+      cmake
       # unstable.androidenv.androidPkgs_9_0.androidsdk
     ];
     home.sessionVariables = {
