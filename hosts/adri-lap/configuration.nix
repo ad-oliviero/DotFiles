@@ -19,7 +19,8 @@
   boot.extraModulePackages = with config.boot.kernelPackages; [acpi_call];
   boot.consoleLogLevel = 3;
   boot.kernelParams = [
-    # "irqpoll"
+    # "irqpoll" # if enabled wifi doesn't work, if disabled I get "Disabling IRQ #9"
+    # "acpi=noirq"
     "quiet"
     "udev.log_level=3"
     "sysrq_always_enabled=1"
@@ -40,8 +41,10 @@
     intel-media-driver
   ];
   powerManagement.enable = true;
+  documentation.dev.enable = true;
   systemd.services.ydotoold.enable = true;
   services = {
+    fwupd.enable=true;
     fstrim.enable = lib.mkDefault true;
     udev = {
       enable = true;
@@ -66,20 +69,17 @@
       wireplumber.enable = true;
     };
     thermald.enable = true;
-    tlp = {
-      enable = true;
-      settings.STOP_CHARGE_THRESH_BAT0 = true;
-    };
     auto-cpufreq = {
       enable = true;
       settings = {
         battery = {
           governor = "powersave";
           turbo = "never";
+          scaling_max_freq = 400000;
         };
         charger = {
           governor = "performance";
-          turbo = "auto";
+          turbo = "always";
         };
       };
     };
@@ -153,6 +153,10 @@
     file
     brlaser
     tree
+    man-pages
+    man-pages-posix
+    nmap
+    obs-studio
   ];
 
   users.users.adri = {
@@ -161,8 +165,8 @@
     extraGroups = ["wheel" "video" "networkmanager" "libvirtd" "adbusers" "docker"];
     useDefaultShell = true;
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDCAFcsKYreVcas0Kz94oWSBjgQVtyu3ENR3OV++YRTS adri@adri-lap
-"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDCAFcsKYreVcas0Kz94oWSBjgQVtyu3ENR3OV++YRTS adri@adri-lap"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAuMW3O5BOOpTPUzPBrmloAP1mjw8SCnOaVdNVcyJoIl u0_a456@localhost"
     ];
   };
   users.defaultUserShell = pkgs.zsh;

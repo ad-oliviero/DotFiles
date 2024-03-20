@@ -44,7 +44,7 @@ in {
           },
           "tooltip-format-activated": "Performance mode",
           "tooltip-format-deactivated": "Power saving",
-          "on-click": "~/.local/bin/hyprgamemode",
+          "on-click": "~/.local/bin/hypr_batsave",
           "start-activated": false
         },
         "network": {

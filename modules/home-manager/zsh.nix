@@ -119,6 +119,16 @@ in {
       };
     };
     xdg.configFile."zsh/utils.zsh".text = ''
+      # lenovo laptop conservation mode
+      consmode() {
+        [ -z "$1" ] && printf "[\x1b[033mERROR\x1b[0m]: $0 requires an argument\n" && return 1
+        [ "$1" != "g" ] && [ "$1" != "0" ] && [ "$1" != "1" ] && printf "[\x1b[033mERROR\x1b[0m]: argument must be [ \"g\", \"0\" or \"1\" ]\n" && return 1
+        [ "$1" = "g" ] && cat /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode && return
+        sudo bash -c "printf $1 > /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
+        cat /sys/class/power_supply/BAT0/status
+      }
+
+
       exec_time() {
       	[ "$1" = "help" ] || [ "$1" = "" ] && printf "Usage: exec_time <program to execute>\n" && return
       	DATE1=$(date +%s%N)

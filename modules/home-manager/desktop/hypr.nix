@@ -74,8 +74,9 @@ in {
           "$mod, Q, killactive"
           "$mod, K, exit"
           "$mod, space, togglefloating"
-          # "$mod, R, exec, ~/.local/bin/hyprgamemode r"
+          # "$mod, R, exec, ~/.local/bin/hypr_batsave r"
           "$mod, R, exec, hyprctl reload"
+          "$mod, B, exec, "
           "$mod_SHIFT, F, fakefullscreen"
           "$mod, F, fullscreen"
           "$mod, S, togglesplit"
@@ -195,5 +196,6 @@ in {
         kb_layout=it
       }
     '';
+    home.file.".local/bin/hypr_batsave".source = ../scripts/hypr_batsave;
   };
 }

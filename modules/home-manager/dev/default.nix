@@ -36,6 +36,7 @@ in {
       python313
       android-studio
       cmake
+      pciutils
       # unstable.androidenv.androidPkgs_9_0.androidsdk
     ];
     home.sessionVariables = {

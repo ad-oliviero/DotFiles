@@ -11,7 +11,7 @@ map("n", "<C-l>", "<C-w>l", { desc = "Switch Window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "Switch Window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "Switch Window up" })
 
-map("n", "<C-s>", "<cmd>w<CR>", { desc = "File Save" })
+map({ "n", "i" }, "<C-s>", "<cmd>w<CR>", { desc = "File Save" })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General Clear highlights" })
 
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "Toggle Line number" })

@@ -29,10 +29,12 @@ in {
       vimdiffAlias = true;
       # uncomment the following option to reload neovim config without rebuilding the whole nix config
       # useful for debugging
-      /* extraLuaConfig = ''        package.path = package.path .. ";/home/adri/.config/dotfiles/modules/home-manager/dev/nvim/?.lua;/home/adri/.config/dotfiles/modules/home-manager/dev/nvim/lua/?.lua"
-              require "init"''; */
+      /*
+      extraLuaConfig = ''        package.path = package.path .. ";/home/adri/.config/dotfiles/modules/home-manager/dev/nvim/?.lua;/home/adri/.config/dotfiles/modules/home-manager/dev/nvim/lua/?.lua"
+           require "init"'';
+      */
       extraLuaConfig = lib.fileContents ./init.lua;
     };
-      xdg.configFile."nvim/lua".source = ./lua;
+    xdg.configFile."nvim/lua".source = ./lua;
   };
 }
