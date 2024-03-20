@@ -24,6 +24,25 @@
     # nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
     nixosConfigurations = {
+      "adri-desk" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs outputs;};
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.android_sdk.accept_license = true;
+        };
+        modules = [
+          ./hosts/adri-desk/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              #useGlobalPkgs = true;
+              extraSpecialArgs = {inherit inputs outputs;};
+              users.adri = import ./hosts/adri-desk/home.nix;
+            };
+          }
+        ];
+      };
       "adri-lap" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs outputs;};
@@ -45,6 +64,9 @@
       };
     };
     homeConfigurations = {
+      "adri-desk" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      };
       "adri-lap" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
       };

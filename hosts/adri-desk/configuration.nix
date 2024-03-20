@@ -6,6 +6,7 @@
   outputs,
   ...
 }: {
+
   imports = [
     ./hardware-configuration.nix
   ];
@@ -24,23 +25,22 @@
     "quiet"
     "udev.log_level=3"
     "sysrq_always_enabled=1"
-    "resume_offset=201912320"
+    # "resume_offset=201912320"
   ];
   boot.kernel.sysctl."kernel.sysrq" = 502;
   boot.resumeDevice = "/dev/nvme0n1p2";
-  environment.variables = {
-    VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
-  };
-  hardware.opengl.extraPackages = with pkgs; [
-    (
-      if (lib.versionOlder (lib.versions.majorMinor lib.version) "23.11")
-      then vaapiIntel
-      else intel-vaapi-driver
-    )
-    libvdpau-va-gl
-    intel-media-driver
-  ];
-  powerManagement.enable = true;
+  # environment.variables = {
+  #   VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
+  # };
+  # hardware.opengl.extraPackages = with pkgs; [
+  #   (
+  #     if (lib.versionOlder (lib.versions.majorMinor lib.version) "23.11")
+  #     then vaapiIntel
+  #     else intel-vaapi-driver
+  #   )
+  #   libvdpau-va-gl
+  #   intel-media-driver
+  # ];
   documentation.dev.enable = true;
   systemd.services.ydotoold.enable = true;
   services = {
@@ -68,21 +68,6 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    thermald.enable = true;
-    auto-cpufreq = {
-      enable = true;
-      settings = {
-        battery = {
-          governor = "powersave";
-          turbo = "never";
-          scaling_max_freq = 400000;
-        };
-        charger = {
-          governor = "performance";
-          turbo = "always";
-        };
-      };
-    };
   };
 
   virtualisation.libvirtd.enable = true;
@@ -96,7 +81,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "adri-lap";
+  networking.hostName = "adri-desk";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Rome";
@@ -107,9 +92,9 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    keyMap = "it";
-  };
+  # console = {
+  #   keyMap = "en";
+  # };
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
@@ -140,8 +125,6 @@
   # nix search package_name
   environment.systemPackages = with pkgs; [
     uwufetch
-    fprintd
-    light
     zsh
     phinger-cursors
     gnome.gnome-control-center
@@ -174,9 +157,11 @@
     extraSpecialArgs = {inherit inputs outputs;};
     users.adri = import ./home.nix;
   };
-  programs.hyprland.enable = true;
-  programs.zsh.enable = true;
-  programs.light.enable = true;
+  programs = {
+    hyprland.enable = true;
+    zsh.enable = true;
+    light.enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

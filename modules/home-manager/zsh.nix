@@ -82,6 +82,8 @@ in {
 
         rl = "sudo nixos-rebuild switch --flake ~/.config/dotfiles#adri-lap";
         hrl = "home-manager switch --flake ~/.config/dotfiles#adri-lap";
+        rd = "sudo nixos-rebuild switch --flake ~/.config/dotfiles#adri-desk";
+        hrd = "home-manager switch --flake ~/.config/dotfiles#adri-desk";
         ns = "nix search nixpkgs";
 
         myip = "curl ipinfo.io/ip && printf '\\n'";
