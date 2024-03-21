@@ -16,6 +16,7 @@
     "i915"
     "acpi_call"
   ];
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.extraModulePackages = with config.boot.kernelPackages; [acpi_call];
   boot.consoleLogLevel = 3;
   boot.kernelParams = [
@@ -31,6 +32,13 @@
   environment.variables = {
     VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
   };
+  # garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
+  nix.settings.auto-optimise-store = true;
   hardware.opengl.extraPackages = with pkgs; [
     (
       if (lib.versionOlder (lib.versions.majorMinor lib.version) "23.11")
@@ -172,7 +180,7 @@
   users.defaultUserShell = pkgs.zsh;
   home-manager = {
     extraSpecialArgs = {inherit inputs outputs;};
-    users.adri = import ./home.nix;
+    users.adri = import ../../home;
   };
   programs.hyprland.enable = true;
   programs.zsh.enable = true;

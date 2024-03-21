@@ -19,56 +19,61 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      system = "${system}";
+      config = {
+        allowUnfree = true;
+        android_sdk.accept_license = true;
+      };
+      overlays = [outputs.overlays.unstable-packages];
+    };
+    user = "adri";
   in {
-    overlays = import ./hosts/adri-lap/overlays {inherit inputs;};
+    overlays = import ./hosts/${user}-lap/overlays {inherit inputs;};
     # nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
     nixosConfigurations = {
-      "adri-desk" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      "${user}-desk" = nixpkgs.lib.nixosSystem {
+        system = "${system}";
         specialArgs = {inherit inputs outputs;};
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config.android_sdk.accept_license = true;
-        };
+        pkgs = pkgs;
         modules = [
-          ./hosts/adri-desk/configuration.nix
+          ./hosts/${user}-desk/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
-              #useGlobalPkgs = true;
+              useGlobalPkgs = true;
+              useUserPackages = true;
               extraSpecialArgs = {inherit inputs outputs;};
-              users.adri = import ./hosts/adri-desk/home.nix;
+              users.${user} = import ./home;
             };
           }
         ];
       };
-      "adri-lap" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      "${user}-lap" = nixpkgs.lib.nixosSystem {
+        system = "${system}";
         specialArgs = {inherit inputs outputs;};
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config.android_sdk.accept_license = true;
-        };
+        pkgs = pkgs;
         modules = [
-          ./hosts/adri-lap/configuration.nix
+          ./hosts/${user}-lap/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {
-              #useGlobalPkgs = true;
+              useGlobalPkgs = true;
+              useUserPackages = true;
               extraSpecialArgs = {inherit inputs outputs;};
-              users.adri = import ./hosts/adri-lap/home.nix;
+              users.${user} = import ./home;
             };
           }
         ];
       };
     };
     homeConfigurations = {
-      "adri-desk" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      "${user}-desk" = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgs;
       };
-      "adri-lap" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      "${user}-lap" = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgs;
       };
     };
   };

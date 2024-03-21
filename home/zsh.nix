@@ -12,6 +12,7 @@ in {
     programs.zsh = {
       enable = true;
       autocd = true;
+      # autosuggestion.enable = true;
       enableAutosuggestions = true;
       history.ignoreAllDups = true;
       historySubstringSearch = {
@@ -80,11 +81,10 @@ in {
         ytda = "ytd -x";
         snvim = "EDITOR=nvim sudoedit";
 
-        rl = "sudo nixos-rebuild switch --flake ~/.config/dotfiles#adri-lap";
-        hrl = "home-manager switch --flake ~/.config/dotfiles#adri-lap";
-        rd = "sudo nixos-rebuild switch --flake ~/.config/dotfiles#adri-desk";
-        hrd = "home-manager switch --flake ~/.config/dotfiles#adri-desk";
+        nrs = "sudo nixos-rebuild switch --flake ~/.config/dotfiles#$HOST";
+        hrs = "home-manager switch --flake ~/.config/dotfiles#$HOST";
         ns = "nix search nixpkgs";
+        nu = "sudo nix flake update";
 
         myip = "curl ipinfo.io/ip && printf '\\n'";
         bakkesmod = "WINEFSYNC=1 protontricks -c 'wine ~/Games/bakkesmod.exe' 252950";

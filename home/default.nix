@@ -3,21 +3,14 @@
   outputs,
   ...
 }: {
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      android_sdk.accept_license = true;
-    };
-    overlays = [outputs.overlays.unstable-packages];
-  };
   home.username = "adri";
   home.homeDirectory = "/home/adri";
   home.stateVersion = "23.11"; # Please read the comment before changing.
   imports = [
-    ../../modules/home-manager/desktop
-    ../../modules/home-manager/dev
-    ../../modules/home-manager/zathura.nix
-    ../../modules/home-manager/zsh.nix
+    ./desktop
+    ./dev
+    ./zathura.nix
+    ./zsh.nix
   ];
   desktop.enable = true;
   dev.enable = true;
