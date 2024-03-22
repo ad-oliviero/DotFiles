@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   inputs,
@@ -87,8 +86,6 @@
   # nix search package_name
   environment.systemPackages = with pkgs; [
     uwufetch
-    fprintd
-    light
     zsh
     phinger-cursors
     gnome.gnome-control-center
@@ -124,7 +121,6 @@
   };
   programs.hyprland.enable = true;
   programs.zsh.enable = true;
-  programs.light.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "TheDarkBug's nixos configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -30,7 +30,7 @@
     };
     user = "adri";
   in {
-    overlays = import ./hosts/${user}-lap/overlays {inherit inputs;};
+    overlays = import ./hosts/common/overlays {inherit inputs;};
     # nixosModules = import ./modules/nixos;
     nixosConfigurations = {
       "${user}-desk" = nixpkgs.lib.nixosSystem {
