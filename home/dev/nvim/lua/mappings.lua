@@ -16,7 +16,6 @@ map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General Clear highlights" })
 
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "Toggle Line number" })
 map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "Toggle Relative number" })
-map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "Toggle NvCheatsheet" })
 
 -- global lsp mappings
 map("n", "<leader>f", function()
@@ -32,16 +31,13 @@ map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Lsp diagnostic loclis
 -- tabufline
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "Buffer New" })
 
-map("n", "<tab>", function()
-	require("nvchad.tabufline").next()
-end, { desc = "Buffer Goto next" })
+map("n", "<tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Buffer Goto next" })
+map("n", "<S-tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Buffer Goto prev" })
+map("n", "<leader><tab>", "<cmd>BufferLineMoveNext<CR>", { desc = "Buffer Move next" })
+map("n", "<leader><S-tab>", "<cmd>BufferLineMovePrev<CR>", { desc = "Buffer Move prev" })
 
-map("n", "<S-tab>", function()
-	require("nvchad.tabufline").prev()
-end, { desc = "Buffer Goto prev" })
 
 map("n", "<leader>x", function()
-	require("nvchad.tabufline").close_buffer()
 end, { desc = "Buffer Close" })
 
 -- nvimtree

@@ -17,6 +17,13 @@ local base = {
 
 local ui = {
 	{
+		"akinsho/bufferline.nvim",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		config = function()
+			require("bufferline").setup({})
+		end,
+	},
+	{
 		"NvChad/nvim-colorizer.lua",
 		event = "User FilePost",
 		config = function(_, opts)
@@ -279,7 +286,7 @@ local specific = {
 			end,
 		},
 		config = function(_, opts)
-			dofile(vim.g.base46_cache .. "git")
+			-- dofile(vim.g.base46_cache .. "git")
 			require("gitsigns").setup(opts)
 		end,
 	},
