@@ -101,6 +101,7 @@
     man-pages-posix
     nmap
     obs-studio
+    pciutils
   ];
 
   users.users.adri = {

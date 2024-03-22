@@ -12,8 +12,7 @@ in {
     programs.zsh = {
       enable = true;
       autocd = true;
-      # autosuggestion.enable = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       history.ignoreAllDups = true;
       historySubstringSearch = {
         enable = true;
