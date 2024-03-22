@@ -12,7 +12,7 @@ in {
     home.file.".local/bin/cpg".source = ../scripts/cpg;
 
     home.sessionVariables = {
-      PATH = "$PATH:~/.local/bin/";
+      PATH = "$PATH:/home/adri/.local/bin/";
     };
   };
 }
