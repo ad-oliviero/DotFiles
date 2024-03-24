@@ -36,7 +36,6 @@
     ];
     kernel.sysctl."kernel.sysrq" = 502;
     resumeDevice = "/dev/nvme0n1p2";
-    plymouth.enable = true;
   };
 
   hardware.bluetooth.enable = true;

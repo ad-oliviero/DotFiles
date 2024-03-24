@@ -17,6 +17,7 @@
       # "acpi=noirq"
       "resume_offset=201912320"
     ];
+    plymouth.enable = true;
   };
 
   fileSystems."/" = {
