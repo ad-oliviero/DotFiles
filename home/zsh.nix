@@ -85,7 +85,7 @@ in {
         ns = "nix search nixpkgs";
         nu = "sudo nix flake update";
 
-        dev = "nix develop ~/.config/dotfiles/home/dev#default";
+        dev = "exec nix develop ~/.config/dotfiles/home/dev#default";
 
         myip = "curl ipinfo.io/ip && printf '\\n'";
         bakkesmod = "WINEFSYNC=1 protontricks -c 'wine ~/Games/bakkesmod.exe' 252950";
