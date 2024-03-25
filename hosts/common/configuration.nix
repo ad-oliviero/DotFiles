@@ -110,6 +110,7 @@
     man-pages-posix
     nmap
     obs-studio
+    swayosd
   ];
 
   users.users.adri = {

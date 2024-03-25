@@ -134,8 +134,10 @@ in {
           "$mod_ALT, right, swapactiveworkspaces, r"
           "$mod_ALT, left, swapactiveworkspaces, l"
 
-          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
-          "$mod, F4, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
+          ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
+          "$mod, F4, exec, swayosd-client --output-volume mute-toggle"
+          # ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
+          # "$mod, F4, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
           ", XF86AudioPlay, exec, playerctl play-pause"
           ", XF86AudioPause, exec, playerctl play-pause"
           ", XF86AudioNext, exec, playerctl next"
@@ -155,14 +157,20 @@ in {
           "$mod_SHIFT, S, exec, grimshot --notify save area"
         ];
         binde = [
-          "$mod, F5, exec, light -U 5"
-          "$mod, F6, exec, light -A 5"
-          ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%+"
-          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%-"
-          "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 1%+"
-          "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 1%-"
-          "ALT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%+"
-          "ALT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%-"
+          "$mod, F5, exec, swayosd-client --brightness +5"
+          "$mod, F6, exec, swayosd-client --brightness -5"
+          ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume +5 --max-volume 120"
+          ", XF86AudioLowerVolume, exec, swayosd-client --output-volume -5 --max-volume 120"
+          "SHIFT, XF86AudioRaiseVolume, exec, swayosd-client --output-volume +5 --max-volume 120"
+          "SHIFT, XF86AudioLowerVolume, exec, swayosd-client --output-volume -5 --max-volume 120"
+          # "$mod, F5, exec, light -U 5"
+          # "$mod, F6, exec, light -A 5"
+          # ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%+"
+          # ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%-"
+          # "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 1%+"
+          # "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 1%-"
+          # "ALT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%+"
+          # "ALT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%-"
         ];
         bindl = [
           ", switch:[Switch Device at 67d953a0], exec, swaylock"
@@ -178,6 +186,7 @@ in {
         ];
         exec-once = [
           "swayidle -w before-sleep 'loginctl lock-session $XDG_SESSION_ID' lock 'playerctl -a pause; swaylock'"
+          "swayosd-server"
           "gammastep"
         ];
       };

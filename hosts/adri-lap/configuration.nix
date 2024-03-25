@@ -28,7 +28,7 @@
 
   environment.systemPackages = with pkgs; [
     # fprintd
-    light
+    # light
     pciutils
   ];
 
