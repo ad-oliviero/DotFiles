@@ -29,6 +29,7 @@
   environment.systemPackages = with pkgs; [
     # fprintd
     light
+    pciutils
   ];
 
   # services.fprintd.enable = true;

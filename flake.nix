@@ -22,10 +22,7 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       system = "${system}";
-      config = {
-        allowUnfree = true;
-        android_sdk.accept_license = true;
-      };
+      config.allowUnfree = true;
       overlays = [outputs.overlays.unstable-packages];
     };
     user = "adri";

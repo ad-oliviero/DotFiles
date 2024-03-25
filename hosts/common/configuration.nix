@@ -101,7 +101,6 @@
     man-pages-posix
     nmap
     obs-studio
-    pciutils
   ];
 
   users.users.adri = {
@@ -120,8 +119,10 @@
     extraSpecialArgs = {inherit inputs outputs;};
     users.adri = import ../../home;
   };
-  programs.hyprland.enable = true;
-  programs.zsh.enable = true;
+  programs = {
+    hyprland.enable = true;
+    zsh.enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

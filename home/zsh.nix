@@ -85,6 +85,8 @@ in {
         ns = "nix search nixpkgs";
         nu = "sudo nix flake update";
 
+        dev = "nix develop ~/.config/dotfiles/home/dev#default";
+
         myip = "curl ipinfo.io/ip && printf '\\n'";
         bakkesmod = "WINEFSYNC=1 protontricks -c 'wine ~/Games/bakkesmod.exe' 252950";
         termuxusb = "adb forward tcp:8022 tcp:8022; ssh localhost -p 8022";
