@@ -39,6 +39,15 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
+    xserver = {
+      enable = true;
+      windowManager.hypr.enable = true;
+      displayManager.sessionPackages = [pkgs.hyprland];
+      displayManager.lightdm = {
+        enable = true;
+        greeters.enso.enable = true;
+      };
+    };
   };
 
   virtualisation.libvirtd.enable = true;
