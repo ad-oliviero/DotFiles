@@ -39,22 +39,25 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    xserver = {
-      enable = true;
-      windowManager.hypr.enable = true;
-      displayManager.sessionPackages = [pkgs.hyprland];
-      displayManager.defaultSession = "hyprland";
-      displayManager.lightdm = {
-        enable = true;
-        greeters.tiny.enable = true;
-        # greeter = let
-        #   nody_greeter = import ../../pkgs/nody-greeter {inherit pkgs;};
-        # in {
-        #   package = nody_greeter;
-        #   name = "nody-greeter";
-        # };
-      };
-    };
+    getty.autologinUser = "adri";
+    # xserver = {
+    #   enable = false;
+    #   windowManager.hypr.enable = true;
+    #   displayManager.sessionPackages = [pkgs.hyprland];
+    #   displayManager.defaultSession = "hyprland";
+    #   displayManager.lightdm = {
+    #     enable = true;
+    #     greeters.tiny = {
+    #       enable = true;
+    #     };
+    #     # greeter = let
+    #     #   nody_greeter = import ../../pkgs/nody-greeter {inherit pkgs;};
+    #     # in {
+    #     #   package = nody_greeter;
+    #     #   name = "nody-greeter";
+    #     # };
+    #   };
+    # };
   };
 
   virtualisation.libvirtd.enable = true;

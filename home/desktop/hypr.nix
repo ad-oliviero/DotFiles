@@ -185,6 +185,7 @@ in {
           "pkill hyprpaper; sleep 1; hyprpaper"
         ];
         exec-once = [
+          "swaylock" # right now autologin is enabled, so just to make it a bit more secure we immediately lock the session
           "swayidle -w before-sleep 'loginctl lock-session $XDG_SESSION_ID' lock 'playerctl -a pause; swaylock'"
           "swayosd-server"
           "gammastep"

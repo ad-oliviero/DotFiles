@@ -36,7 +36,12 @@
           gnumake
           gcc
           android-tools
-          python313
+          python311
+          python311Packages.pip
+          # (python311.withPackages (python-pkgs:
+          #   with python-pkgs; [
+          #     python-telegram-bot
+          #   ]))
           android-studio
           cmake
           linuxHeaders
