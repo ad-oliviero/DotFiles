@@ -15,8 +15,11 @@ in {
       xwayland.enable = true;
       settings = {
         "$mod" = "SUPER";
-        monitor = "eDP-1,1920x1080@60,1920x0,1";
-        workspace = "eDP-1,1";
+        monitor = ["eDP-1,1920x1080@60,1920x0,1" "HDMI-A-1,1920x1080@60,1920x0,1"];
+        workspace =
+          if (builtins.getEnv "HOSTNAME") == "adri-lap"
+          then "eDP-1,1"
+          else "HDMI-A-1,1";
         input = {
           kb_options = "compose:menu,level3:menu_switch";
           numlock_by_default = true;
@@ -185,7 +188,6 @@ in {
           "pkill hyprpaper; sleep 1; hyprpaper"
         ];
         exec-once = [
-          "swaylock" # right now autologin is enabled, so just to make it a bit more secure we immediately lock the session
           "swayidle -w before-sleep 'loginctl lock-session $XDG_SESSION_ID' lock 'playerctl -a pause; swaylock'"
           "swayosd-server"
           "gammastep"
