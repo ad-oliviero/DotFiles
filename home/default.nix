@@ -1,6 +1,5 @@
 {
   pkgs,
-  outputs,
   ...
 }: {
   home.username = "adri";

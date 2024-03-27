@@ -43,9 +43,16 @@
       enable = true;
       windowManager.hypr.enable = true;
       displayManager.sessionPackages = [pkgs.hyprland];
+      displayManager.defaultSession = "hyprland";
       displayManager.lightdm = {
         enable = true;
-        greeters.enso.enable = true;
+        greeters.tiny.enable = true;
+        # greeter = let
+        #   nody_greeter = import ../../pkgs/nody-greeter {inherit pkgs;};
+        # in {
+        #   package = nody_greeter;
+        #   name = "nody-greeter";
+        # };
       };
     };
   };
@@ -111,6 +118,8 @@
     nmap
     obs-studio
     swayosd
+    fd
+    unzip
   ];
 
   users.users.adri = {

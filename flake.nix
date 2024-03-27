@@ -27,7 +27,7 @@
     };
     user = "adri";
   in {
-    overlays = import ./hosts/common/overlays {inherit inputs;};
+    overlays = import ./overlays {inherit inputs;};
     # nixosModules = import ./modules/nixos;
     nixosConfigurations = {
       "${user}-desk" = nixpkgs.lib.nixosSystem {

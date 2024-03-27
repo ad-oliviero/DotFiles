@@ -157,8 +157,8 @@ in {
           "$mod_SHIFT, S, exec, grimshot --notify save area"
         ];
         binde = [
-          "$mod, F5, exec, swayosd-client --brightness +5"
-          "$mod, F6, exec, swayosd-client --brightness -5"
+          "$mod, F5, exec, swayosd-client --brightness -5"
+          "$mod, F6, exec, swayosd-client --brightness +5"
           ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume +5 --max-volume 120"
           ", XF86AudioLowerVolume, exec, swayosd-client --output-volume -5 --max-volume 120"
           "SHIFT, XF86AudioRaiseVolume, exec, swayosd-client --output-volume +5 --max-volume 120"
