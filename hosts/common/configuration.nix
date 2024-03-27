@@ -39,25 +39,19 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    getty.autologinUser = "adri";
-    # xserver = {
-    #   enable = false;
-    #   windowManager.hypr.enable = true;
-    #   displayManager.sessionPackages = [pkgs.hyprland];
-    #   displayManager.defaultSession = "hyprland";
-    #   displayManager.lightdm = {
-    #     enable = true;
-    #     greeters.tiny = {
-    #       enable = true;
-    #     };
-    #     # greeter = let
-    #     #   nody_greeter = import ../../pkgs/nody-greeter {inherit pkgs;};
-    #     # in {
-    #     #   package = nody_greeter;
-    #     #   name = "nody-greeter";
-    #     # };
-    #   };
-    # };
+    greetd.enable = true;
+  };
+  programs = {
+    hyprland.enable = true;
+    zsh.enable = true;
+    regreet = {
+      enable = true;
+      settings = {
+        cursor_theme_name = "Phinger Cursors";
+        font_name = "JetBrains Mono";
+        theme_name = "Gruvbox-Dark-B";
+      };
+    };
   };
 
   virtualisation.libvirtd.enable = true;
@@ -103,6 +97,7 @@
     swayosd
     fd
     unzip
+    greetd.regreet
   ];
 
   users.users.adri = {
@@ -120,10 +115,6 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs outputs;};
     users.adri = import ../../home;
-  };
-  programs = {
-    hyprland.enable = true;
-    zsh.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
