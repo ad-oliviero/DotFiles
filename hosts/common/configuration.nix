@@ -125,9 +125,9 @@
   #   enableSSHSupport = true;
   # };
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  # minecraft server ports
+  networking.firewall.allowedTCPPorts = [25565];
+  networking.firewall.allowedUDPPorts = [25565];
 
   system.stateVersion = "23.11";
 }
