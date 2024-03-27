@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.username = "adri";
   home.homeDirectory = "/home/adri";
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "23.11";
   imports = [
     ./desktop
     ./dev
@@ -54,12 +54,8 @@
     gruvbox-gtk-theme
     nwg-look # just to take a look at themes, not to change them
     nurl # get "fetchFromGitHub" configurations
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    prismlauncher
+    papermc
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -89,7 +85,6 @@
     BROWSER = "firefox";
     VIDEO = "mpv";
     IMAGE = "imv";
-    # OPENER = "xdg-open";
   };
 
   programs.home-manager.enable = true;

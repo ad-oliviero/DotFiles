@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +25,9 @@
     pkgs = import nixpkgs {
       system = "${system}";
       config.allowUnfree = true;
-      overlays = [outputs.overlays.unstable-packages];
+      overlays = [
+        outputs.overlays.unstable-packages
+      ];
     };
     user = "adri";
   in {
