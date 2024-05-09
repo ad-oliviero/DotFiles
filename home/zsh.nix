@@ -26,7 +26,6 @@ in {
       ];
       initExtra = ''
         [ $TTY = "/dev/tty1" ] && exec Hyprland
-        (uwufetch -r&)
 
         autoload -U edit-command-line
         zle -N edit-command-line

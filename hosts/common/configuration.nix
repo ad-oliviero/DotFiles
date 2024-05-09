@@ -78,26 +78,31 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   environment.systemPackages = with pkgs; [
-    uwufetch
-    zsh
-    phinger-cursors
-    gnome.gnome-control-center
-    gnome.gnome-bluetooth
-    gammastep
     blueman
-    virt-manager
-    ydotool
-    file
+    bottles
     brlaser
-    tree
+    fd
+    file
+    gammastep
+    gnome.gnome-bluetooth
+    gnome.gnome-control-center
+    greetd.regreet
+    heroic
     man-pages
     man-pages-posix
     nmap
     obs-studio
+    p7zip
+    phinger-cursors
+    sshfs
+    steam
     swayosd
-    fd
+    tree
     unzip
-    greetd.regreet
+    uwufetch
+    virt-manager
+    ydotool
+    zsh
   ];
 
   users.users.adri = {
@@ -116,6 +121,11 @@
     extraSpecialArgs = {inherit inputs outputs;};
     users.adri = import ../../home;
   };
+
+  programs = {
+    steam.enable = true;
+  };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

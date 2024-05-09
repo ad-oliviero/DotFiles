@@ -1,10 +1,11 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: let
   cfg = config.hypr;
+  netCfg = config.networking;
+  hostName = netCfg.hostName;
 in {
   options.hypr = {
     enable = lib.mkEnableOption "enable hypr module";
@@ -16,10 +17,10 @@ in {
       settings = {
         "$mod" = "SUPER";
         monitor = ["eDP-1,1920x1080@60,1920x0,1" "HDMI-A-1,1920x1080@60,1920x0,1"];
-        workspace =
-          if (builtins.getEnv "HOSTNAME") == "adri-lap"
-          then "eDP-1,1"
-          else "HDMI-A-1,1";
+        # workspace =
+        #   if hostName == "adri-lap" 
+        #   then "eDP-1,1"
+        #   else "HDMI-A-1,1";
         input = {
           kb_options = "compose:menu,level3:menu_switch";
           numlock_by_default = true;
@@ -139,8 +140,6 @@ in {
 
           ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
           "$mod, F4, exec, swayosd-client --output-volume mute-toggle"
-          # ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
-          # "$mod, F4, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
           ", XF86AudioPlay, exec, playerctl play-pause"
           ", XF86AudioPause, exec, playerctl play-pause"
           ", XF86AudioNext, exec, playerctl next"
@@ -166,14 +165,6 @@ in {
           ", XF86AudioLowerVolume, exec, swayosd-client --output-volume -5 --max-volume 120"
           "SHIFT, XF86AudioRaiseVolume, exec, swayosd-client --output-volume +5 --max-volume 120"
           "SHIFT, XF86AudioLowerVolume, exec, swayosd-client --output-volume -5 --max-volume 120"
-          # "$mod, F5, exec, light -U 5"
-          # "$mod, F6, exec, light -A 5"
-          # ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%+"
-          # ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 5%-"
-          # "SHIFT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SINK@ 1%+"
-          # "SHIFT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SINK@ 1%-"
-          # "ALT, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%+"
-          # "ALT, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_SOURCE@ 5%-"
         ];
         bindl = [
           ", switch:[Switch Device at 67d953a0], exec, swaylock"

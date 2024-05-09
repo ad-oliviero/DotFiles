@@ -73,7 +73,7 @@ in {
         uris = ["qemu:///system"];
       };
     };
-    home.file.".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
+    home.file.".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors-dark";
     home.file.".themes".source = "${pkgs.gruvbox-gtk-theme}/share/themes";
   };
 }

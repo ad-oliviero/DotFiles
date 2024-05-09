@@ -17,45 +17,40 @@
   # TODO: move packages to their modules (if possible)
   home.packages = with pkgs; [
     alacritty
-    gnome.adwaita-icon-theme
-    gnomeExtensions.appindicator
-    firefox
-    mako
-    libnotify
-    waybar
-    wlogout
     bitwarden
-    telegram-desktop
-    jetbrains-mono
-    helvetica-neue-lt-std
-    nerdfonts
-    ifwifi
-    wl-clipboard
-    starship
     eza
-    hyprpaper
-    wlogout
-    swaylock-effects
-    swayidle
-    imv
-    mpv
+    firefox
+    gnome.adwaita-icon-theme
     gnome.nautilus
-    xwaylandvideobridge
-    #rofi # for some reason if this package is installed you can't use plugins as there are some conflicts
-    rofi-calc
-    rofi-emoji
-    rofi-rbw
-    sway-contrib.grimshot
-    playerctl
-    imagemagick
-    libreoffice
-    inkscape
-    unstable.discord
+    gnomeExtensions.appindicator
     gruvbox-gtk-theme
-    nwg-look # just to take a look at themes, not to change them
+    helvetica-neue-lt-std
+    hyprpaper
+    ifwifi
+    imagemagick
+    imv
+    inkscape
+    jetbrains-mono
+    libnotify
+    libreoffice
+    mako
+    mpv
+    nerdfonts
     nurl # get "fetchFromGitHub" configurations
-    prismlauncher
+    nwg-look # just to take a look at themes, not to change them
     papermc
+    playerctl
+    prismlauncher
+    starship
+    sway-contrib.grimshot
+    swayidle
+    swaylock-effects
+    telegram-desktop
+    unstable.discord
+    waybar
+    wl-clipboard
+    wlogout
+    xwaylandvideobridge
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
