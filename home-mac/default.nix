@@ -13,7 +13,6 @@
   #zathura.enable = true;
   zsh.enable = true;
 
-
   #fonts.fontconfig.enable = true;
   # TODO: move packages to their modules (if possible)
   home.packages = with pkgs; [

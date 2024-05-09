@@ -18,7 +18,7 @@ in {
     #./waybar.nix
     #./wlogout.nix
   ];
-  
+
   config = lib.mkIf cfg.enable {
     alacritty.enable = true;
     #hypr.enable = true;

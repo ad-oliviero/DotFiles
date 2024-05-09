@@ -14,6 +14,13 @@ in {
       xwayland.enable = true;
       extraConfig = "source=~/.config/dotfiles/home/desktop/hypr/hypr.conf";
     };
+    xdg.configFile."hypr/hyprpaper.conf".text = ''
+      preload=~/Pictures/wallpaper.jpg
+      wallpaper=eDP-1,~/Pictures/wallpaper.jpg
+      wallpaper=HDMI-A-1,~/Pictures/wallpaper.jpg
+      wallpaper=HDMI-A-2,~/Pictures/wallpaper.jpg
+      ipc = off
+    '';
     home.file.".local/bin/hypr_batsave".source = ../scripts/hypr_batsave;
   };
 }

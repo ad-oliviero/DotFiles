@@ -1,9 +1,9 @@
 {
   pkgs,
   inputs,
-  outputs,... }:
-
-{
+  outputs,
+  ...
+}: {
   imports = [
     #./system.nix
     #./packages.nix
@@ -13,8 +13,7 @@
   users.users.user.home = "/Users/adrianooliviero";
   #networking.computerName = "MacBook-Pro-110.local";
   #networking.localHostName = "MacBook-Pro-110.local";
-  
-  
+
   # garbage collection
   nix.gc = {
     automatic = true;
