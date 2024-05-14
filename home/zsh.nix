@@ -25,8 +25,6 @@ in {
         "$HOME/.config/dotfiles"
       ];
       initExtra = ''
-        [ $TTY = "/dev/tty1" ] && exec Hyprland
-
         autoload -U edit-command-line
         zle -N edit-command-line
 

@@ -1,4 +1,12 @@
-{pkgs, ...}: {
+{pkgs, ...}:
+let 
+discord-x11 = pkgs.unstable.discord.overrideAttrs (prevAttrs: {
+  nativeBuildInputs = (prevAttrs.nativeBuildInputs or []) ++ [ pkgs.unstable.makeBinaryWrapper ];
+    postInstall = (prevAttrs.postInstall or "") + ''
+      wrapProgram $out/bin/discord --set XDG_SESSION_TYPE x11
+    '';
+  });
+in{
   home.username = "adri";
   home.homeDirectory = "/home/adri";
   home.stateVersion = "23.11";
@@ -47,6 +55,7 @@
     swaylock-effects
     telegram-desktop
     unstable.discord
+    # discord-x11
     waybar
     wl-clipboard
     wlogout

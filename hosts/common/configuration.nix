@@ -134,9 +134,11 @@
   #   enableSSHSupport = true;
   # };
 
-  # minecraft server ports
-  networking.firewall.allowedTCPPorts = [25565];
-  networking.firewall.allowedUDPPorts = [25565];
+  # wireguard port
+  networking.firewall = {
+    allowedUDPPorts = [51820];
+    checkReversePath = "loose";
+  };
 
   system.stateVersion = "23.11";
 }

@@ -15,7 +15,7 @@ in {
     ./mako.nix
     ./rofi.nix
     ./swaylock.nix
-    ./waybar.nix
+    ./waybar
     ./wlogout.nix
   ];
   config = lib.mkIf cfg.enable {

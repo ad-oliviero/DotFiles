@@ -1,0 +1,75 @@
+@define-color main-ts rgba(0, 0, 0, 0);
+@define-color main-bg #3c3836;
+@define-color main-fg #fbf1c7;
+@define-color main-sec #d65d0e;
+@define-color main-red #cc241d;
+@define-color main-green #98971a;
+
+* {
+  font-family: JetBrains Mono, Symbols Nerd Font;
+  font-size: 16px;
+  transition: 0.6s;
+  color: @main-fg;
+  border-radius: 30px;
+}
+
+#waybar {
+  background: @main-ts;
+}
+
+#clock,
+#battery,
+#cpu,
+#disk,
+#memory,
+#idle_inhibitor,
+#network,
+#pulseaudio,
+#tray,
+#date,
+#idle_inhibitor,
+#battery,
+#workspaces button {
+  padding: 0px 15px;
+  margin: 8px 4px;
+  background: @main-bg;
+}
+
+#battery.critical,
+#workspaces button.urgent,
+#idle_inhibitor.deactivated,
+#pulseaudio.muted,
+#battery.warning,
+#network.disconnected {
+  background: @main-red;
+}
+
+#workspaces button {
+  padding: 2px 7px;
+}
+#workspaces button.focused,
+#workspaces button.active,
+#workspaces button:hover {
+  background: @main-sec;
+}
+
+
+#battery {
+  min-width: 45px;
+}
+
+#battery.charging {
+  background: @main-green;
+}
+
+#network {
+  opacity: 0;
+}
+
+#network:hover {
+  opacity: 1;
+}
+
+#network.disconnected {
+  opacity: 1;
+}
