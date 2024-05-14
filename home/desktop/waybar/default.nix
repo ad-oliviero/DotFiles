@@ -9,7 +9,7 @@ in {
     enable = lib.mkEnableOption "enable waybar module";
   };
   config = lib.mkIf cfg.enable {
-    home.file.".config/waybar/config".source = config.lib.file.mkOutOfStoreSymlink ./config;
-    home.file.".config/waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink ./style.css;
+    home.file.".config/waybar/config".source = config.lib.file.mkOutOfStoreSymlink /home/adri/.config/dotfiles/home/desktop/waybar/config;
+    home.file.".config/waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink /home/adri/.config/dotfiles/home/desktop/waybar/style.css;
   };
 }

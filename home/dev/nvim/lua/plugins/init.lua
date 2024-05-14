@@ -315,6 +315,13 @@ require("lazy").setup({
 	require("plugins.configs.lazy").opts,
 })
 
+require("gruvbox").setup({
+  palette_overrides = {
+    dark0 = "#3c3836",
+    light0 = "#fbf1c7",
+  },
+})
+
 --------------- additional plugin configurations ---------------
 local autocmd = vim.api.nvim_create_autocmd
 local autogroup = vim.api.nvim_create_augroup
