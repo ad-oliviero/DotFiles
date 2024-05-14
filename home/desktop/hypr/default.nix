@@ -21,6 +21,6 @@ in {
       wallpaper=HDMI-A-2,~/Pictures/wallpaper.jpg
       ipc = off
     '';
-    home.file.".local/bin/hypr_batsave".source = ../scripts/hypr_batsave;
+    home.file.".local/bin/hypr_batsave".source = ../../scripts/hypr_batsave;
   };
 }

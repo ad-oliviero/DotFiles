@@ -10,8 +10,8 @@ in {
     enable = lib.mkEnableOption "enable desktop module";
   };
   imports = [
-    ./alacritty.nix
-    ./hypr.nix
+    ./alacritty
+    ./hypr
     ./mako.nix
     ./rofi.nix
     ./swaylock.nix
