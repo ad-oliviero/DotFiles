@@ -19,13 +19,17 @@
     initrd.kernelModules = [
       "i915"
       "acpi_call"
+      "v4l2loopback"
     ];
     loader = {
       systemd-boot.configurationLimit = 10;
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    extraModulePackages = with config.boot.kernelPackages; [acpi_call];
+    extraModulePackages = with config.boot.kernelPackages; [
+      acpi_call
+      v4l2loopback
+    ];
     consoleLogLevel = 3;
     kernelParams = [
       # "irqpoll" # if enabled wifi doesn't work, if disabled I get "Disabling IRQ #9"
