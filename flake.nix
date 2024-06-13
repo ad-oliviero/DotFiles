@@ -24,7 +24,6 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-unstable,
     nixos-flake,
     home-manager,
     ...

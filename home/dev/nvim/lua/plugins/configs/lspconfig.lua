@@ -2,7 +2,6 @@ local map = vim.keymap.set
 local lspconfig = require("lspconfig")
 local servers = { "clangd", "pyright", "rust_analyzer", "lua_ls", "dartls", "html", "cssls", "eslint", "nil_ls" }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
--- local conf = require("nvconfig").ui.lsp
 local on_attach = function(client, bufnr)
 	local function opts(desc)
 		return { buffer = bufnr, desc = desc }
@@ -28,11 +27,6 @@ local on_attach = function(client, bufnr)
 
 	map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts("Lsp Code action"))
 	map("n", "gr", vim.lsp.buf.references, opts("Lsp Show references"))
-
-	-- setup signature popup
-	if conf.signature and client.server_capabilities.signatureHelpProvider then
-		require("nvchad.signature").setup(client, bufnr)
-	end
 end
 
 capabilities.textDocument.completion.completionItem = {

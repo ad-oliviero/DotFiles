@@ -17,10 +17,12 @@
   services = {
     fwupd.enable = true;
     fstrim.enable = lib.mkDefault true;
+    resolved.enable = true;
     udev = {
       enable = true;
       packages = with pkgs; [
         android-udev-rules
+        swayosd
       ];
     };
     openssh = {
@@ -39,6 +41,12 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
+    syncthing = {
+      enable = true;
+      user = "adri";
+      dataDir = "/home/adri/Sync";
+      configDir = "/home/adri/.config/syncthing";
+    };
     greetd.enable = true;
   };
   programs = {
@@ -55,10 +63,7 @@
   };
 
   virtualisation.libvirtd.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
+  virtualisation.docker.enable = true;
   programs.virt-manager.enable = true;
 
   networking.networkmanager.enable = true;
@@ -83,7 +88,7 @@
     brlaser
     fd
     file
-    gammastep
+    gnirehtet
     gnome.gnome-bluetooth
     gnome.gnome-control-center
     greetd.regreet
@@ -92,8 +97,10 @@
     man-pages-posix
     nmap
     obs-studio
+    amule
     p7zip
     phinger-cursors
+    scrcpy
     sshfs
     steam
     swayosd
@@ -101,6 +108,8 @@
     unzip
     uwufetch
     virt-manager
+    vscode
+    wireguard-tools
     ydotool
     zsh
   ];
@@ -124,6 +133,7 @@
 
   programs = {
     steam.enable = true;
+    criu.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -135,10 +145,24 @@
   # };
 
   # wireguard port
-  networking.firewall = {
-    allowedUDPPorts = [51820];
-    checkReversePath = "loose";
-  };
-
+  # networking.firewall.allowedTCPPorts = [22000];
+  networking.firewall.enable = false;
+  # networking.wg-quick.interfaces = {
+  #   wg0 = {
+  #     address = ["10.8.0.3/24"];
+  #     dns = ["10.8.1.1"];
+  #     privateKeyFile = "/root/wg-keys/private";
+  #
+  #     peers = [
+  #       {
+  #         publicKey = "iL120oCtcu85jqjLn48VtI/XEAMtB2fZhVmzQLtAuVc=";
+  #         presharedKeyFile = "/root/wg-keys/preshared";
+  #         allowedIPs = ["192.168.1.0/24" "10.8.0.0/24" "10.8.1.0/24"];
+  #         endpoint = "olivierohome.ddns.net:51820";
+  #         persistentKeepalive = 25;
+  #       }
+  #     ];
+  #   };
+  # };
   system.stateVersion = "23.11";
 }

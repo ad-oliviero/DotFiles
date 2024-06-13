@@ -80,7 +80,7 @@ in {
         nrs = "sudo nixos-rebuild switch --flake ~/.config/dotfiles#$HOST";
         hrs = "home-manager switch --flake ~/.config/dotfiles#$HOST";
         ns = "nix search nixpkgs";
-        nu = "sudo nix flake update";
+        nu = "sudo nix flake update; nix flake update";
 
         dev = "exec nix develop ~/.config/dotfiles/home/dev#default";
 
@@ -156,6 +156,7 @@ in {
 
       # ADB Screen Cast
       asc() {
+        adb shell settings put global force_desktop_mode_on_external_displays 1
       	display_id=$(get_dspid)
       	screen_size="1920x1080/392\\;"
       	[[ "$1" == "-h" ]] && screen_size="1880x2020/392\\;"

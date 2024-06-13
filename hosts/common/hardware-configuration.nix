@@ -22,8 +22,8 @@
       "v4l2loopback"
     ];
     loader = {
-      systemd-boot.configurationLimit = 10;
       systemd-boot.enable = true;
+      systemd-boot.configurationLimit = 10;
       efi.canTouchEfiVariables = true;
     };
     extraModulePackages = with config.boot.kernelPackages; [

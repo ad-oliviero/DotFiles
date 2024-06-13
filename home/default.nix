@@ -1,13 +1,4 @@
-{pkgs, ...}: let
-  discord-x11 = pkgs.unstable.discord.overrideAttrs (prevAttrs: {
-    nativeBuildInputs = (prevAttrs.nativeBuildInputs or []) ++ [pkgs.unstable.makeBinaryWrapper];
-    postInstall =
-      (prevAttrs.postInstall or "")
-      + ''
-        wrapProgram $out/bin/discord --set XDG_SESSION_TYPE x11
-      '';
-  });
-in {
+{pkgs, ...}: {
   home.username = "adri";
   home.homeDirectory = "/home/adri";
   home.stateVersion = "23.11";
@@ -25,7 +16,9 @@ in {
   fonts.fontconfig.enable = true;
   # TODO: move packages to their modules (if possible)
   home.packages = with pkgs; [
+    # discord-x11
     alacritty
+    android-studio
     bitwarden
     eza
     firefox
@@ -35,6 +28,7 @@ in {
     gruvbox-gtk-theme
     helvetica-neue-lt-std
     hyprpaper
+    hyprshade
     ifwifi
     imagemagick
     imv
@@ -50,13 +44,13 @@ in {
     papermc
     playerctl
     prismlauncher
+    pyprland
     starship
     sway-contrib.grimshot
     swayidle
     swaylock-effects
     telegram-desktop
     unstable.discord
-    # discord-x11
     waybar
     wl-clipboard
     wlogout

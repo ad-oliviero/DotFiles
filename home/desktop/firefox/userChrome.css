@@ -1,0 +1,206 @@
+@import url("/home/adri/.config/dotfiles/home/desktop/firefox/sidebery.css");
+
+/* some of this css is taken from https://github.com/Shina-SG/Shina-Fox/blob/main/userChrome.css */
+
+* {
+    font-family: JetBrains Mono !important;
+}
+
+/* remove the title close button */
+.titlebar-buttonbox-container {
+    display: none;
+}
+
+/* #PersonalToolbar, */
+/* #nav-bar  { */
+/*   background: transparent !important; */
+/* } */
+
+/* hide buttons on nav bar */
+#nav-bar>#nav-bar-customization-target *:not(#urlbar-container):not(#urlbar-container *),
+#PanelUI-button {
+    opacity: 0 !important;
+    transition: opacity 0.7s ease !important;
+}
+
+#nav-bar:hover>#nav-bar-customization-target *:not(#urlbar-container):not(#urlbar-container *),
+#nav-bar:hover>#PanelUI-button {
+    opacity: 1 !important;
+    transition: opacity 0.3s ease !important;
+}
+
+/* Remove line between website content and top bar */
+#navigator-toolbox {
+    border-bottom: var(--firefoxcss-top-bar-border-bottom-size) solid var(--firefoxcss-top-bar-border-bottom-color) !important;
+}
+
+/* Remove the 3 dots from Alt Key */
+
+#titlebar #toolbar-menubar .titlebar-buttonbox-container {
+    display: none !important;
+}
+
+/* Make extensions looks minimal */
+
+#unified-extensions-view #unified-extensions-manage-extensions .toolbarbutton-text::before {
+    content: "• • •";
+    font-size: 15px;
+    visibility: visible !important;
+    display: block;
+    text-align: center;
+}
+
+#unified-extensions-panel #unified-extensions-view {
+    width: 100% !important;
+}
+
+#unified-extensions-view {
+    --uei-icon-size: 22px;
+    --firefoxcss-number-of-extensions-in-a-row: 4;
+}
+
+
+#unified-extensions-view .unified-extensions-item-menu-button.subviewbutton,
+#unified-extensions-view .unified-extensions-item-action-button .unified-extensions-item-contents {
+    display: none !important;
+}
+
+#unified-extensions-view .panel-subview-body {
+    padding: 10px !important;
+}
+
+#unified-extensions-view .unified-extensions-item .unified-extensions-item-icon,
+#unified-extensions-view .unified-extensions-item .toolbarbutton-badge-stack {
+    margin-inline-end: 0px !important;
+}
+
+#unified-extensions-view #overflowed-extensions-list,
+#unified-extensions-view #unified-extensions-area,
+#unified-extensions-view .unified-extensions-list {
+    display: grid !important;
+    grid-template-columns: repeat(var(--firefoxcss-number-of-extensions-in-a-row), auto);
+    justify-items: left !important;
+    align-items: left !important;
+}
+
+
+/* Make text in URL bar in the center */
+
+#urlbar-container {
+    flex: 1;
+    max-width: 1000px;
+    min-width: 200px;
+    margin: auto !important;
+}
+
+#main-window #urlbar {
+    z-index: 9999 !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    transition: width 0.3s ease, left 0.3s ease, margin-top 0.3s ease, margin-left 0.3s ease, margin-right 0.3s ease;
+}
+
+#main-window #urlbar[breakout][breakout-extend] {
+    opacity: 0.97 !important;
+    width: 100% !important;
+    left: 0;
+    right: 0;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 30vh !important;
+    transition: width 0.3s ease, left 0.3s ease, margin-top 0.3s ease, margin-left 0.3s ease, margin-right 0.3s ease;
+}
+
+#urlbar-background,
+#urlbar-input-container {
+    --toolbarbutton-border-radius: calc(var(--urlbar-min-height) / 2);
+}
+
+#urlbar-input-container {
+    --urlbar-icon-border-radius: calc(var(--toolbarbutton-border-radius) - 1px);
+}
+
+#urlbar:not([focused]) #urlbar-input {
+    text-align: center !important;
+}
+
+#urlbar:not([breakout][breakout-extend]) #urlbar-input {
+    text-align: center !important;
+}
+
+/* Variables for toolbar & bookmark attributes */
+:root {
+    --uc-bm-height: 24px;
+    --uc-bm-padding: 6px;
+}
+
+/* Style for Personal Toolbar */
+#PersonalToolbar {
+    position: relative !important;
+    padding: 1px 6px !important;
+}
+
+/* Additional padding for touch density */
+:root[uidensity="touch"] #PersonalToolbar {
+    --uc-bm-padding: 6px;
+}
+
+/* Variables for toolbar & bookmark attributes */
+:root {
+    --uc-bm-height: 24px;
+    --uc-bm-padding: 6px;
+}
+
+/* Style for Personal Toolbar */
+#PersonalToolbar {
+    position: relative !important;
+    padding: 1px 6px !important;
+}
+
+/* Additional padding for touch density */
+:root[uidensity="touch"] #PersonalToolbar {
+    --uc-bm-padding: 6px;
+}
+
+/* Transform and delay transition of Personal Toolbar */
+#PersonalToolbar:not([customizing]) {
+    margin-bottom: calc(2px - var(--uc-bm-height) - 2 * var(--uc-bm-padding)) !important;
+    transform: rotateX(90deg) !important;
+    transform-origin: top !important;
+    transition: transform 0.1s ease-in-out 0.6s !important;
+    z-index: 2 !important;
+}
+
+/* Bookmark item padding and icon transition */
+#PlacesToolbarItems>.bookmark-item {
+    padding-block: var(--uc-bm-padding) !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+
+#PlacesToolbarItems>.bookmark-item .toolbarbutton-icon {
+    transition: opacity 0.1s ease-in-out 0.4s !important;
+    opacity: 0 !important;
+}
+
+/* Hover effect for toolbar and bookmark icon/text */
+#navigator-toolbox:hover>#PersonalToolbar,
+#navigator-toolbox:hover #PlacesToolbarItems>.bookmark-item .toolbarbutton-icon,
+#navigator-toolbox:hover #PlacesToolbarItems>.bookmark-item .toolbarbutton-text {
+    transition-delay: 100ms !important;
+    transform: rotateX(0) !important;
+    opacity: 1 !important;
+}
+
+/* Bookmark item text transition */
+#PlacesToolbarItems>.bookmark-item .toolbarbutton-text {
+    transition: opacity 0.1s ease-in-out 0.4s !important;
+    opacity: 0 !important;
+}
+
+/* Fix the white line above the bookmarks bar when it's empty */
+/* #personal-toolbar-empty { */
+/*     padding: 2px !important; */
+/* } */

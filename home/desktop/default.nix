@@ -11,6 +11,7 @@ in {
   };
   imports = [
     ./alacritty
+    ./firefox
     ./hypr
     ./mako.nix
     ./rofi.nix
@@ -20,6 +21,7 @@ in {
   ];
   config = lib.mkIf cfg.enable {
     alacritty.enable = true;
+    firefox.enable = true;
     hypr.enable = true;
     mako.enable = true;
     rofi.enable = true;
@@ -27,24 +29,21 @@ in {
     waybar.enable = true;
     wlogout.enable = true;
 
-    services.gammastep = {
-      enable = true;
-      provider = "manual";
-      latitude = 40.83;
-      longitude = 14.34;
-      temperature.day = 5700;
-      temperature.night = 3600;
-    };
+    services.swayosd.enable = true;
     gtk = {
       enable = true;
-      #iconTheme = {
-      #  name = "";
-      #  package = pkgs.;
-      #};
-      theme = {
-        name = "Gruvbox-Dark-B";
-        package = pkgs.gruvbox-gtk-theme;
+      iconTheme = {
+        name = "WhiteSur";
+        package = pkgs.whitesur-icon-theme;
       };
+      theme = {
+        name = "WhiteSur-Dark";
+        package = pkgs.whitesur-gtk-theme;
+      };
+      # theme = {
+      #   name = "Gruvbox-Dark-B";
+      #   package = pkgs.gruvbox-gtk-theme;
+      # };
       cursorTheme = {
         name = "Phinger Cursors";
         package = pkgs.phinger-cursors;
@@ -64,9 +63,9 @@ in {
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
-        gtk-theme = "Gruvbox-Dark-B";
+        gtk-theme = "WhiteSur-Dark";
         cursor-theme = "Phinger Cursors";
-        #icon-theme = "";
+        icon-theme = "WhiteSur";
       };
       "org/virt-manager/virt-manager/connections" = {
         autoconnect = ["qemu:///system"];

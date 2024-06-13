@@ -1,0 +1,7 @@
+[[shades]]
+name = "blue-light-filter"
+start_time = 20:00:00
+end_time = 08:00:00
+# temperature.day = 5700;
+# temperature.night = 3600;
+

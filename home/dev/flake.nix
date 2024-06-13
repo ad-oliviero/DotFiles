@@ -22,29 +22,32 @@
     in
       pkgs.mkShell {
         packages = with pkgs; [
-          pciutils
-          git
-          vscodium
-          ghidra
-          curl
-          wget
-          zip
-          unzip
-          apktool
-          apksigner
-          openjdk
-          gnumake
-          gcc
           android-tools
+          apksigner
+          apktool
+          cmake
+          curl
+          gcc
+          ghidra
+          git
+          gnumake
+          gradle
+          linuxHeaders
+          nodejs_21
+          openjdk
+          pciutils
           python311
           python311Packages.pip
+          sqlite
+          sqlitebrowser
+          unzip
+          vscodium
+          wget
+          zip
           # (python311.withPackages (python-pkgs:
           #   with python-pkgs; [
           #     python-telegram-bot
           #   ]))
-          android-studio
-          cmake
-          linuxHeaders
           # unstable.androidenv.androidPkgs_9_0.androidsdk
         ];
 
