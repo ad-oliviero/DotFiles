@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-darwin = {
       url = "github:lnl7/nix-darwin/master";
@@ -25,6 +29,7 @@
     self,
     nixpkgs,
     nixos-flake,
+    nix-ld,
     home-manager,
     ...
   } @ inputs:
@@ -68,6 +73,8 @@
             specialArgs = {inherit inputs outputs;};
             pkgs = pkgs;
             modules = [
+              nix-ld.nixosModules.nix-ld
+              {programs.nix-ld.enable = true;}
               ./hosts/${user}-lap/configuration.nix
               home-manager.nixosModules.home-manager
               {

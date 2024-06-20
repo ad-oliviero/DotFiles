@@ -5,6 +5,13 @@
   outputs,
   ...
 }: {
+  # enable only if you have no time but you need to run an executable
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      xorg.libX11
+    ];
+  };
   # garbage collection
   nix.gc = {
     automatic = true;
@@ -144,25 +151,5 @@
   #   enableSSHSupport = true;
   # };
 
-  # wireguard port
-  # networking.firewall.allowedTCPPorts = [22000];
-  networking.firewall.enable = false;
-  # networking.wg-quick.interfaces = {
-  #   wg0 = {
-  #     address = ["10.8.0.3/24"];
-  #     dns = ["10.8.1.1"];
-  #     privateKeyFile = "/root/wg-keys/private";
-  #
-  #     peers = [
-  #       {
-  #         publicKey = "iL120oCtcu85jqjLn48VtI/XEAMtB2fZhVmzQLtAuVc=";
-  #         presharedKeyFile = "/root/wg-keys/preshared";
-  #         allowedIPs = ["192.168.1.0/24" "10.8.0.0/24" "10.8.1.0/24"];
-  #         endpoint = "olivierohome.ddns.net:51820";
-  #         persistentKeepalive = 25;
-  #       }
-  #     ];
-  #   };
-  # };
   system.stateVersion = "23.11";
 }

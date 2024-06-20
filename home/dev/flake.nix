@@ -22,6 +22,7 @@
     in
       pkgs.mkShell {
         packages = with pkgs; [
+          aircrack-ng
           android-tools
           apksigner
           apktool
@@ -43,11 +44,10 @@
           unzip
           vscodium
           wget
+          wifite2
+          wirelesstools
+          wireshark
           zip
-          # (python311.withPackages (python-pkgs:
-          #   with python-pkgs; [
-          #     python-telegram-bot
-          #   ]))
           # unstable.androidenv.androidPkgs_9_0.androidsdk
         ];
 

@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   lib,
   modulesPath,
   ...
@@ -38,6 +39,7 @@
       "udev.log_level=3"
       "sysrq_always_enabled=1"
     ];
+    kernelPackages = pkgs.linuxPackages_zen;
     kernel.sysctl."kernel.sysrq" = 502;
     resumeDevice = "/dev/nvme0n1p2";
   };
