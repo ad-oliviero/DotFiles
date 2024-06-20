@@ -100,6 +100,7 @@
     obs-studio
     p7zip
     phinger-cursors
+    remmina
     scrcpy
     sshfs
     steam
@@ -109,10 +110,10 @@
     uwufetch
     virt-manager
     vscode
+    waypipe
     wayvnc
     wireguard-tools
     ydotool
-    waypipe
     zsh
   ];
 
