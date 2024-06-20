@@ -5,13 +5,6 @@
   outputs,
   ...
 }: {
-  # enable only if you have no time but you need to run an executable
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-      xorg.libX11
-    ];
-  };
   # garbage collection
   nix.gc = {
     automatic = true;
@@ -90,6 +83,7 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   environment.systemPackages = with pkgs; [
+    amule
     blueman
     bottles
     brlaser
@@ -104,7 +98,6 @@
     man-pages-posix
     nmap
     obs-studio
-    amule
     p7zip
     phinger-cursors
     scrcpy
@@ -116,8 +109,10 @@
     uwufetch
     virt-manager
     vscode
+    wayvnc
     wireguard-tools
     ydotool
+    waypipe
     zsh
   ];
 
@@ -151,5 +146,9 @@
   #   enableSSHSupport = true;
   # };
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [5900 22];
+  };
   system.stateVersion = "23.11";
 }

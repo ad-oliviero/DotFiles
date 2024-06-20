@@ -56,6 +56,8 @@
             specialArgs = {inherit inputs outputs;};
             pkgs = pkgs;
             modules = [
+              nix-ld.nixosModules.nix-ld
+              {programs.nix-ld.enable = true;}
               ./hosts/${user}-desk/configuration.nix
               home-manager.nixosModules.home-manager
               {
