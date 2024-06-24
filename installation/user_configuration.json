@@ -1,0 +1,10 @@
+{
+  "network_config": {
+    "type": "nm"
+  },
+  "profile_config": {
+    "gfx_driver": null,
+    "greeter": null,
+  },
+  "uki": false,
+}
