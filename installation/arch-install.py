@@ -109,8 +109,10 @@ subprocess.run(['ssh-keygen', '-t', 'ed25519', '-f', './.ssh/id_ed25519', '-C', 
 subprocess.run(['pacman', '-Sy', '--noconfirm', 'git'])
 subprocess.run(['git', 'clone', 'https://github.com/ad-oliviero/DotFiles.git', '--depth', '1', './.config/dotfiles'], cwd=HOME_DIR)
 subprocess.run(['git', 'remote', 'set-url', 'origin', 'git@github.com:ad-oliviero/DotFiles.git'], cwd=f'{HOME_DIR}/.config/dotfiles')
-subprocess.run(['./installation/install.py'], cwd=f'{HOME_DIR}/.config/dotfiles')
 subprocess.run(['chown', '-R', 'adri:adri', HOME_DIR])
 subprocess.run(['umount', '-a'])
 
-print('[\x1b[33mINFO\x1b[0m]: Installation completed successfully!')
+print(
+        '[\x1b[33mINFO\x1b[0m]: Installation completed successfully!\n' +
+        f'Now you can reboot your computer and run "{HOME_DIR}/.config/dotfiles/installation/install.py"'
+      )
