@@ -20,15 +20,6 @@ in {
     ./wlogout.nix
   ];
   config = lib.mkIf cfg.enable {
-    alacritty.enable = true;
-    firefox.enable = true;
-    hypr.enable = true;
-    mako.enable = true;
-    rofi.enable = true;
-    swaylock.enable = true;
-    waybar.enable = true;
-    wlogout.enable = true;
-
     services.swayosd.enable = true;
     gtk = {
       enable = true;
@@ -40,23 +31,9 @@ in {
         name = "WhiteSur-Dark";
         package = pkgs.whitesur-gtk-theme;
       };
-      # theme = {
-      #   name = "Gruvbox-Dark-B";
-      #   package = pkgs.gruvbox-gtk-theme;
-      # };
       cursorTheme = {
         name = "Phinger Cursors";
         package = pkgs.phinger-cursors;
-      };
-      gtk3.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-      };
-      gtk4.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
       };
     };
 

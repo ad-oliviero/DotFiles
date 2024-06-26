@@ -1,0 +1,13 @@
+configuration {
+  disable-history: false;
+  display-drun: "";
+  drun-display-format: "{name}";
+  hide-scrollbar: true;
+  location: 0;
+  scroll-method: 1;
+  show-icons: true;
+  sidebar-mode: false;
+  threads: 4;
+  xoffset: 0;
+  yoffset: 0;
+}

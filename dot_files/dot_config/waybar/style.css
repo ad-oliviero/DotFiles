@@ -55,7 +55,7 @@
 
 
 #battery {
-  min-width: 45px;
+  min-width: 50px;
 }
 
 #battery.charging {

@@ -103,12 +103,12 @@ with Installer(
     installation.create_users(models.User('adri', USER_PASS, True))
 
 HOME_DIR = '/mnt/home/adri'
-os.makedirs(f'{HOME_DIR}/.ssh', exist_ok=True)
-os.makedirs(f'{HOME_DIR}/.config', exist_ok=True)
+os.makedirs(HOME_DIR + '/.ssh', exist_ok=True)
+os.makedirs(HOME_DIR + '/.config', exist_ok=True)
 subprocess.run(['ssh-keygen', '-t', 'ed25519', '-f', './.ssh/id_ed25519', '-C', '"adri@adri-lap"'], cwd=HOME_DIR)
 subprocess.run(['pacman', '-Sy', '--noconfirm', 'git'])
 subprocess.run(['git', 'clone', 'https://github.com/ad-oliviero/DotFiles.git', '--depth', '1', './.config/dotfiles'], cwd=HOME_DIR)
-subprocess.run(['git', 'remote', 'set-url', 'origin', 'git@github.com:ad-oliviero/DotFiles.git'], cwd=f'{HOME_DIR}/.config/dotfiles')
+subprocess.run(['git', 'remote', 'set-url', 'origin', 'git@github.com:ad-oliviero/DotFiles.git'], cwd=HOME_DIR + '/.config/dotfiles')
 subprocess.run(['chown', '-R', 'adri:adri', HOME_DIR])
 subprocess.run(['umount', '-a'])
 
