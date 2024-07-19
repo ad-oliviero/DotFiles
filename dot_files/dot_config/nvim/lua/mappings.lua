@@ -19,8 +19,8 @@ map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "Toggle Relative number" })
 
 -- global lsp mappings
 map("n", "<leader>f", function()
-	-- vim.lsp.buf.format({ async = true })
-	require("conform").format()
+	vim.lsp.buf.format({ async = true })
+	-- require("conform").format()
 end, { desc = "Lsp formatting" })
 
 map("n", "<leader>lf", vim.diagnostic.open_float, { desc = "Lsp floating diagnostics" })
@@ -37,8 +37,7 @@ map("n", "<leader><tab>", "<cmd>BufferLineMoveNext<CR>", { desc = "Buffer Move n
 map("n", "<leader><S-tab>", "<cmd>BufferLineMovePrev<CR>", { desc = "Buffer Move prev" })
 
 
-map("n", "<leader>x", function()
-end, { desc = "Buffer Close" })
+map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Buffer Close" })
 
 -- nvimtree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Nvimtree Toggle window" })

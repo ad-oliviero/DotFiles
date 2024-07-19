@@ -1,5 +1,5 @@
 @define-color main-ts rgba(0, 0, 0, 0);
-@define-color main-bg #3c3836;
+@define-color main-bg rgba(60, 56, 54, 0.5)/* #3c3836 */;
 @define-color main-fg #fbf1c7;
 @define-color main-sec #d65d0e;
 @define-color main-red #cc241d;
@@ -20,6 +20,7 @@
 #clock,
 #battery,
 #cpu,
+#temperature,
 #disk,
 #memory,
 #idle_inhibitor,
@@ -27,7 +28,7 @@
 #pulseaudio,
 #tray,
 #date,
-#idle_inhibitor,
+#idle_inhibitor.deactivated,
 #battery,
 #workspaces button {
   padding: 0px 15px;
@@ -36,8 +37,8 @@
 }
 
 #battery.critical,
+#temperature.critical,
 #workspaces button.urgent,
-#idle_inhibitor.deactivated,
 #pulseaudio.muted,
 #battery.warning,
 #network.disconnected {
@@ -58,18 +59,7 @@
   min-width: 50px;
 }
 
+#idle_inhibitor,
 #battery.charging {
   background: @main-green;
-}
-
-#network {
-  opacity: 0;
-}
-
-#network:hover {
-  opacity: 1;
-}
-
-#network.disconnected {
-  opacity: 1;
 }

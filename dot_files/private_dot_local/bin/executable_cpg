@@ -90,4 +90,4 @@ pushd "${project_name}"
 [ "${language}" = "${CPP_EXT}" ] && gen_cpp_files
 popd
 
-printf "Project generation completed! Now you can\n\tcd ${project_name}\n\tcmake -B build && { pushd build; { make && ./${project_name} }; popd }\n"
+printf "Project generation completed! Now you can\n\tcd ${project_name}\n\tcmake -B build && { pushd build; { make && ./${project_name}; }; popd; }\n"

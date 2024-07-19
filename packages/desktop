@@ -1,81 +1,93 @@
 [arch]
+# package managers
+pacman
+paru-bin
+pacdef-bin
+
+# base system
 base
 base-devel
 efibootmgr
-gst-plugin-pipewire
-intel-ucode
-libpulse
 linux-firmware
 linux-zen
-pacman
+intel-ucode
+zram-generator
+fuse-overlayfs
+bluez
+bluez-utils
+
+# base services
+networkmanager
+ufw
+dnsmasq
+
+# sound
+sof-firmware
 pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
-sof-firmware
+gst-plugin-pipewire
 wireplumber
-zram-generator
+libpulse
+pro-audio
 
+# graphics
+vulkan-intel
+intel-media-driver
+
+
+# shell
 zsh
-python
-devtools
-git
-networkmanager
-neovim
-android-tools
-
-rofi-wayland
-rofi-calc
-rofi-rbw
-rofi-emoji
-
-firefox
-hyprland
-alacritty
-bitwarden
-telegram-desktop
-ttf-jetbrains-mono
-xdg-user-dirs
-chezmoi
+zsh-autosuggestions
+zsh-abbr
+zsh-syntax-highlighting
+zsh-history-substring-search
+starship
 eza
+less
+man
+man-db
+
+# utils
+zip
+unzip
 imagemagick
 imv
-libnotify
-mako
 mpv
-ttf-nerd-fonts-symbols-mono
-nwg-look
-playerctl
-starship
-swayidle
-waybar
-wl-clipboard
-xwaylandvideobridge
-
-#phinger-cursors
-blueman
-#brlaser
+btop
+wget
+chezmoi
 fd
 file
-#heroic
 man-pages
 nmap
-obs-studio
 p7zip
-remmina
 scrcpy
 sshfs
-# swayosd
+swayosd-percentage-display-git
+brightnessctl
 tree
-unzip
-virt-manager
-#vscode
-#waypipe
 wayvnc
 wireguard-tools
 ydotool
+#waypipe
 
-#codeium
+# dev
+git
+python
+python-pip
+python-pipx
+python-matplotlib
+python-pandas
+python-seaborn
+devtools
+android-tools
+neovim
+valgrind
+cmake
+clang
+rust-analyzer
 llvm
 lua-language-server
 stylua
@@ -83,16 +95,72 @@ shfmt
 shellcheck
 pyright
 ripgrep
+# texlive
+# biber
+# zathura
+# perl-yaml-tiny
+# perl-file-homedir
+docker
+docker-compose
+docker-buildx
 
-paru-bin
-grimshot-bin-sway
+# desktop
+hyprland
 hyprpaper
 hyprshade
 pyprland
+xwaylandvideobridge
+waybar
+libnotify
+mako
+nwg-look
+playerctl
+swayidle
+wl-clipboard
+rofi-wayland
+rofi-calc
+rofi-rbw
+rofi-emoji
+xdg-user-dirs
+grimshot-bin-sway
 wlogout
 swaylock-effects
 
-[rust]
-pacdef
+# fonts
+ttf-nerd-fonts-symbols-mono
+ttf-jetbrains-mono
+
+# theming
+whitesur-gtk-theme
+phinger-cursors
+
+# apps
+alacritty
+firefox
+bitwarden
+telegram-desktop
+blueman
+obs-studio
+remmina
+visual-studio-code-bin
+zed
+discord
+obsidian
+gnome-control-center
+syncthing
+sunshine-bin
+moonlight-qt-bin
+universal-android-debloater-bin
+tor-browser
+easyeffects
+spotify
+
+#heroic
+
+# ---- other package groups ----
+# virtualization
+libvirt
+virt-manager
+qemu
 
 # vim: filetype=toml
