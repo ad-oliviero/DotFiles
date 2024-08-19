@@ -1,46 +1,50 @@
 #!/bin/env python
 
-import subprocess, shutil, os
-
+import subprocess, shutil, os, curses
 
 DOTFILES_PATH = os.path.abspath(__file__).replace('/installation/install.py', '')
 HOME_DIR = os.getenv('HOME')
-if HOME_DIR == None:
-    raise RuntimeError('$HOME environment variable was not set, cannot proceed!')
+class Configuration(object):
+    def __init__(self, hostname) -> None:
+        self.hostname = hostname
 
-os.makedirs(HOME_DIR + '/.local/share', exist_ok=True)
-os.makedirs(HOME_DIR + '/.config', exist_ok=True)
+def selection_menu(opts) -> str:
+    scr = curses.initscr()
+    curses.noecho()
+    curses.cbreak()
+    curses.curs_set(0)
+    scr.keypad(True)
 
-def install_from_aur(url: str):
-    download_path = url.replace('https://aur.archlinux.org/', '').replace('.git', '')
-    subprocess.run(['git', 'clone', url])
-    subprocess.run(['makepkg', '-si', '--noconfirm'], cwd=download_path)
-    subprocess.run(['rm', '-rf', download_path])
+    sel = 0
+    while True:
+        scr.clear()
+        for i, o in enumerate(opts):
+            if i == sel:
+                scr.addstr(i, 0, f"> {o}")
+            else:
+                scr.addstr(i, 0, f"  {o}")
+        scr.refresh()
 
-if shutil.which('pacman'): # if arch desktop or laptop
-    if not shutil.which('pacdef'):
-        install_from_aur('https://aur.archlinux.org/pacdef-bin.git')
-    if not shutil.which('paru'):
-        install_from_aur('https://aur.archlinux.org/paru-bin.git')
-    for f in os.listdir('./packages'):
-        path = os.path.join('./packages', f)
-        if os.path.isfile(path):
-            subprocess.run(['pacdef', 'g', 'i', path])
-    subprocess.run(['pacdef', 'p', 'sync'])
+        c = scr.getch()
+        if c == curses.KEY_UP:
+            sel = (sel - 1) % len(opts)
+        elif c == curses.KEY_DOWN:
+            sel = (sel + 1) % len(opts)
+        elif c == ord('\n'):  # Enter key
+            break
 
+    scr.keypad(False)
+    curses.curs_set(1)
+    curses.nocbreak()
+    curses.echo()
+    curses.endwin()
+    return opts[sel]
 
-if shutil.which('apt'): # try another distro
-    subprocess.run(['sudo apt install -y chezmoi'])
+avail_confs = {
+    "Laptop" : Configuration("adri-lap"),
+    "Desktop" : Configuration("adri-desk"),
+    "New": Configuration("new"),
+}
 
-try:
-    os.symlink(DOTFILES_PATH, HOME_DIR + '/.local/share/chezmoi')
-except FileExistsError:
-    pass
+selected_conf = selection_menu([k for k in avail_confs])
 
-with open(HOME_DIR + '/.local/share/chezmoi/.chezmoiroot', 'w') as f:
-    f.write('dot_files')
-
-subprocess.run(['chezmoi', 'apply'])
-
-
-print('[\x1b[32mINFO\x1b[0m]: dotfiles installation completed successfully!')
