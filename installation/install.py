@@ -95,10 +95,9 @@ class Configuration(object):
     def partition_disk(self):
         avail_disks = [d.replace('Disk ', '') for d in re.findall('Disk (/dev/.*)', subprocess.check_output('fdisk -l'.split(' ')).decode())]
         disk = selection_menu(avail_disks).split(':')[0]
-        print('---------- WARNING: THIS PROCEDURE WILL MAKE CHANGES TO THE DISK PERMANENTLY, LEADING TO DATA LOSS! ----------\nPRESS CTRL+C to cancel, you have 3 seconds!')
-        time.sleep(3)
         try:
-            subprocess.check_output(f'umount {self.mountpoint}'.split(' '))
+            subprocess.check_output(f'umount {self.mountpoint}/boot'.split(' '), stderr=subprocess.PIPE)
+            subprocess.check_output(f'umount {self.mountpoint}'.split(' '), stderr=subprocess.PIPE)
         except:
             pass
         subprocess.check_output(f'dd if=/dev/zero of={disk} bs=1GB count=1 conv=fsync'.split(' '), stderr=subprocess.PIPE)
@@ -108,7 +107,7 @@ class Configuration(object):
                           'n\n\n\n\n' +
                           '\nw\nq\n')[0]
         fdisk = subprocess.Popen(f'fdisk {disk}'.split(' '), stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        fdisk_out = fdisk.communicate('p\nq\n')
+        fdisk_out = fdisk.communicate('p\nq\n')[0]
         boot_part, root_part = re.findall(f'{disk}p[^ ]', fdisk_out)
         subprocess.check_output(f'mkfs.fat -F32 -n BOOT {boot_part}'.split(' '))
         subprocess.check_output(f'mkfs.btrfs {root_part} -L nixos -f'.split(' '))
@@ -124,7 +123,7 @@ class Configuration(object):
         subprocess.check_output(f'mkdir -p {self.mountpoint}/home'.split(' '))
         subprocess.check_output(f'mkdir -p {self.mountpoint}/nix'.split(' '))
         subprocess.check_output(f'mount {boot_part} -o umask=077 {self.mountpoint}/boot'.split(' '))
-        subprocess.check_output(f'mount {root_part} -o subvol=@swap{self.mountpoint}/swap'.split(' '))
+        subprocess.check_output(f'mount {root_part} -o subvol=@swap {self.mountpoint}/swap'.split(' '))
         subprocess.check_output(f'mount {root_part} -o subvol=@home {self.mountpoint}/home'.split(' '))
         subprocess.check_output(f'mount {root_part} -o subvol=@nix {self.mountpoint}/nix'.split(' '))
         subprocess.check_output(f'btrfs filesystem mkswapfile --size 8g --uuid clear /mnt/swap/file'.split(' '))
