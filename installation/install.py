@@ -29,6 +29,7 @@ def selection_menu(opts) -> str:
     scr = curses.initscr()
     curses.noecho()
     curses.cbreak()
+    curses.curs_set(0)
     scr.keypad(True)
 
     sel = 0
@@ -50,6 +51,7 @@ def selection_menu(opts) -> str:
             break
 
     scr.keypad(False)
+    curses.curs_set(1)
     curses.nocbreak()
     curses.echo()
     curses.endwin()
