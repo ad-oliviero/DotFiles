@@ -103,10 +103,12 @@ class Configuration(object):
             pass
         subprocess.check_output(f'dd if=/dev/zero of={disk} bs=1GB count=1 conv=fsync'.split(' '), stderr=subprocess.PIPE)
         fdisk = subprocess.Popen(f'fdisk {disk}'.split(' '), stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        fdisk_out = fdisk.communicate('g\n' +
-                                'n\n\n\n+1G\nt\n1\n' +
-                                'n\n\n\n\n' +
-                                '\nw\nq\n')[0]
+        fdisk.communicate('g\n' +
+                          'n\n\n\n+1G\nt\n1\n' +
+                          'n\n\n\n\n' +
+                          '\nw\nq\n')[0]
+        fdisk = subprocess.Popen(f'fdisk {disk}'.split(' '), stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        fdisk_out = fdisk.communicate('p\nq\n')
         boot_part, root_part = re.findall(f'{disk}p[^ ]', fdisk_out)
         subprocess.check_output(f'mkfs.fat -F32 -n BOOT {boot_part}'.split(' '))
         subprocess.check_output(f'mkfs.btrfs {root_part} -L nixos -f'.split(' '))
