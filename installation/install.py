@@ -29,7 +29,6 @@ def selection_menu(opts) -> str:
     scr = curses.initscr()
     curses.noecho()
     curses.cbreak()
-    curses.curs_set(0)
     scr.keypad(True)
 
     sel = 0
@@ -51,7 +50,6 @@ def selection_menu(opts) -> str:
             break
 
     scr.keypad(False)
-    curses.curs_set(1)
     curses.nocbreak()
     curses.echo()
     curses.endwin()
@@ -85,10 +83,10 @@ class Configuration(object):
         self.gen_config()
         print('\nDownloading continue install script\n\n')
         time.sleep(5)
-        with open('/bin/continue_install', 'w') as f:
+        with open('/mnt/bin/continue_install', 'w') as f:
             content = request.urlopen('https://raw.githubusercontent.com/ad-oliviero/DotFiles/nixos/installation/continue_install.sh')
             f.write(content.read().decode())
-        os.chmod('/bin/continue_install', 0o777)
+        os.chmod('/mnt/bin/continue_install', 0o777)
         print('[INFO]: Installation completed. The system will reboot. If you want to continue installing ad-oliviero/DotFiles, run /bin/continue_install, otherwise remove that executable\nRebooting in 10 seconds.')
         time.sleep(10)
         subprocess.run(['reboot'])
