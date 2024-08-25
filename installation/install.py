@@ -1,6 +1,6 @@
 #!/bin/env python
 
-import subprocess, shutil, os, sys
+import subprocess, shutil, os, sys, time
 import re
 import curses
 from urllib import request
@@ -58,9 +58,8 @@ def selection_menu(opts) -> str:
     return opts[sel]
 
 class Configuration(object):
-    def __init__(self, hostname, status) -> None:
+    def __init__(self, hostname) -> None:
         self.hostname = hostname
-        self.installation_stage = status
         self.username = 'adri'
         self.mountpoint = '/mnt'
         self.values = {
@@ -78,13 +77,19 @@ class Configuration(object):
                 }
 
     def install(self):
+        print('\nPartitioning disk:\n\n')
+        time.sleep(5)
         self.partition_disk()
+        print('\nGenerating nix configuration:\n\n')
+        time.sleep(5)
         self.gen_config()
+        print('\nDownloading continue install script\n\n')
+        time.sleep(5)
         with open('/bin/continue_install', 'w') as f:
             content = request.urlopen('https://raw.githubusercontent.com/ad-oliviero/DotFiles/nixos/installation/continue_install.sh')
             f.write(content.read().decode())
         os.chmod('/bin/continue_install', 0o777)
-        print('[INFO]: Installation completed. The system will reboot. If you want to continue installing ad-oliviero/DotFiles, run /bin/continue_install, otherwise remove that executable')
+        print('[INFO]: Installation completed. The system will reboot. If you want to continue installing ad-oliviero/DotFiles, run /bin/continue_install, otherwise remove that executable\nRebooting in 10 seconds.')
         time.sleep(10)
         subprocess.run(['reboot'])
 
@@ -106,7 +111,7 @@ class Configuration(object):
         subprocess.check_output(f'btrfs subvolume create {self.mountpoint}/@nix'.split(' '))
         subprocess.check_output(f'umount {self.mountpoint}'.split(' '))
         subprocess.check_output(f'mount {root_part} -o subvol=@ {self.mountpoint}'.split(' '))
-        subprocess.check_output(f'mkdir -p {self.mountpoint}/\{boot,swap,home,nix\}'.split(' '))
+        subprocess.check_output(f'mkdir -p {self.mountpoint}/{{boot,swap,home,nix}}'.split(' '))
         subprocess.check_output(f'mount {boot_part} -o umask=077 {self.mountpoint}/boot'.split(' '))
         subprocess.check_output(f'mount {root_part} -o subvol=@swap{self.mountpoint}/swap'.split(' '))
         subprocess.check_output(f'mount {root_part} -o subvol=@home {self.mountpoint}/home'.split(' '))
@@ -135,7 +140,7 @@ if __name__ == '__main__':
         print("[\x1b[31mERROR\x1b[0m]: this script must be executed as root")
         sys.exit(1)
     avail_confs = [
-        Configuration("adri-lap", status),
+        Configuration("adri-lap"),
     ]
     hostname = selection_menu([c.hostname for c in avail_confs])
     selected_conf = [c for c in avail_confs if c.hostname == hostname][0]
