@@ -61,6 +61,7 @@ class Configuration(object):
     def __init__(self, hostname) -> None:
         self.hostname = hostname
         self.username = 'adri'
+        self.root_passwd = 'toor'
         self.mountpoint = '/mnt'
         self.values = {
                 '# *(networking.hostName = )"nixos";': f'\\1"{self.hostname}";',
@@ -77,19 +78,18 @@ class Configuration(object):
                 }
 
     def install(self):
+        getpass.getpass()
         print('\nPartitioning disk:\n\n')
         self.partition_disk()
         print('\nGenerating nix configuration:\n\n')
-        time.sleep(5)
         self.gen_config()
         print('\nDownloading continue install script\n\n')
-        time.sleep(5)
         with open('/mnt/bin/continue_install', 'w') as f:
             content = request.urlopen('https://raw.githubusercontent.com/ad-oliviero/DotFiles/nixos/installation/continue_install.sh')
             f.write(content.read().decode())
         os.chmod('/mnt/bin/continue_install', 0o777)
-        print('[INFO]: Installation completed. The system will reboot. If you want to continue installing ad-oliviero/DotFiles, run /bin/continue_install, otherwise remove that executable\nRebooting in 10 seconds.')
-        time.sleep(10)
+        print(f'[INFO]: Installation completed. The system will reboot. If you want to continue installing ad-oliviero/DotFiles, run /bin/continue_install, otherwise remove that executable\nRebooting in 2 seconds.\n\n\x1b[32mDO NOT FORGET TO SET ROOT AND USER PASSWORD. Default root password is "{self.root_passwd}"')
+        time.sleep(2)
         subprocess.run(['reboot'])
 
     def partition_disk(self):
@@ -142,7 +142,11 @@ class Configuration(object):
             result = '\n'.join([l for l in result.split('\n') if l.strip()])
             with open(f'{self.mountpoint}/etc/nixos/configuration.nix', 'w') as f:
                 f.write(result)
-            subprocess.check_output('env nixos-install'.split(' '))
+            nixos_install = subprocess.Process('env nixos-install'.split(' '), stdin=subprocess.PIPE, text=True)
+            nixos_install.write(self.root_passwd.encode())
+            nixos_install.flush()
+            nixos_install.write(self.root_passwd.encode())
+            nixos_install.flush()
         except Exception as e:
             print(str(e))
 
