@@ -69,9 +69,9 @@ class Configuration(object):
                 '# *(i18n.defaultLocale = )".*";': '\\1"en_US.UTF-8";',
                 '# *(console) = {': '\\1.keyMap = "it";',
                 '# *(users.users.).*( = {)': f'\\1{self.username}\\2',
-                '# *(isNormalUser = ).*;': '\\1;',
+                '# *(isNormalUser = ).*;': '\\1true;',
                 '# *(extraGroups = )\\[.*\\];': '\\1[ "wheel" ];\n};',
-                '# *(environment.systemPackages = with pkgs; \\[)': '\\1\nnvim\ncurl\necryptfs\ngit\n];',
+                '# *(environment.systemPackages = with pkgs; \\[)': '\\1\nneovim\ncurl\necryptfs\ngit\n];',
                 '# *(programs).mtr.enable = true;': 'security.pam.enableEcryptfs = true;',
                 '#.*': '',
                 }
