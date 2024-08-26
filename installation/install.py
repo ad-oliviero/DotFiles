@@ -142,7 +142,7 @@ class Configuration(object):
             result = '\n'.join([l for l in result.split('\n') if l.strip()])
             with open(f'/etc/nixos/configuration.nix', 'w') as f:
                 f.write(result)
-            subprocess.check_output(('env nixos-install'))
+            subprocess.check_output('env nixos-install'.split(' '))
         except Exception as e:
             print(str(e))
 
