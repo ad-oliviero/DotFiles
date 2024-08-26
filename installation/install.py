@@ -134,13 +134,13 @@ class Configuration(object):
     def gen_config(self):
         try:
             subprocess.check_output(('env nixos-generate-config --root ' + self.mountpoint).split(' '))
-            conf = read_file(f'/etc/nixos/configuration.nix')
+            conf = read_file(f'{self.mountpoint}/etc/nixos/configuration.nix')
             result = conf[:]
             for k in self.values:
                 reg = re.compile(k)
                 result = reg.sub(self.values[k], result)
             result = '\n'.join([l for l in result.split('\n') if l.strip()])
-            with open(f'/etc/nixos/configuration.nix', 'w') as f:
+            with open(f'{self.mountpoint}/etc/nixos/configuration.nix', 'w') as f:
                 f.write(result)
             subprocess.check_output('env nixos-install'.split(' '))
         except Exception as e:
