@@ -97,6 +97,9 @@ class Configuration(object):
         disk = selection_menu(avail_disks).split(':')[0]
         try:
             subprocess.check_output(f'umount {self.mountpoint}/boot'.split(' '), stderr=subprocess.PIPE)
+            subprocess.check_output(f'umount {self.mountpoint}/home'.split(' '), stderr=subprocess.PIPE)
+            subprocess.check_output(f'umount {self.mountpoint}/nix'.split(' '), stderr=subprocess.PIPE)
+            subprocess.check_output(f'umount {self.mountpoint}/swap'.split(' '), stderr=subprocess.PIPE)
             subprocess.check_output(f'umount {self.mountpoint}'.split(' '), stderr=subprocess.PIPE)
         except:
             pass
@@ -139,6 +142,7 @@ class Configuration(object):
             result = '\n'.join([l for l in result.split('\n') if l.strip()])
             with open(f'/etc/nixos/configuration.nix', 'w') as f:
                 f.write(result)
+            subprocess.check_output(('env nixos-install'))
         except Exception as e:
             print(str(e))
 
