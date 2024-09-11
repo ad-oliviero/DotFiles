@@ -1,71 +1,96 @@
-{ config, lib, pkgs, ... }:
+{pkgs, ...}: {
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
-{
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  home-manager.backupFileExtension = "backup";
+
+  documentation = {
+    dev.enable = true;
+    man.generateCaches = true;
+    nixos.includeAllModules = true;
+  };
 
   networking.hostName = "adri-lap";
   networking.networkmanager.enable = true;
 
+  hardware.bluetooth.enable = true;
+
   time.timeZone = "Europe/Rome";
 
   i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    # font = "Lat2-Terminus16";
-    keyMap = "it";
-  };
+  console.keyMap = "it";
 
-  services.printing.enable = true;
+  services = {
+    libinput.enable = true;
+    openssh.enable = true;
+    printing.enable = true;
+    zram-generator.enable = true;
 
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "weekly";
+      fileSystems = ["/"];
+    };
 
-  services.libinput.enable = true;
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
 
-  services.btrfs.autoScrub = {
-    enable = true;
-    interval = "weekly";
-    fileSystems = [ "/" ];
+    syncthing = {
+      enable = true;
+      user = "adri";
+    };
+
+    sunshine = {
+      enable = true;
+      autoStart = true;
+      openFirewall = true;
+    };
   };
 
   security.pam.enableEcryptfs = true;
 
   users.users.adri = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = ["wheel"];
+    shell = pkgs.zsh;
   };
 
   environment.systemPackages = with pkgs; [
-    neovim
     curl
     ecryptfs
+    eza
     git
+    duf
   ];
+  programs = {
+    adb.enable = true;
+    hyprland.enable = true;
+    ydotool.enable = true;
+    zsh.enable = true;
+  };
 
-  programs.adb.enable = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  fonts = {
+    fontconfig.enable = true;
+    packages = with pkgs; [
+      jetbrains-mono
+      nerdfonts
+    ];
+  };
 
-  services.openssh.enable = true;
+  environment = {
+    pathsToLink = ["/share/zsh"];
+    sessionVariables = {
+      LIBVA_DRIVER_NAME = "iHD";
+    };
+  };
 
   system.stateVersion = "24.05";
-
 }
-

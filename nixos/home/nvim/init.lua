@@ -1,5 +1,5 @@
 ---------------------- some of the configuration is taken from NvChad ----------------------
 require("options")
-require("plugins/init")
+require("plugins")
 require("auto")
 require("mappings")

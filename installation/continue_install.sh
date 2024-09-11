@@ -13,12 +13,12 @@ pushd dotfiles
 git checkout nixos
 git remote set-url origin git@github.com:ad-oliviero/DotFiles.git
 
-cp /etc/nixos/hardware-config.nix $HOME/.config/dotfiles/nixos/devices.nix
+cp /etc/nixos/hardware-configuration.nix $HOME/.config/dotfiles/nixos/devices.nix
 ssh-keygen -t ed25519 -N ''
 
 sudo rm -f /bin/continue_install
 sudo nixos-rebuild switch --flake $HOME/.config/dotfiles/nixos#adri-lap
-sudo rm -f /etc/nixos/{configuration.nix,hardware.nix}
+sudo rm -f /etc/nixos/{configuration.nix,hardware-configuration.nix}
 sudo rmdir /etc/nixos
 printf "[\x1b[31mINFO\x1b[0m]: Installation completed successfully!\nSystem will reboot in 2 seconds!\n"
 sleep 2

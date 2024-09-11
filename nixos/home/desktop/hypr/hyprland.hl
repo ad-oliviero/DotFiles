@@ -1,0 +1,7 @@
+$mod = SUPER
+
+source = ./devices.hl
+source = ./style.hl
+source = ./behavior.hl
+source = ./bindings.hl
+source = ./autostart.hl

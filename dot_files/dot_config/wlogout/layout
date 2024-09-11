@@ -1,6 +1,0 @@
-{"action":"systemctl poweroff","keybind":"s","label":"shutdown","text":"Shutdown"}
-{"action":"systemctl reboot","keybind":"r","label":"reboot","text":"Reboot"}
-{"action":"systemctl suspend-then-hibernate","keybind":"u","label":"suspend","text":"Suspend"}
-{"action":"systemctl hibernate","keybind":"h","label":"hibernate","text":"Hibernate"}
-{"action":"swaylock","keybind":"l","label":"lock","text":"Lock"}
-{"action":"loginctl terminate-user $USER","keybind":"e","label":"logout","text":"Logout"}

@@ -1,8 +1,0 @@
-[user]
-	email = adrianoliviero23@gmail.com
-	name = Adriano Oliviero
-	signingkey = /home/adri/.ssh/id_ed25519.pub
-[init]
-	defaultBranch = main
-[gpg]
-	format = ssh

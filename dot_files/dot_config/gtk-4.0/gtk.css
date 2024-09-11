@@ -1,5 +1,0 @@
-/**
- * GTK 4 reads the theme configured by gtk-theme-name, but ignores it.
- * It does however respect user CSS, so import the theme from here.
-**/
-@import url("file:///nix/store/82dp2h30c13yim8lbanxf11bgl1bnv1h-whitesur-gtk-theme-2024-05-01/share/themes/WhiteSur-Dark/gtk-4.0/gtk.css");
