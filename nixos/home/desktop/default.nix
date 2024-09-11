@@ -19,45 +19,29 @@ in {
     home.packages = with pkgs; [
       hyprpaper
       hyprshade
+      hypridle
+      hyprlock
       pyprland
       xwaylandvideobridge
       playerctl
       eww
       wl-clipboard
       sway-contrib.grimshot
-      swayidle
       waybar
       nwg-look
       ydotool
       waypipe
     ];
     services.swayosd.enable = true;
-    services.swayidle = {
-      enable = true;
-      events = [
-        {
-          event = "before-sleep";
-          command = "/bin/env loginctl lock-session $XDG_SESSION_ID";
-        }
-        {
-          event = "lock";
-          command = "${pkgs.playerctl}/bin/playerctl -a pause; ${pkgs.swaylock}/bin/swaylock";
-        }
-      ];
-    };
     wayland.windowManager.hyprland = {
       enable = true;
-      plugins = with pkgs.hyprlandPlugins; [
-        hypr-dynamic-cursors
-        hyprtrails
-        # hyprspace
-        hyprfocus
-        hyprexpo
-      ];
+      plugins = with pkgs.hyprlandPlugins; [ hypr-dynamic-cursors ];
       xwayland.enable = true;
       systemd.variables = [ "--all" ];
-      extraConfig = "source=~/.config/dotfiles/nixos/home/desktop/hypr/hyprland.hl";
+      extraConfig = "source=~/.config/dotfiles/nixos/home/desktop/hypr/hyprland.conf";
     };
+    xdg.configFile."hypr/hypridle.conf".source = ./hypr/hypridle.conf;
+    xdg.configFile."hypr/pyprland.toml".source = ./hypr/pyprland.toml;
 
     services.mako = {
       enable = true;

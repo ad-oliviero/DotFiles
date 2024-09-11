@@ -42,15 +42,43 @@
       pulse.enable = true;
     };
 
-    syncthing = {
-      enable = true;
-      user = "adri";
-    };
+    # syncthing = {
+    #   enable = true;
+    #   user = "adri";
+    # };
 
     sunshine = {
       enable = true;
       autoStart = true;
       openFirewall = true;
+      capSysAdmin = true;
+      applications = {
+        env = {
+          PATH = "$(PATH):$(HOME)/.local/bin";
+        };
+        apps = [
+          {
+            name = "Desktop";
+            image-path = "desktop.png";
+          }
+          {
+            name = "Steam Big Picture";
+            detached = [ "setsid steam steam =//open/bigpicture"];
+            image-path = "steam.png";
+          }
+        ];
+      };
+      settings = {
+        upnp = "enabled";
+        address_family = "both";
+        lan_encryption_mode = 2;
+        wan_encryption_mode = 2;
+      };
+    };
+
+    udisks2 = {
+      enable = true;
+      mountOnMedia = true;
     };
   };
 

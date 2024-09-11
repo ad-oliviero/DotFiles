@@ -27,13 +27,13 @@ in {
       enable = true;
       vimAlias = true;
       withNodeJs = true;
-      # extraLuaConfig = ''
-      #   package.path = package.path .. ";/home/adri/.config/dotfiles/nixos/nvim/?.lua;/home/adri/.config/dotfiles/nixos/nvim/lua/?.lua"
-      #   require "init"'';
-
-      #extraLuaConfig = lib.fileContents ./init.lua;
+      extraLuaConfig = ''
+        package.path = package.path .. ";/home/adri/.config/dotfiles/nixos/home/nvim/?.lua;/home/adri/.config/dotfiles/nixos/home/nvim/lua/?.lua"
+        require "init"
+      '';
+      # extraLuaConfig = lib.fileContents ./nvim/init.lua;
     };
 
-    xdg.configFile."nvim".source = ./nvim;
+    # xdg.configFile."nvim".source = ./nvim;
   };
 }

@@ -62,6 +62,7 @@ local utils = {
         lua = { "stylua" },
         sh = { "shfmt" },
         rust = { "rustfmt" },
+        nil_ls = { "alejandra" },
       },
       -- format_on_save = {
       --   -- These options will be passed to conform.format()
