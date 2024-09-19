@@ -2,17 +2,15 @@
   config,
   lib,
   pkgs,
-  modulesPath,
   ...
 }: {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
+    ../adri-common/hardware-configuration.nix
     ./devices.nix
   ];
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     graphics = {
-      enable = true;
       extraPackages = with pkgs; [
         intel-media-driver
         intel-vaapi-driver
@@ -29,8 +27,7 @@
     };
     kernelPackages = pkgs.linuxPackages_zen;
     kernelModules = ["kvm-intel" "acpi_call" "ecryptfs"];
-    # extraModulePackages = with config.boot.kernelPackages; [];
-    plymouth.enable = true; # does not boot for some reason
+    plymouth.enable = true;
     consoleLogLevel = 0;
     kernelParams = [
       "i915.enable_guc=2"
@@ -42,16 +39,5 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
     ];
-    loader = {
-      timeout = 0;
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
   };
-
-  swapDevices = [{device = "/swap/file";}];
-
-  networking.useDHCP = lib.mkDefault true;
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }

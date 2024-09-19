@@ -29,6 +29,9 @@
     overskride
     swaynotificationcenter
     cliphist
+    libnotify
+    jq
+    socat
     xdg-desktop-portal-hyprland
   ];
   programs.vscode.enable = true;

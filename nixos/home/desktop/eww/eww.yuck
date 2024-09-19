@@ -1,0 +1,32 @@
+(defwindow main_bar
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "0px"
+                               :width "100%"
+                               :height "45px"
+                               :anchor "top center")
+           :stacking "fg"
+           :exclusive true
+           :focusable false
+           :wm-ignore false
+  (box :space-evenly true
+    (box :halign "start"
+      (workspaces)
+      "${window}")
+    (box :halign "center"
+      "${formattime(EWW_TIME, '%a %-d %b %Y, %-I:%M:%S %p')}")
+    (box :halign "end"
+      "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}")))
+    
+(deflisten window :initial "..."
+  "hyprctl activewindow -j | jq --raw-output .title; socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 awk -F '>>|,' '/^activewindow>>/{print $3}'")
+(deflisten workspaces :initial "[]" "bash ~/.config/dotfiles/nixos/home/desktop/eww/scripts/workspaces.sh get-workspaces")
+(deflisten current_workspace :initial "1" "bash ~/.config/dotfiles/nixos/home/desktop/eww/scripts/workspaces.sh get-active-workspace")
+(defwidget workspaces []
+  (eventbox :onscroll "bash ${EWW_CONFIG_DIR}/scripts/workspaces.sh change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
+    (box :space-evenly false
+      (label :text "${workspaces}${current_workspace}" :visible false)
+      (for workspace in workspaces
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+            (label :text "${workspace.id}")))))))

@@ -140,6 +140,7 @@ in {
           clnipc = "ipcrm -a $(ipcs | awk '{print $2}' | grep -vE '[^0-9]')";
           cp = "cp -iv";
           dev = "exec nix develop ~/.config/dotfiles/home/dev#default";
+          eww = "eww --config ~/.config/dotfiles/nixos/home/desktop/eww";
           grep = "grep --color";
           hrs = "home-manager switch --flake ~/.config/dotfiles#$HOST";
           l = "ll -a";

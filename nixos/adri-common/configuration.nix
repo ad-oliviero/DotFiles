@@ -15,15 +15,12 @@
     nixos.includeAllModules = true;
   };
 
-  networking.hostName = "adri-lap";
   networking.networkmanager.enable = true;
 
   hardware.bluetooth.enable = true;
 
   time.timeZone = "Europe/Rome";
-
   i18n.defaultLocale = "en_US.UTF-8";
-  console.keyMap = "it";
 
   services = {
     libinput.enable = true;
@@ -41,11 +38,6 @@
       enable = true;
       pulse.enable = true;
     };
-
-    # syncthing = {
-    #   enable = true;
-    #   user = "adri";
-    # };
 
     sunshine = {
       enable = true;
@@ -113,12 +105,5 @@
     ];
   };
 
-  environment = {
-    pathsToLink = ["/share/zsh"];
-    sessionVariables = {
-      LIBVA_DRIVER_NAME = "iHD";
-    };
-  };
-
-  system.stateVersion = "24.05";
+  environment.pathsToLink = ["/share/zsh"];
 }

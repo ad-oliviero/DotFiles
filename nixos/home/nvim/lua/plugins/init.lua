@@ -319,6 +319,8 @@ local specific = {
     end,
   },
   "frabjous/knap",
+  "elkowar/yuck.vim",
+  "gpanders/nvim-parinfer",
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
