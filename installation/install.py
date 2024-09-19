@@ -1,6 +1,6 @@
 #!/bin/env python
 
-import subprocess, shutil, os, sys, time
+import subprocess, os, sys, time
 import re
 import curses
 from urllib import request
@@ -19,7 +19,7 @@ def check_connection() -> bool:
     try:
         request.urlopen('https://8.8.8.8/', timeout=1)
         return True
-    except request.URLError as err:
+    except request.URLError as _:
         return False
 
 def check_root() -> bool:
@@ -58,16 +58,17 @@ def selection_menu(opts) -> str:
     return opts[sel]
 
 class Configuration(object):
-    def __init__(self, hostname) -> None:
+    def __init__(self, hostname, keymap) -> None:
         self.hostname = hostname
         self.username = 'adri'
         self.mountpoint = '/mnt'
+        self.keymap = keymap
         self.values = {
                 '# *(networking.hostName = )"nixos";': f'\\1"{self.hostname}";',
                 '# *(networking.networkmanager.enable = true;)': '\\1',
                 '# *(time.timeZone = )".*";': '\\1"Europe/Rome";',
                 '# *(i18n.defaultLocale = )".*";': '\\1"en_US.UTF-8";',
-                '# *(console) = {': '\\1.keyMap = "it";',
+                '# *(console) = {': f'\\1.keyMap = "{self.keymap}";',
                 '# *(users.users.).*( = {)': f'\\1{self.username}\\2',
                 '# *(isNormalUser = ).*;': '\\1true;',
                 '# *(extraGroups = )\\[.*\\];': '\\1[ "wheel" ];\ninitialPassword = "password";\n};',
@@ -127,7 +128,7 @@ class Configuration(object):
         subprocess.check_output(f'mount {root_part} -o subvol=@swap {self.mountpoint}/swap'.split(' '))
         subprocess.check_output(f'mount {root_part} -o subvol=@home {self.mountpoint}/home'.split(' '))
         subprocess.check_output(f'mount {root_part} -o subvol=@nix {self.mountpoint}/nix'.split(' '))
-        subprocess.check_output(f'btrfs filesystem mkswapfile --size 8g --uuid clear /mnt/swap/file'.split(' '))
+        subprocess.check_output(f'btrfs filesystem mkswapfile --size 16g --uuid clear /mnt/swap/file'.split(' '))
 
     def gen_config(self):
         try:
@@ -152,7 +153,8 @@ if __name__ == '__main__':
         print("[\x1b[31mERROR\x1b[0m]: this script must be executed as root")
         sys.exit(1)
     avail_confs = [
-        Configuration("adri-lap"),
+        Configuration("adri-lap", "it"),
+        Configuration("adri-desk", "en"),
     ]
     hostname = selection_menu([c.hostname for c in avail_confs])
     selected_conf = [c for c in avail_confs if c.hostname == hostname][0]
