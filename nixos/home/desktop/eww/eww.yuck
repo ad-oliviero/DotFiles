@@ -1,6 +1,6 @@
-(defwindow main_bar
+(defwindow top_bar
            :monitor 0
-           :geometry (geometry :x "0%"
+           :geometry (geometry :x "0px"
                                :y "0px"
                                :width "100%"
                                :height "45px"
@@ -9,24 +9,77 @@
            :exclusive true
            :focusable false
            :wm-ignore false
-  (box :space-evenly true
-    (box :halign "start"
-      (workspaces)
-      "${window}")
-    (box :halign "center"
-      "${formattime(EWW_TIME, '%a %-d %b %Y, %-I:%M:%S %p')}")
-    (box :halign "end"
-      "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}")))
+  (centerbox :orientation "h"
+    (leftside)
+    (center)
+    (rightside)))
+    
+
+(defwidget leftside []
+  (box :space-evenly false
+    (workspaces)
+    "${window}"))
+    
+
+(defwidget center []
+  (box :space-evenly false
+   "${formattime(EWW_TIME, '%a %-d %b %Y, %-I:%M:%S %p')}"))
+
+(defwidget rightside []
+  (box :space-evenly false
+       :halign "end"
+    (network)
+    (memory)
+    (cpu)
+    (temps)
+    (systray)
+    (battery)
+    (sound)))
+  
+  
+(defwidget network []
+  "")
+
+(defwidget memory []
+  "${round(EWW_RAM.used_mem/(1024*1024*1024), 2)}GB ")
+
+(defwidget cpu []
+  (box :class "cpu ${EWW_CPU.avg > 80 ? "critical" : EWW_CPU.avg > 60 ? "almost-critical" : ""}"
+   "${round(EWW_CPU.avg, 0)}% "))
+
+(defwidget temps [] 
+  (box :class "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0 > 80 ? "critical" : EWW_TEMPS.CORETEMP_PACKAGE_ID_0 > 60 ? "almost-critical" : ""}"
+    "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}°C "))
+
+(defwidget battery[]
+  (box :class "battery ${EWW_BATTERY.BAT0.status == "Charging" ? "charging" : "discharging" } ${EWW_BATTERY.BAT0.capacity < 15 ? "critical" : EWW_BATTERY.BAT0.capacity < 30 ? "almost-critical" : ""}"
+    "${EWW_BATTERY.BAT0.capacity} ${EWW_BATTERY.BAT0.capacity < 10 ? "󰁺" :
+                                    EWW_BATTERY.BAT0.capacity < 20 ? "󰁻" :
+                                    EWW_BATTERY.BAT0.capacity < 30 ? "󰁼" :
+                                    EWW_BATTERY.BAT0.capacity < 40 ? "󰁽" :
+                                    EWW_BATTERY.BAT0.capacity < 50 ? "󰁾" :
+                                    EWW_BATTERY.BAT0.capacity < 60 ? "󰁿" :
+                                    EWW_BATTERY.BAT0.capacity < 70 ? "󰂀" :
+                                    EWW_BATTERY.BAT0.capacity < 80 ? "󰂁" :
+                                    EWW_BATTERY.BAT0.capacity < 90 ? "󰂂" : "󰁹"}"))
+
+(defwidget sound []
+  "󰕾")
+
+ 
     
 (deflisten window :initial "..."
   "hyprctl activewindow -j | jq --raw-output .title; socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 awk -F '>>|,' '/^activewindow>>/{print $3}'")
+
 (deflisten workspaces :initial "[]" "bash ~/.config/dotfiles/nixos/home/desktop/eww/scripts/workspaces.sh get-workspaces")
+
 (deflisten current_workspace :initial "1" "bash ~/.config/dotfiles/nixos/home/desktop/eww/scripts/workspaces.sh get-active-workspace")
+
 (defwidget workspaces []
   (eventbox :onscroll "bash ${EWW_CONFIG_DIR}/scripts/workspaces.sh change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
     (box :space-evenly false
       (label :text "${workspaces}${current_workspace}" :visible false)
       (for workspace in workspaces
         (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
-          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""}"
             (label :text "${workspace.id}")))))))
