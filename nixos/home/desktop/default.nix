@@ -32,16 +32,27 @@ in {
       ydotool
       waypipe
     ];
-    services.swayosd.enable = true;
+    services = {
+      swayosd.enable = true;
+      gnome-keyring.enable = true;
+    };
     wayland.windowManager.hyprland = {
       enable = true;
-      plugins = with pkgs.hyprlandPlugins; [ hypr-dynamic-cursors ];
+      plugins = with pkgs.hyprlandPlugins; [hypr-dynamic-cursors];
       xwayland.enable = true;
-      systemd.variables = [ "--all" ];
+      systemd.variables = ["--all"];
       extraConfig = "source=~/.config/dotfiles/nixos/home/desktop/hypr/hyprland.conf";
     };
     xdg.configFile."hypr/hypridle.conf".source = ./hypr/hypridle.conf;
     xdg.configFile."hypr/pyprland.toml".source = ./hypr/pyprland.toml;
+    xdg.portal = {
+      enable = true;
+      # xdgOpenUsePortal = true;
+      config.common.default = [ "hyprland" ];
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
+      ];
+    };
 
     services.mako = {
       enable = true;
@@ -118,9 +129,13 @@ in {
     gtk = {
       enable = true;
       iconTheme = {
-        name = "WhiteSur";
+        name = "WhiteSur-Dark";
         package = pkgs.whitesur-icon-theme;
       };
+      # theme = {
+      #   name = "Orchis-Yellow-Dark-Compact";
+      #   package = pkgs.orchis-theme;
+      # };
       theme = {
         name = "WhiteSur-Dark";
         package = pkgs.whitesur-gtk-theme;
@@ -129,32 +144,31 @@ in {
         name = "Phinger Cursors";
         package = pkgs.phinger-cursors;
       };
-      gtk3.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-      };
-      gtk4.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-      };
     };
 
+    dconf.enable = true;
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
         gtk-theme = "WhiteSur-Dark";
+        # gtk-theme = "Orchis-Yellow-Dark-Compact";
         cursor-theme = "Phinger Cursors";
-        icon-theme = "WhiteSur";
+        icon-theme = "WhiteSur-Dark";
       };
       "org/virt-manager/virt-manager/connections" = {
         autoconnect = ["qemu:///system"];
         uris = ["qemu:///system"];
       };
     };
+    home.pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.phinger-cursors;
+      name = "Phinger Cursors";
+      size = 16;
+    };
     home.file.".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors-dark";
-    home.file.".themes".source = "${pkgs.gruvbox-gtk-theme}/share/themes";
+    home.file.".themes".source = "${pkgs.whitesur-gtk-theme}/share/themes";
+    # home.file.".themes".source = "${pkgs.orchis-theme}/share/themes";
     xdg.configFile."alacritty".source = ./alacritty;
     xdg.configFile."waybar".source = ./waybar;
   };

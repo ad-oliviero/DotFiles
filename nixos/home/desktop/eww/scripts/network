@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# vim: filetype=sh
+
+nmcli -c no -g all d | grep -vE '(loopback|p2p)' | \
+  jq -acrsR 'split("\n") | map(split(":")) | 
+  map({"network": .[0],
+       "type": .[1],
+       "connection": .[6]})'
+

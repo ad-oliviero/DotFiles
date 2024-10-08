@@ -1,6 +1,4 @@
-{
-  ...
-}: {
+{...}: {
   fileSystems."/" = {
     # device = "/dev/disk/by-uuid/3dac05ff-59d0-4f3e-b616-de0df8256789";
     fsType = "btrfs";

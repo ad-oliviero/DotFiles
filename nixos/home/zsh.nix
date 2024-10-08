@@ -152,9 +152,6 @@ in {
           mkdir = "mkdir -pv";
           mv = "mv -iv";
           myip = "curl ipinfo.io/ip && printf '\\n'";
-          nrs = "sudo nixos-rebuild switch --flake ~/.config/dotfiles/nixos#$HOST";
-          ns = "nix search nixpkgs";
-          nu = "sudo nix flake update; nix flake update";
           rm = "rm -v";
           rs = "rsync -av --progress --stats";
           scrsh = "yes | wf-recorder -m avi -f >(ffplay -window_title Screenshare -f avi -) --geometry=\"$(slurp -o)\"; pkill ffplay 2>&1 >/dev/null; pkill wf-recorder 2>&1 >/dev/null";
@@ -169,6 +166,11 @@ in {
         zsh-abbr = {
           enable = true;
           abbreviations = {
+            nos = "nh os switch";
+            nou = "nh os switch -u";
+            nhs = "nh home switch";
+            nhu = "nh home switch -u";
+            ns = "nh search";
             free = "free -h";
             ga = "git add .";
             gc = "git add . && git commit";

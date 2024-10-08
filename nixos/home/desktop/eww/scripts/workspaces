@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# vim: filetype=sh
 # taken from https://wiki.hyprland.org/Useful-Utilities/Status-Bars
 
 if test "$1" = "change-active-workspace"

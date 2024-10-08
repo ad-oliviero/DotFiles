@@ -313,12 +313,26 @@ local specific = {
     end,
   },
   {
+    "rebelot/terminal.nvim",
+    config = function()
+      require("terminal").setup()
+    end,
+  },
+  {
     "akinsho/flutter-tools.nvim",
     config = function()
       require("flutter-tools").setup()
     end,
   },
   "frabjous/knap",
+  {
+    "nvim-orgmode/orgmode",
+    event = "VeryLazy";
+    ft = { "org" },
+    config = function()
+      require("orgmode").setup()
+    end
+  },
   "elkowar/yuck.vim",
   "gpanders/nvim-parinfer",
   {

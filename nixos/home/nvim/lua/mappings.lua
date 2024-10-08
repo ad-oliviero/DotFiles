@@ -64,25 +64,14 @@ map(
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "Terminal Escape terminal mode" })
 
-map("n", "<leader>h", function()
-	require("nvchad.term").new({ pos = "sp", size = 0.3 })
-end, { desc = "Terminal New horizontal term" })
-
-map("n", "<leader>v", function()
-	require("nvchad.term").new({ pos = "vsp", size = 0.3 })
-end, { desc = "Terminal New vertical term" })
-
-map({ "n", "t" }, "<A-v>", function()
-	require("nvchad.term").toggle({ pos = "vsp", id = "vtoggleTerm", size = 0.3 })
-end, { desc = "Terminal Toggleable vertical term" })
-
-map({ "n", "t" }, "<A-h>", function()
-	require("nvchad.term").toggle({ pos = "sp", id = "htoggleTerm", size = 0.2 })
-end, { desc = "Terminal New horizontal term" })
-
-map({ "n", "t" }, "<A-i>", function()
-	require("nvchad.term").toggle({ pos = "float", id = "floatTerm" })
-end, { desc = "Terminal Toggle Floating term" })
+map("n", "<leader>to", require("terminal.mappings").toggle, { desc = "Toggle terminal" })
+map("n", "<leader>tr", require("terminal.mappings").run, { desc = "Run command" })
+map("n", "<leader>tk", require("terminal.mappings").kill, { desc = "Kill current terminal" })
+map("n", "<leader>t]", require("terminal.mappings").cycle_next, { desc = "Cycle next terminal" })
+map("n", "<leader>t[", require("terminal.mappings").cycle_prev, { desc = "Cycle previous terminal" })
+map("n", "<leader>tl", require("terminal.mappings").move({ open_cmd = "belowright vnew" }), { desc = "Move terminal right" })
+map("n", "<leader>th", require("terminal.mappings").move({ open_cmd = "belowright new" }), { desc = "Move terminal down" })
+map("n", "<leader>tf", require("terminal.mappings").move({ open_cmd = "float" }), { desc = "Make terminal float" })
 
 map("t", "<ESC>", function()
 	local win = vim.api.nvim_get_current_win()
