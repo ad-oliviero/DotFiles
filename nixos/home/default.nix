@@ -19,6 +19,8 @@
   home.packages = with pkgs; [
     gnumake
     texlive.combined.scheme-full
+    rubber
+    sioyek
 
     alacritty
     android-studio

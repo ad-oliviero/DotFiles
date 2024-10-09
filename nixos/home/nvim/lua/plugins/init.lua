@@ -5,7 +5,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -324,10 +324,9 @@ local specific = {
       require("flutter-tools").setup()
     end,
   },
-  "frabjous/knap",
   {
     "nvim-orgmode/orgmode",
-    event = "VeryLazy";
+    event = "VeryLazy",
     ft = { "org" },
     config = function()
       require("orgmode").setup()
@@ -335,6 +334,15 @@ local specific = {
   },
   "elkowar/yuck.vim",
   "gpanders/nvim-parinfer",
+  "frabjous/knap",
+  {
+    "lervag/vimtex",
+    lazy = false,
+    init = function()
+      vim.g.vimtex_view_method = "mupdf"
+    end
+  },
+  "MeanderingProgrammer/render-markdown.nvim",
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -361,28 +369,25 @@ require("gruvbox").setup({
 })
 
 --------------- additional plugin configurations ---------------
-local autocmd = vim.api.nvim_create_autocmd
-local autogroup = vim.api.nvim_create_augroup
-local g = vim.g
-
-g.mkdp_command_for_global = true
-g.mkdp_open_to_the_world = true
-
+vim.g.mkdp_command_for_global = true
+vim.g.mkdp_open_to_the_world = true
 vim.cmd([[colorscheme gruvbox]])
 -- g.codeium_disable_bindings = true
 
 -- KNAP
-g.knap_settings = {
+vim.g.knap_settings = {
   texoutputext = "pdf",
-  textopdf = "latexmk -synctex=1 -pdf -quiet -pdflatex -interaction=batchmode -file-line-error %srcfile%",
-  textopdfviewerlaunch = "zathura %outputfile%",
-  textopdfviewerrefresh = "kill -HUP %pid%",
+  textopdf = "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
+  -- textopdf = "latexmk -synctex=1 -pdf -quiet -pdflatex -interaction=batchmode -file-line-error %docroot%",
+  textopdfviewerlaunch = "sioyek %outputfile%",
+  -- textopdfviewerrefresh = "kill -HUP %pid%",
+  textopdfviewerrefresh = "",
 }
 
-autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   desc = "Start knap's autopreview for .tex files",
   pattern = "tex",
-  group = autogroup("tex_autopreview", { clear = true }),
+  group = vim.api.nvim_create_augroup("tex_autopreview", { clear = true }),
   callback = function()
     require("knap").toggle_autopreviewing()
   end,
