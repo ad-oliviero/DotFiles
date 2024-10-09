@@ -1,8 +1,8 @@
+local vim = vim -- remove annoying warnings of "Undefined global `vim`."
 local map = vim.keymap.set
 local lspconfig = require("lspconfig")
-local servers = { "clangd", "pyright", "rust_analyzer", "lua_ls", "dartls", "html", "cssls", "eslint", "nil_ls" }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
 	local function opts(desc)
 		return { buffer = bufnr, desc = desc }
 	end
@@ -47,7 +47,18 @@ capabilities.textDocument.completion.completionItem = {
 	},
 }
 
-require("conform").setup(options)
+local servers = {
+  "nil_ls",
+  "texlab",
+  "clangd",
+  "pyright",
+  "lua_ls",
+  "rust_analyzer",
+	"cssls",
+	"dartls",
+	"eslint",
+	"html",
+}
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({

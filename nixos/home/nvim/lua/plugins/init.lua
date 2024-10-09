@@ -63,6 +63,7 @@ local utils = {
         sh = { "shfmt" },
         rust = { "rustfmt" },
         nil_ls = { "alejandra" },
+        tex = { "latexindent" },
       },
       -- format_on_save = {
       --   -- These options will be passed to conform.format()
@@ -125,8 +126,6 @@ local utils = {
       indent = { enable = true },
     },
     config = function(_, opts)
-      -- dofile(vim.g.base46_cache .. "syntax")
-      -- dofile(vim.g.base46_cache .. "treesitter")
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
