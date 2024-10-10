@@ -89,6 +89,7 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKoy1RDMy50qUm3+MdWdvkUQKFoA2AR1UM9dvdtI19Y+ adri@adri-lap
 "
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILoM2xJHj+Nxep/kqovOZFDtpknkUXH4Mo4m1KlxgqGT adri@adri-desk"
     ];
     shell = pkgs.zsh;
   };
