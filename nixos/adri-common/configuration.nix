@@ -86,6 +86,10 @@
   users.users.adri = {
     isNormalUser = true;
     extraGroups = ["wheel" "kvm"];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKoy1RDMy50qUm3+MdWdvkUQKFoA2AR1UM9dvdtI19Y+ adri@adri-lap
+"
+    ];
     shell = pkgs.zsh;
   };
 
