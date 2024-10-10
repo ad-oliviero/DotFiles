@@ -1,6 +1,6 @@
-(defwindow main_bar
+(defwindow top_bar_main
            :monitor 0
-           :geometry (geometry :x "0%"
+           :geometry (geometry :x "0px"
                                :y "0px"
                                :width "100%"
                                :height "45px"
@@ -8,25 +8,97 @@
            :stacking "fg"
            :exclusive true
            :focusable false
-           :wm-ignore false
-  (box :space-evenly true
-    (box :halign "start"
-      (workspaces)
-      "${window}")
-    (box :halign "center"
-      "${formattime(EWW_TIME, '%a %-d %b %Y, %-I:%M:%S %p')}")
-    (box :halign "end"
-      "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}")))
+           :namespace "eww_top_bar_main"
+  (centerbox :orientation "h"
+    (leftside)
+    (center)
+    (rightside)))
+
+(defwidget leftside []
+  (box :space-evenly false
+    (workspaces)))
+    ;; "${window}" ;; currently disabled as widget can not have a fixed width
+
+(defwidget center []
+  (datetime))
+
+(defwidget rightside []
+  (box :space-evenly false
+       :halign "end"
+    (network)
+    (memory)
+    (cpu)
+    (temps)
+    (systray :class "systray"
+             :prepend-new true)
+    (battery)
+    (sound)))
+  
+(defwidget datetime []
+     "${formattime(EWW_TIME, '%a %-d %b %Y, %-I:%M:%S %p')}")
+  
+(defpoll network :initial "[]" :interval "1s" "bash ~/.config/dotfiles/nixos/home/desktop/eww/scripts/network")
+(defwidget network []
+  (tooltip
+    "${network}"
+    ""))
+
+(defwidget memory []
+  (tooltip
+    "Available memory: ${round(EWW_RAM.available_mem/(1024*1024*1024), 2)} GB, ${round(EWW_RAM.used_mem_perc, 0)}% used
+Available / disk: ${round(EWW_DISK["/"].free/(1024*1024*1024), 2)} GB, ${round(EWW_DISK["/"].used_perc, 0)}% used"
+    "${round(EWW_RAM.used_mem/(1024*1024*1024), 2)}GB "))
+
+(defwidget cpu []
+    (box :class "cpu ${EWW_CPU.avg > 80 ? "critical" : EWW_CPU.avg > 60 ? "almost-critical" : ""}"
+         :tooltip "${EWW_CPU.cores[0].core}: ${EWW_CPU.cores[0].freq}Mhz ${EWW_CPU.cores[0].usage}%
+${EWW_CPU.cores[1]?.core}: ${EWW_CPU.cores[1]?.freq}Mhz ${EWW_CPU.cores[1]?.usage}%
+${EWW_CPU.cores[2]?.core}: ${EWW_CPU.cores[2]?.freq}Mhz ${EWW_CPU.cores[2]?.usage}%
+${EWW_CPU.cores[3]?.core}: ${EWW_CPU.cores[3]?.freq}Mhz ${EWW_CPU.cores[3]?.usage}%
+${EWW_CPU.cores[4]?.core}: ${EWW_CPU.cores[4]?.freq}Mhz ${EWW_CPU.cores[4]?.usage}%
+${EWW_CPU.cores[5]?.core}: ${EWW_CPU.cores[5]?.freq}Mhz ${EWW_CPU.cores[5]?.usage}%
+${EWW_CPU.cores[6]?.core}: ${EWW_CPU.cores[6]?.freq}Mhz ${EWW_CPU.cores[6]?.usage}%
+${EWW_CPU.cores[7]?.core}: ${EWW_CPU.cores[7]?.freq}Mhz ${EWW_CPU.cores[7]?.usage}%"
+     "${round(EWW_CPU.avg, 0)}% "))
+
+(defvar randval 10)
+(defwidget temps [] 
+    (tooltip
+      (graph :value randval)
+      (box :class "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0 > 80 ? "critical" : EWW_TEMPS.CORETEMP_PACKAGE_ID_0 > 60 ? "almost-critical" : ""}"
+            "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}°C ")))
+
+(defwidget battery[]
+  (tooltip
+    "${EWW_BATTERY.BAT0.status}"
+    (box :class "battery ${EWW_BATTERY.BAT0.status == "Charging" ? "charging" : "discharging" } ${EWW_BATTERY.BAT0.capacity < 15 ? "critical" : EWW_BATTERY.BAT0.capacity < 30 ? "almost-critical" : ""}"
+          "${EWW_BATTERY.BAT0.capacity} ${EWW_BATTERY.BAT0.capacity < 10 ? "󰁺" :
+                                    EWW_BATTERY.BAT0.capacity < 20 ? "󰁻" :
+                                    EWW_BATTERY.BAT0.capacity < 30 ? "󰁼" :
+                                    EWW_BATTERY.BAT0.capacity < 40 ? "󰁽" :
+                                    EWW_BATTERY.BAT0.capacity < 50 ? "󰁾" :
+                                    EWW_BATTERY.BAT0.capacity < 60 ? "󰁿" :
+                                    EWW_BATTERY.BAT0.capacity < 70 ? "󰂀" :
+                                    EWW_BATTERY.BAT0.capacity < 80 ? "󰂁" :
+                                    EWW_BATTERY.BAT0.capacity < 90 ? "󰂂" : "󰁹"}")))
+
+(defwidget sound []
+  "󰕾")
+
+ 
     
-(deflisten window :initial "..."
-  "hyprctl activewindow -j | jq --raw-output .title; socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 awk -F '>>|,' '/^activewindow>>/{print $3}'")
-(deflisten workspaces :initial "[]" "bash ~/.config/dotfiles/nixos/home/desktop/eww/scripts/workspaces.sh get-workspaces")
-(deflisten current_workspace :initial "1" "bash ~/.config/dotfiles/nixos/home/desktop/eww/scripts/workspaces.sh get-active-workspace")
+;; (deflisten window :initial "..."
+;;   "hyprctl activewindow -j | jq --raw-output .title; socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 awk -F '>>|,' '/^activewindow>>/{print $3}'")
+
+(deflisten workspaces :initial "[]" "bash ~/.config/dotfiles/nixos/home/desktop/eww/scripts/workspaces get-workspaces")
+
+(deflisten current_workspace :initial "1" "bash ~/.config/dotfiles/nixos/home/desktop/eww/scripts/workspaces get-active-workspace")
+
 (defwidget workspaces []
-  (eventbox :onscroll "bash ${EWW_CONFIG_DIR}/scripts/workspaces.sh change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
+  (eventbox :onscroll "bash ${EWW_CONFIG_DIR}/scripts/workspaces change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
     (box :space-evenly false
       (label :text "${workspaces}${current_workspace}" :visible false)
       (for workspace in workspaces
         (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
-          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""}"
             (label :text "${workspace.id}")))))))

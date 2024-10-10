@@ -16,7 +16,6 @@
     #   verbose = false;
     # };
     # kernelPackages = pkgs.linuxPackages_zen;
-    # kernelModules = ["kvm-intel" "acpi_call" "ecryptfs"];
     # plymouth.enable = true;
     # consoleLogLevel = 0;
     # kernelParams = [

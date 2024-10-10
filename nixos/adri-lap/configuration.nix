@@ -11,6 +11,15 @@
 
   console.keyMap = "it";
 
+  services = {
+    syncthing = {
+      enable = true;
+      user = "adri";
+      dataDir = "/home/adri/Sync";
+      openDefaultPorts = true;
+    };
+  };
+
   environment = {
     sessionVariables = {
       LIBVA_DRIVER_NAME = "iHD";

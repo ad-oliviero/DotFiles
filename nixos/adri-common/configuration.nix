@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -6,8 +10,6 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;
-
-  home-manager.backupFileExtension = "backup";
 
   documentation = {
     dev.enable = true;
@@ -39,6 +41,8 @@
       pulse.enable = true;
     };
 
+    # greetd.enable = true;
+
     sunshine = {
       enable = true;
       autoStart = true;
@@ -55,7 +59,7 @@
           }
           {
             name = "Steam Big Picture";
-            detached = [ "setsid steam steam =//open/bigpicture"];
+            detached = ["setsid steam steam =//open/bigpicture"];
             image-path = "steam.png";
           }
         ];
@@ -73,29 +77,60 @@
       mountOnMedia = true;
     };
   };
+  virtualisation = {
+    containers.enable = true;
+  };
 
   security.pam.enableEcryptfs = true;
 
   users.users.adri = {
     isNormalUser = true;
-    extraGroups = ["wheel"];
+    extraGroups = ["wheel" "kvm"];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKoy1RDMy50qUm3+MdWdvkUQKFoA2AR1UM9dvdtI19Y+ adri@adri-lap
+"
+    ];
     shell = pkgs.zsh;
   };
 
   environment.systemPackages = with pkgs; [
     curl
+    duf
     ecryptfs
     eza
     git
-    duf
+    nh
+    nix-output-monitor
+    iptables
+    inputs.zen-browser.packages."${system}".specific
   ];
   programs = {
     adb.enable = true;
     hyprland.enable = true;
+    firejail.enable = true;
+    steam.enable = true;
+    regreet = {
+      enable = false;
+      iconTheme = {
+        name = "WhiteSur";
+        package = pkgs.whitesur-icon-theme;
+      };
+      cursorTheme = {
+        name = "Phinger Cursors";
+        package = pkgs.phinger-cursors;
+      };
+      font = {
+        name = "JetBrains Mono 16";
+        package = pkgs.jetbrains-mono;
+      };
+      settings = {
+        GTK.application_prefer_dark_theme = true;
+        appearance.greeting_msg = "Oh non toccare sto computer, via da qui!";
+      };
+    };
     ydotool.enable = true;
     zsh.enable = true;
   };
-
 
   fonts = {
     fontconfig.enable = true;

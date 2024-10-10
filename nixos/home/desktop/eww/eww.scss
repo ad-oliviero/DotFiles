@@ -1,0 +1,78 @@
+* {
+  font-family: JetBrains Mono, Symbols Nerd Font;
+  font-size: 1.1rem;
+  transition: 0.6s;
+}
+
+window {
+  background: transparent;
+  /* border: solid red 4px; */
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+}
+
+label, image {
+  color: #fbf1c7;
+  padding: 0rem 1rem;
+  margin: 0.6rem 0.3rem;
+  background: rgba(60, 56, 54, 0.5);
+  border-radius: 2rem;
+}
+
+.systray label {
+  padding: 0rem 0rem;
+  margin: -0.3rem -1rem;
+  background: none;
+  color: #282828;
+  /* border: 2px solid red; */
+  border-radius: 0rem;
+}
+
+tooltip {
+  border-radius: 2rem;
+  border: none;
+  background: rgba(60, 56, 54, 0.9);
+}
+
+tooltip label {
+  border-radius: 0rem;
+  background: transparent;
+}
+
+calendar {
+  background: transparent;
+  border: none;
+}
+
+calendar.current {
+  border: 4px red solid;
+}
+
+graph {
+  border: 4px red solid;
+}
+
+.workspace-entry.current label {
+  background: #d65d0e;
+}
+
+.almost-critical label {
+  background: #d79921;
+}
+
+.critical label {
+  background: #cc241d;
+}
+
+.battery.charging label {
+  background: #98971a;
+}
+
+/* box { */
+/*   border: solid red 2px; */
+/* } */
