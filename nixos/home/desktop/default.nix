@@ -48,7 +48,7 @@ in {
     xdg.portal = {
       enable = true;
       # xdgOpenUsePortal = true;
-      config.common.default = [ "hyprland" ];
+      config.common.default = ["hyprland"];
       extraPortals = with pkgs; [
         xdg-desktop-portal-hyprland
       ];

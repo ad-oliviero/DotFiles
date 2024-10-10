@@ -13,7 +13,7 @@
     nixpkgs,
     home-manager,
     ...
-  }@inputs: let
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
@@ -26,7 +26,7 @@
     nixosConfigurations = {
       "adri-desk" = nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         modules = [
           ./adri-desk/configuration.nix
           (import ./overlays.nix)
@@ -34,7 +34,7 @@
       };
       "adri-lap" = nixpkgs.lib.nixosSystem {
         system = system;
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         modules = [
           ./adri-lap/configuration.nix
           (import ./overlays.nix)

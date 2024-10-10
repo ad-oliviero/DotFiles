@@ -1,4 +1,8 @@
-{pkgs, inputs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -100,6 +104,7 @@
     adb.enable = true;
     hyprland.enable = true;
     firejail.enable = true;
+    steam.enable = true;
     regreet = {
       enable = false;
       iconTheme = {
