@@ -47,6 +47,11 @@
     telegram-desktop
     tor-browser
     universal-android-debloater
+    xournalpp
+    speedtest-cli
+    bmon
+    qalculate-gtk
+    screen
   ];
   programs = {
     vscode.enable = true;

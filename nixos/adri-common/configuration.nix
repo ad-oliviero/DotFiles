@@ -41,7 +41,23 @@
       pulse.enable = true;
     };
 
-    # greetd.enable = true;
+    greetd = {
+      enable = true;
+      restart = true;
+      settings = rec {
+        initial_session = {
+          command = "${pkgs.hyprland}/bin/Hyprland";
+          user = "adri";
+        };
+        default_session = initial_session;
+      };
+    };
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "adri";
+      };
+    };
 
     sunshine = {
       enable = true;
