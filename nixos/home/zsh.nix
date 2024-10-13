@@ -44,6 +44,7 @@ in {
         enable = true;
         userName = "Adriano Oliviero";
         userEmail = "adrianoliviero23@gmail.com";
+        extraConfig.init."defaultBranch" = "main";
       };
 
       zsh = {
