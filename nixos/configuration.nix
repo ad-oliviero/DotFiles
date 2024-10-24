@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs,...}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -17,14 +13,21 @@
     nixos.includeAllModules = true;
   };
 
+  networking.hostName = "adri-lap";
   networking.networkmanager.enable = true;
-
   hardware.bluetooth.enable = true;
 
   time.timeZone = "Europe/Rome";
   i18n.defaultLocale = "en_US.UTF-8";
+  console.keyMap = "it";
 
   services = {
+    syncthing = {
+      enable = true;
+      user = "adri";
+      dataDir = "/home/adri/Sync";
+      openDefaultPorts = true;
+    };
     libinput.enable = true;
     openssh.enable = true;
     printing.enable = true;
@@ -93,6 +96,7 @@
       mountOnMedia = true;
     };
   };
+
   virtualisation = {
     containers.enable = true;
     docker = {
@@ -103,6 +107,12 @@
   };
 
   security.pam.enableEcryptfs = true;
+
+  environment = {
+    sessionVariables = {
+      LIBVA_DRIVER_NAME = "iHD";
+    };
+  };
 
   users.users.adri = {
     isNormalUser = true;
@@ -124,13 +134,13 @@
     nh
     nix-output-monitor
     iptables
-    inputs.zen-browser.packages."${system}".specific
   ];
   programs = {
     adb.enable = true;
     hyprland.enable = true;
     firejail.enable = true;
     steam.enable = true;
+    kdeconnect.enable = true;
     regreet = {
       enable = false;
       iconTheme = {
@@ -162,5 +172,9 @@
     ];
   };
 
+  networking.firewall.enable = true;
+
   environment.pathsToLink = ["/share/zsh"];
+
+  system.stateVersion = "24.05";
 }

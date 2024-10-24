@@ -2,15 +2,17 @@
   config,
   lib,
   pkgs,
+  modulesPath,
   ...
 }: {
   imports = [
-    ../adri-common/hardware-configuration.nix
+    (modulesPath + "/installer/scan/not-detected.nix")
     ./devices.nix
   ];
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     graphics = {
+      enable = true;
       extraPackages = with pkgs; [
         intel-media-driver
         intel-vaapi-driver
@@ -39,5 +41,16 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
     ];
+    loader = {
+      timeout = 0;
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
   };
+
+  swapDevices = [{device = "/swap/file";}];
+
+  networking.useDHCP = lib.mkDefault true;
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }

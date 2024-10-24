@@ -385,8 +385,8 @@ vim.g.knap_settings = {
   textopdf = "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
   -- textopdf = "latexmk -synctex=1 -pdf -quiet -pdflatex -interaction=batchmode -file-line-error %docroot%",
   textopdfviewerlaunch = "sioyek %outputfile%",
-  -- textopdfviewerrefresh = "kill -HUP %pid%",
-  textopdfviewerrefresh = "",
+  textopdfviewerrefresh = "kill -HUP %pid%",
+  -- textopdfviewerrefresh = "",
 }
 
 vim.api.nvim_create_autocmd("FileType", {

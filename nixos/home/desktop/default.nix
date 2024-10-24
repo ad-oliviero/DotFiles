@@ -144,6 +144,7 @@ in {
         name = "Phinger Cursors";
         package = pkgs.phinger-cursors;
       };
+      gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
     };
 
     dconf.enable = true;
@@ -152,13 +153,44 @@ in {
         color-scheme = "prefer-dark";
         gtk-theme = "WhiteSur-Dark";
         # gtk-theme = "Orchis-Yellow-Dark-Compact";
-        cursor-theme = "Phinger Cursors";
-        icon-theme = "WhiteSur-Dark";
+        # cursor-theme = "Phinger Cursors";
+        # icon-theme = "WhiteSur-Dark";
       };
       "org/virt-manager/virt-manager/connections" = {
         autoconnect = ["qemu:///system"];
         uris = ["qemu:///system"];
       };
+    };
+    xdg.configFile = {
+      "kvantum" = {
+        target = "Kvantum/kvantum.kvconfig";
+        text = lib.generators.toINI {} {
+          General = {
+            theme = "WhiteSur-Dark";
+          };
+        };
+      };
+      "qt5ct" = {
+        target = "qt5ct/qt5ct.conf";
+        text = lib.generators.toINI {} {
+          Appearance = {
+            icon_theme = "WhiteSur-Dark";
+          };
+        };
+      };
+      "qt6ct" = {
+        target = "qt6ct/qt6ct.conf";
+        text = lib.generators.toINI {} {
+          Appearance = {
+            icon_theme = "WhiteSur-Dark";
+          };
+        };
+      };
+    };
+    qt = {
+      enable = true;
+      platformTheme.name = "qtct";
+      style.name = "kvantum";
     };
     home.pointerCursor = {
       gtk.enable = true;

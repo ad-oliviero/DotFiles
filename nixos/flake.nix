@@ -24,19 +24,11 @@
       };
     };
     nixosConfigurations = {
-      "adri-desk" = nixpkgs.lib.nixosSystem {
-        system = system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./adri-desk/configuration.nix
-          (import ./overlays.nix)
-        ];
-      };
       "adri-lap" = nixpkgs.lib.nixosSystem {
         system = system;
         specialArgs = {inherit inputs;};
         modules = [
-          ./adri-lap/configuration.nix
+          ./configuration.nix
           (import ./overlays.nix)
         ];
       };

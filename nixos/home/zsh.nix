@@ -156,7 +156,8 @@ in {
           rm = "rm -v";
           rs = "rsync -av --progress --stats";
           scrsh = "yes | wf-recorder -m avi -f >(ffplay -window_title Screenshare -f avi -) --geometry=\"$(slurp -o)\"; pkill ffplay 2>&1 >/dev/null; pkill wf-recorder 2>&1 >/dev/null";
-          snvim = "EDITOR=nvim sudoedit";
+          sv = "EDITOR=nvim sudoedit";
+          v = "nvim";
           termuxusb = "adb forward tcp:8022 tcp:8022; ssh localhost -p 8022";
           vimdiff = "nvim -d";
           yt = "youtube-dl --add-metadata -i";

@@ -23,6 +23,7 @@
     rubber
 
     alacritty
+    anytype
     android-studio
     bitwarden
     bottles
@@ -30,10 +31,12 @@
     czkawka
     discord
     firefox
+    gimp
     gnome-control-center
     heroic
     jq
     libnotify
+    libsForQt5.plasma-workspace
     moonlight-qt
     notion-app-enhanced
     obs-studio
@@ -77,6 +80,12 @@
       };
     };
   };
+  services = {
+    kdeconnect = {
+      enable = true;
+      indicator = true;
+    };
+  };
   home.sessionVariables = {
     FLAKE = "/home/adri/.config/dotfiles/nixos";
     BROWSER = "firefox";
@@ -92,6 +101,7 @@
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_QPA_PLATFORM = "wayland;xcb";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    QT_STYLE_OVERRIDE = "kvantum";
     SDL_VIDEODRIVER = "wayland";
     TERMINAL = "alacritty";
     VIDEO = "mpv";
