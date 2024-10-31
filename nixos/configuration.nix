@@ -140,7 +140,6 @@
     hyprland.enable = true;
     firejail.enable = true;
     steam.enable = true;
-    kdeconnect.enable = true;
     regreet = {
       enable = false;
       iconTheme = {

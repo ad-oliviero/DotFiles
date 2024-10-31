@@ -23,7 +23,6 @@
     rubber
 
     alacritty
-    anytype
     android-studio
     bitwarden
     bottles
