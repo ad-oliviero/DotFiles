@@ -1,4 +1,4 @@
-{pkgs,...}: {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -32,6 +32,10 @@
     openssh.enable = true;
     printing.enable = true;
     zram-generator.enable = true;
+
+    udev.extraRules = ''
+      SUBSYSTEM=="usb", ATTR{idVendor}=="0925", ATTR{idProduct}=="3881", MODE="0666", GROUP="wheel"
+    '';
 
     btrfs.autoScrub = {
       enable = true;
@@ -116,11 +120,12 @@
 
   users.users.adri = {
     isNormalUser = true;
-    extraGroups = ["wheel" "kvm" "networkmanager" "docker"];
+    extraGroups = ["wheel" "kvm" "networkmanager" "docker" "dialout"];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKoy1RDMy50qUm3+MdWdvkUQKFoA2AR1UM9dvdtI19Y+ adri@adri-lap
 "
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILoM2xJHj+Nxep/kqovOZFDtpknkUXH4Mo4m1KlxgqGT adri@adri-desk"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIeraJiTtn4DbCnDLKSOE1YKE20uAOb910v7+nk7de8Y adri@adri-rpi"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINSmXsZj3qCS1DRSwpc5KZag+/vH0Bw16UobsUNbAT/z u0_a262@localhost"
     ];
     shell = pkgs.zsh;
   };
@@ -130,10 +135,23 @@
     duf
     ecryptfs
     eza
+    fd
+    ripgrep
+    dust
     git
     nh
     nix-output-monitor
     iptables
+
+    libftdi
+    i2c-tools
+    flashrom
+    ch341eeprom
+    xxd
+    smuview
+    pulseview
+    sigrok-cli
+    sigrok-firmware-fx2lafw
   ];
   programs = {
     adb.enable = true;
@@ -167,7 +185,7 @@
     fontconfig.enable = true;
     packages = with pkgs; [
       jetbrains-mono
-      nerdfonts
+      nerd-fonts.symbols-only
     ];
   };
 

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{pkgs, ...}: 
+{
   home.username = "adri";
   home.homeDirectory = "/home/adri";
   home.stateVersion = "24.05";
@@ -6,6 +7,7 @@
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;
+  # android-sdk.enable = true;
 
   programs.home-manager.enable = true;
   imports = [
@@ -17,43 +19,59 @@
   nvim.enable = true;
   zsh.enable = true;
   home.packages = with pkgs; [
-    gnumake
     texlive.combined.scheme-full
     texlab
     rubber
 
+    arduino
+    arduino-ide
+    picocom
+
     alacritty
-    android-studio
+    android-studio-full
+    bambu-studio
     bitwarden
+    bluetui
+    bmon
     bottles
     cliphist
     czkawka
     discord
+    ffmpeg-full
     firefox
+    floorp
+    freecad-wayland
+    geeqie
     gimp
     gnome-control-center
+    gnumake
+    gocryptfs
     heroic
     jq
     libnotify
     libsForQt5.plasma-workspace
+    libudev-zero
     moonlight-qt
+    nemo-with-extensions
     notion-app-enhanced
     obs-studio
     obsidian
     overskride
+    openscad
+    povray
+    qalculate-gtk
     remmina
     rnote
+    screen
     socat
+    speedtest-cli
     stress
     swaynotificationcenter
     telegram-desktop
     tor-browser
     universal-android-debloater
+    usbutils
     xournalpp
-    speedtest-cli
-    bmon
-    qalculate-gtk
-    screen
   ];
   programs = {
     vscode.enable = true;
@@ -78,6 +96,17 @@
         "close_window" = "q";
       };
     };
+    ranger = {
+      enable = true;
+      settings = {
+        confirm_on_delete = "always";
+        vcs_aware = true;
+        save_console_history = false;
+        mouse_enabled = false;
+        cd_tab_fuzzy = true;
+      };
+      mappings.O = "shell xdg-open '%f'";
+    };
   };
   services = {
     kdeconnect = {
@@ -87,20 +116,18 @@
   };
   home.sessionVariables = {
     FLAKE = "/home/adri/.config/dotfiles/nixos";
-    BROWSER = "firefox";
+    BROWSER = "floorp";
     EDITOR = "nvim";
     NIXOS_OZONE_WL = "1";
     GDK_BACKEND = "wayland,x11";
     GIT_EDITOR = "nvim";
     GTK2_RC_FILES = "/home/adri/.gtkrc-2.0";
     GTK_BACKEND = "wayland,x11";
-    GTK_THEME = "Gruvbox-Dark-B";
     IMAGE = "imv";
     PATH = "$PATH:/home/adri/.local/bin/";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_QPA_PLATFORM = "wayland;xcb";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    QT_STYLE_OVERRIDE = "kvantum";
     SDL_VIDEODRIVER = "wayland";
     TERMINAL = "alacritty";
     VIDEO = "mpv";

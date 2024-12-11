@@ -20,6 +20,7 @@
         vpl-gpu-rt
       ];
     };
+    i2c.enable = true;
   };
 
   boot = {
@@ -40,6 +41,7 @@
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
+      "usbcore.autosuspend=-1"
     ];
     loader = {
       timeout = 0;
