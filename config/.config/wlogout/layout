@@ -1,0 +1,3 @@
+{"action":"systemctl poweroff","keybind":"s","label":"shutdown","text":"Shutdown"}
+{"action":"systemctl reboot","keybind":"r","label":"reboot","text":"Reboot"}
+{"action":"systemctl hibernate","keybind":"h","label":"hibernate","text":"Hibernate"}
