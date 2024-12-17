@@ -126,6 +126,7 @@ alias -- md=mkdir
 alias -- mkdir='mkdir -pv'
 alias -- mv='mv -iv'
 alias -- myip='curl ipinfo.io/ip && printf '\''\n'\'''
+alias -- restow='pushd ~/dotfiles; stow config; popd'
 alias -- rm='rm -v'
 alias -- rs='rsync -av --progress --stats'
 alias -- scrsh='yes | wf-recorder -m avi -f >(ffplay -window_title Screenshare -f avi -) --geometry="$(slurp -o)"; pkill ffplay 2>&1 >/dev/null; pkill wf-recorder 2>&1 >/dev/null'
