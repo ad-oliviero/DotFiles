@@ -1,0 +1,23 @@
+[background]
+# path = "/usr/share/backgrounds/greeter.jpg"
+
+# Available values: "Fill", "Contain", "Cover", "ScaleDown"
+fit = "Contain"
+
+# [env]
+# ENV_VARIABLE = "value"
+
+[GTK]
+application_prefer_dark_theme = true
+cursor_theme_name = "phinger-cursors-dark"
+font_name = "JetBrains Mono 16"
+icon_theme_name = "Tela"
+theme_name = "WhiteSur-Dark"
+
+[commands]
+reboot = [ "systemctl", "reboot" ]
+
+poweroff = [ "systemctl", "poweroff" ]
+
+[appearance]
+greeting_msg = "Buongiorno!"
