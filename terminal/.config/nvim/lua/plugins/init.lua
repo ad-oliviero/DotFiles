@@ -64,6 +64,7 @@ local utils = {
         rust = { "rustfmt" },
         nil_ls = { "alejandra" },
         tex = { "latexindent" },
+        slint = { "slint-lsp" },
       },
       -- format_on_save = {
       --   -- These options will be passed to conform.format()

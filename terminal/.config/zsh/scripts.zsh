@@ -16,8 +16,9 @@ function get_dspid() {
 # ADB sshfs
 # this requires usb tethering to be enabled on the device
 asshfs() {
+  mkdir -pv /mnt/adb
   address=$(adb shell ip a | rg "inet.*rndis0" | awk '{print $2}' | sed "s/\/.*//g")
-  sshfs -p 2222 -o ssh_command="ssh -i /home/adri/.ssh/id_ed25519" $address:/storage/emulated/0 /mnt
+  sshfs -p 2222 -o ssh_command="ssh -i /home/adri/.ssh/id_ed25519" $address:/storage/emulated/0 /mnt/adb
 }
 
 # ADB Screen Cast

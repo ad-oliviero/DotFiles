@@ -48,16 +48,16 @@ capabilities.textDocument.completion.completionItem = {
 }
 
 local servers = {
-  "nil_ls",
-  "texlab",
-  "clangd",
-  "pyright",
-  "lua_ls",
-  "rust_analyzer",
 	"cssls",
 	"dartls",
 	"eslint",
 	"html",
+  "clangd",
+  "lua_ls",
+  "pyright",
+  "rust_analyzer",
+  "slint_lsp",
+  "texlab",
 }
 
 for _, lsp in ipairs(servers) do
