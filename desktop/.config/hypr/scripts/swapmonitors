@@ -1,0 +1,29 @@
+#!/bin/sh
+# vim: filetype=bash
+
+set -e
+
+scrMain=0
+scrSec=1
+
+wsMain=$(hyprctl monitors -j | jq ".[] | select(.id == $scrMain) | .activeWorkspace.id")
+wsSec=$(hyprctl monitors -j | jq ".[] | select(.id == $scrSec) | .activeWorkspace.id")
+
+wsCurrent=$(hyprctl monitors -j | jq '.[] | select(.focused == true) | .activeWorkspace.id')
+
+printf "'$scrMain': '$wsMain'\n'$scrSec': '$wsSec'\n'Current': '$wsCurrent'\n"
+
+hyprctl dispatch moveworkspacetomonitor $wsSec $scrMain
+hyprctl dispatch moveworkspacetomonitor $wsMain $scrSec
+
+# sometimes one of the monitors could focus another workspace
+# so we re-focus both, but the current one first to stay on the same monitor
+
+if test $wsMain = $wsCurrent
+then
+  hyprctl dispatch workspace $wsMain
+  hyprctl dispatch workspace $wsSec
+else
+  hyprctl dispatch workspace $wsSec
+  hyprctl dispatch workspace $wsMain
+fi

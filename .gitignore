@@ -1,3 +1,2 @@
-*.netrwhist
-config/nvim/plugin
-.nvim-session
+result/
+.DS_Store
