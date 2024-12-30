@@ -27,6 +27,11 @@ export XDG_SESSION_TYPE="wayland"
 export _JAVA_AWT_WM_NONREPARENTING="1"
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd"
 
+ 
+if [[ -f "$HOME/.cargo/env" ]]; then
+  source "$HOME/.cargo/env"
+fi
+
 # Only source this once
 if [ -n "$__SESS_VARS_SOURCED" ]; then return; fi
 export __SESS_VARS_SOURCED=1

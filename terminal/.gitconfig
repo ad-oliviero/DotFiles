@@ -3,3 +3,12 @@
 [user]
 	email = adrianoliviero23@gmail.com
 	name = Adriano Oliviero
+[maintenance]
+	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/znap
+	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/marlonrichert/zsh-autocomplete
+	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/marlonrichert/zsh-edit
+	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/olets/zsh-abbr
+	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/zdharma/fast-syntax-highlighting
+	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/zsh-users/zsh-autosuggestions
+	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/zsh-users/zsh-history-substring-search
+	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/zsh-users/zsh-syntax-highlighting

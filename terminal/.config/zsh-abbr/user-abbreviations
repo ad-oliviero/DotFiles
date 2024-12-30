@@ -1,10 +1,19 @@
-abbr free='free -h'
+# git
 abbr ga='git add .'
 abbr gc='git add . && git commit'
 abbr gco='git commit'
 abbr gcp='git add . && git commit && git push'
 abbr gpl='git pull'
 abbr gpu='git push'
+
+# other commands
+abbr free='free -h'
+abbr rmd='rmdir'
+abbr rmf='rm -rf'
+abbr ungz='tar -zxvf'
+
+# Package Managers
+## arch linux
 abbr pai='paru --noconfirm -S'
 abbr pas='paru --noconfirm -Ss'
 abbr pau='paru --noconfirm -Syu'
@@ -13,6 +22,15 @@ abbr prm='sudo pacman --noconfirm -Rns'
 abbr psi='pacman -Qq'
 abbr pss='pacman -Ss'
 abbr pu='sudo pacman -Syu'
-abbr rmd=rmdir
-abbr rmf='rm -rf'
-abbr ungz='tar -zxvf'
+
+## termux
+abbr api='apt install -y'
+abbr aps='apt search'
+abbr apr='apt remove -y'
+
+## ubuntu (raspberry)
+abbr sai='sudo apt install -y'
+abbr sas='sudo apt search'
+abbr sar='sudo apt remove -y'
+
+# vim: ft=sh
