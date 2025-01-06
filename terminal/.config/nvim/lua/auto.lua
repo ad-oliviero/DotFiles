@@ -41,3 +41,7 @@ autocmd({ "WinEnter", "BufWinEnter", "TermOpen" }, {
 --   group = autogroup('tex_autopreview', { clear = true }),
 --   callback = function() require("knap").toggle_autopreviewing() end
 -- })
+
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})

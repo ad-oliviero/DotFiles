@@ -53,6 +53,7 @@ local servers = {
 	"eslint",
 	"html",
   "clangd",
+  "hyprls",
   "lua_ls",
   "pyright",
   "rust_analyzer",

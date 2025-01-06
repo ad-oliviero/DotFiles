@@ -1,0 +1,8 @@
+[Unit]
+Description=Runs waypipe on startup to support SSH forwarding
+
+[Service]
+ExecStart=/usr/bin/env waypipe --socket %t/%N.sock client
+
+[Install]
+WantedBy=default.target

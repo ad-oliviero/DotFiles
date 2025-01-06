@@ -324,11 +324,6 @@ local specific = {
       require("flutter-tools").setup()
     end,
   },
-  {
-    "nvim-neorg/neorg",
-    lazy = false,
-    config = true,
-  },
   "elkowar/yuck.vim",
   "gpanders/nvim-parinfer",
   "frabjous/knap",

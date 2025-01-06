@@ -1,0 +1,9 @@
+[Unit]
+Description=Runs waypipe on startup to support SSH forwarding
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/waypipe --socket %t/%N.sock --no-gpu --display %t/wayland-remote server -- sleep inf
+
+[Install]
+WantedBy=default.target
