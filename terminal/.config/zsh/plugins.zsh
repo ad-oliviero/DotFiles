@@ -18,5 +18,8 @@ znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-history-substring-search
 znap source olets/zsh-abbr
 znap source zsh-users/zsh-autosuggestions
+znap source wbingli/zsh-wakatime
+
+[ ! -f "$HOME/.wakatime.cfg" ] && printf "[\x1b[32mWARNING\x1b[0m] Please create a ~/.wakatime.cfg file with your api key\n"
 
 ZSH_AUTOSUGGEST_STRATEGY=(history)

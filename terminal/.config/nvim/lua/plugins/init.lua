@@ -350,6 +350,7 @@ local specific = {
       vim.fn["mkdp#util#install"]()
     end,
   },
+  "wakatime/vim-wakatime",
 }
 
 require("lazy").setup({
