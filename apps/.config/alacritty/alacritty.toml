@@ -13,7 +13,7 @@ decorations_theme_variant = "Dark"
 history = 10000
 
 [font]
-normal = {family = "JetBrains Mono", style = "Regular"}
+normal = {family = "JetBrains Mono NL", style = "Regular"}
 size = 12.0
 
 [selection]

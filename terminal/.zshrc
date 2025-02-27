@@ -10,3 +10,9 @@ source_if_exists "$HOME/.config/zsh/opts.zsh"
 source_if_exists "$HOME/.config/zsh/binds.zsh"
 source_if_exists "$HOME/.config/zsh/aliases.zsh"
 source_if_exists "$HOME/.config/zsh/utils.zsh"
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/adri/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/adri/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+

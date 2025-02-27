@@ -1,0 +1,5 @@
+#!/bin/bash
+
+song_info=$(playerctl metadata --format '{{title}}      {{artist}}')
+
+printf "$song_info" 
