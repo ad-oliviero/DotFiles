@@ -1,0 +1,8 @@
+- name: Install or update the dotfiles using stow
+  loop:
+    - desktop
+    - apps
+    - terminal
+  shell:
+    chdir: ~/dotfiles
+    cmd: stow "{{ item }}"
