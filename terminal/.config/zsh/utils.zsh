@@ -55,7 +55,7 @@ exec_time_null() {
 }
 
 mc() {
-  mkdir $1
+  mkdir -p $1
   cd $1
 }
 

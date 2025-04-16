@@ -22,3 +22,4 @@ alias -- yt='youtube-dl --add-metadata -i'
 alias -- yta='yt -x'
 alias -- ytd='yt-dlp --add-metadata -i'
 alias -- ytda='ytd -x'
+alias -- apbs='ansible-playbook -K ~/dotfiles/ansible.yml' # ansible playbook sync

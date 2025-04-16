@@ -1,0 +1,6 @@
+- name: Sync dotfiles using Stow and Ansible
+  hosts: localhost
+  connection: local
+  roles:
+    - packages
+    - dotfiles
