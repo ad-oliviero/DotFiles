@@ -1,4 +1,4 @@
-- name: Install or update the dotfiles using stow
+- name: Dotfiles using stow
   loop:
     - desktop
     - apps

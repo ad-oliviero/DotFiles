@@ -26,7 +26,7 @@ unsetopt EXTENDED_HISTORY
 setopt autocd
 
 
-autoload -U compinit && compinit
+autoload -Uz compinit
 zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
 zstyle ':autocomplete:*history*:*' insert-unambiguous yes
 zstyle ':autocomplete:menu-search:*' insert-unambiguous yes

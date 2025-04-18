@@ -1,3 +1,4 @@
+alias -- apbs='ansible-playbook -K ~/dotfiles/ansible.yml' # ansible playbook sync
 alias -- bakkesmod='WINEFSYNC=1 protontricks -c '\''wine ~/Games/bakkesmod.exe'\'' 252950'
 alias -- clnipc='ipcrm -a $(ipcs | awk '\''{print $2}'\'' | grep -vE '\''[^0-9]'\'')'
 alias -- cp='cp -iv'
@@ -22,4 +23,3 @@ alias -- yt='youtube-dl --add-metadata -i'
 alias -- yta='yt -x'
 alias -- ytd='yt-dlp --add-metadata -i'
 alias -- ytda='ytd -x'
-alias -- apbs='ansible-playbook -K ~/dotfiles/ansible.yml' # ansible playbook sync

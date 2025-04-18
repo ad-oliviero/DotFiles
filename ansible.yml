@@ -1,6 +1,7 @@
-- name: Sync dotfiles using Stow and Ansible
+- name: Sync dotfiles, installed packages and system configs using Stow and Ansible
   hosts: localhost
   connection: local
   roles:
+    - system_config
     - packages
     - dotfiles

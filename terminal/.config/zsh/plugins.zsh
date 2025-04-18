@@ -1,24 +1,27 @@
 mkdir -p ~/.config/zsh/plugins
-[[ -r ~/.config/zsh/plugins/znap/znap.zsh ]] ||
-    git clone --depth 1 -- \
-        https://github.com/marlonrichert/zsh-snap.git ~/.config/zsh/plugins/znap
-source_if_exists ~/.config/zsh/plugins/znap/znap.zsh
 
-zstyle ':znap:*' auto-compile no
+function load_plugin()
+{
+  [ ! -d ~/.config/zsh/plugins/$1/$2 ] && {
+    git clone --depth 1 --recurse-submodules https://github.com/$1/$2 ~/.config/zsh/plugins/$1/$2
+    [ ! -d ~/.config/zsh/plugins/$1/$2 ] && {
+      printf "\x1b[31m[ERROR]\x1b[0m Failed to clone $1/$2\n"
+      return 1
+    }
+  }
+  source_if_exists ~/.config/zsh/plugins/$1/$2/*plugin*.zsh
+}
 
-znap eval starship 'starship init zsh --print-full-init'
-# znap prompt
-if [[ $TERM != "dumb" ]]; then
-  eval "$(starship init zsh)"
-fi
+eval "$(starship init zsh --print-full-init)"
 
-znap source zdharma/fast-syntax-highlighting
-znap source marlonrichert/zsh-edit
-znap source marlonrichert/zsh-autocomplete
-znap source zsh-users/zsh-history-substring-search
-znap source olets/zsh-abbr
-znap source zsh-users/zsh-autosuggestions
-znap source wbingli/zsh-wakatime
+load_plugin zdharma fast-syntax-highlighting
+load_plugin marlonrichert zsh-autocomplete
+load_plugin marlonrichert zsh-edit
+load_plugin zsh-users zsh-history-substring-search
+load_plugin zsh-users zsh-autosuggestions
+load_plugin olets zsh-abbr
+load_plugin wbingli zsh-wakatime
+load_plugin MichaelAquilina zsh-you-should-use
 
 [ ! -f "$HOME/.wakatime.cfg" ] && printf "[\x1b[32mWARNING\x1b[0m] Please create a ~/.wakatime.cfg file with your api key\n"
 

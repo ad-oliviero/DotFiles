@@ -1,5 +1,5 @@
 [background]
-# path = "/usr/share/backgrounds/greeter.jpg"
+path = "/usr/share/backgrounds/gnome/drool-d.svg"
 
 # Available values: "Fill", "Contain", "Cover", "ScaleDown"
 fit = "Contain"
@@ -11,7 +11,7 @@ fit = "Contain"
 application_prefer_dark_theme = true
 cursor_theme_name = "phinger-cursors-dark"
 font_name = "JetBrains Mono 16"
-icon_theme_name = "Tela"
+# icon_theme_name = "Tela"
 theme_name = "WhiteSur-Dark"
 
 [commands]
@@ -21,3 +21,4 @@ poweroff = [ "systemctl", "poweroff" ]
 
 [appearance]
 greeting_msg = "Buongiorno!"
+

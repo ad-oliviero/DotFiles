@@ -1,5 +1,5 @@
 ---
-- name: Install system and basic services packages
+- name: System and essential services
   become: yes
   pacman:
     name:
@@ -49,7 +49,7 @@
 
   when: ansible_distribution == "Archlinux"
 
-- name: Install desktop "environment" packages
+- name: Desktop environment
   become: yes
   pacman:
     name:
@@ -119,7 +119,7 @@
     state: present
   when: ansible_distribution == "Archlinux"
 
-- name: Install fonts packages
+- name: Fonts
   become: yes
   pacman:
     name:
@@ -135,7 +135,7 @@
     state: present
   when: ansible_distribution == "Archlinux"
 
-- name: Install graphical apps packages
+- name: Graphical Apps
   become: yes
   pacman:
     name:
@@ -176,7 +176,7 @@
     state: present
   when: ansible_distribution == "Archlinux"
 
-- name: Install command line packages
+- name: Command line
   become: yes
   pacman:
     name:
@@ -227,7 +227,7 @@
     state: present
   when: ansible_distribution == "Archlinux"
 
-- name: Install development packages
+- name: Development
   become: yes
   pacman:
     name:

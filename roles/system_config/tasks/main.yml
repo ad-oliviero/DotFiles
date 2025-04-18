@@ -1,0 +1,26 @@
+- name: Sudoers file
+  become: yes
+  community.general.sudoers:
+    name: default
+    state: present
+    group: wheel
+    runas: ALL:ALL
+    commands: ALL
+    nopassword: false
+
+- name: Display Manager
+  become: yes
+  file:
+    src: /home/adri/dotfiles/ansible_managed/etc/greetd/config.toml
+    dest: /etc/greetd/config.toml
+    owner: root
+    group: root
+    state: link
+    force: yes
+  file:
+    src: /home/adri/dotfiles/ansible_managed/etc/greetd/regreet.toml
+    dest: /etc/greetd/regreet.toml
+    owner: root
+    group: root
+    state: link
+    force: yes
