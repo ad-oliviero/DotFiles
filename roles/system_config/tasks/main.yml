@@ -1,3 +1,4 @@
+---
 - name: Sudoers file
   become: yes
   community.general.sudoers:

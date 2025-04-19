@@ -1,4 +1,4 @@
-- name: Sync dotfiles, installed packages and system configs using Stow and Ansible
+- name: Arch Linux Configuration
   hosts: localhost
   connection: local
   roles:
