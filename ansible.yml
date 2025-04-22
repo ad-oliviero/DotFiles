@@ -2,6 +2,6 @@
   hosts: localhost
   connection: local
   roles:
-    - system_config
     - packages
+    - system_config
     - dotfiles

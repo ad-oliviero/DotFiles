@@ -1,3 +1,26 @@
+- name: Create the `aur_builder` user
+  become: yes
+  ansible.builtin.user:
+    name: aur_builder
+    create_home: yes
+    group: wheel
+
+- name: Allow the `aur_builder` user to run `sudo pacman` without a password
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+    mode: 0644
+    validate: 'visudo -cf %s'
+- name: Paru (for AUR packages)
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name: paru-bin
+    use: makepkg
+    state: present
+
 - name: System and essential services
   become: yes
   pacman:
@@ -9,7 +32,6 @@
       - bootconfig
       - btrfs-progs
       - dhcpcd
-      - epson-inkjet-printer-201211w
       - git
       - go
       - gocryptfs
@@ -18,18 +40,17 @@
       - intel-media-driver
       - intel-speed-select
       - intel-ucode
+      - jdk21-openjdk
       - libfprint
       - libva-intel-driver
       - libva-utils
       - linux
       - linux-firmware
       - linux-headers
-      - linux-router
       - mesa-utils
       - networkmanager
       - openssh
       - pacman-contrib
-      - proot
       - rust
       - sbctl
       - snapshot
@@ -45,74 +66,90 @@
       - xf86-video-vesa
       - zram-generator
     state: present
+- name: (AUR) System and essential services
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name:
+      - epson-inkjet-printer-201211w
+      - proot
+    state: present
+    use: paru
 
 - name: Desktop environment
   become: yes
   pacman:
     name:
       - alacritty
-      - appimagelauncher
-      - better-control-git
       - bluez-utils
       - brightnessctl
       - cliphist
-      - eww
       - firefox
       - gdm
       - gnome-control-center
       - greetd-regreet
-      - grimshot-bin-sway
       - hyperfine
       - hyperv
       - hypridle
       - hyprland
       - hyprlock
       - hyprpaper
-      - hyprshade
       - imv
       - libnotify
       - mako
-      - moonlight-qt-bin
       - mpv
       - nemo
       - nemo-share
       - nwg-look
       - nwg-shell-config
-      - overskride-bin
-      - phinger-cursors
       - pipewire
       - pipewire-alsa
       - pipewire-jack
       - pipewire-pulse
       - playerctl
-      - pyprland
       - qalculate-gtk
       - rofi-calc
       - rofi-emoji
       - rofi-rbw
       - rofi-wayland
-      - sioyek-appimage
+      - syncthing
+      - uwsm
+      - waypipe
+      - wayvnc
+      - wireplumber
+      - wl-clipboard
+      - xdg-desktop-portal-hyprland
+      - xdg-user-dirs
+      - ydotool
+    state: present
+- name: (AUR) Desktop environment
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name:
+      - appimagelauncher
+      - better-control-git
+      - eww
+      - grimshot-bin-sway
+      - hyprshade
+      # - moonlight-qt-bin
+      - overskride-bin
+      - phinger-cursors
+      - pyprland
+      # - sioyek-appimage
       - sunshine
       - swayosd-git
-      - syncthing
-      - tela-icon-theme-bin
-      - uwsm
+      # - tela-icon-theme-bin
       - vigiland-git
       - walker-bin
       - waydroid
       - waydroid-helper
-      - waypipe
-      - wayvnc
       - whitesur-gtk-theme
-      - wireplumber
-      - wl-clipboard
       - wlogout
       - wshowkeys-git
-      - xdg-desktop-portal-hyprland
-      - xdg-user-dirs
       - xwaylandvideobridge
-      - ydotool
     state: present
+    use: paru
 
 - name: Fonts
   become: yes
@@ -132,40 +169,47 @@
   become: yes
   pacman:
     name:
-      - affine-bin
-      - android-studio
-      - anydesk-bin
       - arduino-ide
-      - bambustudio-bin
       - baobab
-      - brave-bin
       - discord
-      - discord-canary-wayland-hook
-      - floorp-bin
       - gimp
-      - localsend-bin
-      - ltspice
       - obs-studio
       - obsidian
-      - orca-slicer-bin
       - prismlauncher
       - pulseview
-      - sigrok-firmware-fx2lafw-bin
       - qtcreator
       - rnote
       - scrcpy
-      - sioyek-appimage
-      - skypeforlinux-bin
       - spotify-launcher
-      - steam
       - telegram-desktop
+      - xournalpp
+    state: present
+- name: (AUR) Graphical Apps
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name:
+      - affine-bin
+      - android-studio
+      - anydesk-bin
+      # - bambustudio-bin
+      - brave-bin
+      - discord-canary-wayland-hook
+      - floorp-bin
+      - localsend-bin
+      - ltspice
+      # - orca-slicer-bin
+      # - sigrok-firmware-fx2lafw-bin
+      # - sioyek-appimage
+      - skypeforlinux-bin
+      - steam
       - universal-android-debloater-bin
       - vesktop-bin
       - visual-studio-code-bin
       - xmcl-launcher
-      - xournalpp
       - zotero
     state: present
+    use: paru
 
 - name: Command line
   become: yes
@@ -189,7 +233,6 @@
       - man-db
       - ncdu
       - nmap
-      - paru-bin
       - pdftk
       - ranger
       - ripgrep
@@ -210,10 +253,6 @@
       - usbip
       - zip
       - zsh
-      - zsh-abbr
-      - zsh-autosuggestions
-      - zsh-history-substring-search
-      - zsh-syntax-highlighting
     state: present
 
 - name: Development
@@ -231,7 +270,6 @@
       - hugo
       - john
       - just
-      - ltspice
       - lua-language-server
       - minicom
       - neovim
@@ -239,8 +277,16 @@
       - pdftk
       - rust
       - rust-analyzer
-      - slint-lsp-bin
       - texlive
       - tk
     state: present
+- name: (AUR) Development
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name:
+      # - ltspice
+      - slint-lsp-bin
+    state: present
+    use: paru
 
