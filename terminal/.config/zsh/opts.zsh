@@ -27,6 +27,9 @@ setopt autocd
 
 
 autoload -Uz compinit
+autoload -z edit-command-line
+zle -N edit-command-line
+zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
 zstyle ':autocomplete:*history*:*' insert-unambiguous yes
 zstyle ':autocomplete:menu-search:*' insert-unambiguous yes

@@ -231,6 +231,7 @@
       - flatpak
       - git
       - man-db
+      - man-pages
       - ncdu
       - nmap
       - pdftk
@@ -274,6 +275,7 @@
       - minicom
       - neovim
       - pandoc-cli
+      - pyright
       - pdftk
       - rust
       - rust-analyzer
