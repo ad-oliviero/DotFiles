@@ -9,7 +9,7 @@
     commands: ALL
     nopassword: false
 
-- name: Display Manager
+- name: Greetd
   become: yes
   file:
     src: /home/adri/dotfiles/ansible_managed/etc/greetd/config.toml
@@ -18,6 +18,8 @@
     group: root
     state: link
     force: yes
+- name: Regreet
+  become: yes
   file:
     src: /home/adri/dotfiles/ansible_managed/etc/greetd/regreet.toml
     dest: /etc/greetd/regreet.toml
