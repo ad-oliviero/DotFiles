@@ -207,6 +207,7 @@
       - universal-android-debloater-bin
       - vesktop-bin
       - visual-studio-code-bin
+      - flite
       - xmcl-launcher
       - zotero
     state: present
