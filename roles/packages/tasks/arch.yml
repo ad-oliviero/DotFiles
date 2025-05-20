@@ -32,6 +32,7 @@
       - bootconfig
       - btrfs-progs
       - dhcpcd
+      - fuse-overlayfs
       - git
       - go
       - gocryptfs
@@ -137,7 +138,7 @@
       - phinger-cursors
       - pyprland
       # - sioyek-appimage
-      - sunshine
+      - sunshine-bin
       - swayosd-git
       # - tela-icon-theme-bin
       - vigiland-git
@@ -226,6 +227,7 @@
       - dialog
       - dmidecode
       - duf
+      - dysk
       - eza
       - fd
       - flatpak
@@ -233,6 +235,7 @@
       - man-db
       - man-pages
       - ncdu
+      - net-tools
       - nmap
       - pdftk
       - ranger
