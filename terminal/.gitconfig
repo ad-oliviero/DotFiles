@@ -12,3 +12,5 @@
 	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/zsh-users/zsh-autosuggestions
 	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/zsh-users/zsh-history-substring-search
 	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/zsh-users/zsh-syntax-highlighting
+[pull]
+	rebase = true

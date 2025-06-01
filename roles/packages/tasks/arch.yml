@@ -87,6 +87,7 @@
       - cliphist
       - firefox
       - gdm
+      - fluent-icon-theme-git
       - gnome-control-center
       - greetd-regreet
       - hyperfine
@@ -99,6 +100,7 @@
       - libnotify
       - mako
       - mpv
+      - mpv-modernx-git
       - nemo
       - nemo-share
       - nwg-look
