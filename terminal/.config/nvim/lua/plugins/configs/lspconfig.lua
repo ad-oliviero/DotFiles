@@ -56,6 +56,7 @@ local servers = {
   "hyprls",
   "lua_ls",
   "pyright",
+  "qmlls",
   "rust_analyzer",
   "slint_lsp",
   "texlab",
