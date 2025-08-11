@@ -3,11 +3,11 @@ local g = vim.g
 local map = vim.keymap.set
 local autocmd = vim.api.nvim_create_autocmd
 
-o.number = true             -- show line numbers
-o.shortmess:append('sI')    -- disable nvim default initial page
-o.signcolumn = 'yes'        -- default space for small error and warning messages
-o.winborder = 'single'      -- set border for all windows
-o.wrap = false              -- do not wrap lines
+o.number = true          -- show line numbers
+o.shortmess:append('sI') -- disable nvim default initial page
+o.signcolumn = 'yes'     -- default space for small error and warning messages
+o.winborder = 'single'   -- set border for all windows
+o.textwidth = 80
 
 o.cindent = true            -- auto indent, c-style
 o.shiftwidth = 2            -- tab size stuff
@@ -57,16 +57,25 @@ require 'nvim-surround'.setup({
 })
 require 'nvim-autopairs'.setup()
 require 'mason'.setup()
-require 'mason-lspconfig'.setup({
-  ensure_installed = {
-    'lua_ls',
+local servers = {
+  'lua_ls',
+  'pyright',
+  'rust_analyzer',
+  'texlab',
+}
+-- some lang servers are not available for arm, they must be installed manually
+if not (vim.fn.systemlist('uname -m')[1] == 'aarch64' or vim.fn.systemlist('uname -m')[1] == 'arm64') then
+  vim.list_extend(servers, {
     'clangd',
-    'hyprls',
-    'pyright',
-    'rust_analyzer',
-    'texlab',
-  }
-})
+    'hyprls'
+  })
+else
+  vim.lsp.enable({
+    'clangd',
+    'hyprls'
+  })
+end
+require 'mason-lspconfig'.setup({ ensure_installed = servers })
 require 'Comment'.setup({
   toggler = {
     line = '<leader>\\',
