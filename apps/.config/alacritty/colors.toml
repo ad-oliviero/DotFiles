@@ -1,11 +1,11 @@
 [colors.primary]
 foreground = "#fbf1c7"
-background = "#3c3836"
+background = "#282828"
 dim_foreground = "#a89984"
 bright_foreground = "#fbf1c7"
 
 [colors.normal]
-black = "#282828"
+black = "#1d2021"
 blue = "#458588"
 cyan = "#689d6a"
 green = "#98971a"
