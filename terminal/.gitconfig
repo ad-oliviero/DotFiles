@@ -13,4 +13,6 @@
 	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/zsh-users/zsh-history-substring-search
 	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/zsh-users/zsh-syntax-highlighting
 [pull]
-	rebase = true
+	rebase = false
+[safe]
+	directory = /mnt/adb/Documents/Notes
