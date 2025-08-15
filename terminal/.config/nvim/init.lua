@@ -30,6 +30,7 @@ vim.pack.add({
   'https://github.com/kylechui/nvim-surround',
   'https://github.com/mason-org/mason-lspconfig.nvim',
   'https://github.com/mason-org/mason.nvim',
+  'https://github.com/MeanderingProgrammer/render-markdown.nvim',
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/numToStr/Comment.nvim',
   'https://github.com/rmagatti/auto-session',
@@ -76,6 +77,7 @@ else
   })
 end
 require 'mason-lspconfig'.setup({ ensure_installed = servers })
+require 'render-markdown'.setup()
 require 'Comment'.setup({
   toggler = {
     line = '<leader>\\',
@@ -94,7 +96,7 @@ require 'conform'.setup({
     rust = { 'rustfmt', lsp_format = 'fallback' },
   },
   format_on_save = {
-    timeout_ms = 500,
+    timeout_ms = 300,
     lsp_format = "fallback",
   },
 })
@@ -132,7 +134,7 @@ map('v', '<A-down>', ':m \'>+1<CR>gv=gv', { desc = 'Move line down' })
 map('v', '<A-up>', ':m \'<-2<CR>gv=gv', { desc = 'Move line up' })
 
 map('n', '<C-S>', ':w<CR>', { desc = 'Write to File' }) -- yes, i don't care
-
+map('n', '<leader>lf', require "conform".format, { desc = 'Format file' })
 
 if vim.fn.has('autocmd') then -- open file in the last position
   autocmd('BufReadPost', {
