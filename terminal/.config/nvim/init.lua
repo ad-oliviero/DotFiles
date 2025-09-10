@@ -24,15 +24,18 @@ o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,term
 g.mapleader = ' '
 
 vim.pack.add({
+  'https://github.com/MeanderingProgrammer/render-markdown.nvim',
+  'https://github.com/Shatur/neovim-ayu',
   'https://github.com/akinsho/bufferline.nvim',
   'https://github.com/echasnovski/mini.pick',
   'https://github.com/ellisonleao/gruvbox.nvim',
+  'https://github.com/folke/which-key.nvim',
   'https://github.com/kylechui/nvim-surround',
   'https://github.com/mason-org/mason-lspconfig.nvim',
   'https://github.com/mason-org/mason.nvim',
-  'https://github.com/MeanderingProgrammer/render-markdown.nvim',
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/numToStr/Comment.nvim',
+  'https://github.com/nyoom-engineering/oxocarbon.nvim',
   'https://github.com/rmagatti/auto-session',
   'https://github.com/stevearc/conform.nvim',
   'https://github.com/wakatime/vim-wakatime',
@@ -41,7 +44,9 @@ vim.pack.add({
 })
 require 'bufferline'.setup()
 require 'mini.pick'.setup()
-require 'gruvbox'.setup({ transparent_mode = true })
+-- require 'gruvbox'.setup({ transparent_mode = true })
+require 'ayu'.colorscheme()
+-- require 'kanagawa'.setup({ compile = true, transparent = true })
 require 'nvim-surround'.setup({
   keymaps = {
     visual = 's',
@@ -63,6 +68,7 @@ local servers = {
   'pyright',
   'rust_analyzer',
   'texlab',
+  'denols',
 }
 -- some lang servers are not available for arm, they must be installed manually
 if not (vim.fn.systemlist('uname -m')[1] == 'aarch64' or vim.fn.systemlist('uname -m')[1] == 'arm64') then
@@ -104,7 +110,7 @@ require 'blink.cmp'.setup({ keymap = { preset = 'enter' } })
 
 -- mason-lspconfig does not let me to set ensure_installed formatters
 local registry = require('mason-registry')
-for _, pkg_name in ipairs { 'isort', 'black' } do
+for _, pkg_name in ipairs { 'isort', 'black', 'prettier' } do
   local ok, pkg = pcall(registry.get_package, pkg_name)
   if ok then
     if not pkg:is_installed() then
@@ -113,7 +119,7 @@ for _, pkg_name in ipairs { 'isort', 'black' } do
   end
 end
 
-vim.cmd.colorscheme 'gruvbox'
+-- vim.cmd.colorscheme 'oxocarbon'
 vim.cmd.set 'completeopt+=noselect,noinsert' -- don't auto { select the first option, insert whatever is selected }
 
 map('n', '<leader>so', ':update<CR> :source<CR>', { desc = 'Reload the config' })
@@ -134,7 +140,10 @@ map('v', '<A-down>', ':m \'>+1<CR>gv=gv', { desc = 'Move line down' })
 map('v', '<A-up>', ':m \'<-2<CR>gv=gv', { desc = 'Move line up' })
 
 map('n', '<C-S>', ':w<CR>', { desc = 'Write to File' }) -- yes, i don't care
+
+-- dev
 map('n', '<leader>lf', require "conform".format, { desc = 'Format file' })
+map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Invoke LSP code action' })
 
 if vim.fn.has('autocmd') then -- open file in the last position
   autocmd('BufReadPost', {

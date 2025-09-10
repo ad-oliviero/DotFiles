@@ -7,7 +7,7 @@ if [[ ! -d $ZPLUGINDIR/zsh_unplugged ]]; then
 fi
 source $ZPLUGINDIR/zsh_unplugged/zsh_unplugged.zsh
 
-eval "$(starship init zsh --print-full-init)"
+# eval "$(starship init zsh --print-full-init)"
 
 repos=(
   mattmc3/ez-compinit

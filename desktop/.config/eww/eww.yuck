@@ -86,7 +86,8 @@ ${EWW_CPU.cores[7]?.core}: ${EWW_CPU.cores[7]?.freq}Mhz ${EWW_CPU.cores[7]?.usag
 (defwidget battery[]
   (tooltip
     "${EWW_BATTERY.BAT0.status}"
-    (box :class "battery ${EWW_BATTERY.BAT0.status == "Charging" ? "charging" : "discharging" } ${EWW_BATTERY.BAT0.capacity < 15 ? "critical" : EWW_BATTERY.BAT0.capacity < 30 ? "almost-critical" : ""}"
+    (box :class "battery ${EWW_BATTERY.BAT0.status == "Charging" ? "charging" :
+     "discharging" } ${EWW_BATTERY.BAT0.capacity < 20 ? "critical" : EWW_BATTERY.BAT0.capacity < 30 ? "almost-critical" : ""}"
           "${EWW_BATTERY.BAT0.capacity} ${EWW_BATTERY.BAT0.capacity < 10 ? "󰁺" :
                                     EWW_BATTERY.BAT0.capacity < 20 ? "󰁻" :
                                     EWW_BATTERY.BAT0.capacity < 30 ? "󰁼" :
