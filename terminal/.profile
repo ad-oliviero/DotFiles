@@ -30,7 +30,9 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd"
  
 if [[ -f "$HOME/.cargo/env" ]]; then source "$HOME/.cargo/env"; fi
 if [[ -f "$HOME/.local/share/bob/env/env.sh" ]] then source "$HOME/.local/share/bob/env/env.sh"; fi
+if [[ -f "/opt/homebrew/bin/brew" ]] then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
 
 # Only source this once
 if [ -n "$__SESS_VARS_SOURCED" ]; then return; fi
 export __SESS_VARS_SOURCED=1
+. "$HOME/.cargo/env"

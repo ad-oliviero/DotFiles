@@ -1,0 +1,21 @@
+{
+  "plugins": {
+    "Comment.nvim": [],
+    "auto-session": [],
+    "blink.cmp": {
+      "version": "1.0.0 - 2.0.0"
+    },
+    "bufferline.nvim": [],
+    "conform.nvim": [],
+    "gruvbox.nvim": [],
+    "mason-lspconfig.nvim": [],
+    "mason.nvim": [],
+    "mini.pick": [],
+    "nvim-autopairs": [],
+    "nvim-lspconfig": [],
+    "nvim-surround": [],
+    "render-markdown.nvim": [],
+    "vim-wakatime": [],
+    "vimtex": []
+  }
+}

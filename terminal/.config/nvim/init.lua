@@ -24,13 +24,14 @@ o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,term
 g.mapleader = ' '
 
 vim.pack.add({
+  'https://github.com/MeanderingProgrammer/render-markdown.nvim',
   'https://github.com/akinsho/bufferline.nvim',
   'https://github.com/echasnovski/mini.pick',
   'https://github.com/ellisonleao/gruvbox.nvim',
   'https://github.com/kylechui/nvim-surround',
+  'https://github.com/lervag/vimtex',
   'https://github.com/mason-org/mason-lspconfig.nvim',
   'https://github.com/mason-org/mason.nvim',
-  'https://github.com/MeanderingProgrammer/render-markdown.nvim',
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/numToStr/Comment.nvim',
   'https://github.com/rmagatti/auto-session',
@@ -56,9 +57,11 @@ require 'nvim-surround'.setup({
   },
   move_cursor = false,
 })
+g.vimtex_view_method = "sioyek"
 require 'nvim-autopairs'.setup()
 require 'mason'.setup()
 local servers = {
+  'nil_ls',
   'lua_ls',
   'pyright',
   'rust_analyzer',
@@ -94,6 +97,7 @@ require 'conform'.setup({
   formatters_by_ft = {
     python = { 'isort', 'black' },
     rust = { 'rustfmt', lsp_format = 'fallback' },
+    nix = { 'alejandra' },
   },
   format_on_save = {
     timeout_ms = 300,
@@ -104,7 +108,7 @@ require 'blink.cmp'.setup({ keymap = { preset = 'enter' } })
 
 -- mason-lspconfig does not let me to set ensure_installed formatters
 local registry = require('mason-registry')
-for _, pkg_name in ipairs { 'isort', 'black' } do
+for _, pkg_name in ipairs { 'isort', 'black', 'alejandra' } do
   local ok, pkg = pcall(registry.get_package, pkg_name)
   if ok then
     if not pkg:is_installed() then
@@ -135,6 +139,17 @@ map('v', '<A-up>', ':m \'<-2<CR>gv=gv', { desc = 'Move line up' })
 
 map('n', '<C-S>', ':w<CR>', { desc = 'Write to File' }) -- yes, i don't care
 map('n', '<leader>lf', require "conform".format, { desc = 'Format file' })
+map('n', '<leader>r', function()
+  vim.cmd('w')
+  vim.cmd('make')
+end, { desc = 'Call make' })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'python',
+  callback = function()
+    vim.o.makeprg = 'python3 %';
+  end,
+})
 
 if vim.fn.has('autocmd') then -- open file in the last position
   autocmd('BufReadPost', {
