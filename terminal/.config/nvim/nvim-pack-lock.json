@@ -11,11 +11,23 @@
     "mason-lspconfig.nvim": [],
     "mason.nvim": [],
     "mini.pick": [],
+    "neovim-ayu": {
+      "rev": "cc78e88",
+      "src": "https://github.com/Shatur/neovim-ayu"
+    },
     "nvim-autopairs": [],
     "nvim-lspconfig": [],
     "nvim-surround": [],
+    "oxocarbon.nvim": {
+      "rev": "9f85f60",
+      "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
+    },
     "render-markdown.nvim": [],
     "vim-wakatime": [],
-    "vimtex": []
+    "vimtex": [],
+    "which-key.nvim": {
+      "rev": "b4177e3",
+      "src": "https://github.com/folke/which-key.nvim"
+    }
   }
 }

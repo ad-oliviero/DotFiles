@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 # Scripts that influence the workflow in the terminal
 
 restow() {
@@ -65,3 +66,20 @@ sandbox() {
   sudo btrfs subvolume delete ./sandbox
 }
 
+stopwatch() {
+  printf 'Press return to stop\nStarting in\n'
+  local secs
+  case "$1" in
+    ''|*[!0-9]*)
+      secs=3 ;;
+    *)
+      secs=$1 ;;
+  esac
+  while [ $secs -gt 0 ]; do
+    printf '  %s\033[0K\r' "$secs"
+    sleep 1
+    secs=$((secs - 1))
+  done
+  printf '  NOW\033[0K\r'
+  exec_time_null read
+}

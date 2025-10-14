@@ -1,3 +1,10 @@
+$fg: #B3B1AD;
+$bg: #0A0E14;
+$orange: #FF8F40;
+$yellow: #D5FF80;
+$red: #D95757;
+$green: #86B300;
+
 * {
   font-family: JetBrains Mono, Symbols Nerd Font;
   font-size: 1.1rem;
@@ -17,10 +24,10 @@ button {
 }
 
 label, image {
-  color: #fbf1c7;
+  color: $fg;
   padding: 0rem 1rem;
   margin: 0.6rem 0.3rem;
-  background: rgba(60, 56, 54, 0.5);
+  background: rgba(60, 56, 54, 0.8);
   border-radius: 2rem;
 }
 
@@ -28,7 +35,7 @@ label, image {
   padding: 0rem 0rem;
   margin: -0.3rem -1rem;
   background: none;
-  color: #282828;
+  color: $bg;
   /* border: 2px solid red; */
   border-radius: 0rem;
 }
@@ -50,27 +57,27 @@ calendar {
 }
 
 calendar.current {
-  border: 4px red solid;
+  border: 4px $red solid;
 }
 
 graph {
-  border: 4px red solid;
+  border: 4px $red solid;
 }
 
 .workspace-entry.current label {
-  background: #d65d0e;
+  background: $orange;
 }
 
 .almost-critical label {
-  background: #d79921;
+  background: $yellow;
 }
 
 .critical label {
-  background: #cc241d;
+  background: $red;
 }
 
 .battery.charging label {
-  background: #98971a;
+  background: $green;
 }
 
 /* box { */
