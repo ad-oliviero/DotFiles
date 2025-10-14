@@ -1,5 +1,5 @@
 #!/bin/sh
-# vim: filetype=bash
+
 
 set -e
 

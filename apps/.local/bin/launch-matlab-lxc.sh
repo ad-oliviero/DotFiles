@@ -17,4 +17,6 @@ if lxc exec ubuntu -- sudo -u ubuntu bash -c "tmux has-session -t matlab 2>/dev/
   exit 0
 fi
 
+xhost +local:
+
 lxc exec ubuntu -- sudo -u ubuntu bash -c "pushd /home/ubuntu/matlab/workspace; tmux new-session -d -s matlab '/opt/MATLAB/R2025a/bin/matlab'; tmux pipe-pane -t matlab 'cat >> /home/ubuntu/matlab-tmux.log'"
