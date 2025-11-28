@@ -7,7 +7,7 @@ o.number = true          -- show line numbers
 o.shortmess:append('sI') -- disable nvim default initial page
 o.signcolumn = 'yes'     -- default space for small error and warning messages
 o.winborder = 'single'   -- set border for all windows
-o.textwidth = 80
+-- o.textwidth = 80
 
 o.cindent = true            -- auto indent, c-style
 o.shiftwidth = 2            -- tab size stuff
@@ -30,6 +30,7 @@ vim.pack.add({
   'https://github.com/echasnovski/mini.pick',
   'https://github.com/ellisonleao/gruvbox.nvim',
   'https://github.com/folke/which-key.nvim',
+  'https://github.com/karb94/neoscroll.nvim',
   'https://github.com/kylechui/nvim-surround',
   'https://github.com/lervag/vimtex',
   'https://github.com/mason-org/mason-lspconfig.nvim',
@@ -38,6 +39,7 @@ vim.pack.add({
   'https://github.com/numToStr/Comment.nvim',
   'https://github.com/nyoom-engineering/oxocarbon.nvim',
   'https://github.com/rmagatti/auto-session',
+  'https://github.com/sphamba/smear-cursor.nvim',
   'https://github.com/stevearc/conform.nvim',
   'https://github.com/wakatime/vim-wakatime',
   'https://github.com/windwp/nvim-autopairs',
@@ -48,6 +50,10 @@ require 'mini.pick'.setup()
 -- require 'gruvbox'.setup({ transparent_mode = true })
 require 'ayu'.colorscheme()
 -- require 'kanagawa'.setup({ compile = true, transparent = true })
+require 'smear_cursor'.setup()
+require 'neoscroll'.setup({
+  performance_mode = true,
+})
 require 'nvim-surround'.setup({
   keymaps = {
     visual = 's',
@@ -66,7 +72,6 @@ g.vimtex_view_method = "sioyek"
 require 'nvim-autopairs'.setup()
 require 'mason'.setup()
 local servers = {
-  'nil_ls',
   'lua_ls',
   'pyright',
   'rust_analyzer',
