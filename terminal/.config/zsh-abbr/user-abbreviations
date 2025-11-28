@@ -33,4 +33,7 @@ abbr sai='sudo apt install -y'
 abbr sas='sudo apt search'
 abbr sar='sudo apt remove -y'
 
+## nix
+abbr nrb='darwin-rebuild switch --flake ~/dotfiles/nix#adri-mac'
+
 # vim: ft=sh

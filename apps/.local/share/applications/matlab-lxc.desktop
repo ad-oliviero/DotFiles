@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MATLAB
+Comment=MATLAB R2025a in LXC Container
+Exec=/usr/bin/gksudo -k ~/.local/bin/launch-matlab-lxc.sh
+Icon=/opt/MATLAB/R2025a/bin/glnxa64/cef_resources/matlab_icon.png
+Terminal=false
+Categories=Development;Science;Math;
+Keywords=matlab;math;simulation;
