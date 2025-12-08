@@ -6,7 +6,6 @@ import Quickshell.Hyprland
 import "Style"
 
 RowLayout {
-  id: wsWidget
   Repeater {
     model: 9
     Rectangle {
