@@ -7,7 +7,7 @@ o.number = true          -- show line numbers
 o.shortmess:append('sI') -- disable nvim default initial page
 o.signcolumn = 'yes'     -- default space for small error and warning messages
 o.winborder = 'single'   -- set border for all windows
-o.textwidth = 80
+-- o.textwidth = 80
 
 o.cindent = true            -- auto indent, c-style
 o.shiftwidth = 2            -- tab size stuff
@@ -30,6 +30,7 @@ vim.pack.add({
   'https://github.com/echasnovski/mini.pick',
   'https://github.com/ellisonleao/gruvbox.nvim',
   'https://github.com/folke/which-key.nvim',
+  'https://github.com/karb94/neoscroll.nvim',
   'https://github.com/kylechui/nvim-surround',
   'https://github.com/lervag/vimtex',
   'https://github.com/mason-org/mason-lspconfig.nvim',
@@ -38,6 +39,7 @@ vim.pack.add({
   'https://github.com/numToStr/Comment.nvim',
   'https://github.com/nyoom-engineering/oxocarbon.nvim',
   'https://github.com/rmagatti/auto-session',
+  'https://github.com/sphamba/smear-cursor.nvim',
   'https://github.com/stevearc/conform.nvim',
   'https://github.com/wakatime/vim-wakatime',
   'https://github.com/windwp/nvim-autopairs',
@@ -48,6 +50,10 @@ require 'mini.pick'.setup()
 -- require 'gruvbox'.setup({ transparent_mode = true })
 require 'ayu'.colorscheme()
 -- require 'kanagawa'.setup({ compile = true, transparent = true })
+require 'smear_cursor'.setup()
+require 'neoscroll'.setup({
+  performance_mode = true,
+})
 require 'nvim-surround'.setup({
   keymaps = {
     visual = 's',
@@ -66,12 +72,12 @@ g.vimtex_view_method = "sioyek"
 require 'nvim-autopairs'.setup()
 require 'mason'.setup()
 local servers = {
-  'nil_ls',
   'lua_ls',
   'pyright',
   'rust_analyzer',
   'texlab',
   'denols',
+  'qmlls',
 }
 -- some lang servers are not available for arm, they must be installed manually
 if not (vim.fn.systemlist('uname -m')[1] == 'aarch64' or vim.fn.systemlist('uname -m')[1] == 'arm64') then
@@ -129,6 +135,7 @@ vim.cmd.set 'completeopt+=noselect,noinsert' -- don't auto { select the first op
 map('n', '<leader>so', ':update<CR> :source<CR>', { desc = 'Reload the config' })
 map('n', '<C-,>', ':e $MYVIMRC<CR>', { desc = 'Open config to edit' })
 map('n', '<leader>h', ':Pick help<CR>', { desc = 'Help Pick menu' })
+map('n', '<leader>wk', ':WhichKey<CR>', { desc = 'Show WhichKey' })
 
 -- opened file navigation
 map('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })

@@ -13,7 +13,7 @@ restow() {
       printf "\t\t\tif no option, stow everything\n"
     }>&2
   }
-  
+
   while getopts hadt flag; do
     case "${flag}" in
     h)
@@ -34,7 +34,7 @@ restow() {
   [[ ! -z "$desktop" ]] && stow desktop
   [[ ! -z "$apps" ]] && stow apps
   [[ ! -z "$terminal" ]] && stow terminal
-  [[ -z "$desktop" && -z "$apps" && -z "$terminal" ]] && stow  desktop apps terminal
+  [[ -z "$desktop" && -z "$apps" && -z "$terminal" ]] && stow desktop apps terminal
   printf "Done!\n"
   popd > /dev/null
 }

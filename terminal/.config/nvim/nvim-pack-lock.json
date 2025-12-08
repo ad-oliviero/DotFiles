@@ -11,6 +11,10 @@
     "mason-lspconfig.nvim": [],
     "mason.nvim": [],
     "mini.pick": [],
+    "neoscroll.nvim": {
+      "rev": "f957373",
+      "src": "https://github.com/karb94/neoscroll.nvim"
+    },
     "neovim-ayu": {
       "rev": "cc78e88",
       "src": "https://github.com/Shatur/neovim-ayu"
@@ -23,6 +27,10 @@
       "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
     },
     "render-markdown.nvim": [],
+    "smear-cursor.nvim": {
+      "rev": "c85bdbb",
+      "src": "https://github.com/sphamba/smear-cursor.nvim"
+    },
     "vim-wakatime": [],
     "vimtex": [],
     "which-key.nvim": {
