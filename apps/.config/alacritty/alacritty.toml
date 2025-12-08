@@ -15,7 +15,7 @@ multiplier = 30
 
 [font]
 normal = {family = "JetBrainsMono Nerd Font", style = "Regular"}
-size = 16.0
+size = 14.0
 
 [selection]
 save_to_clipboard = true

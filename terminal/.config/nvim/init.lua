@@ -77,6 +77,7 @@ local servers = {
   'rust_analyzer',
   'texlab',
   'denols',
+  'qmlls',
 }
 -- some lang servers are not available for arm, they must be installed manually
 if not (vim.fn.systemlist('uname -m')[1] == 'aarch64' or vim.fn.systemlist('uname -m')[1] == 'arm64') then
@@ -134,6 +135,7 @@ vim.cmd.set 'completeopt+=noselect,noinsert' -- don't auto { select the first op
 map('n', '<leader>so', ':update<CR> :source<CR>', { desc = 'Reload the config' })
 map('n', '<C-,>', ':e $MYVIMRC<CR>', { desc = 'Open config to edit' })
 map('n', '<leader>h', ':Pick help<CR>', { desc = 'Help Pick menu' })
+map('n', '<leader>wk', ':WhichKey<CR>', { desc = 'Show WhichKey' })
 
 -- opened file navigation
 map('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })
