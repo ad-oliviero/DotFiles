@@ -2,40 +2,19 @@
 # Scripts that influence the workflow in the terminal
 
 restow() {
-  function usage() {
-    {
-      printf "Usage: $1 [options]\n"
-      printf "\toptions:\n"
-      printf "\t\t-h\tprints this\n"
-      printf "\t\t-a\tstow apps only\n"
-      printf "\t\t-d\tstow desktop only\n"
-      printf "\t\t-t\tstow terminal only\n"
-      printf "\t\t\tif no option, stow everything\n"
-    }>&2
-  }
-
-  while getopts hadt flag; do
-    case "${flag}" in
-    h)
-      usage "$0"
-      return 0
-      ;;
-    a) apps=1 ;;
-    d) desktop=1 ;;
-    t) terminal=1 ;;
-    *)
-      printf >&2 "\033[31m[ERROR]: \033[33m%s is not a valid flag!\n" "${flag}"
-      usage "$0"
-      return 1
-      ;;
-    esac
-  done
   pushd ~/dotfiles > /dev/null
-  [[ ! -z "$desktop" ]] && stow desktop
-  [[ ! -z "$apps" ]] && stow apps
-  [[ ! -z "$terminal" ]] && stow terminal
-  [[ -z "$desktop" && -z "$apps" && -z "$terminal" ]] && stow desktop apps terminal
-  printf "Done!\n"
+  declare -a pkgs=("desktop" "apps" "terminal")
+  host=$(printf "$HOST" | sed 's/.local//g')
+  for p in "${pkgs[@]}"; do
+    if [ -d "$p" ]; then
+      stow -R "$p"
+      printf "$p\n"
+    fi
+    if [ -d "$p-$host" ]; then
+      stow -R "$p-$host"
+      printf "$p-$host\n"
+    fi
+  done
   popd > /dev/null
 }
 

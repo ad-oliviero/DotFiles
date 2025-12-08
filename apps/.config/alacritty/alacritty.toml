@@ -1,5 +1,8 @@
 general.live_config_reload = false
-general.import = ["~/.config/alacritty/colors-ayu.toml"]
+general.import = [
+  "~/.config/alacritty/colors-ayu.toml",
+  "~/.config/alacritty/alacritty-local.toml"
+]
 general.ipc_socket = true
 
 [env]
@@ -11,11 +14,9 @@ decorations_theme_variant = "Dark"
 
 [scrolling]
 history = 10000
-multiplier = 30
 
 [font]
 normal = {family = "JetBrainsMono Nerd Font", style = "Regular"}
-size = 14.0
 
 [selection]
 save_to_clipboard = true
