@@ -12,3 +12,12 @@
 	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/zsh-users/zsh-autosuggestions
 	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/zsh-users/zsh-history-substring-search
 	repo = /home/adri/dotfiles/terminal/.config/zsh/plugins/zsh-users/zsh-syntax-highlighting
+[pull]
+	rebase = false
+[safe]
+	directory = /mnt/adb/Documents/Notes
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

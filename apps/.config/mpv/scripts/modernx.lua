@@ -1,0 +1,1 @@
+/home/adri/.config/mpv/ModernX/modernx.lua
