@@ -76,14 +76,14 @@ local servers = {
   'pyright',
   'rust_analyzer',
   'texlab',
-  'denols',
-  'qmlls',
+  -- 'denols',
 }
 -- some lang servers are not available for arm, they must be installed manually
 if not (vim.fn.systemlist('uname -m')[1] == 'aarch64' or vim.fn.systemlist('uname -m')[1] == 'arm64') then
   vim.list_extend(servers, {
     'clangd',
-    'hyprls'
+    'hyprls',
+    'qmlls',
   })
 else
   vim.lsp.enable({

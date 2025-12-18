@@ -1,5 +1,5 @@
 export BROWSER="zen-browser"
-export EDITOR="nvim"
+export EDITOR="/home/adri/.local/share/bob/nvim-bin/nvim"
 export GDK_BACKEND="wayland,x11"
 export GIT_EDITOR="nvim"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
