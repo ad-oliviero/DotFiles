@@ -1,16 +1,42 @@
 {
   "plugins": {
-    "Comment.nvim": [],
-    "auto-session": [],
+    "Comment.nvim": {
+      "rev": "e30b7f2008e52442154b66f7c519bfd2f1e32acb",
+      "src": "https://github.com/numToStr/Comment.nvim"
+    },
+    "auto-session": {
+      "rev": "292492ab7af4bd8b9e37e28508bc8ce995722fd5",
+      "src": "https://github.com/rmagatti/auto-session"
+    },
     "blink.cmp": {
+      "rev": "b19413d214068f316c78978b08264ed1c41830ec",
+      "src": "https://github.com/Saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
-    "bufferline.nvim": [],
-    "conform.nvim": [],
-    "gruvbox.nvim": [],
-    "mason-lspconfig.nvim": [],
-    "mason.nvim": [],
-    "mini.pick": [],
+    "bufferline.nvim": {
+      "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
+      "src": "https://github.com/akinsho/bufferline.nvim"
+    },
+    "conform.nvim": {
+      "rev": "9b8fa5e0b78168f68bee9bf886dc20f287c61e02",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "gruvbox.nvim": {
+      "rev": "5e0a460d8e0f7f669c158dedd5f9ae2bcac31437",
+      "src": "https://github.com/ellisonleao/gruvbox.nvim"
+    },
+    "mason-lspconfig.nvim": {
+      "rev": "3b3571b4dadbcb464804466e9872e7246c316af7",
+      "src": "https://github.com/mason-org/mason-lspconfig.nvim"
+    },
+    "mason.nvim": {
+      "rev": "57e5a8addb8c71fb063ee4acda466c7cf6ad2800",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.pick": {
+      "rev": "6b7974543b17cf2e294993fc3d8545a342258232",
+      "src": "https://github.com/echasnovski/mini.pick"
+    },
     "neoscroll.nvim": {
       "rev": "f957373",
       "src": "https://github.com/karb94/neoscroll.nvim"
@@ -19,20 +45,38 @@
       "rev": "cc78e88",
       "src": "https://github.com/Shatur/neovim-ayu"
     },
-    "nvim-autopairs": [],
-    "nvim-lspconfig": [],
-    "nvim-surround": [],
+    "nvim-autopairs": {
+      "rev": "c2a0dd0d931d0fb07665e1fedb1ea688da3b80b4",
+      "src": "https://github.com/windwp/nvim-autopairs"
+    },
+    "nvim-lspconfig": {
+      "rev": "c4f67bf85b01a57e3c130352c0a0e453ab8cd5b9",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-surround": {
+      "rev": "1098d7b3c34adcfa7feb3289ee434529abd4afd1",
+      "src": "https://github.com/kylechui/nvim-surround"
+    },
     "oxocarbon.nvim": {
       "rev": "9f85f60",
       "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
     },
-    "render-markdown.nvim": [],
+    "render-markdown.nvim": {
+      "rev": "07d088bf8bdadd159eb807b90eaee86a4778383f",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
     "smear-cursor.nvim": {
       "rev": "c85bdbb",
       "src": "https://github.com/sphamba/smear-cursor.nvim"
     },
-    "vim-wakatime": [],
-    "vimtex": [],
+    "vim-wakatime": {
+      "rev": "d7973b157a632d1edeff01818f18d67e584eeaff",
+      "src": "https://github.com/wakatime/vim-wakatime"
+    },
+    "vimtex": {
+      "rev": "aed184681f177ae6071e56cd7a2b9441261fca52",
+      "src": "https://github.com/lervag/vimtex"
+    },
     "which-key.nvim": {
       "rev": "b4177e3",
       "src": "https://github.com/folke/which-key.nvim"
