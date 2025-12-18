@@ -65,3 +65,15 @@ sandbox() {
   sudo btrfs subvolume delete ./sandbox
 }
 
+headless() {
+  [ -f "/tmp/headless-hyprland" ] && {
+    rm /tmp/headless-hyprland
+    hyprctl output enable HDMI-A-1
+    hyprctl output enable eDP-1
+    exit
+  }
+  touch /tmp/headless-hyprland
+  hyprctl output create headless HEADLESS-2
+  hyprctl output disable HDMI-A-1
+  hyprctl output disable eDP-1
+}
