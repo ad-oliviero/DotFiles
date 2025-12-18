@@ -28,7 +28,7 @@ ShellRoot {
       Text {
         property var formatString: 'ddd d MMM yyyy, h:mm:ss'
         text: Qt.formatDateTime(timeSource.date, formatString)
-        // Layout.alignment: parent.alignment
+        anchors.centerIn: parent
         color: Style.color.fg
         font {
           family: Style.fontFamily

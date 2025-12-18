@@ -38,11 +38,11 @@
       "src": "https://github.com/echasnovski/mini.pick"
     },
     "neoscroll.nvim": {
-      "rev": "f957373",
+      "rev": "f957373912e88579e26fdaea4735450ff2ef5c9c",
       "src": "https://github.com/karb94/neoscroll.nvim"
     },
     "neovim-ayu": {
-      "rev": "cc78e88",
+      "rev": "cc78e880cce5dfc1187d144ed7251c746feff259",
       "src": "https://github.com/Shatur/neovim-ayu"
     },
     "nvim-autopairs": {
@@ -58,7 +58,7 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "oxocarbon.nvim": {
-      "rev": "9f85f60",
+      "rev": "9f85f6090322f39b11ae04a343d4eb9d12a86897",
       "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
     },
     "render-markdown.nvim": {
@@ -66,7 +66,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "smear-cursor.nvim": {
-      "rev": "c85bdbb",
+      "rev": "c85bdbb25db096fbcf616bc4e1357bd61fe2c199",
       "src": "https://github.com/sphamba/smear-cursor.nvim"
     },
     "vim-wakatime": {
@@ -78,7 +78,7 @@
       "src": "https://github.com/lervag/vimtex"
     },
     "which-key.nvim": {
-      "rev": "b4177e3",
+      "rev": "b4177e3eaf15fe5eb8357ebac2286d488be1ed00",
       "src": "https://github.com/folke/which-key.nvim"
     }
   }

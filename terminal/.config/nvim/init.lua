@@ -8,6 +8,8 @@ o.shortmess:append('sI') -- disable nvim default initial page
 o.signcolumn = 'yes'     -- default space for small error and warning messages
 o.winborder = 'single'   -- set border for all windows
 -- o.textwidth = 80
+-- o.mousescroll = "ver:10,hor:2"
+o.mouse = "a"
 
 o.cindent = true            -- auto indent, c-style
 o.shiftwidth = 2            -- tab size stuff
