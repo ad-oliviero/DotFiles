@@ -56,6 +56,7 @@ headless() {
   hyprctl output create headless HEADLESS-2
   hyprctl output disable HDMI-A-1
   hyprctl output disable eDP-1
+}
 
 stopwatch() {
   printf 'Press return to stop\nStarting in\n'
