@@ -34,4 +34,3 @@ if [[ -f "/opt/homebrew/bin/brew" ]] then eval "$(/opt/homebrew/bin/brew shellen
 # Only source this once
 if [ -n "$__SESS_VARS_SOURCED" ]; then return; fi
 export __SESS_VARS_SOURCED=1
-. "$HOME/.cargo/env"
