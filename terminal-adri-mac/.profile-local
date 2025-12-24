@@ -1,0 +1,4 @@
+export PATH="/opt/homebrew/lib/ruby/gems/3.4.0/bin:$PATH:$HOME/.local/bin/:$HOME/.cargo/bin/:$HOME/.local/share/bob/nvim-bin/"
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
