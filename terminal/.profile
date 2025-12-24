@@ -1,5 +1,5 @@
 export BROWSER="zen-browser"
-export EDITOR="nvim"
+export EDITOR="nvim" # hey, before changing this, check if the env.sh file for bob exists
 export GDK_BACKEND="wayland,x11"
 export GIT_EDITOR="nvim"
 export TERMINAL="alacritty"
