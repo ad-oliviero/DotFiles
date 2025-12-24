@@ -1,5 +1,6 @@
 export BROWSER="zen-browser"
 export EDITOR="nvim"
+export GDK_BACKEND="wayland,x11"
 export GIT_EDITOR="nvim"
 export TERMINAL="alacritty"
 export VIDEO="mpv"

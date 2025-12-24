@@ -8,6 +8,8 @@ o.shortmess:append('sI') -- disable nvim default initial page
 o.signcolumn = 'yes'     -- default space for small error and warning messages
 o.winborder = 'single'   -- set border for all windows
 -- o.textwidth = 80
+-- o.mousescroll = "ver:10,hor:2"
+o.mouse = "a"
 
 o.cindent = true            -- auto indent, c-style
 o.shiftwidth = 2            -- tab size stuff
@@ -76,14 +78,14 @@ local servers = {
   'pyright',
   'rust_analyzer',
   'texlab',
-  'denols',
-  'qmlls',
+  -- 'denols',
 }
 -- some lang servers are not available for arm, they must be installed manually
 if not (vim.fn.systemlist('uname -m')[1] == 'aarch64' or vim.fn.systemlist('uname -m')[1] == 'arm64') then
   vim.list_extend(servers, {
     'clangd',
-    'hyprls'
+    'hyprls',
+    'qmlls',
   })
 else
   vim.lsp.enable({
