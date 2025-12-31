@@ -18,11 +18,11 @@ function get_dspid() {
 asshfs() {
   mkdir -pv /mnt/adb
   address=$(adb shell ip a | rg "inet.*rndis0" | awk '{print $2}' | sed "s/\/.*//g")
-  sshfs -p 2222 -o ssh_command="ssh -i /home/adri/.ssh/id_ed25519" $address:/storage/emulated/0 /mnt/adb
+  sshfs -p 2222 -o ssh_command="ssh -i $HOME/.ssh/id_ed25519" $address:/storage/emulated/0 /mnt/adb
 }
 arsync() {
   address=$(adb shell ip a | rg "inet.*rndis0" | awk '{print $2}' | sed "s/\/.*//g")
-  ssh_command="ssh -i /home/adri/.ssh/id_ed25519 -p 2222"
+  ssh_command="ssh -i $HOME/.ssh/id_ed25519 -p 2222"
   [[ "$1" == "-r" ]] && rsync -arv --progress --stats -e "$ssh_command" $address:/sdcard/$2 $3 && return
   rsync -arv --progress --stats -e "$ssh_command" $2 $address:/sdcard/$3
 }

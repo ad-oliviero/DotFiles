@@ -15,3 +15,4 @@ if [[ -f "$HOME/.profile-local" ]] then source "$HOME/.profile-local"; fi
 # Only source this once
 if [ -n "$__SESS_VARS_SOURCED" ]; then return; fi
 export __SESS_VARS_SOURCED=1
+
