@@ -7,12 +7,10 @@ restow() {
   host=$(printf "$HOST" | sed 's/.local//g')
   for p in "${pkgs[@]}"; do
     if [ -d "$stow_dir/$p" ]; then
-      stow --no-folding -d "$stow_dir" -t "$HOME" -R "$p"
-      printf "$p\n"
+      stow --no-folding -d "$stow_dir" -t "$HOME" -R "$p" && printf "$p\n"
     fi
     if [ -d "$stow_dir/$p-$host" ]; then
-      stow --no-folding -d "$stow_dir" -t "$HOME" -R "$p-$host"
-      printf "$p-$host\n"
+      stow --no-folding -d "$stow_dir" -t "$HOME" -R "$p-$host" && printf "$p-$host\n"
     fi
   done
 }
