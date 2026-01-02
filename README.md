@@ -7,10 +7,10 @@ cd dotfiles
 ```
 
 Then you can install three stow packages:
-```shell
-stow desktop   # desktop "environment" configurations
-stow apps      # graphical apps
-stow terminal  # terminal configurations
+```zsh
+stow -d "$HOME/dotfiles/stow" -t "$HOME" -R terminal
+. $HOME/.config/zsh/utils.zsh
+restow
 ```
 And the programs manually.
 
