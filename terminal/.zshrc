@@ -10,3 +10,4 @@ source_if_exists "$HOME/.config/zsh/opts.zsh"
 source_if_exists "$HOME/.config/zsh/binds.zsh"
 source_if_exists "$HOME/.config/zsh/aliases.zsh"
 source_if_exists "$HOME/.config/zsh/utils.zsh"
+
