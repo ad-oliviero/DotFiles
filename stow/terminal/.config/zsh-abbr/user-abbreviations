@@ -6,11 +6,20 @@ abbr gcp='git add . && git commit && git push'
 abbr gpl='git pull'
 abbr gpu='git push'
 
+# docker
+abbr dcd='sudo docker compose down'
+abbr dcu='sudo docker compose up -d'
+abbr dcr='sudo docker compose down; sudo docker compose up -d --force-recreate'
+abbr dcl='sudo docker compose logs -f'
+abbr dce='sudo docker compose exec'
+abbr dcup='sudo docker compose down && sudo docker compose pull && sudo docker compose up -d --build --force-recreate'
+
 # other commands
 abbr free='free -h'
 abbr rmd='rmdir'
 abbr rmf='rm -rf'
 abbr ungz='tar -zxvf'
+abbr docker='sudo docker'
 
 # Package Managers
 ## arch linux
