@@ -2,21 +2,19 @@
 # Scripts that influence the workflow in the terminal
 
 restow() {
-  # pushd ~/dotfiles > /dev/null
   declare -a pkgs=("desktop" "apps" "terminal")
   stow_dir="$HOME/dotfiles/stow"
   host=$(printf "$HOST" | sed 's/.local//g')
   for p in "${pkgs[@]}"; do
     if [ -d "$stow_dir/$p" ]; then
-      stow -d "$stow_dir" -t "$HOME" -R "$p"
+      stow --no-folding -d "$stow_dir" -t "$HOME" -R "$p"
       printf "$p\n"
     fi
     if [ -d "$stow_dir/$p-$host" ]; then
-      stow -d "$stow_dir" -t "$HOME" -R "$p-$host"
+      stow --no-folding -d "$stow_dir" -t "$HOME" -R "$p-$host"
       printf "$p-$host\n"
     fi
   done
-  # popd > /dev/null
 }
 
 exec_time() {

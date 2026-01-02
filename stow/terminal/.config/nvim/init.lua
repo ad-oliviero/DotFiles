@@ -154,23 +154,25 @@ if not vim.g.vscode then
   map('n', '<leader>so', ':update<CR> :source<CR>', { desc = 'Reload the config' })
   map('n', '<C-,>', ':e $MYVIMRC<CR>', { desc = 'Open config to edit' })
   map('n', '<leader>h', ':Pick help<CR>', { desc = 'Help Pick menu' })
-
-  -- opened file navigation
-  map('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })
-  map('n', '<S-Tab>', ':bprevious<CR>', { desc = 'Previous buffer' })
-  map('n', '<leader>x', ':bdelete<CR>', { desc = 'Delete Buffer' })
-  map('n', '<leader>b', ':Pick buffers<CR>', { desc = 'Buffers Pick menu' })
-  map('n', '<leader>ff', ':Pick files<CR>', { desc = 'Files Pick menu' })
 end
+
+-- opened file navigation
+map('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })
+map('n', '<S-Tab>', ':bprevious<CR>', { desc = 'Previous buffer' })
+map('n', '<leader>x', ':bdelete<CR>', { desc = 'Delete Buffer' })
+map('n', '<leader>b', ':Pick buffers<CR>', { desc = 'Buffers Pick menu' })
+map('n', '<leader>ff', ':Pick files<CR>', { desc = 'Files Pick menu' })
 map('n', '<leader>wk', ':WhichKey<CR>', { desc = 'Show WhichKey' })
 
--- move lines like in vscode, but not in vscode
+-- move lines like in vscode
 map('n', '<A-up>', ':m .-2<CR>==', { desc = 'Move line up' })
 map('n', '<A-down>', ':m .+1<CR>==', { desc = 'Move line down' })
 map('v', '<A-down>', ':m \'>+1<CR>gv=gv', { desc = 'Move line down' })
 map('v', '<A-up>', ':m \'<-2<CR>gv=gv', { desc = 'Move line up' })
+
 map('n', '<C-S>', ':w<CR>', { desc = 'Write to File' }) -- yes, i don't care
 
+-- dev
 if not vim.g.vscode then
   map('n', '<leader>lf', require "conform".format, { desc = 'Format file' })
   map('n', '<leader>r', function()
