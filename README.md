@@ -13,11 +13,3 @@ stow -d "$HOME/dotfiles/stow" -t "$HOME" -R terminal
 restow
 ```
 And the programs manually.
-
-Or, you can do everything automatically:
-1. Install [ansible](https://docs.ansible.com/) with your package manager
-2. Run
-  ```shell
-ansible-playbook -K ~/dotfiles/ansible.yml
-```
-
