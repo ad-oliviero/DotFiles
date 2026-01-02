@@ -1,3 +1,0 @@
-- name: Arch Packages
-  import_tasks: arch.yml
-  when: ansible_distribution == "Archlinux"

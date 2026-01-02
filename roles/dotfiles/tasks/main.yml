@@ -1,8 +1,0 @@
-- name: Dotfiles using stow
-  loop:
-    - desktop
-    - apps
-    - terminal
-  shell:
-    chdir: ~/dotfiles
-    cmd: stow "{{ item }}"

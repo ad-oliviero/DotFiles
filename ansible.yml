@@ -1,7 +1,0 @@
-- name: Arch Linux Configuration
-  hosts: localhost
-  connection: local
-  roles:
-    - packages
-    - system_config
-    - dotfiles
