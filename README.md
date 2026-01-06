@@ -8,8 +8,6 @@ cd dotfiles
 
 Then you can install three stow packages:
 ```zsh
-stow -d "$HOME/dotfiles/stow" -t "$HOME" -R terminal
-. $HOME/.config/zsh/utils.zsh
-restow
+stow -d "$HOME/dotfiles/stow" -t "$HOME" -R terminal && . $HOME/.config/zsh/utils.zsh && restow
 ```
 And the programs manually.
