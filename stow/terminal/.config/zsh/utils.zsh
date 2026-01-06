@@ -2,16 +2,17 @@
 # Scripts that influence the workflow in the terminal
 
 restow() {
-  declare -a pkgs=("desktop" "apps" "terminal")
-  stow_dir="$HOME/dotfiles/stow"
-  host=$(printf "$HOST" | sed 's/.local//g')
+  local pkgs=("desktop" "apps" "terminal")
+  local stow_dir="$HOME/dotfiles/stow"
+  local host="${${HOST/adri-/}/.local/}"
   for p in "${pkgs[@]}"; do
-    if [ -d "$stow_dir/$p" ]; then
-      stow --no-folding -d "$stow_dir" -t "$HOME" -R "$p" && printf "$p\n"
-    fi
-    if [ -d "$stow_dir/$p-$host" ]; then
-      stow --no-folding -d "$stow_dir" -t "$HOME" -R "$p-$host" && printf "$p-$host\n"
-    fi
+    for d in "$stow_dir"/$p*(N/); do
+      local pkg_name="${d:t}"
+      if [[ "$pkg_name" =~ ^$p(|-$host(-.+)?|-.+-$host)$ ]]; then
+	stow --no-folding -d "$stow_dir" -t "$HOME" -R "$pkg_name"
+	print "$pkg_name\n"
+      fi
+    done
   done
 }
 
