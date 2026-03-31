@@ -1,9 +1,6 @@
-local o = vim.opt
-local g = vim.g
-local map = vim.keymap.set
-local autocmd = vim.api.nvim_create_autocmd
-
 function setup_optglobals()
+  local o = vim.opt
+  local g = vim.g
   g.mapleader = ' '
   o.mouse = "a"
   -- o.textwidth = 80
@@ -30,37 +27,29 @@ function setup_optglobals()
     vim.cmd.set 'completeopt+=noselect,noinsert' -- don't auto { select the first option, insert whatever is selected }
     o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
   end
+  g.vimtex_view_method = "sioyek"
+end
+
+function addplugin(url, name, cfg)
+  vim.pack.add({ url })
+  if cfg ~= nil then
+    if name == nil or string.len(name) == 0 then
+      error('\'name\' should not be null or empty!')
+    end
+    require(name).setup(cfg)
+  end
 end
 
 function setup_plugins()
-  vim.pack.add({
-    'https://github.com/MeanderingProgrammer/render-markdown.nvim',
-    'https://github.com/Shatur/neovim-ayu',
-    'https://github.com/akinsho/bufferline.nvim',
-    'https://github.com/echasnovski/mini.pick',
-    'https://github.com/ibhagwan/fzf-lua',
-    'https://github.com/ellisonleao/gruvbox.nvim',
-    'https://github.com/folke/which-key.nvim',
-    'https://github.com/karb94/neoscroll.nvim',
-    'https://github.com/kylechui/nvim-surround',
-    'https://github.com/lervag/vimtex',
-    'https://github.com/mason-org/mason-lspconfig.nvim',
-    'https://github.com/mason-org/mason.nvim',
-    'https://github.com/neovim/nvim-lspconfig',
-    'https://github.com/numToStr/Comment.nvim',
-    'https://github.com/nyoom-engineering/oxocarbon.nvim',
-    'https://github.com/rmagatti/auto-session',
-    'https://github.com/sphamba/smear-cursor.nvim',
-    'https://github.com/stevearc/conform.nvim',
-    'https://github.com/wakatime/vim-wakatime',
-    'https://github.com/windwp/nvim-autopairs',
-    'https://github.com/wojciech-kulik/xcodebuild.nvim',
-    'https://github.com/MunifTanjim/nui.nvim',
-    'https://github.com/nvim-tree/nvim-tree.lua',
-    { src = 'https://github.com/Saghen/blink.cmp', version = vim.version.range('1.*') },
-  })
+  addplugin('https://github.com/windwp/nvim-autopairs', 'nvim-autopairs', {})
+  addplugin('https://github.com/ibhagwan/fzf-lua')
+  addplugin('https://github.com/folke/which-key.nvim')
+  addplugin('https://github.com/lervag/vimtex')
+  addplugin('https://github.com/neovim/nvim-lspconfig')
+  addplugin('https://github.com/wakatime/vim-wakatime')
+  addplugin('https://github.com/MunifTanjim/nui.nvim')
 
-  require 'nvim-surround'.setup({
+  addplugin('https://github.com/kylechui/nvim-surround', 'nvim-surround', {
     keymaps = {
       visual = 's',
       visual_line = 'S',
@@ -74,20 +63,21 @@ function setup_plugins()
     },
     move_cursor = false,
   })
-  require 'nvim-autopairs'.setup()
 
   if not vim.g.vscode then
-    require 'bufferline'.setup()
-    require 'mini.pick'.setup()
-    -- require 'gruvbox'.setup({ transparent_mode = true })
+    -- addplugin('https://github.com/echasnovski/mini.pick', 'mini.pick', {})
+    addplugin('https://github.com/sphamba/smear-cursor.nvim', 'smear_cursor', {})
+    addplugin('https://github.com/wojciech-kulik/xcodebuild.nvim', 'xcodebuild', {})
+    addplugin('https://github.com/MeanderingProgrammer/render-markdown.nvim', 'render-markdown', {})
+    addplugin('https://github.com/rmagatti/auto-session', 'auto-session', {})
+    addplugin('https://github.com/akinsho/bufferline.nvim', 'bufferline')
+
+    addplugin('https://github.com/Shatur/neovim-ayu')
     require 'ayu'.colorscheme()
-    -- require 'kanagawa'.setup({ compile = true, transparent = true })
-    require 'smear_cursor'.setup()
-    require 'neoscroll'.setup {
-      performance_mode = true,
-    }
-    require 'xcodebuild'.setup()
-    require 'nvim-tree'.setup {
+    addplugin('https://github.com/ellisonleao/gruvbox.nvim', 'gruvbox', { transparent_mode = true })
+    addplugin('https://github.com/karb94/neoscroll.nvim', 'neoscroll', { performance_mode = true })
+
+    addplugin('https://github.com/nvim-tree/nvim-tree.lua', 'nvim-tree', {
       sort = {
         sorter = "case_sensitive",
       },
@@ -100,11 +90,8 @@ function setup_plugins()
       filters = {
         dotfiles = true,
       },
-    }
-    require 'render-markdown'.setup()
-    g.vimtex_view_method = "sioyek"
-    require 'auto-session'.setup()
-    require 'conform'.setup({
+    })
+    addplugin('https://github.com/stevearc/conform.nvim', 'conform', {
       formatters_by_ft = {
         css = { 'prettier' },
         html = { 'prettier' },
@@ -118,8 +105,10 @@ function setup_plugins()
         lsp_format = "fallback",
       },
     })
-    require 'blink.cmp'.setup({ keymap = { preset = 'enter' } })
-    require 'mason'.setup()
+    addplugin({ src = 'https://github.com/Saghen/blink.cmp', version = vim.version.range('1.*') }, 'blink.cmp',
+      { keymap = { preset = 'enter' } })
+
+    addplugin('https://github.com/mason-org/mason.nvim', 'mason', {})
     local servers = {
       'lua_ls',
       'pyright',
@@ -141,7 +130,7 @@ function setup_plugins()
         'qmlls',
       })
     end
-    require 'mason-lspconfig'.setup({ ensure_installed = servers })
+    addplugin('https://github.com/mason-org/mason-lspconfig.nvim', 'mason-lspconfig', { ensure_installed = servers })
     -- mason-lspconfig does not let me to set ensure_installed formatters
     local registry = require('mason-registry')
     for _, pkg_name in ipairs { 'isort', 'black', 'prettier' } do
@@ -152,7 +141,7 @@ function setup_plugins()
         end
       end
     end
-    require 'Comment'.setup({
+    addplugin('https://github.com/numToStr/Comment.nvim', 'Comment', {
       toggler = {
         line = '<leader>\\',
         block = '<leader>|',
@@ -167,6 +156,7 @@ function setup_plugins()
 end
 
 function setup_mappings()
+  local map = vim.keymap.set
   map('n', '<leader>so', ':update<CR> :source<CR>', { desc = 'Reload the config' })
   map('n', '<C-,>', ':e $MYVIMRC<CR>', { desc = 'Open config to edit' })
   map('n', '<leader>h', ':FzfLua helptags<CR>', { desc = 'Help fzf menu' })
@@ -188,7 +178,7 @@ function setup_mappings()
 
   -- dev
   if not vim.g.vscode then
-    map('n', '<leader>lf', require "conform".format, { desc = 'Format file' })
+    -- map('n', '<leader>lf', require 'conform'.format, { desc = 'Format file' })
     map('n', '<leader>r', function()
       vim.cmd('w')
       vim.cmd('make')
@@ -205,6 +195,7 @@ function setup_mappings()
 end
 
 function setup_automation()
+  local autocmd = vim.api.nvim_create_autocmd
   if vim.fn.has('autocmd') then -- open file in the last position
     autocmd('BufReadPost', {
       callback = function()

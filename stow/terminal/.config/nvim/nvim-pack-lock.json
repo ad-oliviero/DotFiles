@@ -61,6 +61,10 @@
       "rev": "a2bd1cf7b0446a7414aaf373cea5e4ca804c9c69",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
+    "nvim-origami": {
+      "rev": "e5b527f41d18c2ee5af868e1a3939b60f15fdb90",
+      "src": "https://github.com/chrisgrieser/nvim-origami"
+    },
     "nvim-surround": {
       "rev": "a0f5ab44268d22c8b0b19cb89fd9cabbd21e361c",
       "src": "https://github.com/kylechui/nvim-surround"
