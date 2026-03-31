@@ -25,6 +25,7 @@ setopt SHARE_HISTORY
 unsetopt EXTENDED_HISTORY
 setopt autocd
 
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(forward-word-match)
 
 autoload -Uz compinit
 autoload -z edit-command-line

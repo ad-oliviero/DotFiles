@@ -33,5 +33,6 @@ bindings = [
   { key = "0", mods = "Control", action = "ResetFontSize" },
   { key = "Plus", mods = "Control", action = "IncreaseFontSize" },
   { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
-  { key = "N", mods = "Control|Shift", action = "CreateNewWindow" }
+  { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+  { key = "Back", "mods" = "Control", chars = "\u001B[127;5~" }
 ]
