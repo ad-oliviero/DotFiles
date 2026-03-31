@@ -5,10 +5,11 @@ restow() {
   local pkgs=("desktop" "apps" "terminal")
   local stow_dir="$HOME/dotfiles/stow"
   local host="${${HOST/adri-/}/.local/}"
+  local os="${${OSTYPE%%[0-9-]*}/#darwin/mac}"
   for p in "${pkgs[@]}"; do
     for d in "$stow_dir"/$p*(N/); do
       local pkg_name="${d:t}"
-      if [[ "$pkg_name" =~ ^$p(|-$host(-.+)?|-.+-$host)$ ]]; then
+      if [[ "$pkg_name" =~ ^$p(|-($host|$os)(-.+)?|-.+-($host|$os))$ ]]; then
 	stow --no-folding -d "$stow_dir" -t "$HOME" -R "$pkg_name"
 	print "$pkg_name\n"
       fi
@@ -78,4 +79,10 @@ stopwatch() {
 lx() {
   container start alpinedev
   container exec -it alpinedev zsh -l
+}
+
+reisub() {
+  printf "s" | sudo tee /proc/sysrq-trigger
+  printf "u" | sudo tee /proc/sysrq-trigger
+  printf "b" | sudo tee /proc/sysrq-trigger
 }
