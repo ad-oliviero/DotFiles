@@ -73,3 +73,9 @@ stopwatch() {
   printf '  NOW\033[0K\r'
   exec_time_null read
 }
+
+reisub() {
+  printf "s" | sudo tee /proc/sysrq-trigger
+  printf "u" | sudo tee /proc/sysrq-trigger
+  printf "b" | sudo tee /proc/sysrq-trigger
+}
