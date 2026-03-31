@@ -73,3 +73,9 @@ stopwatch() {
   printf '  NOW\033[0K\r'
   exec_time_null read
 }
+
+# this only works on mac os obviously
+lx() {
+  container start alpinedev
+  container exec -it alpinedev zsh -l
+}
