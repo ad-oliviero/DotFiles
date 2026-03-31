@@ -21,6 +21,10 @@
       "rev": "ffe26e8df8115c9665d24231f8a49fadb2d611ce",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "fzf-lua": {
+      "rev": "c9e7b7bfbd01f949164988ee1684035468e1995c",
+      "src": "https://github.com/ibhagwan/fzf-lua"
+    },
     "gruvbox.nvim": {
       "rev": "5e0a460d8e0f7f669c158dedd5f9ae2bcac31437",
       "src": "https://github.com/ellisonleao/gruvbox.nvim"
@@ -45,6 +49,10 @@
       "rev": "cc78e880cce5dfc1187d144ed7251c746feff259",
       "src": "https://github.com/Shatur/neovim-ayu"
     },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
     "nvim-autopairs": {
       "rev": "7a2c97cccd60abc559344042fefb1d5a85b3e33b",
       "src": "https://github.com/windwp/nvim-autopairs"
@@ -56,6 +64,10 @@
     "nvim-surround": {
       "rev": "a0f5ab44268d22c8b0b19cb89fd9cabbd21e361c",
       "src": "https://github.com/kylechui/nvim-surround"
+    },
+    "nvim-tree.lua": {
+      "rev": "3603f069ff783c31986894a56c2a6755331b0802",
+      "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "oxocarbon.nvim": {
       "rev": "9f85f6090322f39b11ae04a343d4eb9d12a86897",
@@ -80,6 +92,10 @@
     "which-key.nvim": {
       "rev": "b4177e3eaf15fe5eb8357ebac2286d488be1ed00",
       "src": "https://github.com/folke/which-key.nvim"
+    },
+    "xcodebuild.nvim": {
+      "rev": "6ee81bcf0334eac180111ac7ac2435d421d1508d",
+      "src": "https://github.com/wojciech-kulik/xcodebuild.nvim"
     }
   }
 }

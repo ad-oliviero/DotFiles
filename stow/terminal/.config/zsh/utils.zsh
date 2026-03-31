@@ -9,7 +9,7 @@ restow() {
   for p in "${pkgs[@]}"; do
     for d in "$stow_dir"/$p*(N/); do
       local pkg_name="${d:t}"
-      if [[ "$pkg_name" =~ ^$p(|-($host|$os)(-.+)?|-.+-($host|$os))$ ]]; then
+      if [[ "$pkg_name" =~ ^$p(-($host|$os)(-.+)?|-.+-($host|$os))?$ ]]; then
 	stow --no-folding -d "$stow_dir" -t "$HOME" -R "$pkg_name"
 	print "$pkg_name\n"
       fi
