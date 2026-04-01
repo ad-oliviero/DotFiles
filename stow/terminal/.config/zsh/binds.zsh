@@ -1,5 +1,3 @@
-bindkey -e 
-
 autoload -Uz match-words-by-style
 autoload -Uz backward-word-match forward-word-match
 autoload -Uz backward-kill-word-match kill-word-match

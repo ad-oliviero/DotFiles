@@ -13,7 +13,7 @@ repos=(
   mattmc3/ez-compinit
   zdharma/fast-syntax-highlighting
   marlonrichert/zsh-autocomplete
-  # marlonrichert/zsh-edit
+  marlonrichert/zsh-edit
   zsh-users/zsh-history-substring-search
   zsh-users/zsh-autosuggestions
   olets/zsh-abbr
