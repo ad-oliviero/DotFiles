@@ -70,7 +70,7 @@ function setup_plugins()
     addplugin('https://github.com/wojciech-kulik/xcodebuild.nvim', 'xcodebuild', {})
     addplugin('https://github.com/MeanderingProgrammer/render-markdown.nvim', 'render-markdown', {})
     addplugin('https://github.com/rmagatti/auto-session', 'auto-session', {})
-    addplugin('https://github.com/akinsho/bufferline.nvim', 'bufferline')
+    addplugin('https://github.com/akinsho/bufferline.nvim', 'bufferline', {})
 
     addplugin('https://github.com/Shatur/neovim-ayu')
     require 'ayu'.colorscheme()

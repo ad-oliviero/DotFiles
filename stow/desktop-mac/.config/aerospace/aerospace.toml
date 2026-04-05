@@ -40,6 +40,8 @@ cmd-shift-down = 'move down'
 cmd-shift-up = 'move up'
 cmd-shift-right = 'move right'
 
+cmd-shift-v = 'split vertical'
+cmd-shift-h = 'split horizontal'
+
 cmd-shift-f = 'macos-native-fullscreen'
 cmd-h = []
-cmd-shift-h = []
