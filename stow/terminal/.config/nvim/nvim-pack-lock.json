@@ -21,6 +21,14 @@
       "rev": "ffe26e8df8115c9665d24231f8a49fadb2d611ce",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "copilot.vim": {
+      "rev": "51f80c0ed4f70d1c7e8c0ff11a792a9d84502c03",
+      "src": "https://github.com/github/copilot.vim"
+    },
+    "everblush.vim": {
+      "rev": "7900e45c24b59ad8b0a0e1b1204f260d6909bc56",
+      "src": "https://github.com/Everblush/everblush.vim"
+    },
     "fzf-lua": {
       "rev": "c9e7b7bfbd01f949164988ee1684035468e1995c",
       "src": "https://github.com/ibhagwan/fzf-lua"
@@ -28,6 +36,10 @@
     "gruvbox.nvim": {
       "rev": "5e0a460d8e0f7f669c158dedd5f9ae2bcac31437",
       "src": "https://github.com/ellisonleao/gruvbox.nvim"
+    },
+    "kanagawa.nvim": {
+      "rev": "debe91547d7fb1eef34ce26a5106f277fbfdd109",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
     },
     "mason-lspconfig.nvim": {
       "rev": "c55bd8a8fb191e24176c206a7af1dd51ce7276a5",
@@ -41,6 +53,10 @@
       "rev": "b4351399db5043a781a32699a1bde60b747f711f",
       "src": "https://github.com/echasnovski/mini.pick"
     },
+    "nano-theme.nvim": {
+      "rev": "710c86bb90f963a7cf95f3dc15d287b59bc06b59",
+      "src": "https://github.com/ronisbr/nano-theme.nvim"
+    },
     "neoscroll.nvim": {
       "rev": "f957373912e88579e26fdaea4735450ff2ef5c9c",
       "src": "https://github.com/karb94/neoscroll.nvim"
@@ -52,6 +68,10 @@
     "nui.nvim": {
       "rev": "de740991c12411b663994b2860f1a4fd0937c130",
       "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
+    "nvim": {
+      "rev": "678f808d81801b983b6fb8296fb17ba1b2785d7c",
+      "src": "https://github.com/Everblush/nvim"
     },
     "nvim-autopairs": {
       "rev": "7a2c97cccd60abc559344042fefb1d5a85b3e33b",
@@ -85,6 +105,10 @@
       "rev": "c85bdbb25db096fbcf616bc4e1357bd61fe2c199",
       "src": "https://github.com/sphamba/smear-cursor.nvim"
     },
+    "trouble.nvim": {
+      "rev": "85bedb7eb7fa331a2ccbecb9202d8abba64d37b3",
+      "src": "https://github.com/folke/trouble.nvim"
+    },
     "vim-wakatime": {
       "rev": "d7973b157a632d1edeff01818f18d67e584eeaff",
       "src": "https://github.com/wakatime/vim-wakatime"
@@ -92,6 +116,10 @@
     "vimtex": {
       "rev": "6e1229e23c3bbe93487ef62458b1241a2d8ff6af",
       "src": "https://github.com/lervag/vimtex"
+    },
+    "vscode-diff.nvim": {
+      "rev": "9831250fb85beb27df984bd985961f1a2ca23f81",
+      "src": "https://github.com/esmuellert/vscode-diff.nvim"
     },
     "which-key.nvim": {
       "rev": "b4177e3eaf15fe5eb8357ebac2286d488be1ed00",
