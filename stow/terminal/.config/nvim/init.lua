@@ -71,7 +71,6 @@ function setup_plugins()
     },
     move_cursor = false,
   })
-
   if not vim.g.vscode then
     -- addplugin('https://github.com/echasnovski/mini.pick', 'mini.pick', {})
     addplugin('https://github.com/sphamba/smear-cursor.nvim', 'smear_cursor', {})
@@ -234,7 +233,6 @@ function setup_automation()
     end
   })
 
-  -- Adjust the hover delay
   vim.opt.updatetime = 250
 end
 
