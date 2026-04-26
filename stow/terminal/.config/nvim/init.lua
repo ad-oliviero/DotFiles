@@ -18,8 +18,16 @@ function setup_optglobals()
   o.spell = true
   o.spl = { 'it', 'en_us' }   -- set spelling languages
   o.undofile = true
+  o.updatetime = 250          -- hover update time
   -- o.whichwrap:append('<>[]hl') -- go to next line with arrows or h or l
-  if not vim.g.vscode then                       -- yes, for some things I "need" vscode
+  vim.diagnostic.config({
+    virtual_text = {
+      severity = { min = vim.diagnostic.severity.WARN },
+    },
+    update_in_insert = false,
+    severity_sort = true,
+  })
+  if not vim.g.vscode then                       -- yes, for some things I still "need" vscode
     o.number = true                              -- show line numbers
     -- o.shortmess:append('sI')                  -- disable nvim default initial page
     o.signcolumn = 'yes'                         -- default space for small error and warning messages
@@ -176,6 +184,9 @@ function setup_mappings()
 
   map('n', '<C-S>', ':w<CR>', { desc = 'Write to File' }) -- yes, i don't care
 
+  -- diagnostics
+  map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic' })
+
   -- dev
   if not vim.g.vscode then
     -- map('n', '<leader>lf', require 'conform'.format, { desc = 'Format file' })
@@ -209,6 +220,22 @@ function setup_automation()
   vim.filetype.add({ -- *.conf files in the hypr directory are of hyprlang type
     pattern = { ['.*/hypr/.*%.conf'] = 'hyprlang' },
   })
+  autocmd('CursorHold', { -- automatically show diagnostic on hover
+    callback = function()
+      local opts = {
+        focusable = false,
+        close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
+        border = 'rounded',
+        source = 'always',
+        prefix = ' ',
+        scope = 'cursor',
+      }
+      vim.diagnostic.open_float(nil, opts)
+    end
+  })
+
+  -- Adjust the hover delay
+  vim.opt.updatetime = 250
 end
 
 setup_optglobals()
