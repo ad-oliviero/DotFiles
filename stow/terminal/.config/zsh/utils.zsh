@@ -81,6 +81,19 @@ lx() {
   container exec -it alpinedev zsh -l
 }
 
+doc() {
+  set -a
+  if [ -f "$HOME/homelab/.env" ]; then
+    source "$HOME/homelab/.env"
+  else
+    printf "Failed to load $HOME/homelab/.env!\n"
+    set +a
+    exit 1
+  fi
+  set +a
+  sudo -E docker "$@"
+}
+
 reisub() {
   printf "s" | sudo tee /proc/sysrq-trigger
   printf "u" | sudo tee /proc/sysrq-trigger
