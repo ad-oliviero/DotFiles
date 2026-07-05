@@ -1,7 +1,6 @@
 config-version = 2
 
-after-startup-command = []
-start-at-login = true
+start-at-login = false
 
 enable-normalization-flatten-containers = false
 enable-normalization-opposite-orientation-for-nested-containers = false
@@ -10,11 +9,6 @@ default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-
-# automatically-unhide-macos-hidden-apps = true
-
-persistent-workspaces = ["􀮞"]
-on-mode-changed = []
 
 [key-mapping]
 preset = 'qwerty'
@@ -28,20 +22,27 @@ outer.top = 0
 outer.right = 0
 
 [mode.main.binding]
-cmd-enter = 'exec-and-forget open -na Alacritty'
+alt-left = 'focus left'
+alt-down = 'focus down'
+alt-up = 'focus up'
+alt-right = 'focus right'
 
-cmd-left = 'focus left'
-cmd-down = 'focus down'
-cmd-up = 'focus up'
-cmd-right = 'focus right'
+alt-shift-left = 'move left'
+alt-shift-down = 'move down'
+alt-shift-up = 'move up'
+alt-shift-right = 'move right'
 
-cmd-shift-left = 'move left'
-cmd-shift-down = 'move down'
-cmd-shift-up = 'move up'
-cmd-shift-right = 'move right'
+alt-h = 'split horizontal'
+alt-v = 'split vertical'
+alt-f = 'fullscreen'
+alt-q = 'close'
+alt-space = 'layout floating tiling'
+alt-s = 'layout v_accordion h_accordion'
 
-cmd-shift-v = 'split vertical'
-cmd-shift-h = 'split horizontal'
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
 
-cmd-shift-f = 'macos-native-fullscreen'
-cmd-h = []
+[[on-window-detected]]
+if.app-id = 'com.apple.Calculator'
+run = 'layout floating'

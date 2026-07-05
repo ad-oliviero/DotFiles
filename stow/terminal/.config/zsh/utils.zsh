@@ -99,3 +99,42 @@ reisub() {
   printf "u" | sudo tee /proc/sysrq-trigger
   printf "b" | sudo tee /proc/sysrq-trigger
 }
+
+nvclaude() {
+  LITELLM_CONFIG_PATH="/tmp/litellm_claude_config.yaml"
+  cat <<EOF > "$LITELLM_CONFIG_PATH"
+model_list:
+  - model_name: z-ai/glm-5.2
+    litellm_params:
+      model: nvidia_nim/z-ai/glm-5.2
+      api_base: https://integrate.api.nvidia.com/v1
+      api_key: $NVIDIA_API_KEY
+
+litellm_settings:
+  drop_params: true
+EOF
+    if ! pgrep -f "litellm --config $LITELLM_CONFIG_PATH" > /dev/null 2>&1; then
+      
+	litellm --config "$LITELLM_CONFIG_PATH" --port $LITELLM_PORT > /tmp/litellm_claude.log 2>&1 &
+        local PROXY_PID=$!
+        
+        local retries=0
+        while ! curl -s http://localhost:$LITELLM_PORT/health/liveliness > /dev/null 2>&1; do
+            sleep 1
+            retries=$((retries + 1))
+            if [ $retries -ge 15 ]; then
+                echo "Failed to start LiteLLM proxy. Check /tmp/litellm_claude.log for errors."
+                return 1
+            fi
+        done
+        
+        command claude "$@"
+        local EXIT_CODE=$?
+        
+        kill $PROXY_PID > /dev/null 2>&1
+        
+        return $EXIT_CODE
+    else
+        command claude "$@"
+    fi
+}

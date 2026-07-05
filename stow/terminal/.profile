@@ -6,10 +6,16 @@ export TERMINAL="alacritty"
 export VIDEO="mpv"
  
 if [[ -f "$HOME/.cargo/env" ]]; then source "$HOME/.cargo/env"; fi
+if [[ -f "$HOME/.swiftly/env.sh" ]]; then source "$HOME/.swiftly/env.sh"; fi
 if [[ -f "/opt/homebrew/bin/brew" ]] then eval "$(/opt/homebrew/bin/brew shellenv)"; fi
 if [[ -f "$HOME/.profile-local" ]] then source "$HOME/.profile-local"; fi
+if [[ -f "$HOME/.profile-private" ]] then source "$HOME/.profile-private"; fi
 
 # Only source this once
 if [ -n "$__SESS_VARS_SOURCED" ]; then return; fi
 export __SESS_VARS_SOURCED=1
 
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/adri/.local/bin:$PATH"

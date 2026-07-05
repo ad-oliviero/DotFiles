@@ -49,6 +49,7 @@ function addplugin(url, name, cfg)
 end
 
 function setup_plugins()
+  addplugin('https://github.com/lewis6991/gitsigns.nvim', 'gitsigns', {})
   addplugin('https://github.com/windwp/nvim-autopairs', 'nvim-autopairs', {})
   addplugin('https://github.com/ibhagwan/fzf-lua')
   addplugin('https://github.com/folke/which-key.nvim')
@@ -107,10 +108,10 @@ function setup_plugins()
         swift = { 'swift-format' },
         rust = { 'rustfmt', lsp_format = 'fallback' },
       },
-      format_on_save = {
-        timeout_ms = 300,
-        lsp_format = "fallback",
-      },
+      -- format_on_save = {
+      --   timeout_ms = 300,
+      --   lsp_format = "fallback",
+      -- },
     })
     addplugin({ src = 'https://github.com/Saghen/blink.cmp', version = vim.version.range('1.*') }, 'blink.cmp',
       { keymap = { preset = 'enter' } })

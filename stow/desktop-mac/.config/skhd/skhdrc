@@ -1,0 +1,6 @@
+cmd - return : open -na Alacritty
+
+alt - c      : open -a Calculator
+alt - i      : open -a "System Settings"
+
+shift + alt - s : screencapture -i -c
