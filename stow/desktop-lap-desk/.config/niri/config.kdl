@@ -1,0 +1,206 @@
+input {
+    keyboard {
+        xkb {
+            layout "it"
+            options "compose:menu,level3:menu_switch"
+        }
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+        scroll-factor vertical=0.4 horizontal=0.2
+        disable-while-typing false
+        clickfinger-behavior false
+        accel-profile "flat"
+    }
+
+    mouse {
+        accel-speed -0.2
+        accel-profile "flat"
+    }
+
+    warp-mouse-to-focus
+    focus-follows-mouse
+}
+
+output "eDP-1" {
+    mode "1920x1080@60"
+    position x=1920 y=0
+}
+
+layout {
+    gaps 0
+    center-focused-column "never"
+    
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        width 1
+        active-gradient from="#399EE6" to="#0B0E14" angle=90
+        inactive-color "#0B0E14"
+    }
+    
+    border {
+        off
+    }
+}
+
+// --- Autostart ---
+spawn-sh-at-startup "uwsm app -- hypridle"
+spawn-sh-at-startup "uwsm app -- wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "uwsm app -- wl-paste --type image --watch cliphist store"
+spawn-sh-at-startup "dconf write /org/gnome/desktop/interface/gtk-theme \"'WhiteSur-Dark'\""
+spawn-sh-at-startup "dconf write /org/gnome/desktop/interface/icon-theme \"'WhiteSur-Dark'\""
+spawn-sh-at-startup "dconf write /org/gnome/desktop/interface/document-font-name \"'JetBrains Mono 11'\""
+spawn-sh-at-startup "dconf write /org/gnome/desktop/interface/font-name \"'JetBrains Mono 11'\""
+spawn-sh-at-startup "dconf write /org/gnome/desktop/interface/monospace-font-name \"'JetBrains Mono 11'\""
+spawn-sh-at-startup "gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty"
+spawn-sh-at-startup "an2linuxserver.py"
+spawn-sh-at-startup "uwsm app -- qs -c noctalia-shell"
+spawn-sh-at-startup "uwsm app -- sunshine"
+
+// --- Window Rules ---
+window-rule {
+    match app-id="imv"
+    match app-id="mpv"
+    match app-id="org.gnome.Settings"
+    match app-id="qalculate-gtk"
+    open-floating true
+}
+
+window-rule {
+    match app-id="org.gnome.Settings"
+    default-column-width { fixed 1280; }
+    default-window-height { fixed 720; }
+}
+
+window-rule {
+    match app-id="xwaylandvideobridge"
+    opacity 0.0
+    exclude-from-states "screenshot" "screen-capture"
+}
+
+window-rule {
+    match app-id="org.kde.kdeconnect.daemon"
+    open-floating true
+    default-column-width { fixed 1920; }
+    default-window-height { fixed 1080; }
+}
+
+window-rule {
+    match title="^(LaTeX OCR)$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="org.kde.kalm"
+    open-fullscreen true
+}
+
+// --- Key Bindings ---
+binds {
+    // General
+    Mod+Return { spawn-sh "uwsm app -- alacritty"; }
+    Mod+Q { close-window; }
+    Mod+Space { toggle-window-floating; }
+    Mod+R { spawn-sh "niri msg action reload-config"; }
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    
+    // Focus
+    Mod+Left { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up { focus-window-up; }
+    Mod+Down { focus-window-down; }
+    
+    // Move
+    Mod+Shift+Left { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Up { move-window-up; }
+    Mod+Shift+Down { move-window-down; }
+    
+    // Resize
+    Mod+Ctrl+Left { set-column-width "-60"; }
+    Mod+Ctrl+Right { set-column-width "+60"; }
+    Mod+Ctrl+Up { set-window-height "-60"; }
+    Mod+Ctrl+Down { set-window-height "+60"; }
+    
+    // Workspaces
+    Alt+Right { focus-workspace-down; }
+    Alt+Left { focus-workspace-up; }
+    
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+    
+    Alt+1 { move-column-to-workspace 1; }
+    Alt+2 { move-column-to-workspace 2; }
+    Alt+3 { move-column-to-workspace 3; }
+    Alt+4 { move-column-to-workspace 4; }
+    Alt+5 { move-column-to-workspace 5; }
+    Alt+6 { move-column-to-workspace 6; }
+    Alt+7 { move-column-to-workspace 7; }
+    Alt+8 { move-column-to-workspace 8; }
+    Alt+9 { move-column-to-workspace 9; }
+    Alt+0 { move-column-to-workspace 10; }
+
+    Mod+P { toggle-window-pinned; }
+    
+    // Multimedia
+    XF86AudioMute { spawn-sh "uwsm app -- swayosd-client --output-volume mute-toggle"; }
+    Mod+F4 { spawn-sh "uwsm app -- swayosd-client --input-volume mute-toggle"; }
+    XF86AudioPlay { spawn-sh "uwsm app -- swayosd-client --playerctl play-pause"; }
+    XF86AudioPause { spawn-sh "uwsm app -- swayosd-client --playerctl play-pause"; }
+    XF86AudioNext { spawn-sh "uwsm app -- swayosd-client --playerctl next"; }
+    XF86AudioPrev { spawn-sh "uwsm app -- swayosd-client --playerctl prev"; }
+    XF86AudioStop { spawn-sh "uwsm app -- swayosd-client --playerctl stop"; }
+    
+    // Brightness
+    XF86MonBrightnessUp { spawn-sh "uwsm app -- swayosd-client --brightness raise"; }
+    XF86MonBrightnessDown { spawn-sh "uwsm app -- swayosd-client --brightness lower"; }
+    Mod+F5 { spawn-sh "uwsm app -- swayosd-client --brightness lower"; }
+    Mod+F6 { spawn-sh "uwsm app -- swayosd-client --brightness raise"; }
+
+    // Volume
+    XF86AudioRaiseVolume { spawn-sh "uwsm app -- swayosd-client --output-volume raise --max-volume 120"; }
+    XF86AudioLowerVolume { spawn-sh "uwsm app -- swayosd-client --output-volume lower --max-volume 120"; }
+    Shift+XF86AudioRaiseVolume { spawn-sh "uwsm app -- swayosd-client --output-volume raise --max-volume 120"; }
+    Shift+XF86AudioLowerVolume { spawn-sh "uwsm app -- swayosd-client --output-volume lower --max-volume 120"; }
+
+    // Apps & System
+    Mod+L { spawn-sh "pidof hyprlock || uwsm app -- hyprlock"; }
+    Mod+Shift+L { spawn-sh "systemctl suspend-then-hibernate"; }
+    Mod+N { spawn-sh "uwsm app -- nemo"; }
+    Mod+D { spawn-sh "uwsm app -- rofi -show drun -theme custom -run-command \"uwsm app -- {cmd}\""; }
+    Mod+C { spawn-sh "uwsm app -- qalculate-gtk"; }
+    Mod+I { spawn-sh "XDG_CURRENT_DESKTOP=gnome uwsm app -- gnome-control-center"; }
+    Mod+Shift+E { quit; }
+    
+    // Screenshot
+    Print { screenshot; }
+    Mod+Shift+S { screenshot; } // interactive screenshot
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+    
+    // Custom Actions
+    Mod+Shift+Q { spawn-sh "uwsm app -- hyprlock -c /home/adri/.config/hypr/hyprlock.conf"; }
+    Mod+Shift+C { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
+    Mod+Shift+V { spawn-sh "wl-paste | ydotool type -f -"; }
+    Alt+L { spawn-sh "notify-send 'Starting latexocr...'; source .local/opt/latexocr/.venv/bin/activate; NO_ALBUMENTATIONS_UPDATE=1 uwsm app -- pix2tex_gui"; }
+}
+
+gestures {
+    workspace-switch {
+        enabled true
+        fingers 3
+    }
+}
