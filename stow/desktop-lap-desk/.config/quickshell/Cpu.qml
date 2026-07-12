@@ -1,60 +1,55 @@
 import QtQuick
-import QtQml
-import Quickshell.Io
 
+import "components"
 import "Style"
 
-Text {
+// §4.4 CPU: aggregate usage from /proc/stat jiffy delta (1 s).
+Pill {
   id: cpu
-  property var cpuUsage: 0
-  property var lastCpuIdle: 0
-  property var lastCpuTotal: 0
+  icon: "\uf4bc"
+  text: "..."
 
-  text: "  " + cpuUsage + "%"
-  color: Style.color.fg
-  font {
-    family: Style.fontFamily
-    pixelSize: Style.textSize
-    bold: true
-  }
-  Process {
-    id: cpuProc
+  property int usage: 0
+  property int lastTotal: 0
+  property int lastIdle: 0
+  state: usage > 80 ? "critical" : usage > 60 ? "warning" : "normal"
+
+  Poll {
     command: ["head", "-1", "/proc/stat"]
-    stdout: SplitParser {
-      onRead: data => {
-        if (!data) {
-          cpu.visible = false;
-          return;
-        }
-        var parts = data.trim().split(/\s+/);
-        var user = parseInt(parts[1]) || 0;
-        var nice = parseInt(parts[2]) || 0;
-        var system = parseInt(parts[3]) || 0;
-        var idle = parseInt(parts[4]) || 0;
-        var iowait = parseInt(parts[5]) || 0;
-        var irq = parseInt(parts[6]) || 0;
-        var softirq = parseInt(parts[7]) || 0;
-
-        var total = user + nice + system + idle + iowait + irq + softirq;
-        var idleTime = idle + iowait;
-
-        if (cpu.lastCpuTotal > 0) {
-          var totalDiff = total - cpu.lastCpuTotal;
-          var idleDiff = idleTime - cpu.lastCpuIdle;
-          if (totalDiff > 0) {
-            cpu.cpuUsage = Math.round(100 * (totalDiff - idleDiff) / totalDiff);
-          }
-        }
-        cpu.lastCpuTotal = total;
-        cpu.lastCpuIdle = idleTime;
-      }
-    }
-    Component.onCompleted: running = false
-  }
-  Timer {
     interval: 1000
-    running: true
-    repeat: true
-    onTriggered: cpuProc.running = true
+    onLine: data => {
+      if (!data)
+        return
+      var p = data.trim().split(/\s+/)
+      var user = parseInt(p[1]) || 0
+      var nice = parseInt(p[2]) || 0
+      var sys = parseInt(p[3]) || 0
+      var idle = parseInt(p[4]) || 0
+      var iowait = parseInt(p[5]) || 0
+      var irq = parseInt(p[6]) || 0
+      var softirq = parseInt(p[7]) || 0
+      var steal = parseInt(p[8]) || 0
+      var total = user + nice + sys + idle + iowait + irq + softirq + steal
+      var idleT = idle + iowait
+      if (cpu.lastTotal > 0) {
+        var dt = total - cpu.lastTotal
+        var di = idleT - cpu.lastIdle
+        if (dt > 0)
+          cpu.usage = Math.round(100 * (dt - di) / dt)
+      }
+      cpu.lastTotal = total
+      cpu.lastIdle = idleT
+      cpu.text = cpu.usage + "%"
+    }
+  }
+
+  property var barWindow: null
+
+  onClicked: pop.toggle()
+
+  CpuPopup {
+    id: pop
+    triggerItem: cpu
+    barWindow: cpu.barWindow
   }
 }
