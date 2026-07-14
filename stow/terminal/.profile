@@ -14,8 +14,3 @@ if [[ -f "$HOME/.profile-private" ]] then source "$HOME/.profile-private"; fi
 # Only source this once
 if [ -n "$__SESS_VARS_SOURCED" ]; then return; fi
 export __SESS_VARS_SOURCED=1
-
-
-
-# Added by Antigravity CLI installer
-export PATH="/Users/adri/.local/bin:$PATH"
