@@ -11,14 +11,13 @@ eval "$(starship init zsh --print-full-init)"
 
 repos=(
   mattmc3/ez-compinit
+  aloxaf/fzf-tab
   zdharma/fast-syntax-highlighting
-  marlonrichert/zsh-autocomplete
   marlonrichert/zsh-edit
   zsh-users/zsh-history-substring-search
   zsh-users/zsh-autosuggestions
   olets/zsh-abbr
   wbingli/zsh-wakatime
-  MichaelAquilina/zsh-you-should-use
   hlissner/zsh-autopair
 )
 

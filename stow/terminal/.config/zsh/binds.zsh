@@ -20,7 +20,8 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-bindkey '^I' menu-select
+# i guess this does conflict with aloxaf/fzf-tab
+# bindkey '^I' menu-select
 bindkey "$terminfo[kcbt]" reverse-menu-select
 bindkey -M menuselect '^I' menu-complete
 bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete

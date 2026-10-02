@@ -31,10 +31,4 @@ autoload -Uz compinit
 autoload -z edit-command-line
 zle -N edit-command-line
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
-zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
-zstyle ':autocomplete:*history*:*' insert-unambiguous yes
-zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
-zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
-zstyle ':autocomplete:*' delay 0.1
-zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
-
+zstyle '*:compinit' arguments -D -i -u -C -w
