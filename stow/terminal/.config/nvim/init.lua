@@ -189,7 +189,7 @@ function setup_mappings()
 
   -- dev
   if not vim.g.vscode then
-    -- map('n', '<leader>lf', require 'conform'.format, { desc = 'Format file' })
+    map('n', '<leader>lf', require 'conform'.format, { desc = 'Format file' })
     map('n', '<leader>r', function()
       vim.cmd('w')
       vim.cmd('make')

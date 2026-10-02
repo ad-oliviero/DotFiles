@@ -19,6 +19,7 @@ repos=(
   olets/zsh-abbr
   wbingli/zsh-wakatime
   hlissner/zsh-autopair
+  agkozak/zsh-z
 )
 
 plugin-load $repos
