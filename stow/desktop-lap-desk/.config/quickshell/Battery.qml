@@ -9,6 +9,7 @@ Pill {
   iconTrailing: true
   text: "..."
 
+  visible: false                   // ponytail: shown once BAT0/BAT1 poll succeeds
   property int cap: 0
   property bool charging: false
   state: charging ? "charging" : cap < 20 ? "critical" : cap < 30 ? "warning" : "normal"
@@ -25,6 +26,7 @@ Pill {
         return
       var key = data.substring(0, eq)
       var val = data.substring(eq + 1).trim()
+      bat.visible = true
       if (key === "capacity")
         bat.cap = parseInt(val) || 0
       else if (key === "status")
@@ -36,9 +38,12 @@ Pill {
   property var barWindow: null
 
   onClicked: pop.toggle()
+  onHoverActivated: pop.open()
+  popupId: "battery"
 
   BatteryPopup {
     id: pop
+    popupId: "battery"
     triggerItem: bat
     barWindow: bat.barWindow
   }

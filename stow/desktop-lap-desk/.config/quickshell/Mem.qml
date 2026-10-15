@@ -41,9 +41,12 @@ Pill {
   property var barWindow: null
 
   onClicked: pop.toggle()
+  onHoverActivated: pop.open()
+  popupId: "mem"
 
   MemPopup {
     id: pop
+    popupId: "mem"
     triggerItem: mem
     barWindow: mem.barWindow
   }

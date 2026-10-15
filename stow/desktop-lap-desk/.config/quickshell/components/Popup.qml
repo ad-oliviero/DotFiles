@@ -13,6 +13,7 @@ PanelWindow {
 
   property var triggerItem: null
   property var barWindow: null // the bar PanelWindow (passed from the widget)
+  property string popupId: "" // unique key, used for hover-switching between popups
   property string title: ""
   property real popupWidth: 320
   property real popupHeight: 420
@@ -35,7 +36,9 @@ PanelWindow {
 
   HyprlandFocusGrab {
     active: popup.visible
-    windows: [popup]
+    // bar included so the bar pills keep receiving pointer events while a
+    // popup is open — otherwise hover-switching between popups can't work
+    windows: popup.barWindow ? [popup, popup.barWindow] : [popup]
     onCleared: popup.close()
   }
 
@@ -154,6 +157,7 @@ PanelWindow {
       popup.margins.top = barWindow.height || Style.size.barHeight
     }
     visible = true
+    PopupState.openId = popupId
     revealClip.height = 0
     Qt.callLater(() => {
                   revealClip.height = popupHeight
@@ -162,6 +166,8 @@ PanelWindow {
   }
   function close() {
     visible = false
+    if (PopupState.openId === popupId)
+      PopupState.openId = ""
   }
   function toggle() {
     if (visible)

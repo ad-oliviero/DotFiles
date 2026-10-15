@@ -1,5 +1,7 @@
 import QtQuick
 import QtQuick.Layouts
+import Quickshell
+import Quickshell.Io
 
 import "components"
 import "Style"
@@ -11,8 +13,72 @@ Popup {
   popupWidth: 460
   popupHeight: 480
 
+  // small check box used in the per-sensor rows below
+  component Cb: Rectangle {
+    id: cb
+    property bool checked: false
+    signal toggled()
+    width: 22
+    height: 22
+    radius: 4
+    color: cb.checked ? Style.color.orange : Qt.alpha(Style.color.fg, 0.12)
+    Text {
+      anchors.centerIn: parent
+      visible: cb.checked
+      text: "✓"
+      color: Style.color.bg
+      font {
+        family: Style.font.family
+        pixelSize: 14
+        bold: true
+      }
+    }
+    MouseArea {
+      anchors.fill: parent
+      onClicked: cb.toggled()
+    }
+  }
+
   property var zones: ({})
   property string viewMode: "graph"
+  // persisted settings (graph exclusions + bar sensor), stored as JSON strings
+  FileView {
+    id: settings
+    path: "file://" + (Quickshell.env("XDG_STATE_HOME") || Quickshell.env("HOME") + "/.local/state") + "/quickshell/temp-settings.json"
+    adapter: JsonAdapter {
+      id: settingsAdapter
+      property string graphHidden: "{}"
+      property string barSensor: ""
+    }
+  }
+
+  // ponytail: map held as a JSON string since JsonAdapter can't round-trip a var
+  readonly property var graphHidden: {
+    try {
+      return JSON.parse(settingsAdapter.graphHidden)
+    } catch (e) {
+      return {}
+    }
+  }
+  readonly property string barSensor: settingsAdapter.barSensor
+
+  function setGraphHidden(type, hidden) {
+    var h = {}
+    for (var k in root.graphHidden)
+      h[k] = true
+    if (hidden)
+      h[type] = true
+    else
+      delete h[type]
+    settingsAdapter.graphHidden = JSON.stringify(h)
+    settings.writeAdapter()
+  }
+
+  readonly property int barValue: {
+    var arr = root.zones[root.barSensor]
+    return arr && arr.length > 0 ? arr[arr.length - 1] : -1
+  }
+  readonly property string barText: root.barValue < 0 ? "" : root.barValue + "°C"
 
   readonly property var _palette: [Style.color.orange, Style.color.green, Style.color.yellow, Style.color.red]
 
@@ -20,6 +86,8 @@ Popup {
     var out = []
     var i = 0
     for (var k in root.zones) {
+      if (root.graphHidden[k])
+        continue
       out.push({
           label: k,
           color: root._palette[i % root._palette.length],
@@ -45,9 +113,9 @@ Popup {
   }
 
   Poll {
-    active: root.visible
-    command: ["sh", "-c", "for z in /sys/class/thermal/thermal_zone*; do printf '%s %s\\n' \"$(cat \"$z/type\")\" \"$(cat \"$z/temp\")\"; done"]
-    interval: 2000
+    active: true // graph keeps filling in the background
+    command: ["sh", "-c", "seen=''; for f in /sys/class/hwmon/hwmon*/temp*_input; do [ -e \"$f\" ] || continue; d=$(dirname \"$f\"); n=$(cat \"$d/name\"); l=$(cat \"${f%_input}_label\" 2>/dev/null); [ -n \"$l\" ] || l=$(basename \"$f\" _input); k=\"${n}_${l}\"; case \" $seen \" in *\" $k \"*) continue;; esac; seen=\"$seen $k\"; printf '%s %s\\n' \"$k\" \"$(cat \"$f\")\"; done"]
+    interval: root.visible ? 200 : 2000
     onLine: data => {
       var p = data.trim().split(" ")
       var type = p[0]
@@ -60,7 +128,7 @@ Popup {
         z[k] = root.zones[k].slice()
       var arr = z[type] || []
       arr.push(c)
-      if (arr.length > 30)
+      if (arr.length > 300) // ponytail: cap = 60 s window at the 200 ms open rate
         arr.shift()
       z[type] = arr
       root.zones = z
@@ -103,9 +171,56 @@ Popup {
     width: parent.width
     spacing: 4
 
+    // bar sensor dropdown (top of content so expanded options stay in view)
+    Rectangle {
+      id: barSel
+      property bool expanded: false
+      Layout.fillWidth: true
+      Layout.preferredHeight: 30
+      radius: Style.size.popupRadius
+      color: Qt.alpha(Style.color.fg, 0.12)
+      Text {
+        anchors.centerIn: parent
+        text: "Bar sensor: " + (root.barSensor === "" ? "none" : root.barSensor)
+        color: Style.color.fg
+        font: Style.textFont()
+      }
+      MouseArea {
+        anchors.fill: parent
+        onClicked: barSel.expanded = !barSel.expanded
+      }
+    }
+    Repeater {
+      model: barSel.expanded ? root._zoneList : []
+      delegate: Rectangle {
+        id: opt
+        required property var modelData
+        Layout.fillWidth: true
+        Layout.preferredHeight: 26
+        radius: 6
+        color: optMa.containsMouse ? Qt.alpha(Style.color.fg, 0.1) : "transparent"
+        Text {
+          anchors.centerIn: parent
+          text: opt.modelData.type
+          color: root.barSensor === opt.modelData.type ? Style.color.orange : Style.color.fg
+          font: Style.textFont()
+        }
+        MouseArea {
+          id: optMa
+          hoverEnabled: true
+          anchors.fill: parent
+          onClicked: {
+            settingsAdapter.barSensor = opt.modelData.type
+            settings.writeAdapter()
+            barSel.expanded = false
+          }
+        }
+      }
+    }
+
     Graph {
       visible: root.viewMode === "graph"
-      maxSamples: 30
+      maxSamples: root.visible ? 300 : 30 // more samples when open = same time window, same scroll speed
       series: root._series
     }
 
@@ -136,6 +251,39 @@ Popup {
             family: Style.font.family
             pixelSize: Style.size.textSize
             bold: true
+          }
+        }
+      }
+    }
+
+    // per-sensor checkboxes: include in graph / show on the bar
+    Repeater {
+      model: root._zoneList
+      delegate: RowLayout {
+        required property var modelData
+        Layout.fillWidth: true
+        spacing: 6
+
+        Text {
+          Layout.fillWidth: true
+          color: Style.color.dim
+          text: modelData.type
+          elide: Text.ElideRight
+          font {
+            family: Style.font.family
+            pixelSize: Style.size.textSize
+          }
+        }
+        Cb {
+          checked: !root.graphHidden[modelData.type]
+          onToggled: root.setGraphHidden(modelData.type, checked)
+        }
+        Text {
+          color: Style.color.dim
+          text: "graph"
+          font {
+            family: Style.font.family
+            pixelSize: Style.size.graphText
           }
         }
       }

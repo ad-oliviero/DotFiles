@@ -19,9 +19,12 @@ Pill {
   property var barWindow: null
 
   onClicked: pop.toggle()
+  onHoverActivated: pop.open()
+  popupId: "clock"
 
   CalendarPopup {
     id: pop
+    popupId: "clock"
     triggerItem: clock
     barWindow: clock.barWindow
   }

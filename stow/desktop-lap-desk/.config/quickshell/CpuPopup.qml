@@ -21,9 +21,9 @@ Popup {
   property real load1: 0
 
   Poll {
-    active: root.visible
+    active: true // graph keeps filling in the background
     command: ["head", "-1", "/proc/stat"]
-    interval: 1000
+    interval: root.visible ? 200 : 1000
     onLine: data => {
       if (!data)
         return
@@ -43,7 +43,7 @@ Popup {
       root.lastIdle = idleT
       var h = root.history.slice()
       h.push(usage)
-      if (h.length > 60)
+      if (h.length > 300) // ponytail: cap = 60 s window at the 200 ms open rate
         h.shift()
       root.history = h
     }
@@ -75,7 +75,7 @@ Popup {
     spacing: 8
 
     Graph {
-      maxSamples: 60
+      maxSamples: root.visible ? 300 : 60 // more samples when open = same time window, same scroll speed
       series: [{
           label: "CPU",
           color: Style.color.orange,

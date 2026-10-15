@@ -1,0 +1,9 @@
+module components
+singleton PopupState 1.0 PopupState.qml
+AudioDevice 1.0 AudioDevice.qml
+Graph 1.0 Graph.qml
+Pill 1.0 Pill.qml
+Poll 1.0 Poll.qml
+Popup 1.0 Popup.qml
+Slider 1.0 Slider.qml
+Systray 1.0 Systray.qml

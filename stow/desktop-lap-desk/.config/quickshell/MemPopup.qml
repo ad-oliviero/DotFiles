@@ -23,9 +23,9 @@ Popup {
   property var _info: ({})
 
   Poll {
-    active: root.visible
+    active: true // graph keeps filling in the background
     command: ["cat", "/proc/meminfo"]
-    interval: 3000
+    interval: root.visible ? 200 : 3000
     onLine: d => {
       var m = d.match(/^(\w+):\s+(\d+)/)
       if (m)
@@ -44,7 +44,7 @@ Popup {
       root._info = ({})
       var h = root.history.slice()
       h.push(Math.round(root.pct))
-      if (h.length > 60)
+      if (h.length > 900) // ponytail: cap = 180 s window at the 200 ms open rate
         h.shift()
       root.history = h
     }
@@ -85,7 +85,7 @@ Popup {
     spacing: 8
 
     Graph {
-      maxSamples: 60
+      maxSamples: root.visible ? 900 : 60 // more samples when open = same time window, same scroll speed
       series: [{
           label: "RAM",
           color: Style.color.orange,

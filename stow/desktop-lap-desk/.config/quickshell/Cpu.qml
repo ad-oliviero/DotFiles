@@ -46,9 +46,12 @@ Pill {
   property var barWindow: null
 
   onClicked: pop.toggle()
+  onHoverActivated: pop.open()
+  popupId: "cpu"
 
   CpuPopup {
     id: pop
+    popupId: "cpu"
     triggerItem: cpu
     barWindow: cpu.barWindow
   }

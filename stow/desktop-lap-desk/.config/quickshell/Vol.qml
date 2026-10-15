@@ -29,9 +29,12 @@ Pill {
   property var barWindow: null
 
   onClicked: pop.toggle()
+  onHoverActivated: pop.open()
+  popupId: "vol"
 
   AudioPopup {
     id: pop
+    popupId: "vol"
     triggerItem: vol
     barWindow: vol.barWindow
   }

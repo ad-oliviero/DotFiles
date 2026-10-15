@@ -17,6 +17,8 @@ Item {
 
   signal clicked()
   signal wheel(int delta)
+  signal hoverActivated() // mouse entered while another popup is open: switch to this pill's popup
+  property string popupId: "" // id of this pill's popup (set together with the popup's popupId)
 
   readonly property var _c: Style.colorFor(pill.state)
   readonly property color _fg: pill.dimmed ? Qt.alpha(Style.color.fg, 0.35) : pill._c.fg
@@ -69,7 +71,12 @@ Item {
   MouseArea {
     anchors.fill: parent
     cursorShape: Qt.PointingHandCursor
+    hoverEnabled: true
     onClicked: pill.clicked()
     onWheel: wheel => pill.wheel(wheel.angleDelta.y)
+    onContainsMouseChanged: {
+      if (containsMouse && PopupState.openId !== "" && PopupState.openId !== pill.popupId)
+        pill.hoverActivated()
+    }
   }
 }
