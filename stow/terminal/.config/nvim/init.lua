@@ -39,6 +39,9 @@ function setup_optglobals()
 end
 
 function addplugin(url, name, cfg)
+  if url == nil then
+    error("Plugin specification cannot be nil")
+  end
   vim.pack.add({ url })
   if cfg ~= nil then
     if name == nil or string.len(name) == 0 then
@@ -59,12 +62,6 @@ function setup_plugins()
   addplugin('https://github.com/MunifTanjim/nui.nvim')
 
   addplugin('https://github.com/kylechui/nvim-surround', 'nvim-surround', {
-    keymaps = {
-      visual = 's',
-      visual_line = 'S',
-      delete = 'sd',
-      change = 'sr',
-    },
     aliases = {
       ['i'] = ']', -- Index
       ['r'] = ')', -- Round
@@ -186,6 +183,13 @@ function setup_mappings()
 
   -- diagnostics
   map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic' })
+  map("n", "<leader>d", function()
+    local d = vim.diagnostic.get(0)
+    vim.fn.setreg("l", vim.iter(d):map(function(x)
+      return ("%d: %s"):format(x.lnum + 1, x.message)
+    end):join("\n"))
+    vim.notify(("Copied %d diagnostics"):format(#d))
+  end, { desc = "Copy LSP diagnostics" })
 
   -- dev
   if not vim.g.vscode then
@@ -203,6 +207,12 @@ function setup_mappings()
     })
     map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Invoke LSP code action' })
   end
+
+  -- vim surround
+  map('n', 'sd', '<Plug>(nvim-surround-delete)', { desc = 'Delete a surrounding pair' })
+  map('n', 'sr', '<Plug>(nvim-surround-change)', { desc = 'Change a surrounding pair' })
+  map('x', 's', '<Plug>(nvim-surround-visual)', { desc = 'Add a surrounding pair' })
+  map('x', 'sA', '<Plug>(nvim-surround-visual-line)', { desc = 'Add a surrounding pair on separate lines' })
 end
 
 function setup_automation()
