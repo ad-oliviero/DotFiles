@@ -7,12 +7,20 @@ abbr gpl='git pull'
 abbr gpu='git push'
 
 # docker
-abbr dcd='doc compose down'
-abbr dcu='doc compose up -d'
-abbr dcr='doc compose down; doc compose up -d --force-recreate'
-abbr dcl='doc compose logs -f'
-abbr dce='doc compose exec'
-abbr dcup='doc compose down && doc compose pull && doc compose up -d --build --force-recreate'
+# abbr dcd='doc compose down'
+# abbr dcu='doc compose up -d'
+# abbr dcr='doc compose down; doc compose up -d --force-recreate'
+# abbr dcl='doc compose logs -f'
+# abbr dce='doc compose exec'
+# abbr dcup='doc compose down && doc compose pull && doc compose up -d --build --force-recreate'
+
+# podman
+abbr dcd='podc down'
+abbr dcu='podc up -d'
+abbr dcr='podc down; podc up -d --force-recreate'
+abbr dcl='podc logs -f'
+abbr dce='podc exec'
+abbr dcup='podc down && podc pull && podc up -d --build --force-recreate'
 
 # other commands
 abbr free='free -h'
