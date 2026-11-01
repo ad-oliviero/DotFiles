@@ -16,7 +16,7 @@ decorations_theme_variant = "Dark"
 history = 10000
 
 [font]
-normal = {family = "JetBrainsMono Nerd Font", style = "Regular"}
+normal = {family = "JetBrainsMono NL", style = "Regular"}
 
 [selection]
 save_to_clipboard = true
