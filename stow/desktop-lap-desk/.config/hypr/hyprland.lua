@@ -1,0 +1,6 @@
+require('devices')
+require('style')
+require('behavior')
+require('bindings')
+require('plugins')
+require('autostart')

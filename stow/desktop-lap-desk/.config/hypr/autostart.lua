@@ -1,0 +1,22 @@
+local exec = hl.exec_cmd
+
+hl.on('hyprland.start', function()
+  exec('uwsm app -- hypridle')
+  exec('uwsm app -- wl-paste --type text --watch cliphist store')
+  exec('uwsm app -- wl-paste --type image --watch cliphist store')
+  exec('printf "$HYPRLAND_INSTANCE_SIGNATURE" > /tmp/HYPRLAND_INSTANCE_SIGNATURE')
+  exec([[dconf write /org/gnome/desktop/interface/document-font-name "'JetBrains Mono 11'"]])
+  exec([[dconf write /org/gnome/desktop/interface/font-name "'JetBrains Mono 11'"]])
+  exec([[dconf write /org/gnome/desktop/interface/monospace-font-name "'JetBrains Mono 11'"]])
+  exec('bash ~/dotfiles/desktop/.config/hypr/scripts/xdg-desktop-portal')
+  exec('gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty')
+  exec('uwsm app -- qs')
+  exec('dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP')
+end)
+
+-- exec('pkill xwaylandvideobridge; uwsm app -- xwaylandvideobridge')
+-- exec('pkill hyprpaper; sleep 1; uwsm app -- hyprpaper -c ~/.config/hypr/hyprpaper.conf')
+-- exec('pkill wayvnc; uwsm app -- wayvnc -g 192.168.1.222')
+exec('pkill swayosd-server; uwsm app -- swayosd-server')
+exec('uwsm app -- hyprshade auto')
+exec([[WAYLAND_DISPLAY='' sunshine]])
